@@ -117,6 +117,71 @@ static int asf_irq = -1;
 module_param(asf_irq, int, 0);
 MODULE_PARM_DESC(asf_irq, "Override the ASF Host Notify IRQ (-1 = use ACPI)");
 
+static int asf_irq_trigger = 1;
+module_param(asf_irq_trigger, int, 0);
+MODULE_PARM_DESC(asf_irq_trigger,
+		 "ASF IRQ trigger: 0=as ACPI configured, 1=force level-low per the SMB0001 _CRS descriptor (default)");
+
+static int asf_blk_mode = 1;
+module_param(asf_blk_mode, int, 0);
+MODULE_PARM_DESC(asf_blk_mode,
+		 "ASF master block-data quirk bits: 1=set DATA_EN in ASFDATABNKSEL during master transfers, 2=set DATA_EN|PEC in SMBHSTCNT for block transactions (bring-up experiment)");
+
+/*
+ * ASF (Alert Standard Format) SMBus slave / Host Notify support
+ *
+ * On AMD FCH chipsets the auxiliary SMBus controller is the ASF
+ * controller, which can also receive SMBus messages as a slave --
+ * including Host Notify, which psmouse-smbus/rmi_smbus require for
+ * Synaptics InterTouch touchpads.  Some firmware (e.g. Lenovo ThinkPad
+ * T14 Gen 2a AMD) describes this controller as an ACPI device using
+ * Microsoft's virtual SMBus HID "SMB0001" carrying the IO range and the
+ * IRQ; the Windows Synaptics driver (Smb_driver_AMDASF.sys) binds that
+ * device and drives the touchpad this way.
+ *
+ * Register layout and programming sequences follow i2c-amd-asf-plat.c,
+ * which drives the same IP on platforms whose firmware declares an
+ * AMDI001A node instead.
+ */
+
+/* ASF register bits */
+#define ASF_SLV_LISTN	0
+#define ASF_SLV_INTR	1
+#define ASF_SLV_RST	4
+#define ASF_PEC_SP	5
+#define ASF_DATA_EN	7
+#define ASF_MSTR_EN	16
+#define ASF_CLK_EN	17
+
+/* ASF address offsets */
+#define ASFINDEX	(0x07 + piix4_smba)
+#define ASFLISADDR	(0x09 + piix4_smba)
+#define ASFSTA		(0x0A + piix4_smba)
+#define ASFSLVSTA	(0x0D + piix4_smba)
+#define ASFDATARWPTR	(0x11 + piix4_smba)
+#define ASFSETDATARDPTR	(0x12 + piix4_smba)
+#define ASFDATABNKSEL	(0x13 + piix4_smba)
+#define ASFSLVEN	(0x15 + piix4_smba)
+
+#define ASF_BLOCK_MAX_BYTES	72
+#define ASF_ERROR_STATUS	GENMASK(3, 1)
+#define ASF_HOST_ADDR		0x08	/* SMBus Host address, Host Notify target */
+#define ASF_IOSIZE		0x20	/* IO window declared by SMB0001 _CRS */
+
+static unsigned short piix4_asf_smba;	/* IO base from SMB0001 _CRS, 0 = none */
+static unsigned int piix4_asf_iolen;	/* IO window size from SMB0001 _CRS */
+static int piix4_asf_irqnum = -1;
+static bool piix4_asf_active;
+static char piix4_asf_irq_cookie;	/* dev_id for the shared IRQ */
+static struct device *piix4_asf_dev;	/* PCI device, for region requests */
+static u32 piix4_asf_boot_ctl;		/* boot state of MSTR_EN/CLK_EN */
+static atomic_t piix4_asf_pending;	/* notify acked but bank not yet read */
+static struct sb800_mmio_cfg piix4_asf_mmio_cfg;
+/* Serializes master transfers against slave data-bank processing */
+static DEFINE_MUTEX(piix4_asf_mutex);
+
+static void piix4_asf_process_bank(void);
+
 static int srvrworks_csb5_delay;
 static struct pci_driver piix4_driver;
 
@@ -614,6 +679,7 @@ static s32 piix4_access(struct i2c_adapter * adap, u16 addr,
 	unsigned short piix4_smba = adapdata->smba;
 	int i, len;
 	int status;
+	u8 cnt;
 
 	switch (size) {
 	case I2C_SMBUS_QUICK:
@@ -666,7 +732,15 @@ static s32 piix4_access(struct i2c_adapter * adap, u16 addr,
 		return -EOPNOTSUPP;
 	}
 
-	outb_p((size & 0x1C) + (ENABLE_INT9 & 1), SMBHSTCNT);
+	cnt = (size & 0x1C) + (ENABLE_INT9 & 1);
+	/*
+	 * Bring-up experiment: amd_asf_access() sets DATA_EN and PEC in
+	 * SMBHSTCNT for master block transfers on the ASF controller.
+	 */
+	if ((asf_blk_mode & 2) && piix4_asf_active &&
+	    piix4_smba == piix4_asf_smba && size == PIIX4_BLOCK_DATA)
+		cnt |= BIT(ASF_DATA_EN) | BIT(ASF_PEC_SP);
+	outb_p(cnt, SMBHSTCNT);
 
 	status = piix4_transaction(adap, piix4_smba);
 	if (status)
@@ -691,6 +765,9 @@ static s32 piix4_access(struct i2c_adapter * adap, u16 addr,
 		inb_p(SMBHSTCNT);	/* Reset SMBBLKDAT */
 		for (i = 1; i <= data->block[0]; i++)
 			data->block[i] = inb_p(SMBBLKDAT);
+		dev_dbg(&adap->dev, "Block read cmd %#04x len %d: %*ph\n",
+			command, data->block[0], data->block[0],
+			&data->block[1]);
 		break;
 	}
 	return 0;
@@ -922,62 +999,57 @@ static struct i2c_adapter *piix4_main_adapters[PIIX4_MAX_ADAPTERS];
 static struct i2c_adapter *piix4_aux_adapter;
 static int piix4_adapter_count;
 
+struct piix4_asf_crs {
+	u32 gsi;
+	u8 triggering;
+	u8 polarity;
+	bool has_irq;
+};
+
 /*
- * ASF (Alert Standard Format) SMBus slave / Host Notify support
- *
- * On AMD FCH chipsets the auxiliary SMBus controller is the ASF
- * controller, which can also receive SMBus messages as a slave --
- * including Host Notify, which psmouse-smbus/rmi_smbus require for
- * Synaptics InterTouch touchpads.  Some firmware (e.g. Lenovo ThinkPad
- * T14 Gen 2a AMD) describes this controller as an ACPI device using
- * Microsoft's virtual SMBus HID "SMB0001" carrying the IO range and the
- * IRQ; the Windows Synaptics driver (Smb_driver_AMDASF.sys) binds that
- * device and drives the touchpad this way.
- *
- * Register layout and programming sequences follow i2c-amd-asf-plat.c,
- * which drives the same IP on platforms whose firmware declares an
- * AMDI001A node instead.
+ * Intercept the IRQ descriptor during the _CRS walk.  The default
+ * conversion (acpi_dev_get_irqresource()) replaces the descriptor's
+ * trigger/polarity with the ISA edge/high default ("ACPI: IRQ 7
+ * override to edge, high" at boot).  On AMD Zen FCHs the ASF block
+ * asserts this line level/active-low as _CRS declares, so under the
+ * edge/high programming the slave interrupt never fires (mainline
+ * acknowledges the same problem for IRQs 1/12 in
+ * acpi_dev_irq_override()).  Keep the raw descriptor and register the
+ * GSI ourselves.
  */
+static int piix4_asf_crs_preproc(struct acpi_resource *ares, void *data)
+{
+	struct piix4_asf_crs *crs = data;
 
-/* ASF register bits */
-#define ASF_SLV_LISTN	0
-#define ASF_SLV_INTR	1
-#define ASF_SLV_RST	4
-#define ASF_PEC_SP	5
-#define ASF_DATA_EN	7
-#define ASF_MSTR_EN	16
-#define ASF_CLK_EN	17
+	if (ares->type == ACPI_RESOURCE_TYPE_IRQ) {
+		struct acpi_resource_irq *irq = &ares->data.irq;
 
-/* ASF address offsets */
-#define ASFINDEX	(0x07 + piix4_smba)
-#define ASFLISADDR	(0x09 + piix4_smba)
-#define ASFSTA		(0x0A + piix4_smba)
-#define ASFSLVSTA	(0x0D + piix4_smba)
-#define ASFDATARWPTR	(0x11 + piix4_smba)
-#define ASFSETDATARDPTR	(0x12 + piix4_smba)
-#define ASFDATABNKSEL	(0x13 + piix4_smba)
-#define ASFSLVEN	(0x15 + piix4_smba)
+		if (irq->interrupt_count >= 1 && !crs->has_irq) {
+			crs->gsi = irq->interrupts[0];
+			crs->triggering = irq->triggering;
+			crs->polarity = irq->polarity;
+			crs->has_irq = true;
+		}
+		return 1;
+	}
+	if (ares->type == ACPI_RESOURCE_TYPE_EXTENDED_IRQ) {
+		struct acpi_resource_extended_irq *irq = &ares->data.extended_irq;
 
-#define ASF_BLOCK_MAX_BYTES	72
-#define ASF_ERROR_STATUS	GENMASK(3, 1)
-#define ASF_HOST_ADDR		0x08	/* SMBus Host address, Host Notify target */
-#define ASF_IOSIZE		0x20	/* IO window declared by SMB0001 _CRS */
+		if (irq->interrupt_count >= 1 && !crs->has_irq) {
+			crs->gsi = irq->interrupts[0];
+			crs->triggering = irq->triggering;
+			crs->polarity = irq->polarity;
+			crs->has_irq = true;
+		}
+		return 1;
+	}
 
-static unsigned short piix4_asf_smba;	/* IO base from SMB0001 _CRS, 0 = none */
-static unsigned int piix4_asf_iolen;	/* IO window size from SMB0001 _CRS */
-static int piix4_asf_irqnum = -1;
-static bool piix4_asf_active;
-static char piix4_asf_irq_cookie;	/* dev_id for the shared IRQ */
-static u32 piix4_asf_boot_ctl;		/* boot state of MSTR_EN/CLK_EN */
-static atomic_t piix4_asf_pending;	/* notify acked but bank not yet read */
-static struct sb800_mmio_cfg piix4_asf_mmio_cfg;
-/* Serializes master transfers against slave data-bank processing */
-static DEFINE_MUTEX(piix4_asf_mutex);
-
-static void piix4_asf_process_bank(void);
+	return 0;
+}
 
 static void piix4_asf_detect(struct pci_dev *dev)
 {
+	struct piix4_asf_crs crs = {};
 	struct resource_entry *rentry;
 	struct acpi_device *adev;
 	LIST_HEAD(res_list);
@@ -990,7 +1062,8 @@ static void piix4_asf_detect(struct pci_dev *dev)
 	if (!adev)
 		return;
 
-	ret = acpi_dev_get_resources(adev, &res_list, NULL, NULL);
+	ret = acpi_dev_get_resources(adev, &res_list, piix4_asf_crs_preproc,
+				     &crs);
 	if (ret >= 0) {
 		list_for_each_entry(rentry, &res_list, node) {
 			struct resource *res = rentry->res;
@@ -999,14 +1072,36 @@ static void piix4_asf_detect(struct pci_dev *dev)
 			    !piix4_asf_smba) {
 				piix4_asf_smba = res->start;
 				piix4_asf_iolen = resource_size(res);
-			} else if (resource_type(res) == IORESOURCE_IRQ &&
-				   piix4_asf_irqnum < 0) {
-				piix4_asf_irqnum = res->start;
 			}
 		}
 		acpi_dev_free_resource_list(&res_list);
 	}
 	acpi_dev_put(adev);
+
+	if (crs.has_irq && piix4_asf_irqnum < 0) {
+		u8 triggering = crs.triggering;
+		u8 polarity = crs.polarity;
+
+		if (asf_irq_trigger == 0) {
+			/* Old behaviour: the ISA edge/high default */
+			triggering = ACPI_EDGE_SENSITIVE;
+			polarity = ACPI_ACTIVE_HIGH;
+		}
+
+		ret = acpi_register_gsi(&dev->dev, crs.gsi, triggering,
+					polarity);
+		if (ret < 0)
+			dev_warn(&dev->dev,
+				 "ASF: cannot program GSI %u as %s/%s (%d); the pin was already registered with different attributes, reboot to apply\n",
+				 crs.gsi,
+				 triggering == ACPI_EDGE_SENSITIVE ?
+					"edge" : "level",
+				 polarity == ACPI_ACTIVE_LOW ?
+					"low" : "high",
+				 ret);
+		else
+			piix4_asf_irqnum = ret;
+	}
 
 	if (asf_irq >= 0)
 		piix4_asf_irqnum = asf_irq;
@@ -1078,6 +1173,8 @@ static void piix4_asf_slave_arm(unsigned short piix4_smba)
 	 */
 	piix4_asf_update_ioport(ASF_DATA_EN, SMBHSTCNT, true);
 	piix4_asf_update_ioport(ASF_PEC_SP, SMBHSTCNT, true);
+	/* Route the 0x07 data window back to the ASF banks while listening */
+	piix4_asf_update_ioport(ASF_DATA_EN, ASFDATABNKSEL, false);
 }
 
 /* Return negative errno on error. */
@@ -1132,6 +1229,13 @@ static s32 piix4_access_asf(struct i2c_adapter *adap, u16 addr,
 	piix4_asf_update_ioport(ASF_SLV_RST, ASFSLVEN, true);
 	outb_p(0, ASFSLVSTA);
 	piix4_asf_update_mmio(ASF_MSTR_EN, true);
+
+	/*
+	 * Bring-up experiment: ASFINDEX shares port 0x07 with SMBBLKDAT;
+	 * route the data window to the host FIFO while mastering.
+	 */
+	if (asf_blk_mode & 1)
+		piix4_asf_update_ioport(ASF_DATA_EN, ASFDATABNKSEL, true);
 
 	result = piix4_access(adap, addr, flags, read_write, command, size,
 			      data);
@@ -1217,29 +1321,70 @@ static void piix4_asf_process_bank(void)
 	outb_p(0, ASFSETDATARDPTR);
 
 	/*
-	 * For Host Notify the first wire byte after the target address is
-	 * the notifying device's own address byte; its LSB (the Wr bit)
-	 * is 0.  It lands in the command slot read from ASFINDEX above.
+	 * Observed bank layout on this hardware: the first byte read via
+	 * ASFINDEX is the message's target address byte, the payload
+	 * follows.  For a Host Notify the target is the SMBus Host (0x08,
+	 * Wr) and the payload is the notifying device's own address byte
+	 * plus two status bytes.
 	 * i2c_handle_smbus_host_notify() only wakes the client's IRQ
 	 * thread, so calling it with the mutex held cannot deadlock.
 	 */
-	if (cmd & BIT(0))
+	if (cmd != (ASF_HOST_ADDR << 1) || len < 1)
 		return;
 
 	if (piix4_aux_adapter) {
 		dev_dbg(&piix4_aux_adapter->dev,
 			"ASF Host Notify from 0x%02x, %d byte(s): %*ph\n",
-			cmd >> 1, len, (int)len, data);
-		i2c_handle_smbus_host_notify(piix4_aux_adapter, cmd >> 1);
+			data[0] >> 1, len, (int)len, data);
+		i2c_handle_smbus_host_notify(piix4_aux_adapter, data[0] >> 1);
 	}
 }
 
 static irqreturn_t piix4_asf_irq_thread(int irq, void *dev_id)
 {
+	unsigned short piix4_smba = piix4_asf_smba;
+	int i;
+
 	mutex_lock(&piix4_asf_mutex);
+
+	if (!piix4_asf_active) {
+		mutex_unlock(&piix4_asf_mutex);
+		return IRQ_HANDLED;
+	}
+
 	/* A master transfer may have drained the bank ahead of us */
 	if (atomic_xchg(&piix4_asf_pending, 0))
 		piix4_asf_process_bank();
+
+	/*
+	 * The IRQ is edge-triggered on this platform (ACPI override), so
+	 * messages whose edges coalesced generate no further interrupts:
+	 * drain until the status stays clear.
+	 */
+	for (i = 0; i < 4; i++) {
+		u8 sta = inb_p(ASFSTA);
+
+		if (!(sta & BIT(6)))
+			break;
+		outb_p(sta | BIT(6), ASFSTA);
+		piix4_asf_process_bank();
+	}
+
+	/*
+	 * Reset and re-arm the slave.  The bank-consumed writes in
+	 * piix4_asf_process_bank() do not reliably free the receive
+	 * banks on this hardware; once both banks fill, the slave NAKs
+	 * everything and, with an edge IRQ, reception dies permanently.
+	 * The reset (same cycle the master-transfer path runs) frees
+	 * them for certain.
+	 */
+	if (!piix4_sb800_region_request(piix4_asf_dev, &piix4_asf_mmio_cfg)) {
+		piix4_asf_update_ioport(ASF_SLV_RST, ASFSLVEN, true);
+		outb_p(0, ASFSLVSTA);
+		piix4_asf_slave_arm(piix4_smba);
+		piix4_sb800_region_release(piix4_asf_dev, &piix4_asf_mmio_cfg);
+	}
+
 	mutex_unlock(&piix4_asf_mutex);
 
 	return IRQ_HANDLED;
@@ -1288,6 +1433,10 @@ static void piix4_asf_enable(struct pci_dev *dev, unsigned short piix4_smba)
 	 * Install the IRQ handler before arming the slave: once the slave
 	 * interrupt is enabled, an incoming Host Notify asserts the
 	 * level-triggered line and only our handler can ack it.
+	 *
+	 * The trigger/polarity were programmed at acpi_register_gsi()
+	 * time in piix4_asf_detect() (level/low per the _CRS descriptor;
+	 * IRQF_TRIGGER_* flags cannot reprogram an IOAPIC pin).
 	 */
 	retval = request_threaded_irq(piix4_asf_irqnum, piix4_asf_irq_handler,
 				      piix4_asf_irq_thread, IRQF_SHARED,
@@ -1304,6 +1453,8 @@ static void piix4_asf_enable(struct pci_dev *dev, unsigned short piix4_smba)
 		goto release_ioregion;
 	}
 
+	piix4_asf_dev = &dev->dev;
+
 	mutex_lock(&piix4_asf_mutex);
 	/* Remember the boot state of MSTR_EN/CLK_EN for teardown */
 	piix4_asf_boot_ctl = ioread32(piix4_asf_mmio_cfg.addr) &
@@ -1311,8 +1462,6 @@ static void piix4_asf_enable(struct pci_dev *dev, unsigned short piix4_smba)
 	/* Listen for messages addressed to the SMBus Host (Host Notify) */
 	outb_p((ASF_HOST_ADDR << 1) | BIT(ASF_SLV_LISTN), ASFLISADDR);
 	piix4_asf_slave_arm(piix4_smba);
-	/* Per amd_asf_reg_target() */
-	piix4_asf_update_ioport(ASF_DATA_EN, ASFDATABNKSEL, false);
 	mutex_unlock(&piix4_asf_mutex);
 
 	piix4_sb800_region_release(&dev->dev, &piix4_asf_mmio_cfg);
