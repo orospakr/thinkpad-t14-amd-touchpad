@@ -41,3 +41,34 @@ Test load (nothing persists; see PLAN.md §Verification for the full procedure):
 
 Revert: `sudo rmmod i2c_piix4 && sudo modprobe i2c_piix4` (stock), reload
 psmouse — or reboot.
+
+## Status (2026-08-25)
+
+**Working on gondolin (7.1.9-arch1-2).** IRQ 7 shows as `7-fasteoi piix4-asf`,
+`rmi4_smbus 11-002c` attaches, input device is `Synaptics TM3471-030`, TrackPoint
+stays on the RMI4 PS/2 pass-through. Fast flicks and two-finger scroll are fixed.
+
+Two hardware findings beyond the original plan were required:
+
+1. **DATA_EN steering** — `ASFINDEX` shares port base+0x07 with `SMBBLKDAT`.
+   `ASFDATABNKSEL.DATA_EN` (bit 7) must be set while mastering so block reads
+   see the host FIFO rather than the ASF bank; otherwise RMI4 PDT reads return
+   garbage ("Missing F01 container").
+2. **IRQ trigger** — Linux's `acpi_dev_get_irqresource()` overrides the legacy
+   `IRQ()` descriptor in `SMB0001._CRS` to edge/high (the ISA default), but the
+   ASF block asserts a level/active-low line. The driver intercepts the IRQ
+   resource in the `_CRS` walk and calls `acpi_register_gsi()` with the raw
+   `_CRS` attributes. This only works for the pin's *first user*, which on a
+   fresh boot is this module (nothing else references IRQ 7 in the DSDT). After
+   a module reload with mismatched attributes the driver warns and asks for a
+   reboot.
+
+## Install (DKMS)
+
+    sudo pacman -S dkms
+    cd pkg && makepkg -f && sudo pacman -U i2c-piix4-asf-dkms-*.pkg.tar.zst
+
+This builds into `/usr/lib/modules/<ver>/updates/`, which depmod prefers over
+the in-tree module, and installs `/usr/lib/modprobe.d/i2c-piix4-asf.conf`
+(`psmouse synaptics_intertouch=1`, softdep `rmi_smbus`). Revert:
+`sudo pacman -R i2c-piix4-asf-dkms`.
