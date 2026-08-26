@@ -1,0 +1,23 @@
+# Maintainer: Andrew Clunis <andrew@orospakr.ca>
+# Patched i2c-piix4 adding SMBus Host Notify via the AMD FCH ASF slave block
+# (ACPI SMB0001). Lets Synaptics touchpads on AMD ThinkPads run RMI4/InterTouch.
+pkgname=i2c-piix4-asf-dkms
+pkgver=1.0
+pkgrel=1
+pkgdesc="i2c-piix4 with ASF SMBus Host Notify support (DKMS)"
+arch=('x86_64')
+license=('GPL-2.0-only')
+depends=('dkms')
+_srcdir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")/../module"
+source=("i2c-piix4.c::file://${_srcdir}/i2c-piix4.c"
+        "i2c-piix4.h::file://${_srcdir}/i2c-piix4.h"
+        "Makefile::file://${_srcdir}/Makefile"
+        "dkms.conf::file://${_srcdir}/dkms.conf"
+        "i2c-piix4-asf.conf::file://${_srcdir}/i2c-piix4-asf.modprobe.conf")
+sha256sums=('SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP')
+
+package() {
+  local d="$pkgdir/usr/src/i2c-piix4-asf-$pkgver"
+  install -Dm644 i2c-piix4.c i2c-piix4.h Makefile dkms.conf -t "$d"
+  install -Dm644 i2c-piix4-asf.conf "$pkgdir/usr/lib/modprobe.d/i2c-piix4-asf.conf"
+}
