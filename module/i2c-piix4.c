@@ -117,16 +117,6 @@ static int asf_irq = -1;
 module_param(asf_irq, int, 0);
 MODULE_PARM_DESC(asf_irq, "Override the ASF Host Notify IRQ (-1 = use ACPI)");
 
-static int asf_irq_trigger = 1;
-module_param(asf_irq_trigger, int, 0);
-MODULE_PARM_DESC(asf_irq_trigger,
-		 "ASF IRQ trigger: 0=as ACPI configured, 1=force level-low per the SMB0001 _CRS descriptor (default)");
-
-static int asf_blk_mode = 1;
-module_param(asf_blk_mode, int, 0);
-MODULE_PARM_DESC(asf_blk_mode,
-		 "ASF master block-data quirk bits: 1=set DATA_EN in ASFDATABNKSEL during master transfers, 2=set DATA_EN|PEC in SMBHSTCNT for block transactions (bring-up experiment)");
-
 /*
  * ASF (Alert Standard Format) SMBus slave / Host Notify support
  *
@@ -679,7 +669,6 @@ static s32 piix4_access(struct i2c_adapter * adap, u16 addr,
 	unsigned short piix4_smba = adapdata->smba;
 	int i, len;
 	int status;
-	u8 cnt;
 
 	switch (size) {
 	case I2C_SMBUS_QUICK:
@@ -732,15 +721,7 @@ static s32 piix4_access(struct i2c_adapter * adap, u16 addr,
 		return -EOPNOTSUPP;
 	}
 
-	cnt = (size & 0x1C) + (ENABLE_INT9 & 1);
-	/*
-	 * Bring-up experiment: amd_asf_access() sets DATA_EN and PEC in
-	 * SMBHSTCNT for master block transfers on the ASF controller.
-	 */
-	if ((asf_blk_mode & 2) && piix4_asf_active &&
-	    piix4_smba == piix4_asf_smba && size == PIIX4_BLOCK_DATA)
-		cnt |= BIT(ASF_DATA_EN) | BIT(ASF_PEC_SP);
-	outb_p(cnt, SMBHSTCNT);
+	outb_p((size & 0x1C) + (ENABLE_INT9 & 1), SMBHSTCNT);
 
 	status = piix4_transaction(adap, piix4_smba);
 	if (status)
@@ -1082,12 +1063,14 @@ static void piix4_asf_detect(struct pci_dev *dev)
 		u8 triggering = crs.triggering;
 		u8 polarity = crs.polarity;
 
-		if (asf_irq_trigger == 0) {
-			/* Old behaviour: the ISA edge/high default */
-			triggering = ACPI_EDGE_SENSITIVE;
-			polarity = ACPI_ACTIVE_HIGH;
-		}
-
+		/*
+		 * Register the GSI with the attributes from _CRS (level/low on
+		 * every known platform) instead of the ISA edge/high default
+		 * that acpi_dev_get_irqresource() would impose. The ASF block
+		 * asserts a level-low line, so the default silently loses
+		 * every Host Notify. This only takes effect if we are the
+		 * first user of the pin (see mp_check_pin_attr()).
+		 */
 		ret = acpi_register_gsi(&dev->dev, crs.gsi, triggering,
 					polarity);
 		if (ret < 0)
@@ -1231,11 +1214,11 @@ static s32 piix4_access_asf(struct i2c_adapter *adap, u16 addr,
 	piix4_asf_update_mmio(ASF_MSTR_EN, true);
 
 	/*
-	 * Bring-up experiment: ASFINDEX shares port 0x07 with SMBBLKDAT;
-	 * route the data window to the host FIFO while mastering.
+	 * ASFINDEX shares port 0x07 with SMBBLKDAT; route the data window
+	 * to the host FIFO while mastering, otherwise block reads return
+	 * the ASF bank contents instead of the slave's data.
 	 */
-	if (asf_blk_mode & 1)
-		piix4_asf_update_ioport(ASF_DATA_EN, ASFDATABNKSEL, true);
+	piix4_asf_update_ioport(ASF_DATA_EN, ASFDATABNKSEL, true);
 
 	result = piix4_access(adap, addr, flags, read_write, command, size,
 			      data);
