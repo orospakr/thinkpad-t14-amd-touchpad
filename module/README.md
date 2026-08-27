@@ -42,13 +42,15 @@ Test load (nothing persists; see PLAN.md §Verification for the full procedure):
 Revert: `sudo rmmod i2c_piix4 && sudo modprobe i2c_piix4` (stock), reload
 psmouse — or reboot.
 
-## Status (2026-08-25)
+## Status (2026-08-26)
 
-**Working on gondolin (7.1.9-arch1-2).** IRQ 7 shows as `7-fasteoi piix4-asf`,
-`rmi4_smbus 11-002c` attaches, input device is `Synaptics TM3471-030`, TrackPoint
-stays on the RMI4 PS/2 pass-through. Fast flicks and two-finger scroll are fixed.
+**Working on gondolin (7.1.9-arch1-2), reviewed, S3-tested.** IRQ 7 shows as
+`7-fasteoi piix4-asf`, `rmi4_smbus 11-002c` attaches, input device is
+`Synaptics TM3471-030`, TrackPoint stays on the RMI4 PS/2 pass-through (F03).
+Touchpad reports at ~67 Hz single-finger (15 ms, tight), TrackPoint at ~140 Hz;
+both were capped by the shared PS/2 link before. Survives S3 (`deep`) suspend.
 
-Two hardware findings beyond the original plan were required:
+Hardware findings beyond the original plan:
 
 1. **DATA_EN steering** — `ASFINDEX` shares port base+0x07 with `SMBBLKDAT`.
    `ASFDATABNKSEL.DATA_EN` (bit 7) must be set while mastering so block reads
@@ -58,10 +60,36 @@ Two hardware findings beyond the original plan were required:
    `IRQ()` descriptor in `SMB0001._CRS` to edge/high (the ISA default), but the
    ASF block asserts a level/active-low line. The driver intercepts the IRQ
    resource in the `_CRS` walk and calls `acpi_register_gsi()` with the raw
-   `_CRS` attributes. This only works for the pin's *first user*, which on a
-   fresh boot is this module (nothing else references IRQ 7 in the DSDT). After
-   a module reload with mismatched attributes the driver warns and asks for a
-   reboot.
+   `_CRS` attributes, after validating the device is ours. This only works for
+   the pin's *first user*, which on a fresh boot is this module (nothing else
+   references IRQ 7 in the DSDT). If beaten to the pin the driver warns and
+   leaves Host Notify off.
+3. **Bus collisions with the pad's own Host Notify** — the touchpad is a second
+   SMBus master. About 1–2 times a minute of active use it starts a Host Notify
+   exactly when the host starts a read: `piix4_transaction` reports a bus
+   collision (-EIO) or the pad NAKs the address (-ENXIO), and RMI4 drops a
+   report ("Failed to read object data"). Every build showed ~5 such failures
+   per 3 minutes until `piix4_access_asf()` learned to yield: listen for 1 ms
+   so the notify lands in a bank, drain it, retry (≤3×). Now 0 failures per
+   3 minutes, ~1 retry per 2 minutes.
+
+Review history: three `codex exec` passes as a skeptical upstream reviewer
+(`asf-review*.md` in the scratch notes; findings folded in: CONFIG_ACPI guard,
+GSI registered only after validation and unregistered on teardown, full
+firmware-state save/restore, W1C-safe `ASFDATABNKSEL` writes, start/stop
+lifecycle around adapter registration, bank-status drain with per-bank
+dedup, Host Notify delivery outside the hardware mutex and fenced against
+adapter removal, PM suspend/resume + shutdown hooks, AMDI001A exclusion).
+
+## Testing
+
+`test-cycle.sh` (run as root): `load [path.ko]` swaps the module in and
+re-attaches RMI4, `measure` captures 5 s of one-finger motion and prints the
+report-interval distribution plus the RMI4 error count, `status` prints the
+IRQ line, input names and recent ASF/RMI4 dmesg. Judge a build by a 3-minute
+active-use run with `module i2c_piix4 format "collision" +p` /
+`format "no response" +p` / `format "lost the bus" +p` in dynamic debug —
+30 s samples are too short to see the ~1/min bus-loss events.
 
 ## Install (DKMS)
 
