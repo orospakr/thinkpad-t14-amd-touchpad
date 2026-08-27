@@ -670,7 +670,8 @@ int piix4_transaction(struct i2c_adapter *piix4_adapter, unsigned short piix4_sm
 	}
 
 	if (temp & 0x08) {
-		result = -EIO;
+		/* Arbitration lost to another master (see fault-codes.rst) */
+		result = -EAGAIN;
 		dev_dbg(&piix4_adapter->dev, "Bus collision! SMBus may be "
 			"locked until next hard reset. (sorry!)\n");
 		/* Clock stops and target is stuck in mid-transmission */
@@ -1251,14 +1252,17 @@ static void piix4_asf_slave_arm(unsigned short piix4_smba)
 
 /*
  * Read one received message out of the ASF data bank, preferring a
- * bank not in @seen (bitmask of banks already read).  Returns the
- * bank index that was read (0/1, or 2 on reception error with both
- * banks flushed), and stores the notifying device's 7-bit address in
- * *notify_addr if the message was a valid Host Notify (else -1).
+ * bank not in @seen (bitmask of banks already read); when none is
+ * flagged, fall back to the hardware's bank-select hint only if
+ * @allow_fallback.  Returns the bank index that was read (0/1, 2 on
+ * reception error with both banks flushed, -1 if nothing was read),
+ * and stores the notifying device's 7-bit address in *notify_addr if
+ * the message was a valid Host Notify (else -1).
  * Data-bank sequence from amd_asf_process_target().
  * Caller must hold piix4_asf_mutex.
  */
-static int piix4_asf_process_bank(int *notify_addr, unsigned int seen)
+static int piix4_asf_process_bank(int *notify_addr, unsigned int seen,
+				  bool allow_fallback)
 {
 	unsigned short piix4_smba = piix4_asf.smba;
 	u8 data[ASF_BLOCK_MAX_BYTES];
@@ -1282,8 +1286,10 @@ static int piix4_asf_process_bank(int *notify_addr, unsigned int seen)
 		fresh = ((reg & ASF_BNK_FULL) >> 2) & ~seen;
 		if (fresh)
 			bank = (fresh & BIT(1)) ? 1 : 0;
-		else
+		else if (allow_fallback)
 			bank = (reg & BIT(3)) ? 1 : 0;
+		else
+			return -1;	/* every viable bank already read */
 		/* Select the bank without consuming either (bits are W1C) */
 		reg &= ~ASF_BNK_FULL;
 		if (bank)
@@ -1344,19 +1350,27 @@ static void piix4_asf_drain(unsigned short piix4_smba,
 
 	for (i = 0; i < ASF_DRAIN_MAX; i++) {
 		u8 sta = inb_p(ASFSTA);
+		bool signalled;
 
-		if (sta & BIT(ASF_STA_SLV_INT)) {
+		/*
+		 * Status bit and pending flag are two views of the same
+		 * reception: consume both, they authorize one read.
+		 */
+		if (sta & BIT(ASF_STA_SLV_INT))
 			outb_p(sta | BIT(ASF_STA_SLV_INT), ASFSTA);
-		} else if (!atomic_xchg(&piix4_asf.pending, 0)) {
-			u8 full = inb_p(ASFDATABNKSEL) & ASF_BNK_FULL;
+		signalled = (sta & BIT(ASF_STA_SLV_INT)) ||
+			    atomic_xchg(&piix4_asf.pending, 0);
+		if (!signalled &&
+		    !((inb_p(ASFDATABNKSEL) & ASF_BNK_FULL) & ~(seen << 2)))
+			return;
 
-			if (!full)
-				return;
-			/* Stale flag: every flagged bank was already read */
-			if (!(full & ~(seen << 2)))
-				return;
-		}
-		bank = piix4_asf_process_bank(&addr, seen);
+		/*
+		 * Only the first read may trust the hardware's bank hint;
+		 * after that each bank is read at most once per drain.
+		 */
+		bank = piix4_asf_process_bank(&addr, seen, i == 0);
+		if (bank < 0)
+			return;
 		if (bank < 2)
 			seen |= BIT(bank);
 		if (addr >= 0 && n->count < ASF_DRAIN_MAX)
@@ -1388,7 +1402,7 @@ static s32 piix4_access_asf(struct i2c_adapter *adap, u16 addr,
 	unsigned short piix4_smba = adapdata->smba;
 	struct piix4_asf_notifies notifies = {};
 	s32 result;
-	int retval, attempt;
+	int retval, attempt, before;
 
 	mutex_lock(&piix4_asf_mutex);
 
@@ -1425,19 +1439,20 @@ static s32 piix4_access_asf(struct i2c_adapter *adap, u16 addr,
 		result = piix4_access(adap, addr, flags, read_write, command,
 				      size, data);
 		/*
-		 * -EIO (arbitration lost) and -ENXIO (address NAKed) here
-		 * usually mean the other master on this bus -- the device
-		 * sending a Host Notify -- had the bus or was busy sending.
-		 * Yield: listen for a moment so its message lands in a bank
-		 * and is drained (and delivered below), then retry.
+		 * -EAGAIN: arbitration lost to the other master on this bus,
+		 * the device sending a Host Notify.  -ENXIO: address NAKed,
+		 * which is also how the device answers while it is busy
+		 * sending one -- but equally the normal answer of an absent
+		 * address.  Either way, yield: listen for a moment so a
+		 * message in flight lands in a bank and is drained (and
+		 * delivered below).  Retry an -EAGAIN unconditionally, an
+		 * -ENXIO only if the yield actually caught a message.
 		 */
-		if ((result != -EIO && result != -ENXIO) ||
+		if ((result != -EAGAIN && result != -ENXIO) ||
 		    !piix4_asf.want_listen || attempt >= ASF_XFER_RETRIES)
 			break;
 
-		dev_dbg(&adap->dev,
-			"ASF: xfer to %#04x lost the bus (%d), yielding (retry %d)\n",
-			addr, result, attempt + 1);
+		before = notifies.count;
 		WRITE_ONCE(piix4_asf.listening, true);
 		piix4_asf_slave_arm(piix4_smba);
 		usleep_range(ASF_YIELD_US, ASF_YIELD_US * 2);
@@ -1445,11 +1460,17 @@ static s32 piix4_access_asf(struct i2c_adapter *adap, u16 addr,
 		piix4_asf_update_ioport(ASF_SLV_INTR, ASFSLVEN, false);
 		synchronize_hardirq(piix4_asf.irq);
 		piix4_asf_drain(piix4_smba, &notifies);
+		if (result == -ENXIO && notifies.count == before)
+			break;
+
+		dev_dbg(&adap->dev,
+			"ASF: xfer to %#04x lost the bus (%d), yielding (retry %d)\n",
+			addr, result, attempt + 1);
 	}
 	if (result < 0 && attempt)
-		dev_warn_ratelimited(&adap->dev,
-				     "ASF: xfer to %#04x still failing (%d) after %d retries\n",
-				     addr, result, attempt);
+		dev_dbg(&adap->dev,
+			"ASF: xfer to %#04x still failing (%d) after %d retries\n",
+			addr, result, attempt);
 
 	/*
 	 * Back to listen mode so Host Notify keeps working.  This is also
@@ -1530,26 +1551,26 @@ static irqreturn_t piix4_asf_irq_thread(int irq, void *dev_id)
 
 	/*
 	 * Mask the slave interrupt while draining so the hard handler
-	 * cannot race the bank reads.  Keep LISTN on: turning it off here
-	 * NAKs the touchpad's next Host Notify, and its retries then
-	 * collide with (or NAK) the reads the client issues in response
-	 * (measured: ~2 failed transfers/min).  A message landing in the
-	 * short window between the drain and the reset is only lost
-	 * until the device's next report.
+	 * cannot race the bank reads.  Keep LISTN on for the main drain
+	 * (and while waiting for the FCH PM region, which can block behind
+	 * another owner): a NAKed Host Notify makes the device retry into
+	 * the reads the client issues in response.  Then, with the region
+	 * held, stop listening, drain what arrived meanwhile, and only
+	 * then reset -- so nothing that was ACKed gets discarded, and the
+	 * NAK window is a few port accesses long.
+	 *
+	 * The reset is needed because the bank-consumed writes in
+	 * piix4_asf_process_bank() do not reliably free the receive
+	 * banks on this hardware; once both banks fill, the slave NAKs
+	 * everything and reception dies until the next master transfer.
 	 */
 	piix4_asf_update_ioport(ASF_SLV_INTR, ASFSLVEN, false);
 	synchronize_hardirq(irq);
 	piix4_asf_drain(piix4_smba, &notifies);
 
-	/*
-	 * Reset and re-arm the slave.  The bank-consumed writes in
-	 * piix4_asf_process_bank() do not reliably free the receive
-	 * banks on this hardware; once both banks fill, the slave NAKs
-	 * everything and reception dies until the next master transfer.
-	 * The reset (same cycle the master-transfer path runs) frees
-	 * them for certain.
-	 */
 	if (!piix4_sb800_region_request(piix4_asf.dev, &piix4_asf.mmio_cfg)) {
+		piix4_asf_update_ioport(ASF_SLV_LISTN, ASFLISADDR, false);
+		piix4_asf_drain(piix4_smba, &notifies);
 		piix4_asf_update_ioport(ASF_SLV_RST, ASFSLVEN, true);
 		outb_p(0, ASFSLVSTA);
 		piix4_asf_slave_arm(piix4_smba);
