@@ -190,7 +190,6 @@ struct piix4_asf {
 	u8 boot_lisaddr;
 	u8 boot_slven;
 	u8 boot_bnksel;
-	u8 boot_hstcnt;
 	atomic_t pending;	/* notify acked but bank not yet read */
 	struct sb800_mmio_cfg mmio_cfg;
 	char irq_cookie;	/* dev_id for the shared IRQ */
@@ -199,6 +198,12 @@ struct piix4_asf {
 static struct piix4_asf piix4_asf = { .irq = -1 };
 /* Serializes master transfers against slave data-bank processing */
 static DEFINE_MUTEX(piix4_asf_mutex);
+/*
+ * Fences Host Notify delivery (done outside piix4_asf_mutex) against
+ * adapter removal, which destroys the adapter's host-notify domain.
+ */
+static DEFINE_MUTEX(piix4_asf_notify_mutex);
+static bool piix4_asf_deliver_ok;
 #endif
 
 static int srvrworks_csb5_delay;
@@ -1174,7 +1179,11 @@ static void piix4_asf_restore_boot_state(unsigned short piix4_smba)
 	outb_p(piix4_asf.boot_slven | BIT(ASF_SLV_RST), ASFSLVEN);
 	outb_p(piix4_asf.boot_lisaddr, ASFLISADDR);
 	outb_p(piix4_asf.boot_bnksel & ~ASF_BNK_FULL, ASFDATABNKSEL);
-	outb_p(piix4_asf.boot_hstcnt, SMBHSTCNT);
+	/*
+	 * SMBHSTCNT is not touched: it lives in the adapter's own IO
+	 * region (already released on the adapter-failure path) and
+	 * piix4_access() rewrites it in full on every transaction anyway.
+	 */
 	piix4_asf_clear_status(piix4_smba);
 	outb_p(piix4_asf.boot_slven, ASFSLVEN);
 
@@ -1239,19 +1248,21 @@ static void piix4_asf_slave_arm(unsigned short piix4_smba)
 }
 
 /*
- * Read one received message out of the ASF data bank.  Returns the
+ * Read one received message out of the ASF data bank, preferring a
+ * bank not in @seen (bitmask of banks already read).  Returns the
  * bank index that was read (0/1, or 2 on reception error with both
  * banks flushed), and stores the notifying device's 7-bit address in
  * *notify_addr if the message was a valid Host Notify (else -1).
  * Data-bank sequence from amd_asf_process_target().
  * Caller must hold piix4_asf_mutex.
  */
-static int piix4_asf_process_bank(int *notify_addr)
+static int piix4_asf_process_bank(int *notify_addr, unsigned int seen)
 {
 	unsigned short piix4_smba = piix4_asf.smba;
 	u8 data[ASF_BLOCK_MAX_BYTES];
 	u8 bank = 2, reg, cmd = 1;
 	u8 len = 0, idx;
+	unsigned int fresh;
 
 	*notify_addr = -1;
 
@@ -1261,7 +1272,16 @@ static int piix4_asf_process_bank(int *notify_addr)
 		outb_p(reg, ASFDATABNKSEL);
 	} else {
 		reg = inb_p(ASFDATABNKSEL);
-		bank = (reg & BIT(3)) ? 1 : 0;
+		/*
+		 * Prefer a full bank not yet read in this drain, so a full
+		 * flag the hardware fails to clear cannot starve the other
+		 * bank or replay its message.
+		 */
+		fresh = ((reg & ASF_BNK_FULL) >> 2) & ~seen;
+		if (fresh)
+			bank = (fresh & BIT(1)) ? 1 : 0;
+		else
+			bank = (reg & BIT(3)) ? 1 : 0;
 		/* Select the bank without consuming either (bits are W1C) */
 		reg &= ~ASF_BNK_FULL;
 		if (bank)
@@ -1334,7 +1354,7 @@ static void piix4_asf_drain(unsigned short piix4_smba,
 			if (!(full & ~(seen << 2)))
 				return;
 		}
-		bank = piix4_asf_process_bank(&addr);
+		bank = piix4_asf_process_bank(&addr, seen);
 		if (bank < 2)
 			seen |= BIT(bank);
 		if (addr >= 0 && n->count < ASF_DRAIN_MAX)
@@ -1346,10 +1366,15 @@ static void piix4_asf_deliver(struct piix4_asf_notifies *n)
 {
 	int i;
 
-	if (!piix4_aux_adapter)
+	if (!n->count)
 		return;
-	for (i = 0; i < n->count; i++)
-		i2c_handle_smbus_host_notify(piix4_aux_adapter, n->addr[i]);
+
+	mutex_lock(&piix4_asf_notify_mutex);
+	if (piix4_asf_deliver_ok && piix4_aux_adapter)
+		for (i = 0; i < n->count; i++)
+			i2c_handle_smbus_host_notify(piix4_aux_adapter,
+						     n->addr[i]);
+	mutex_unlock(&piix4_asf_notify_mutex);
 }
 
 /* Return negative errno on error. */
@@ -1589,7 +1614,6 @@ static void piix4_asf_enable(struct pci_dev *dev, unsigned short piix4_smba)
 	piix4_asf.boot_lisaddr = inb_p(ASFLISADDR);
 	piix4_asf.boot_slven = inb_p(ASFSLVEN);
 	piix4_asf.boot_bnksel = inb_p(ASFDATABNKSEL);
-	piix4_asf.boot_hstcnt = inb_p(SMBHSTCNT);
 	/* Master mode until piix4_asf_start(); plain transfers keep working */
 	piix4_asf_master_mode(piix4_smba);
 	piix4_asf.active = true;
@@ -1636,6 +1660,10 @@ static void piix4_asf_start(void)
 
 	if (!piix4_asf.active)
 		return;
+
+	mutex_lock(&piix4_asf_notify_mutex);
+	piix4_asf_deliver_ok = true;
+	mutex_unlock(&piix4_asf_notify_mutex);
 
 	mutex_lock(&piix4_asf_mutex);
 	piix4_asf.want_listen = true;
@@ -1690,6 +1718,15 @@ static void piix4_asf_stop(void)
 		free_irq(piix4_asf.irq, &piix4_asf.irq_cookie);
 		piix4_asf.irq_requested = false;
 	}
+
+	/*
+	 * Wait out any delivery still in flight from a transfer, and stop
+	 * further ones: the adapter (and its host-notify domain) may go
+	 * away right after this.
+	 */
+	mutex_lock(&piix4_asf_notify_mutex);
+	piix4_asf_deliver_ok = false;
+	mutex_unlock(&piix4_asf_notify_mutex);
 }
 
 /* Return the hardware to its firmware state and release everything. */
