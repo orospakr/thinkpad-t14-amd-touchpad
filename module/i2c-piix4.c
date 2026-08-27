@@ -161,7 +161,7 @@ MODULE_PARM_DESC(asf_host_notify,
 #define ASF_HOST_ADDR		0x08	/* SMBus Host address, Host Notify target */
 #define ASF_HOST_NOTIFY_LEN	3	/* device address byte + 2 status bytes */
 #define ASF_IOSIZE		0x20	/* IO window declared by SMB0001 _CRS */
-#define ASF_DRAIN_MAX		8	/* banks read per interrupt before reset */
+#define ASF_DRAIN_MAX		8	/* bank reads per drain before declaring a wedge */
 #define ASF_XFER_RETRIES	3	/* master retries after losing the bus */
 #define ASF_YIELD_US		1000	/* listen window before such a retry */
 
@@ -1251,9 +1251,8 @@ static void piix4_asf_slave_arm(unsigned short piix4_smba)
 }
 
 /*
- * Read one received message out of the ASF data bank, preferring a
- * bank not in @seen (bitmask of banks already read); when none is
- * flagged, read bank 0 (as amd_asf_process_target() does) only if
+ * Read one received message out of a flagged ASF data bank; when none
+ * is flagged, read bank 0 (as amd_asf_process_target() does) only if
  * @allow_fallback.  Returns the bank index that was read (0/1, 2 on
  * reception error with both banks flushed, -1 if nothing was read),
  * and stores the notifying device's 7-bit address in *notify_addr if
@@ -1261,14 +1260,12 @@ static void piix4_asf_slave_arm(unsigned short piix4_smba)
  * Data-bank sequence from amd_asf_process_target().
  * Caller must hold piix4_asf_mutex.
  */
-static int piix4_asf_process_bank(int *notify_addr, unsigned int seen,
-				  bool allow_fallback)
+static int piix4_asf_process_bank(int *notify_addr, bool allow_fallback)
 {
 	unsigned short piix4_smba = piix4_asf.smba;
 	u8 data[ASF_BLOCK_MAX_BYTES];
 	u8 bank = 2, reg, cmd = 1;
 	u8 len = 0, idx;
-	unsigned int fresh;
 
 	*notify_addr = -1;
 
@@ -1278,18 +1275,15 @@ static int piix4_asf_process_bank(int *notify_addr, unsigned int seen,
 		outb_p(reg, ASFDATABNKSEL);
 	} else {
 		reg = inb_p(ASFDATABNKSEL);
-		/*
-		 * Prefer a full bank not yet read in this drain, so a full
-		 * flag the hardware fails to clear cannot starve the other
-		 * bank or replay its message.
-		 */
-		fresh = ((reg & ASF_BNK_FULL) >> 2) & ~seen;
-		if (fresh)
-			bank = (fresh & BIT(1)) ? 1 : 0;
+		/* A flagged bank, bank 1 first as amd_asf_process_target() */
+		if (reg & BIT(3))
+			bank = 1;
+		else if (reg & BIT(2))
+			bank = 0;
 		else if (allow_fallback)
 			bank = 0;	/* no flag set: amd_asf_process_target() reads bank 0 */
 		else
-			return -1;	/* every viable bank already read */
+			return -1;
 		/* Select the bank without consuming either (bits are W1C) */
 		reg &= ~ASF_BNK_FULL;
 		if (bank)
@@ -1337,13 +1331,17 @@ struct piix4_asf_notifies {
 
 /*
  * Drain every pending message: one the hard handler acked (pending),
- * any whose status is still set, and any bank still flagged full.
- * Each bank is read at most once per full-flag pass, so a flag the
- * hardware fails to clear cannot replay the same message.
- * Caller must hold piix4_asf_mutex with the slave interrupt disabled.
+ * any whose status is still set, and any bank flagged full.  A bank
+ * whose full flag is set again after we consumed it is simply read
+ * again: either a new message landed in it (must not be lost) or the
+ * flag is stuck (the message is delivered twice, which is harmless for
+ * Host Notify -- the client just finds nothing new to read).  Returns
+ * true if a full flag is still set after ASF_DRAIN_MAX reads, i.e.
+ * the bank is genuinely stuck and the slave needs a reset.
+ * Caller must hold piix4_asf_mutex with the slave interrupt masked.
  */
-static void piix4_asf_drain(unsigned short piix4_smba,
-			    struct piix4_asf_notifies *n, unsigned int *seen)
+static bool piix4_asf_drain(unsigned short piix4_smba,
+			    struct piix4_asf_notifies *n)
 {
 	int i, addr, bank;
 
@@ -1359,25 +1357,17 @@ static void piix4_asf_drain(unsigned short piix4_smba,
 			outb_p(sta | BIT(ASF_STA_SLV_INT), ASFSTA);
 		pending = atomic_xchg(&piix4_asf.pending, 0);
 		signalled = (sta & BIT(ASF_STA_SLV_INT)) || pending;
-		if (!signalled &&
-		    !((inb_p(ASFDATABNKSEL) & ASF_BNK_FULL) & ~(*seen << 2)))
-			return;
+		if (!signalled && !(inb_p(ASFDATABNKSEL) & ASF_BNK_FULL))
+			return false;
 
-		/*
-		 * Only the first signalled read may fall back to the
-		 * amd-asf-plat bank heuristic when no full flag is set;
-		 * after that each bank is read at most once per drain
-		 * sequence (the caller may chain several drains).
-		 */
-		bank = piix4_asf_process_bank(&addr, *seen,
-					      i == 0 && !*seen && signalled);
+		/* Without a flag, only a signal justifies reading bank 0 */
+		bank = piix4_asf_process_bank(&addr, signalled);
 		if (bank < 0)
-			return;
-		if (bank < 2)
-			*seen |= BIT(bank);
+			return false;
 		if (addr >= 0 && n->count < ASF_DRAIN_MAX)
 			n->addr[n->count++] = addr;
 	}
+	return inb_p(ASFDATABNKSEL) & ASF_BNK_FULL;
 }
 
 static void piix4_asf_deliver(struct piix4_asf_notifies *n)
@@ -1403,7 +1393,6 @@ static s32 piix4_access_asf(struct i2c_adapter *adap, u16 addr,
 	struct i2c_piix4_adapdata *adapdata = i2c_get_adapdata(adap);
 	unsigned short piix4_smba = adapdata->smba;
 	struct piix4_asf_notifies notifies = {};
-	unsigned int seen = 0;
 	s32 result;
 	int retval, attempt, i, before;
 	bool from_target;
@@ -1434,7 +1423,7 @@ static s32 piix4_access_asf(struct i2c_adapter *adap, u16 addr,
 		piix4_asf_update_ioport(ASF_SLV_LISTN, ASFLISADDR, false);
 		piix4_asf_update_ioport(ASF_SLV_INTR, ASFSLVEN, false);
 		synchronize_hardirq(piix4_asf.irq);
-		piix4_asf_drain(piix4_smba, &notifies, &seen);
+		piix4_asf_drain(piix4_smba, &notifies);
 	}
 
 	for (attempt = 0; ; attempt++) {
@@ -1458,14 +1447,13 @@ static s32 piix4_access_asf(struct i2c_adapter *adap, u16 addr,
 			break;
 
 		before = notifies.count;
-		seen = 0;	/* the re-arm resets the banks */
 		WRITE_ONCE(piix4_asf.listening, true);
 		piix4_asf_slave_arm(piix4_smba);
 		usleep_range(ASF_YIELD_US, ASF_YIELD_US * 2);
 		piix4_asf_update_ioport(ASF_SLV_LISTN, ASFLISADDR, false);
 		piix4_asf_update_ioport(ASF_SLV_INTR, ASFSLVEN, false);
 		synchronize_hardirq(piix4_asf.irq);
-		piix4_asf_drain(piix4_smba, &notifies, &seen);
+		piix4_asf_drain(piix4_smba, &notifies);
 		from_target = false;
 		for (i = before; i < notifies.count; i++)
 			if (notifies.addr[i] == addr)
@@ -1551,7 +1539,6 @@ static irqreturn_t piix4_asf_irq_thread(int irq, void *dev_id)
 {
 	unsigned short piix4_smba = piix4_asf.smba;
 	struct piix4_asf_notifies notifies = {};
-	unsigned int seen = 0;
 	bool wedged;
 
 	mutex_lock(&piix4_asf_mutex);
@@ -1570,21 +1557,22 @@ static irqreturn_t piix4_asf_irq_thread(int irq, void *dev_id)
 	 */
 	piix4_asf_update_ioport(ASF_SLV_INTR, ASFSLVEN, false);
 	synchronize_hardirq(irq);
-	piix4_asf_drain(piix4_smba, &notifies, &seen);
+	wedged = piix4_asf_drain(piix4_smba, &notifies);
 
 	/*
-	 * A full flag still set for a bank we just consumed means the
-	 * bank-consumed write did not free it (seen on this hardware
-	 * under lost-interrupt conditions: both banks stuck full, slave
-	 * NAKing everything).  Only then reset and re-arm the slave.
+	 * A full flag that survives ASF_DRAIN_MAX reads is stuck (seen on
+	 * this hardware under lost-interrupt conditions: both banks stuck
+	 * full, slave NAKing everything).  Only then reset the slave,
+	 * after one more drain with listening off so nothing ACKed
+	 * meanwhile is discarded.
 	 */
-	wedged = inb_p(ASFDATABNKSEL) & ASF_BNK_FULL & (seen << 2);
 	if (!wedged) {
 		piix4_asf_update_ioport(ASF_SLV_INTR, ASFSLVEN, true);
 	} else if (!piix4_sb800_region_request(piix4_asf.dev,
 					       &piix4_asf.mmio_cfg)) {
 		dev_dbg(piix4_asf.dev, "ASF: receive bank stuck full, resetting slave\n");
 		piix4_asf_update_ioport(ASF_SLV_LISTN, ASFLISADDR, false);
+		piix4_asf_drain(piix4_smba, &notifies);
 		piix4_asf_update_ioport(ASF_SLV_RST, ASFSLVEN, true);
 		outb_p(0, ASFSLVSTA);
 		piix4_asf_slave_arm(piix4_smba);
