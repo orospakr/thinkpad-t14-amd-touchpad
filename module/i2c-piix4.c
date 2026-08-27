@@ -162,6 +162,8 @@ MODULE_PARM_DESC(asf_host_notify,
 #define ASF_HOST_NOTIFY_LEN	3	/* device address byte + 2 status bytes */
 #define ASF_IOSIZE		0x20	/* IO window declared by SMB0001 _CRS */
 #define ASF_DRAIN_MAX		8	/* banks read per interrupt before reset */
+#define ASF_XFER_RETRIES	3	/* master retries after losing the bus */
+#define ASF_YIELD_US		1000	/* listen window before such a retry */
 
 /*
  * Only one PIIX4-class device is supported per system (see the
@@ -1386,7 +1388,7 @@ static s32 piix4_access_asf(struct i2c_adapter *adap, u16 addr,
 	unsigned short piix4_smba = adapdata->smba;
 	struct piix4_asf_notifies notifies = {};
 	s32 result;
-	int retval;
+	int retval, attempt;
 
 	mutex_lock(&piix4_asf_mutex);
 
@@ -1417,10 +1419,37 @@ static s32 piix4_access_asf(struct i2c_adapter *adap, u16 addr,
 		piix4_asf_drain(piix4_smba, &notifies);
 	}
 
-	piix4_asf_master_mode(piix4_smba);
+	for (attempt = 0; ; attempt++) {
+		piix4_asf_master_mode(piix4_smba);
 
-	result = piix4_access(adap, addr, flags, read_write, command, size,
-			      data);
+		result = piix4_access(adap, addr, flags, read_write, command,
+				      size, data);
+		/*
+		 * -EIO (arbitration lost) and -ENXIO (address NAKed) here
+		 * usually mean the other master on this bus -- the device
+		 * sending a Host Notify -- had the bus or was busy sending.
+		 * Yield: listen for a moment so its message lands in a bank
+		 * and is drained (and delivered below), then retry.
+		 */
+		if ((result != -EIO && result != -ENXIO) ||
+		    !piix4_asf.want_listen || attempt >= ASF_XFER_RETRIES)
+			break;
+
+		dev_dbg(&adap->dev,
+			"ASF: xfer to %#04x lost the bus (%d), yielding (retry %d)\n",
+			addr, result, attempt + 1);
+		WRITE_ONCE(piix4_asf.listening, true);
+		piix4_asf_slave_arm(piix4_smba);
+		usleep_range(ASF_YIELD_US, ASF_YIELD_US * 2);
+		piix4_asf_update_ioport(ASF_SLV_LISTN, ASFLISADDR, false);
+		piix4_asf_update_ioport(ASF_SLV_INTR, ASFSLVEN, false);
+		synchronize_hardirq(piix4_asf.irq);
+		piix4_asf_drain(piix4_smba, &notifies);
+	}
+	if (result < 0 && attempt)
+		dev_warn_ratelimited(&adap->dev,
+				     "ASF: xfer to %#04x still failing (%d) after %d retries\n",
+				     addr, result, attempt);
 
 	/*
 	 * Back to listen mode so Host Notify keeps working.  This is also
@@ -1500,10 +1529,14 @@ static irqreturn_t piix4_asf_irq_thread(int irq, void *dev_id)
 	}
 
 	/*
-	 * Stop accepting messages before draining, so nothing can arrive
-	 * between the drain and the reset below and be discarded.
+	 * Mask the slave interrupt while draining so the hard handler
+	 * cannot race the bank reads.  Keep LISTN on: turning it off here
+	 * NAKs the touchpad's next Host Notify, and its retries then
+	 * collide with (or NAK) the reads the client issues in response
+	 * (measured: ~2 failed transfers/min).  A message landing in the
+	 * short window between the drain and the reset is only lost
+	 * until the device's next report.
 	 */
-	piix4_asf_update_ioport(ASF_SLV_LISTN, ASFLISADDR, false);
 	piix4_asf_update_ioport(ASF_SLV_INTR, ASFSLVEN, false);
 	synchronize_hardirq(irq);
 	piix4_asf_drain(piix4_smba, &notifies);
