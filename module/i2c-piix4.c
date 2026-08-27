@@ -164,6 +164,7 @@ MODULE_PARM_DESC(asf_host_notify,
 #define ASF_DRAIN_MAX		8	/* banks read per interrupt before reset */
 #define ASF_XFER_RETRIES	3	/* master retries after losing the bus */
 #define ASF_YIELD_US		1000	/* listen window before such a retry */
+#define ASF_SETTLE_US		400	/* one Host Notify frame at 100 kHz */
 
 /*
  * Only one PIIX4-class device is supported per system (see the
@@ -677,7 +678,7 @@ int piix4_transaction(struct i2c_adapter *piix4_adapter, unsigned short piix4_sm
 		/* Clock stops and target is stuck in mid-transmission */
 	}
 
-	if (temp & 0x04) {
+	if ((temp & 0x04) && result != -EAGAIN) {
 		result = -ENXIO;
 		dev_dbg(&piix4_adapter->dev, "Error: no response!\n");
 	}
@@ -1253,7 +1254,7 @@ static void piix4_asf_slave_arm(unsigned short piix4_smba)
 /*
  * Read one received message out of the ASF data bank, preferring a
  * bank not in @seen (bitmask of banks already read); when none is
- * flagged, fall back to the hardware's bank-select hint only if
+ * flagged, read bank 0 (as amd_asf_process_target() does) only if
  * @allow_fallback.  Returns the bank index that was read (0/1, 2 on
  * reception error with both banks flushed, -1 if nothing was read),
  * and stores the notifying device's 7-bit address in *notify_addr if
@@ -1287,7 +1288,7 @@ static int piix4_asf_process_bank(int *notify_addr, unsigned int seen,
 		if (fresh)
 			bank = (fresh & BIT(1)) ? 1 : 0;
 		else if (allow_fallback)
-			bank = (reg & BIT(3)) ? 1 : 0;
+			bank = 0;	/* no flag set: amd_asf_process_target() reads bank 0 */
 		else
 			return -1;	/* every viable bank already read */
 		/* Select the bank without consuming either (bits are W1C) */
@@ -1343,14 +1344,13 @@ struct piix4_asf_notifies {
  * Caller must hold piix4_asf_mutex with the slave interrupt disabled.
  */
 static void piix4_asf_drain(unsigned short piix4_smba,
-			    struct piix4_asf_notifies *n)
+			    struct piix4_asf_notifies *n, unsigned int *seen)
 {
-	unsigned int seen = 0;
 	int i, addr, bank;
 
 	for (i = 0; i < ASF_DRAIN_MAX; i++) {
 		u8 sta = inb_p(ASFSTA);
-		bool signalled;
+		bool signalled, pending;
 
 		/*
 		 * Status bit and pending flag are two views of the same
@@ -1358,21 +1358,24 @@ static void piix4_asf_drain(unsigned short piix4_smba,
 		 */
 		if (sta & BIT(ASF_STA_SLV_INT))
 			outb_p(sta | BIT(ASF_STA_SLV_INT), ASFSTA);
-		signalled = (sta & BIT(ASF_STA_SLV_INT)) ||
-			    atomic_xchg(&piix4_asf.pending, 0);
+		pending = atomic_xchg(&piix4_asf.pending, 0);
+		signalled = (sta & BIT(ASF_STA_SLV_INT)) || pending;
 		if (!signalled &&
-		    !((inb_p(ASFDATABNKSEL) & ASF_BNK_FULL) & ~(seen << 2)))
+		    !((inb_p(ASFDATABNKSEL) & ASF_BNK_FULL) & ~(*seen << 2)))
 			return;
 
 		/*
-		 * Only the first read may trust the hardware's bank hint;
-		 * after that each bank is read at most once per drain.
+		 * Only the first signalled read may fall back to the
+		 * amd-asf-plat bank heuristic when no full flag is set;
+		 * after that each bank is read at most once per drain
+		 * sequence (the caller may chain several drains).
 		 */
-		bank = piix4_asf_process_bank(&addr, seen, i == 0);
+		bank = piix4_asf_process_bank(&addr, *seen,
+					      i == 0 && !*seen && signalled);
 		if (bank < 0)
 			return;
 		if (bank < 2)
-			seen |= BIT(bank);
+			*seen |= BIT(bank);
 		if (addr >= 0 && n->count < ASF_DRAIN_MAX)
 			n->addr[n->count++] = addr;
 	}
@@ -1401,8 +1404,10 @@ static s32 piix4_access_asf(struct i2c_adapter *adap, u16 addr,
 	struct i2c_piix4_adapdata *adapdata = i2c_get_adapdata(adap);
 	unsigned short piix4_smba = adapdata->smba;
 	struct piix4_asf_notifies notifies = {};
+	unsigned int seen = 0;
 	s32 result;
-	int retval, attempt, before;
+	int retval, attempt, i, before;
+	bool from_target;
 
 	mutex_lock(&piix4_asf_mutex);
 
@@ -1430,7 +1435,7 @@ static s32 piix4_access_asf(struct i2c_adapter *adap, u16 addr,
 		piix4_asf_update_ioport(ASF_SLV_LISTN, ASFLISADDR, false);
 		piix4_asf_update_ioport(ASF_SLV_INTR, ASFSLVEN, false);
 		synchronize_hardirq(piix4_asf.irq);
-		piix4_asf_drain(piix4_smba, &notifies);
+		piix4_asf_drain(piix4_smba, &notifies, &seen);
 	}
 
 	for (attempt = 0; ; attempt++) {
@@ -1446,21 +1451,27 @@ static s32 piix4_access_asf(struct i2c_adapter *adap, u16 addr,
 		 * address.  Either way, yield: listen for a moment so a
 		 * message in flight lands in a bank and is drained (and
 		 * delivered below).  Retry an -EAGAIN unconditionally, an
-		 * -ENXIO only if the yield actually caught a message.
+		 * -ENXIO only if the yield caught a message from the very
+		 * device we were addressing.
 		 */
 		if ((result != -EAGAIN && result != -ENXIO) ||
 		    !piix4_asf.want_listen || attempt >= ASF_XFER_RETRIES)
 			break;
 
 		before = notifies.count;
+		seen = 0;	/* the re-arm resets the banks */
 		WRITE_ONCE(piix4_asf.listening, true);
 		piix4_asf_slave_arm(piix4_smba);
 		usleep_range(ASF_YIELD_US, ASF_YIELD_US * 2);
 		piix4_asf_update_ioport(ASF_SLV_LISTN, ASFLISADDR, false);
 		piix4_asf_update_ioport(ASF_SLV_INTR, ASFSLVEN, false);
 		synchronize_hardirq(piix4_asf.irq);
-		piix4_asf_drain(piix4_smba, &notifies);
-		if (result == -ENXIO && notifies.count == before)
+		piix4_asf_drain(piix4_smba, &notifies, &seen);
+		from_target = false;
+		for (i = before; i < notifies.count; i++)
+			if (notifies.addr[i] == addr)
+				from_target = true;
+		if (result == -ENXIO && !from_target)
 			break;
 
 		dev_dbg(&adap->dev,
@@ -1541,6 +1552,7 @@ static irqreturn_t piix4_asf_irq_thread(int irq, void *dev_id)
 {
 	unsigned short piix4_smba = piix4_asf.smba;
 	struct piix4_asf_notifies notifies = {};
+	unsigned int seen = 0;
 
 	mutex_lock(&piix4_asf_mutex);
 
@@ -1566,17 +1578,27 @@ static irqreturn_t piix4_asf_irq_thread(int irq, void *dev_id)
 	 */
 	piix4_asf_update_ioport(ASF_SLV_INTR, ASFSLVEN, false);
 	synchronize_hardirq(irq);
-	piix4_asf_drain(piix4_smba, &notifies);
+	piix4_asf_drain(piix4_smba, &notifies, &seen);
 
 	if (!piix4_sb800_region_request(piix4_asf.dev, &piix4_asf.mmio_cfg)) {
 		piix4_asf_update_ioport(ASF_SLV_LISTN, ASFLISADDR, false);
-		piix4_asf_drain(piix4_smba, &notifies);
+		/*
+		 * A reception whose address byte was ACKed just before
+		 * LISTN dropped is still filling its bank: give it the
+		 * length of a Host Notify frame at 100 kHz to complete.
+		 */
+		usleep_range(ASF_SETTLE_US, ASF_SETTLE_US * 2);
+		piix4_asf_drain(piix4_smba, &notifies, &seen);
 		piix4_asf_update_ioport(ASF_SLV_RST, ASFSLVEN, true);
 		outb_p(0, ASFSLVSTA);
 		piix4_asf_slave_arm(piix4_smba);
 		piix4_sb800_region_release(piix4_asf.dev, &piix4_asf.mmio_cfg);
 	} else {
-		/* The next master transfer re-arms (want_listen stays set) */
+		/*
+		 * Cannot reset or re-arm: stop ACKing messages nobody will
+		 * read.  The next master transfer re-arms (want_listen).
+		 */
+		piix4_asf_update_ioport(ASF_SLV_LISTN, ASFLISADDR, false);
 		WRITE_ONCE(piix4_asf.listening, false);
 		dev_warn_ratelimited(piix4_asf.dev,
 				     "ASF: FCH PM region busy, slave not re-armed until the next transfer\n");
