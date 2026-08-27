@@ -162,6 +162,7 @@ MODULE_PARM_DESC(asf_host_notify,
 #define ASF_HOST_NOTIFY_LEN	3	/* device address byte + 2 status bytes */
 #define ASF_IOSIZE		0x20	/* IO window declared by SMB0001 _CRS */
 #define ASF_DRAIN_MAX		8	/* bank reads per drain before declaring a wedge */
+#define ASF_NOTIFY_MAX		(2 * ASF_DRAIN_MAX)	/* two drains per call at most */
 #define ASF_XFER_RETRIES	3	/* master retries after losing the bus */
 #define ASF_YIELD_US		1000	/* listen window before such a retry */
 
@@ -1257,10 +1258,13 @@ static void piix4_asf_slave_arm(unsigned short piix4_smba)
  * reception error with both banks flushed, -1 if nothing was read),
  * and stores the notifying device's 7-bit address in *notify_addr if
  * the message was a valid Host Notify (else -1).
- * Data-bank sequence from amd_asf_process_target().
+ * Data-bank sequence from amd_asf_process_target().  When both banks
+ * are flagged, @prefer picks which to read so that a stuck flag on one
+ * bank cannot starve the other.
  * Caller must hold piix4_asf_mutex.
  */
-static int piix4_asf_process_bank(int *notify_addr, bool allow_fallback)
+static int piix4_asf_process_bank(int *notify_addr, bool allow_fallback,
+				  int prefer)
 {
 	unsigned short piix4_smba = piix4_asf.smba;
 	u8 data[ASF_BLOCK_MAX_BYTES];
@@ -1275,8 +1279,10 @@ static int piix4_asf_process_bank(int *notify_addr, bool allow_fallback)
 		outb_p(reg, ASFDATABNKSEL);
 	} else {
 		reg = inb_p(ASFDATABNKSEL);
-		/* A flagged bank, bank 1 first as amd_asf_process_target() */
-		if (reg & BIT(3))
+		/* A flagged bank; alternate when both are so neither starves */
+		if ((reg & ASF_BNK_FULL) == ASF_BNK_FULL)
+			bank = prefer & 1;
+		else if (reg & BIT(3))
 			bank = 1;
 		else if (reg & BIT(2))
 			bank = 0;
@@ -1325,7 +1331,7 @@ static int piix4_asf_process_bank(int *notify_addr, bool allow_fallback)
 
 /* Host Notify addresses collected under the mutex, delivered outside it */
 struct piix4_asf_notifies {
-	int addr[ASF_DRAIN_MAX];
+	int addr[ASF_NOTIFY_MAX];
 	int count;
 };
 
@@ -1334,8 +1340,10 @@ struct piix4_asf_notifies {
  * any whose status is still set, and any bank flagged full.  A bank
  * whose full flag is set again after we consumed it is simply read
  * again: either a new message landed in it (must not be lost) or the
- * flag is stuck (the message is delivered twice, which is harmless for
- * Host Notify -- the client just finds nothing new to read).  Returns
+ * flag is stuck (the message is delivered twice).  That is a deliberate
+ * at-least-once tradeoff: Host Notify carries no payload to Linux
+ * clients beyond "go look at the device", so a bounded duplicate is
+ * preferable to silently losing a wakeup.  Returns
  * true if a full flag is still set after ASF_DRAIN_MAX reads, i.e.
  * the bank is genuinely stuck and the slave needs a reset.
  * Caller must hold piix4_asf_mutex with the slave interrupt masked.
@@ -1361,10 +1369,10 @@ static bool piix4_asf_drain(unsigned short piix4_smba,
 			return false;
 
 		/* Without a flag, only a signal justifies reading bank 0 */
-		bank = piix4_asf_process_bank(&addr, signalled);
+		bank = piix4_asf_process_bank(&addr, signalled, i);
 		if (bank < 0)
 			return false;
-		if (addr >= 0 && n->count < ASF_DRAIN_MAX)
+		if (addr >= 0 && n->count < ASF_NOTIFY_MAX)
 			n->addr[n->count++] = addr;
 	}
 	return inb_p(ASFDATABNKSEL) & ASF_BNK_FULL;

@@ -42,7 +42,7 @@ Test load (nothing persists; see PLAN.md §Verification for the full procedure):
 Revert: `sudo rmmod i2c_piix4 && sudo modprobe i2c_piix4` (stock), reload
 psmouse — or reboot.
 
-## Status (2026-08-26)
+## Status (2026-08-27)
 
 **Working on gondolin (7.1.9-arch1-2), reviewed, S3-tested.** IRQ 7 shows as
 `7-fasteoi piix4-asf`, `rmi4_smbus 11-002c` attaches, input device is
@@ -73,13 +73,40 @@ Hardware findings beyond the original plan:
    so the notify lands in a bank, drain it, retry (≤3×). Now 0 failures per
    3 minutes, ~1 retry per 2 minutes.
 
-Review history: three `codex exec` passes as a skeptical upstream reviewer
-(`asf-review*.md` in the scratch notes; findings folded in: CONFIG_ACPI guard,
-GSI registered only after validation and unregistered on teardown, full
+Review history: eight `codex exec` passes as a skeptical upstream reviewer
+(`review*-out.md` in the scratch notes). Folded in: CONFIG_ACPI guard, GSI
+registered only after validation and unregistered on teardown, full
 firmware-state save/restore, W1C-safe `ASFDATABNKSEL` writes, start/stop
-lifecycle around adapter registration, bank-status drain with per-bank
-dedup, Host Notify delivery outside the hardware mutex and fenced against
-adapter removal, PM suspend/resume + shutdown hooks, AMDI001A exclusion).
+lifecycle around adapter registration, Host Notify delivery outside the
+hardware mutex and fenced against adapter removal, PM suspend/resume +
+shutdown hooks, AMDI001A exclusion, `-EAGAIN` for bus collision (retry only
+arbitration loss / NAK), IRQ thread that resets the slave only when a bank
+flag survives a full drain, drains that re-read refilled banks, fair bank
+selection when both flags are set, notify storage sized for two drains.
+
+Design positions taken (reviewer still lists these as upstream blockers):
+
+- **Duplicates over loss.** A stuck FULL flag means a message is delivered
+  twice, never dropped. Host Notify carries no payload to Linux clients, so a
+  bounded duplicate is a spurious "go look" — the reviewer agrees this is a
+  defensible at-least-once tradeoff, not a universal guarantee.
+- **Wedge recovery is best-effort.** The reset path (LISTN off → final drain
+  → SLV_RST → re-arm) has theoretical loss windows: a reception ACKed during
+  the muxed PM-region wait, and an in-flight transaction that completes after
+  the final drain (LISTN-off is not a completion fence; whether `ASFSTA[6]`
+  latches while `SLV_INTR` is masked is undocumented, `SlaveBusy` semantics
+  likewise). It has never fired on this hardware (0 wedge resets in every
+  3-minute run), so these are documented rather than engineered around.
+- **Generic `-ENXIO` yield.** A NAK during a transfer is retried after a 1 ms
+  listen window because the pad NAKs when it is about to notify. This costs
+  absent-address probes ~4–7 ms; acceptable for the aux adapter, would need
+  narrowing (or evidence gating) upstream.
+- **Frame length `>= 3`** rather than exactly 3 (PEC byte tolerance).
+
+Open questions carried forward: `SMB0001` ownership vs `i2c-scmi`, the
+first-user GSI trick vs a proper `resource.c` override, DMI/platform gating,
+splitting the `-EAGAIN` change into a prerequisite patch, Kconfig text,
+adapter-private data instead of the global `piix4_asf`.
 
 ## Testing
 
