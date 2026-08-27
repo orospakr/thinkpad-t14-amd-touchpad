@@ -1472,9 +1472,16 @@ static irqreturn_t piix4_asf_irq_handler(int irq, void *dev_id)
 	/* Ack so the level-triggered line deasserts */
 	outb_p(sta | BIT(ASF_STA_SLV_INT), ASFSTA);
 
-	/* Not armed (start/stop/suspend windows): ack and drop */
-	if (!READ_ONCE(piix4_asf.listening))
+	/*
+	 * Not armed (start/stop/suspend windows): ack and drop, and mask
+	 * the source so a bank nobody will drain cannot keep the level
+	 * line asserted (seen as a ~20k interrupt burst across resume).
+	 * Every path that arms the slave re-enables the interrupt.
+	 */
+	if (!READ_ONCE(piix4_asf.listening)) {
+		piix4_asf_update_ioport(ASF_SLV_INTR, ASFSLVEN, false);
 		return IRQ_HANDLED;
+	}
 
 	atomic_set(&piix4_asf.pending, 1);
 	return IRQ_WAKE_THREAD;
