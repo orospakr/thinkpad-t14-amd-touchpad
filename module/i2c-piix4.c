@@ -164,7 +164,6 @@ MODULE_PARM_DESC(asf_host_notify,
 #define ASF_DRAIN_MAX		8	/* banks read per interrupt before reset */
 #define ASF_XFER_RETRIES	3	/* master retries after losing the bus */
 #define ASF_YIELD_US		1000	/* listen window before such a retry */
-#define ASF_SETTLE_US		400	/* one Host Notify frame at 100 kHz */
 
 /*
  * Only one PIIX4-class device is supported per system (see the
@@ -1553,6 +1552,7 @@ static irqreturn_t piix4_asf_irq_thread(int irq, void *dev_id)
 	unsigned short piix4_smba = piix4_asf.smba;
 	struct piix4_asf_notifies notifies = {};
 	unsigned int seen = 0;
+	bool wedged;
 
 	mutex_lock(&piix4_asf_mutex);
 
@@ -1563,32 +1563,28 @@ static irqreturn_t piix4_asf_irq_thread(int irq, void *dev_id)
 
 	/*
 	 * Mask the slave interrupt while draining so the hard handler
-	 * cannot race the bank reads.  Keep LISTN on for the main drain
-	 * (and while waiting for the FCH PM region, which can block behind
-	 * another owner): a NAKed Host Notify makes the device retry into
-	 * the reads the client issues in response.  Then, with the region
-	 * held, stop listening, drain what arrived meanwhile, and only
-	 * then reset -- so nothing that was ACKed gets discarded, and the
-	 * NAK window is a few port accesses long.
-	 *
-	 * The reset is needed because the bank-consumed writes in
-	 * piix4_asf_process_bank() do not reliably free the receive
-	 * banks on this hardware; once both banks fill, the slave NAKs
-	 * everything and reception dies until the next master transfer.
+	 * cannot race the bank reads; keep listening throughout, so no
+	 * message is NAKed (a NAKed Host Notify makes the device retry
+	 * into the reads the client issues in response) and nothing that
+	 * was ACKed is discarded.
 	 */
 	piix4_asf_update_ioport(ASF_SLV_INTR, ASFSLVEN, false);
 	synchronize_hardirq(irq);
 	piix4_asf_drain(piix4_smba, &notifies, &seen);
 
-	if (!piix4_sb800_region_request(piix4_asf.dev, &piix4_asf.mmio_cfg)) {
+	/*
+	 * A full flag still set for a bank we just consumed means the
+	 * bank-consumed write did not free it (seen on this hardware
+	 * under lost-interrupt conditions: both banks stuck full, slave
+	 * NAKing everything).  Only then reset and re-arm the slave.
+	 */
+	wedged = inb_p(ASFDATABNKSEL) & ASF_BNK_FULL & (seen << 2);
+	if (!wedged) {
+		piix4_asf_update_ioport(ASF_SLV_INTR, ASFSLVEN, true);
+	} else if (!piix4_sb800_region_request(piix4_asf.dev,
+					       &piix4_asf.mmio_cfg)) {
+		dev_dbg(piix4_asf.dev, "ASF: receive bank stuck full, resetting slave\n");
 		piix4_asf_update_ioport(ASF_SLV_LISTN, ASFLISADDR, false);
-		/*
-		 * A reception whose address byte was ACKed just before
-		 * LISTN dropped is still filling its bank: give it the
-		 * length of a Host Notify frame at 100 kHz to complete.
-		 */
-		usleep_range(ASF_SETTLE_US, ASF_SETTLE_US * 2);
-		piix4_asf_drain(piix4_smba, &notifies, &seen);
 		piix4_asf_update_ioport(ASF_SLV_RST, ASFSLVEN, true);
 		outb_p(0, ASFSLVSTA);
 		piix4_asf_slave_arm(piix4_smba);
