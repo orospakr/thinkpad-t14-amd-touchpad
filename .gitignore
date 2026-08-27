@@ -7,3 +7,12 @@ artifacts/
 modules.order
 Module.symvers
 .*.cmd
+pkg/pkg/
+pkg/src/
+pkg/*.pkg.tar.zst
+pkg/i2c-piix4.c
+pkg/i2c-piix4.h
+pkg/Makefile
+pkg/dkms.conf
+pkg/i2c-piix4-asf.conf
+dmesg.out
