@@ -1,159 +1,176 @@
 # Post-suspend touchpad degradation — investigation and upstream plan
 
-Status 2026-08-27. Separate from the ASF Host Notify patch (which is done and
-installed); this concerns the mainline `psmouse` / `rmi_smbus` resume path.
+Status 2026-09-04. Separate from the ASF Host Notify driver (done, installed
+via DKMS at bdacba0); this concerns the mainline `rmi_smbus` / `rmi_core`
+resume path. **Priority: ahead of COLLISION-PLAN.md** — this hits ~50% of
+resumes; collisions cost a handful of reports a week.
 
 ## Symptom
 
-After some S3 cycles the Synaptics TM3471 (LEN2073) comes back on a 12.5 ms
-(80 Hz) report clock with ~1 in 4 frames merged into 23–24 ms, plus 170–620 ms
-stalls. Healthy is a flat 15 ms (p90 = median, max ≈ 16 ms). Felt as subtle
-jitter. Raw `SYN_REPORT` spacing (evtest), so libinput is not involved.
+After roughly half of all S3 cycles the Synaptics TM3471 (LEN2073) comes back
+reporting on a 12.5 ms (80 Hz, PS/2-rate) clock with ~1 in 4 frames merged
+into 23–24 ms, plus occasional 170–620 ms stalls. Healthy is a flat 15 ms
+(~67 Hz RMI4 clock; p90 = median, max ≈ 16 ms). Felt as subtle mushiness,
+often not noticed at all — subjective feel is not a reliable detector; the
+evtest `SYN_REPORT` histogram is. libinput is not involved.
 
-Reproduction is **nondeterministic** (~50% of cycles): degraded after sleeps of
-54 s, 60 s, 39 min, 18 h, 90 s; clean after 7, 10, 18, 23, 45 s and one 93 s.
+The state is re-rolled by every suspend and does not persist: a degraded pad
+comes back clean after the next clean roll (confirmed after a 22 h sleep).
+Sleep length, wake method, lock screen, fingerprint reader, touching the pad
+at wake, `rtcwake` vs `systemctl suspend`: none correlate.
 
-## Ruled out by measurement
+## Mechanism as understood (2026-08-28)
 
-- The ASF driver: no collisions / NAKs / retries / wedge resets while degraded;
-  the fix never touches `i2c_piix4`.
-- Sleep duration, `rtcwake` vs `systemctl suspend`, lock screen, fingerprint
-  reader (USB 06cb:00bd), touching the pad at wake.
-- PS/2-vs-SMBus resume ordering: identical in clean and degraded runs
-  (`F5` to the pad, then first SMBus read 120 ms later; enforced by the
-  `device_link` in `psmouse-smbus.c`).
-- The SMBus resume sequence: ftrace `smbus` events are byte-identical between
-  clean (`trace_L`) and degraded (`trace_L2`) runs — same writes, same replies.
+`rmi_smb_resume()` runs the SMBus-mode activation twice before functions are
+resumed: `rmi_smb_reset()` directly, then again via `rmi_reset()` →
+`xport->ops->reset`. Activation = clear the host's mapping cache +
+`rmi_smb_enable_smbus_mode()` (msleep(reset_delay_ms=30), then the SMBus
+version read that "activates the touchpad").
 
-## Mechanism (software side)
+When issued inside the resume window that activation **half-sticks**: the pad
+answers on SMBus and reports touches, but scans on its 80 Hz PS/2-mode clock.
+The *identical* activation issued later sticks fully:
 
-- Suspend: `psmouse_cleanup()` (`psmouse-base.c`) sends the pad `F5` (disable),
-  **`F6` (reset to bare PS/2 defaults)**, `F4` (enable stream) — to a device the
-  SMBus stack owns.
-- Resume: `psmouse_smbus_reconnect()` sends only `F5`; `rmi_smb_resume()` does
-  `rmi_smb_reset()` (SMBus-mode re-enable) + `rmi_reset()` + function resume.
-- The Synaptics PS/2 mode set at attach (`synaptics_set_mode`, before the
-  InterTouch handoff) is never re-applied. After that, the pad's state is a
-  coin flip — plausibly a race inside the pad between its PS/2 reset and the
-  SMBus-mode re-enable.
+| when the activation is issued | result |
+|---|---|
+| during resume (stock, twice) | ~50% degraded |
+| 2.2 s after `suspend exit`, before first touch (T4, delayed work) | still degraded 1/3 |
+| 60 s after wake, untouched (T5) | 0/3 degraded — too few samples |
+| minutes later, by hand (`xport_reset` sysfs) | cured 5/5 |
 
-Verified fix: full re-attach
-`modprobe -r psmouse; rmmod rmi_smbus; modprobe rmi_smbus; modprobe psmouse synaptics_intertouch=1`.
-Caveat: companion removal is deferred work; a re-attach racing it fails with
-`-EEXIST` and lands on PS/2 fallback — check `ls /sys/bus/i2c/devices | grep 11-`
-is empty, or just redo it. **Never** `echo auto > /sys/bus/serio/devices/serio1/protocol`
-(same race, drops to PS/2 fallback).
+Ordering relative to the F01 ctrl0 write (T2) and to TrackPoint/F03 traffic
+(T3) does not matter. A longer pre-activation delay (T1, 30 → 250 ms) makes it
+worse if anything (7/8). No config register differs between states
+(`regdump`: F01 ctrl 0..15 + data0, F12 ctrl 0..63, F03 ctrl are
+byte-identical clean vs degraded vs cured). F03 traffic is negligible while
+degraded (3 vs 627 F12 IRQs). The ASF driver logs nothing during degraded
+windows.
+
+Open: the width of the window (somewhere between 3 s and 60 s), whether first
+touch matters (T5 says probably not), and what the pad exposes that says
+"activation stuck" so a fix can be self-detecting instead of a timer.
+
+## What cures a degraded pad (verified by capture, no suspend in between)
+
+- **`rmi_reset()` alone** (= `rmi_smb_reset()`: mapping-cache clear +
+  `rmi_smb_enable_smbus_mode()`) — **5/5**, via the `xport_reset` sysfs
+  trigger in the experimental `rmi_core`. This is the minimal cure.
+- `rmi4_smbus` driver unbind + bind, no PS/2 traffic — 3/3
+- full re-attach (`modprobe -r psmouse; rmmod rmi_smbus; modprobe rmi_smbus;
+  modprobe psmouse synaptics_intertouch=1`) — yes (original finding)
+
+Does not cure: rebinding the TrackPoint driver on the F03 pass-through.
+`rmi_driver_process_config_requests()` was never reached as a cure (the
+activation always came first).
+
+## Refuted
+
+- **F6/F4 in `psmouse_cleanup()` at suspend** (the original plan's step 1):
+  skipping them for SMBus companions — 5/8 degraded. Not the cause.
+- `reset_delay_ms` 30 → 250 — 7/8.
+- Config-register drift — regdump identical.
+- TrackPoint / F03 ordering — t3: reconnecting the TrackPoint through F03
+  neither degrades a clean pad nor cures a degraded one.
+- ASF collisions — none logged during degraded captures.
+
+## Things that kill the pad outright (do not do these)
+
+Tissoires' 2017 finding reproduced: **F4** (PS/2 enable) to the pad via the
+i8042 → pad deaf on SMBus (-ENXIO). F5 afterwards does not revive it; only an
+SMBus-side re-init does. Consequences for the harness:
+
+- never `echo auto > /sys/bus/serio/devices/serio1/protocol` (races the
+  deferred companion removal, lands on PS/2 fallback)
+- never `drvctl reconnect` on serio1: it reconnects the subtree and the
+  TrackPoint's full PS/2 re-init goes through the pad → deaf
+- `psmouse/ps2cmd.py` can poke the aux port for experiments; F4 means a
+  re-attach afterwards
+
+Recovery from any of these: `psmouse/load.sh stock` (retries the -EEXIST
+race). Check health with `grep Name= /proc/bus/input/devices | grep TM3471`.
+
+## Results table
+
+Test rig: `psmouse/`, `rmi4/` (READMEs there). Out-of-tree builds of
+`psmouse`, `rmi_core`, `rmi_smbus` from v7.1.9 sources. Loops re-attach the
+pad before every suspend so cycles are independent; one touch-triggered
+capture per wake. Degraded = 12/13 ms mode with a 23–24 ms tail; clean =
+14/15 ms only (`degraded()` awk: `/^1[23]ms/{d+=$2} /^1[45]ms/{c+=$2}
+END{exit !(d>c)}`). Logs: `psmouse/ab/`, `rmi4/probe*.log`, `rmi4/t3.log`.
+
+| # | change under test | degraded / cycles |
+|---|---|---|
+| stock reference | — | ~50% |
+| 1 | `psmouse_cleanup()` skips F6/F4 for SMBus companions | 5 / 8 |
+| T1 | `reset_delay_ms` 30 → 250 | 7 / 8 |
+| T2 | `rmi_smb_enable_smbus_mode()` again after `rmi_driver_resume()` | 1 / 2 (stopped) |
+| T4 | same, from delayed work 3 s after resume (fired at 2.2 s, before first touch) | 1 / 3 (stopped) |
+| T5 | 60 s untouched after wake, then activation, then capture | 0 / 3 (2 verified untouched) — inconclusive |
+
+Since 2026-08-28 the machine has gone through six unmeasured resumes on
+stock behaviour (experimental `rmi_core`/`rmi_smbus` still loaded, all knobs
+off; stock returns on reboot). Two long sleeps (22 h, 22 h) felt clean;
+unmeasured, and two samples say nothing at 50%.
+
+## Next steps (need a person at the console)
+
+Each cycle: script suspends with a 90 s RTC alarm, you wake by lid or
+keyboard (not by touching the pad), hands off for the wait, one swipe.
+About 2 min per cycle.
+
+1. **Finish T5** — 5 more untouched-60 s cycles (`rmi4/probe9.sh`). 8/8
+   clean puts the fluke chance under 0.5%; any degraded cycle answers the
+   question the other way and step 2 is moot.
+2. **Bisect the window** — 5 cycles at 30 s, 5 at 10 s, via
+   `resume_reactivate_delay_ms` on the experimental `rmi_smbus`
+   (`rmi4/probe8.sh`). Total for 1+2: 10–15 cycles, 20–30 min.
+3. **Find a pad-side signal.** ftrace `smbus` events around a late
+   `xport_reset` on a degraded pad vs the same on a clean pad: does the
+   version-read reply, a query register, or the first F12 packet differ?
+   Also compare the first few F12 interrupt intervals after resume — the
+   12.5 ms cadence itself may be the cheapest detector.
+4. **Upstream shape**, in order of preference:
+   1. self-detecting: re-run the activation when a post-resume check (from
+      step 3) says it did not stick;
+   2. re-run the activation on the first Host Notify after resume (the pad
+      is demonstrably awake by then; needs to be shown to be outside the
+      window);
+   3. timer in `rmi_smb_resume()` — last resort, only with the bisect data
+      to justify the number.
+   Submit as its own series to linux-input (Dmitry Torokhov, Benjamin
+   Tissoires) with the capture evidence; independent of the i2c-piix4 RFC.
+5. **Local stopgap** if the upstream path drags: a systemd `system-sleep`
+   post hook that writes `xport_reset` after a delay outside the window —
+   requires the experimental `rmi_core` (or the patch) installed via DKMS.
+   Not done; nothing is installed for this thread.
 
 ## Upstream context
 
 - Tissoires 2017 series deliberately made resume a bare `F5`: a fully
   PS/2-initialised pad goes deaf on SMBus. "Force a full reconnect on resume"
-  would be rejected on the merits.
+  would be rejected on the merits (and is now known to be unnecessary).
   - https://lkml.kernel.org/lkml/20170110161128.7441-7-benjamin.tissoires@redhat.com/
   - https://lkml.rescloud.iu.edu/1609.3/01872.html
   - https://www.mail-archive.com/linux-kernel@vger.kernel.org/msg1240718.html (retry on resume)
 - 2023: deactivate delay for T440p
   https://patches.linaro.org/project/linux-input/patch/20230726025256.81174-1-jefferymiller@google.com/
 - https://www.spinics.net/lists/linux-input/msg78698.html
-- New here: the pad comes back *alive* but in a different reporting mode; nobody
-  has measured that.
+- New here: the pad comes back *alive* but on a different reporting clock;
+  nobody has measured that, and the cure is the driver's own activation
+  issued late.
 
-## Plan
+## History
 
-1. **Minimal generic fix candidate (test first).** In `psmouse_cleanup()`, for
-   `PSMOUSE_SYNAPTICS_SMBUS` / `PSMOUSE_ELANTECH_SMBUS` skip `PSMOUSE_CMD_RESET_DIS`
-   (`F6`) and `PSMOUSE_CMD_ENABLE` (`F4`) — or give the companion protocol its own
-   `cleanup`. Argument: the SMBus-companion protocol must not reset a device it
-   handed off. If A/B shows the degradation gone, no machine gating is needed.
-   - Build: DKMS'd `psmouse` from the 7.1.9 source (same approach as the
-     i2c-piix4 package: copy `drivers/input/mouse/`, out-of-tree kbuild).
-   - Test: ≥10 `systemctl suspend` cycles each, stock vs patched, ≥60 s sleeps
-     (RTC alarm: `rtcwake -m no -s 90; systemctl suspend`), touch-triggered
-     20 s capture (`motw.sh`) after each. Degraded = 12/13 ms mode with a
-     23–24 ms tail; clean = 14/15 ms only.
-2. **If it must be conditional**, gating in order of upstream preference:
-   1. Self-detecting: find a register (F01/F12 control, Synaptics mode) that
-      differs between states; re-apply only then. Not found yet — the driver's
-      own resume reads are identical; would need probing more of the pad.
-   2. PNP-ID table in `synaptics.c` (pattern: `smbus_pnp_ids`,
-      `forcepad_pnp_ids`, `topbuttonpad_pnp_ids`); `LEN2073` entry.
-   3. DMI — last resort.
-3. Fallback if (1) fails: re-apply the Synaptics mode on reconnect *before*
-   `F5`, gated per (2).
-4. Local stopgap (not upstream): systemd `system-sleep` post hook doing the
-   re-attach ~2 s after resume.
-5. Submit as its own series to linux-input (Dmitry Torokhov, Benjamin
-   Tissoires), with the trace evidence; independent of the i2c-piix4 ASF RFC.
+The 2026-08-27 plan assumed the cause was `psmouse_cleanup()` sending F5/F6/F4
+to a device the SMBus stack owns, with the fix being to skip the reset for
+SMBus companions and, failing that, re-applying the Synaptics PS/2 mode before
+F5 (gated by PNP ID `LEN2073` or DMI). Step 1 was tested first and refuted;
+the rest of that plan is dropped. Original ruled-out list (ASF driver, sleep
+duration, wake method, lock screen, fingerprint reader, PS/2-vs-SMBus resume
+ordering, byte-identical SMBus resume traces clean vs degraded) still stands.
 
+## Experimental knobs (all out-of-tree, nothing installed)
 
-## Results 2026-08-27/28 (executing the plan)
-
-Test rig: `psmouse/`, `rmi4/` — out-of-tree builds of `psmouse`, `rmi_core`,
-`rmi_smbus` from the v7.1.9 sources (fetched from stable cgit; the local
-mainline tree is 7.2-rc). Loops re-attach the pad before every suspend so
-cycles are independent (the state is re-rolled by each suspend; it does not
-persist). One touch-triggered capture per wake. Logs: `psmouse/ab/`,
-`rmi4/probe*.log`, `rmi4/t3.log`.
-
-| # | change under test | degraded / cycles |
-|---|---|---|
-| stock reference (earlier runs) | — | ~50% |
-| 1 | `psmouse_cleanup()` skips F6/F4 for SMBus companions | 5 / 8 |
-| T1 | `reset_delay_ms` 30 → 250 | 7 / 8 |
-| T2 | `rmi_smb_enable_smbus_mode()` again after `rmi_driver_resume()` | 1 / 2 (stopped) |
-| T4 | same, from delayed work 3 s after resume (fired 2.2 s after `suspend exit`, before first touch) | 1 / 3 (stopped) |
-| T5 | 60 s untouched after wake, then activation, then capture | 0 / 3 (2 verified untouched) — inconclusive, stopped (user away) |
-
-**Plan step 1 is refuted**: F6/F4 in `psmouse_cleanup()` is not the cause.
-
-What cures a degraded pad (each verified by capture, no suspend in between):
-
-- full re-attach (known) — yes
-- `rmi4_smbus` driver unbind+bind, no PS/2 traffic — yes, 3/3
-- **`rmi_reset()` alone = `rmi_smb_reset()` = mapping-cache clear +
-  `rmi_smb_enable_smbus_mode()` (30 ms, then SMBus version read)** — yes,
-  **5/5** (sysfs `xport_reset` trigger in the experimental `rmi_core`)
-- `rmi_driver_process_config_requests()` — never reached (B always cured first)
-- rebinding the TrackPoint driver on the F03 pass-through — no
-- bare F5 via `drvctl reconnect` — invalid test: it reconnects the subtree, the
-  TrackPoint re-init through the pad leaves the pad deaf on SMBus (-ENXIO)
-
-What does *not* degrade a clean pad: TrackPoint `reconnect` through F03 (t3).
-
-Things that kill the pad outright (Tissoires' finding reproduced): F4 (PS/2
-enable) to the pad via the i8042 → SMBus deaf; F5 afterwards does not revive
-it; only an SMBus-side re-init does. (`psmouse/ps2cmd.py` pokes the aux port
-via /dev/port.)
-
-Register state: `regdump` (F01 ctrl 0..15, F01 data0, F12 ctrl 0..63, F03
-ctrl) is byte-identical clean vs degraded vs after-cure. Not a config value.
-F03 interrupt rate is negligible in the degraded state (3 vs 627 F12 IRQs).
-
-**Mechanism as now understood**: the resume path already runs the SMBus-mode
-activation (twice: `rmi_smb_reset` then `rmi_reset`) before `rmi_driver_resume`,
-and it only half-sticks — the pad works but scans on its 80 Hz PS/2-mode
-clock. The *same* activation issued later sticks. 2.2 s after resume is
-too early (T4), 60 s is fine (T5, few samples), minutes is always fine.
-Ordering relative to the F01 ctrl0 write (T2) and to TrackPoint traffic (T3)
-does not matter; a longer pre-activation delay (T1) does not help.
-Open: the width of the window (bisect between 3 s and 60 s) and whether
-"first touch" plays a role (T5 says probably not; needs ~5 more untouched
-cycles at ~50% base rate to be sure).
-
-Next when a person is at the console (each cycle needs one swipe; T5 cycles
-also need 60 s hands-off after wake):
-1. Finish T5 (≥5 more cycles). If clean: bisect the delay (10 s, 30 s) with
-   `resume_reactivate_delay_ms` on the experimental `rmi_smbus`.
-2. Then look for a pad-side signal that says "activation stuck" so the fix
-   can be self-detecting rather than a timer — e.g. compare the SMBus version
-   read reply / mapping-table behaviour / a query register right after resume
-   vs after a successful late activation (ftrace `smbus` events around
-   `xport_reset`).
-3. Upstream shape if it must be a timer: delayed re-activation in
-   `rmi_smb_resume()` is ugly; better is re-activating on the first Host
-   Notify after resume, or an F01-status-driven check — needs (2).
-
-Experimental knobs (all out-of-tree, nothing installed):
 - `psmouse/patched`: no F6/F4 for companions; `psmouse/delay`:
   `synaptics_smbus_reset_delay=` (ms)
 - `rmi4/patched/rmi_core.ko`: `resume_reconfig=` param; sysfs on
@@ -163,10 +180,17 @@ Experimental knobs (all out-of-tree, nothing installed):
   `resume_reactivate_delay_ms=`
 - loaders: `psmouse/load*.sh`, `rmi4/load-rmi.sh`, `rmi4/load-smbus.sh`;
   cycle drivers `rmi4/probe5.sh` (arm-by-arm), `probe6` (delay), `probe7`,
-  `probe8` (delayed reactivation), `probe9` (untouched-60s)
-- gotcha: `motw*.sh` needs `timeout --foreground` or Ctrl-C can't reach a
-  blocked evtest (pad deaf) and the root pane wedges; `herdr pane run` queues
-  text behind a foreground job.
+  `probe8` (delayed reactivation), `probe9` (untouched-60 s)
+
+## Harness gotchas
+
+- Root commands go through the herdr pane; `herdr pane run` queues text
+  behind a foreground job, so a "successful" command may not have run yet —
+  check timestamps on result files.
+- `motw*.sh` needs `timeout --foreground` or Ctrl-C cannot reach a blocked
+  evtest (pad deaf) and the root pane wedges.
+- Wake the laptop by keyboard or lid; waking by touching the pad
+  contaminates the untouched-window cycles (probe9 cycle 1).
 
 ## Also pending (ASF driver, separate)
 
@@ -176,7 +200,7 @@ re-enables it). One line; needs rebuild + DKMS reinstall.
 
 ## Artifacts
 
-Copied into `resume-investigation/`: `motw.sh` (touch-triggered 20 s histogram),
-`m31.sh`, `snap.sh` (ASF regs via /dev/port), `instr2.sh` (i8042.debug + dyndbg +
+`resume-investigation/`: `motw.sh` (touch-triggered 20 s histogram), `m31.sh`,
+`snap.sh` (ASF regs via /dev/port), `instr2.sh` (i8042.debug + dyndbg +
 ftrace smbus across a suspend), `trace_L.txt`/`dmesg_L.txt` (clean),
 `trace_L2.txt`/`dmesg_L2.txt` (degraded).
