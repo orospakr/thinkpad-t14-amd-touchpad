@@ -1,0 +1,1435 @@
+[24996.274924] wlp3s0: deauthenticating from 74:83:c2:8e:d4:35 by local choice (Reason: 3=DEAUTH_LEAVING)
+[24996.663880] usb 3-3: reset full-speed USB device number 2 using xhci_hcd
+[24996.942824] PM: suspend entry (deep)
+[24997.022750] Filesystems sync: 0.079 seconds
+[24997.121594] Freezing user space processes
+[24997.124374] Freezing user space processes completed (elapsed 0.002 seconds)
+[24997.124381] OOM killer disabled.
+[24997.124384] Freezing remaining freezable tasks
+[24997.125813] Freezing remaining freezable tasks completed (elapsed 0.001 seconds)
+[24997.125863] printk: Suspending console(s) (use no_console_suspend to debug)
+[24997.135139] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[24997.147426] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[24997.159841] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[24997.169350] i8042: [24993604] ed -> i8042 (kbd-data)
+[24997.170742] i8042: [24993605] ** <- i8042 (interrupt, 0, 1)
+[24997.170763] i8042: [24993605] 02 -> i8042 (kbd-data)
+[24997.172762] i8042: [24993607] ** <- i8042 (interrupt, 0, 1)
+[24997.172811] i8042: [24993607] d4 -> i8042 (command)
+[24997.173356] i8042: [24993608] f5 -> i8042 (parameter)
+[24997.175415] queueing ieee80211 work while going to suspend
+[24997.185812] i8042: [24993620] fa <- i8042 (interrupt, 1, 12)
+[24997.185834] i8042: [24993620] d4 -> i8042 (command)
+[24997.186002] i8042: [24993620] f6 -> i8042 (parameter)
+[24997.189826] i8042: [24993624] fa <- i8042 (interrupt, 1, 12)
+[24997.189868] i8042: [24993624] d4 -> i8042 (command)
+[24997.190039] i8042: [24993624] f4 -> i8042 (parameter)
+[24997.193841] i8042: [24993628] fa <- i8042 (interrupt, 1, 12)
+[24997.193890] i8042: [24993628] f6 -> i8042 (kbd-data)
+[24997.194182] i8042: [24993629] ** <- i8042 (interrupt, 0, 1)
+[24997.194231] i8042: [24993629] 60 -> i8042 (command)
+[24997.194349] i8042: [24993629] 74 -> i8042 (parameter)
+[24997.194570] i8042: [24993629] aa -> i8042 (command)
+[24997.194738] i8042: [24993629] 55 <- i8042 (return)
+[24997.194743] i8042: [24993629] 60 -> i8042 (command)
+[24997.194803] i8042: [24993629] 47 -> i8042 (parameter)
+[24997.517193] ACPI: EC: interrupt blocked
+[24997.573343] ACPI: PM: Preparing to enter system sleep state S3
+[24997.577496] ACPI: EC: event blocked
+[24997.577499] ACPI: EC: EC stopped
+[24997.577501] ACPI: PM: Saving platform NVS memory
+[24997.578219] Disabling non-boot CPUs ...
+[24997.581912] smpboot: CPU 15 is now offline
+[24997.587314] smpboot: CPU 14 is now offline
+[24997.592477] smpboot: CPU 13 is now offline
+[24997.597635] smpboot: CPU 12 is now offline
+[24997.602677] smpboot: CPU 11 is now offline
+[24997.608030] smpboot: CPU 10 is now offline
+[24997.613605] smpboot: CPU 9 is now offline
+[24997.618470] smpboot: CPU 8 is now offline
+[24997.623718] smpboot: CPU 7 is now offline
+[24997.628778] smpboot: CPU 6 is now offline
+[24997.633174] smpboot: CPU 5 is now offline
+[24997.637160] smpboot: CPU 4 is now offline
+[24997.640730] smpboot: CPU 3 is now offline
+[24997.644186] smpboot: CPU 2 is now offline
+[24997.648086] smpboot: CPU 1 is now offline
+[24997.649514] Spectre V2 : Update user space SMT mitigation: STIBP off
+[24997.650056] ACPI: PM: Low-level resume complete
+[24997.650085] ACPI: EC: EC started
+[24997.650086] ACPI: PM: Restoring platform NVS memory
+[24997.660413] AMD-Vi: Virtual APIC enabled
+[24997.748459] AMD-Vi: Virtual APIC enabled
+[24997.748469] LVT offset 0 assigned for vector 0x400
+[24997.749211] Enabling non-boot CPUs ...
+[24997.749295] smpboot: Booting Node 0 Processor 1 APIC 0x1
+[24997.752570] Spectre V2 : Update user space SMT mitigation: STIBP always-on
+[24997.752614] CPU1 is up
+[24997.752696] smpboot: Booting Node 0 Processor 2 APIC 0x2
+[24997.755740] CPU2 is up
+[24997.755785] smpboot: Booting Node 0 Processor 3 APIC 0x3
+[24997.758867] CPU3 is up
+[24997.758947] smpboot: Booting Node 0 Processor 4 APIC 0x4
+[24997.762571] CPU4 is up
+[24997.762654] smpboot: Booting Node 0 Processor 5 APIC 0x5
+[24997.765779] CPU5 is up
+[24997.765848] smpboot: Booting Node 0 Processor 6 APIC 0x6
+[24997.768970] CPU6 is up
+[24997.769022] smpboot: Booting Node 0 Processor 7 APIC 0x7
+[24997.772159] CPU7 is up
+[24997.772209] smpboot: Booting Node 0 Processor 8 APIC 0x8
+[24997.775380] CPU8 is up
+[24997.775425] smpboot: Booting Node 0 Processor 9 APIC 0x9
+[24997.778640] CPU9 is up
+[24997.778686] smpboot: Booting Node 0 Processor 10 APIC 0xa
+[24997.781900] CPU10 is up
+[24997.781949] smpboot: Booting Node 0 Processor 11 APIC 0xb
+[24997.785241] CPU11 is up
+[24997.785289] smpboot: Booting Node 0 Processor 12 APIC 0xc
+[24997.788630] CPU12 is up
+[24997.788688] smpboot: Booting Node 0 Processor 13 APIC 0xd
+[24997.792097] CPU13 is up
+[24997.792144] smpboot: Booting Node 0 Processor 14 APIC 0xe
+[24997.795539] CPU14 is up
+[24997.795587] smpboot: Booting Node 0 Processor 15 APIC 0xf
+[24997.799016] CPU15 is up
+[24997.800671] ACPI: PM: Waking up from system sleep state S3
+[24997.855989] ACPI: EC: interrupt unblocked
+[24997.897104] usb usb7: root hub lost power or was reset
+[24997.897113] usb usb5: root hub lost power or was reset
+[24997.897117] usb usb6: root hub lost power or was reset
+[24997.897132] xhci-pci-renesas 0000:06:00.0: Zeroing 64bit base registers, expecting fault
+[24997.897195] ACPI: EC: event unblocked
+[24997.897467] amdgpu 0000:07:00.0: [drm] PCIE GART of 1024M enabled.
+[24997.897471] amdgpu 0000:07:00.0: [drm] PTB located at 0x000000F43FC00000
+[24997.897497] amdgpu 0000:07:00.0: PSP is resuming...
+[24997.897578] amdgpu 0000:07:00.0: reserve 0x400000 from 0xf43f800000 for PSP TMR
+[24997.899630] i8042: [24994235] aa -> i8042 (command)
+[24997.900115] i8042: [24994235] 55 <- i8042 (return)
+[24997.900120] i8042: [24994235] Interrupt 1, without any data
+[24997.900122] i8042: [24994235] 60 -> i8042 (command)
+[24997.900180] i8042: [24994235] 74 -> i8042 (parameter)
+[24997.900239] i8042: [24994235] 60 -> i8042 (command)
+[24997.900350] i8042: [24994236] 56 -> i8042 (parameter)
+[24997.900468] i8042: [24994236] 60 -> i8042 (command)
+[24997.900580] i8042: [24994236] 47 -> i8042 (parameter)
+[24997.900651] i8042: [24994236] f5 -> i8042 (kbd-data)
+[24997.900853] i8042: [24994236] ** <- i8042 (interrupt, 0, 1)
+[24997.900876] i8042: [24994236] ed -> i8042 (kbd-data)
+[24997.901150] i8042: [24994236] ** <- i8042 (interrupt, 0, 1)
+[24997.901169] i8042: [24994236] 02 -> i8042 (kbd-data)
+[24997.902274] i8042: [24994237] ** <- i8042 (interrupt, 0, 1)
+[24997.902303] i8042: [24994237] d4 -> i8042 (command)
+[24997.902469] i8042: [24994238] f5 -> i8042 (parameter)
+[24997.905213] i8042: [24994240] fa <- i8042 (interrupt, 1, 12)
+[24997.905244] i8042: [24994240] f3 -> i8042 (kbd-data)
+[24997.905517] i8042: [24994241] ** <- i8042 (interrupt, 0, 1)
+[24997.907082] i8042: [24994242] 00 -> i8042 (kbd-data)
+[24997.908312] i8042: [24994244] ** <- i8042 (interrupt, 0, 1)
+[24997.908323] i8042: [24994244] f4 -> i8042 (kbd-data)
+[24997.911924] i8042: [24994247] ** <- i8042 (interrupt, 0, 1)
+[24997.911946] i8042: [24994247] ed -> i8042 (kbd-data)
+[24997.912829] i8042: [24994248] ** <- i8042 (interrupt, 0, 1)
+[24997.912850] i8042: [24994248] 02 -> i8042 (kbd-data)
+[24997.914259] i8042: [24994249] ** <- i8042 (interrupt, 0, 1)
+[24997.914273] i8042: [24994249] f3 -> i8042 (kbd-data)
+[24997.914416] i8042: [24994250] ** <- i8042 (interrupt, 0, 1)
+[24997.914434] i8042: [24994250] 00 -> i8042 (kbd-data)
+[24997.914654] i8042: [24994250] ** <- i8042 (interrupt, 0, 1)
+[24997.943469] nvme nvme0: 16/0/0 default/read/poll queues
+[24998.010517] amdgpu 0000:07:00.0: RAS: optional ras ta ucode is not available
+[24998.025151] amdgpu 0000:07:00.0: RAP: optional rap ta ucode is not available
+[24998.025154] amdgpu 0000:07:00.0: SECUREDISPLAY: optional securedisplay ta ucode is not available
+[24998.025158] amdgpu 0000:07:00.0: SMU is resuming...
+[24998.025648] amdgpu 0000:07:00.0: dpm has been disabled
+[24998.026889] amdgpu 0000:07:00.0: SMU is resumed successfully!
+[24998.028329] amdgpu 0000:07:00.0: kiq ring mec 2 pipe 1 q 0
+[24998.037928] amdgpu 0000:07:00.0: [drm] DMUB hardware initialized: version=0x0101002B
+[24998.177700] usb 3-3: reset full-speed USB device number 2 using xhci_hcd
+[24998.745207] amdgpu 0000:07:00.0: ring gfx uses VM inv eng 0 on hub 0
+[24998.745217] amdgpu 0000:07:00.0: ring comp_1.0.0 uses VM inv eng 1 on hub 0
+[24998.745221] amdgpu 0000:07:00.0: ring comp_1.1.0 uses VM inv eng 4 on hub 0
+[24998.745224] amdgpu 0000:07:00.0: ring comp_1.2.0 uses VM inv eng 5 on hub 0
+[24998.745226] amdgpu 0000:07:00.0: ring comp_1.3.0 uses VM inv eng 6 on hub 0
+[24998.745229] amdgpu 0000:07:00.0: ring comp_1.0.1 uses VM inv eng 7 on hub 0
+[24998.745232] amdgpu 0000:07:00.0: ring comp_1.1.1 uses VM inv eng 8 on hub 0
+[24998.745234] amdgpu 0000:07:00.0: ring comp_1.2.1 uses VM inv eng 9 on hub 0
+[24998.745237] amdgpu 0000:07:00.0: ring comp_1.3.1 uses VM inv eng 10 on hub 0
+[24998.745239] amdgpu 0000:07:00.0: ring kiq_0.2.1.0 uses VM inv eng 11 on hub 0
+[24998.745242] amdgpu 0000:07:00.0: ring sdma0 uses VM inv eng 0 on hub 8
+[24998.745245] amdgpu 0000:07:00.0: ring vcn_dec uses VM inv eng 1 on hub 8
+[24998.745248] amdgpu 0000:07:00.0: ring vcn_enc0 uses VM inv eng 4 on hub 8
+[24998.745251] amdgpu 0000:07:00.0: ring vcn_enc1 uses VM inv eng 5 on hub 8
+[24998.745254] amdgpu 0000:07:00.0: ring jpeg_dec uses VM inv eng 6 on hub 8
+[24998.758150] OOM killer enabled.
+[24998.758155] Restarting tasks: Starting
+[24998.764195] Restarting tasks: Done
+[24998.764212] efivarfs: resyncing variable state
+[24998.764615] pci_bus 0000:01: Allocating resources
+[24998.764632] pci_bus 0000:02: Allocating resources
+[24998.764655] pci_bus 0000:03: Allocating resources
+[24998.771439] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[24998.772400] pci_bus 0000:04: Allocating resources
+[24998.772514] pci_bus 0000:05: Allocating resources
+[24998.772528] pci_bus 0000:06: Allocating resources
+[24998.775279] usb 3-3: usbfs: process 476112 (fprintd) did not claim interface 0 before use
+[24998.776413] pci_bus 0000:07: Allocating resources
+[24998.813048] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[24998.839092] efivarfs: finished resyncing variable state
+[24998.839129] random: crng reseeded on system resumption
+[24998.850406] PM: suspend exit
+[24998.853385] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[24998.863078] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[24998.870470] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[24998.877908] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[24998.886041] Generic FE-GE Realtek PHY r8169-0-200:00: attached PHY driver (mii_bus:phy_addr=r8169-0-200:00, irq=MAC)
+[24998.892695] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[24998.900147] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[24998.907573] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[24998.914984] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[24998.922409] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[24998.929820] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[24998.937246] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[24998.988465] r8169 0000:02:00.0 enp2s0f0: Link is Down
+[24999.011373] Generic FE-GE Realtek PHY r8169-0-500:00: attached PHY driver (mii_bus:phy_addr=r8169-0-500:00, irq=MAC)
+[24999.167442] r8169 0000:05:00.0 enp5s0: Link is Down
+[25000.560804] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25000.577941] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25000.590520] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25000.605214] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25000.620263] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25000.634896] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25000.649702] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25000.664762] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25000.679432] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25000.694196] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25000.708981] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25000.723823] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25000.738018] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25000.755788] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25001.759535] wlp3s0: authenticate with a0:91:ca:9f:91:6a (local address=3c:55:76:cd:2a:93)
+[25001.909276] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25001.921408] wlp3s0: send auth to a0:91:ca:9f:91:6a (try 1/3)
+[25001.923810] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25001.930070] wlp3s0: authenticate with a0:91:ca:9f:91:6a (local address=3c:55:76:cd:2a:93)
+[25001.930081] wlp3s0: send auth to a0:91:ca:9f:91:6a (try 1/3)
+[25001.933612] wlp3s0: authenticated
+[25001.935371] wlp3s0: associate with a0:91:ca:9f:91:6a (try 1/3)
+[25001.938655] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25001.952600] wlp3s0: RX AssocResp from a0:91:ca:9f:91:6a (capab=0x1511 status=0 aid=2)
+[25001.953473] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25001.962859] wlp3s0: associated
+[25001.968335] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25001.983138] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25001.996934] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25002.155709] wlp3s0: Limiting TX power to 24 (24 - 0) dBm as advertised by a0:91:ca:9f:91:6a
+[25002.563606] i8042: [24998899] ** <- i8042 (interrupt, 0, 1)
+[25002.564260] i8042: [24998899] ** <- i8042 (interrupt, 0, 1)
+[25002.564738] i8042: [24998900] ** <- i8042 (interrupt, 0, 1)
+[25002.565435] i8042: [24998901] ** <- i8042 (interrupt, 0, 1)
+[25002.644930] i8042: [24998980] ** <- i8042 (interrupt, 0, 1)
+[25002.646154] i8042: [24998981] ** <- i8042 (interrupt, 0, 1)
+[25002.647758] i8042: [24998983] ** <- i8042 (interrupt, 0, 1)
+[25002.651210] i8042: [24998986] ** <- i8042 (interrupt, 0, 1)
+[25004.788741] i8042: [25001124] ** <- i8042 (interrupt, 0, 1)
+[25004.822425] i8042: [25001158] ** <- i8042 (interrupt, 0, 1)
+[25004.857566] i8042: [25001193] ** <- i8042 (interrupt, 0, 1)
+[25005.079568] i8042: [25001415] ** <- i8042 (interrupt, 0, 1)
+[25005.109855] i8042: [25001445] ** <- i8042 (interrupt, 0, 1)
+[25005.140138] i8042: [25001475] ** <- i8042 (interrupt, 0, 1)
+[25005.155942] i8042: [25001491] ** <- i8042 (interrupt, 0, 1)
+[25005.412674] i8042: [25001748] ** <- i8042 (interrupt, 0, 1)
+[25005.443687] i8042: [25001779] ** <- i8042 (interrupt, 0, 1)
+[25005.473974] i8042: [25001809] ** <- i8042 (interrupt, 0, 1)
+[25005.504289] i8042: [25001839] ** <- i8042 (interrupt, 0, 1)
+[25005.535537] i8042: [25001871] ** <- i8042 (interrupt, 0, 1)
+[25005.565767] i8042: [25001901] ** <- i8042 (interrupt, 0, 1)
+[25005.596053] i8042: [25001931] ** <- i8042 (interrupt, 0, 1)
+[25005.627276] i8042: [25001962] ** <- i8042 (interrupt, 0, 1)
+[25005.654634] i8042: [25001990] ** <- i8042 (interrupt, 0, 1)
+[25005.684868] i8042: [25002020] ** <- i8042 (interrupt, 0, 1)
+[25005.715331] i8042: [25002050] ** <- i8042 (interrupt, 0, 1)
+[25005.746376] i8042: [25002082] ** <- i8042 (interrupt, 0, 1)
+[25005.776598] i8042: [25002112] ** <- i8042 (interrupt, 0, 1)
+[25005.806924] i8042: [25002142] ** <- i8042 (interrupt, 0, 1)
+[25005.838136] i8042: [25002173] ** <- i8042 (interrupt, 0, 1)
+[25005.868384] i8042: [25002204] ** <- i8042 (interrupt, 0, 1)
+[25005.903739] i8042: [25002239] ** <- i8042 (interrupt, 0, 1)
+[25005.931941] i8042: [25002267] ** <- i8042 (interrupt, 0, 1)
+[25005.962228] i8042: [25002297] ** <- i8042 (interrupt, 0, 1)
+[25005.992806] i8042: [25002328] ** <- i8042 (interrupt, 0, 1)
+[25006.022783] i8042: [25002358] ** <- i8042 (interrupt, 0, 1)
+[25006.053014] i8042: [25002388] ** <- i8042 (interrupt, 0, 1)
+[25006.083349] i8042: [25002419] ** <- i8042 (interrupt, 0, 1)
+[25006.114020] i8042: [25002449] ** <- i8042 (interrupt, 0, 1)
+[25006.144838] i8042: [25002480] ** <- i8042 (interrupt, 0, 1)
+[25006.175153] i8042: [25002510] ** <- i8042 (interrupt, 0, 1)
+[25006.205352] i8042: [25002541] ** <- i8042 (interrupt, 0, 1)
+[25006.243428] i8042: [25002579] ** <- i8042 (interrupt, 0, 1)
+[25006.265521] i8042: [25002601] ** <- i8042 (interrupt, 0, 1)
+[25006.432358] i8042: [25002768] ** <- i8042 (interrupt, 0, 1)
+[25007.231927] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.246788] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.261606] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.276437] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.291287] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.306092] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.320931] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.335760] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.350603] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.365476] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.380343] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.395132] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.409971] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.425044] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.439669] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.454419] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.469290] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.484115] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.498863] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.513688] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.528510] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.543392] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.558210] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.573025] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.587866] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.602703] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.617609] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.632373] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.647199] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.662014] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.676858] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.691519] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25007.705594] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.201404] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.216395] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.231081] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.245893] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.260745] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.275549] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.290418] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.305233] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.320057] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.334887] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.349766] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.364591] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.379431] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.394276] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.409044] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.423926] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.438734] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.453551] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.468453] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.483236] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.498018] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.512919] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.527729] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.542580] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.557372] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.572262] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.587101] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.601860] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.616681] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.631499] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.646435] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.661271] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.676045] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.690869] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.705714] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.720537] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.735371] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.750211] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.765024] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.779877] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.794721] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.809524] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.824391] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.839232] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.854058] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.868876] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.883728] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.898560] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.913407] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.928231] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.943052] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.957933] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.972755] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25009.987569] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.002414] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.017237] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.032086] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.047010] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.061831] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.076649] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.091495] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.106347] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.121210] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.136038] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.150829] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.165720] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.180525] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.195426] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.210224] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.225090] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.239887] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.254764] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.269590] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.284450] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.299275] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.314047] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.328876] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.343727] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.358557] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.373401] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.388249] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.403069] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.417903] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.432648] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.447549] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.462420] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.477247] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.492113] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.506967] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.521815] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.536629] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.551482] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.566299] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.581135] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.595998] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.610797] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.625630] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.640471] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.655319] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.670173] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.684968] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.699804] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.714634] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.729512] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.744346] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.759163] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.773962] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.788843] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.803641] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.818503] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.833387] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.848171] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.863039] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.877876] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.892688] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.907512] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.922374] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.937169] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.952002] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.966879] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.981677] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25010.996520] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.011361] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.026208] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.041029] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.055878] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.070740] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.085598] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.100444] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.115223] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.130080] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.144887] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.159740] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.174514] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.189444] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.204277] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.219034] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.233928] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.248735] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.263554] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.278413] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.293236] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.308109] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.322955] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.337754] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.352628] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.367454] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.382297] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.397144] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.411986] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.426786] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.441644] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.456459] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.471350] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.486147] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.500947] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.515776] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.530619] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.545462] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.560307] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.575167] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.590070] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.604885] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.619719] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.634589] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.649395] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.664201] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.679009] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.693836] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.708657] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.723493] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.738392] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.753252] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.768022] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.782887] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.797699] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.812512] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.827406] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.842230] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.857102] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.871897] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.886746] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.901629] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.916397] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.931220] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.946056] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.960896] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.975713] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25011.991138] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.005471] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.020333] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.035103] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.049945] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.064793] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.079620] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.094505] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.109287] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.124128] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.138975] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.153840] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.168671] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.183464] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.198279] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.213131] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.227970] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.242804] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.257665] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.272477] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.287384] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.302151] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.317016] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.331818] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.346663] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.361496] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.376359] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.391170] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.406072] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.420857] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.435712] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.450489] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.465384] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.480212] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.495029] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.509891] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.524703] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.539518] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.554404] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.569209] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.584085] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.598908] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.613711] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.628573] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.643362] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.658192] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.672986] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.687909] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.702738] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.717573] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.732391] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.747255] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.762093] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.776898] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.791759] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.806604] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.821434] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.836305] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.851110] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.865952] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.880769] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.895578] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.910443] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.925258] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.940022] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.954866] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.969759] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.984626] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25012.999455] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.014269] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.029103] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.043989] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.058811] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.073655] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.088467] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.103369] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.118164] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.132963] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.147824] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.162639] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.177479] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.192422] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.207145] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.222000] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.236827] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.251575] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.266455] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.281308] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.296172] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.311005] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.325853] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.340668] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.355511] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.370355] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.385210] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.400008] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.414863] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.429723] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.444524] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.459392] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.474210] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.489060] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.503897] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.518733] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.533525] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.548402] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.563246] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.578111] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.592901] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.607757] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.622637] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.637448] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.652272] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.667145] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.680489] [UFW BLOCK] IN=wlp3s0 OUT= MAC=3c:55:76:cd:2a:93:00:17:88:7c:2f:f7:08:00 SRC=192.168.18.13 DST=192.168.18.2 LEN=320 TOS=0x00 PREC=0x00 TTL=64 ID=42938 DF PROTO=UDP SPT=1900 DPT=42876 LEN=300 
+[25013.681930] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.696737] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.711551] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.726437] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.741229] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.756081] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.770936] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.785728] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.800613] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.815429] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.830293] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.845076] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.859935] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.874751] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.889638] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.904460] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.919310] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.934147] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.948992] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.963787] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.978648] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25013.993447] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.008283] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.023123] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.037992] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.052830] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.067609] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.082451] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.097279] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.112115] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.126986] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.141824] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.156670] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.171510] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.186294] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.201185] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.216044] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.230842] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.245666] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.260513] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.275362] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.290158] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.305068] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.319870] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.334721] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.349537] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.364408] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.379177] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.394021] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.408886] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.423696] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.438554] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.453443] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.468260] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.483099] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.497883] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.512753] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.527555] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.542400] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.557281] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.572084] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.586947] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.601750] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.616571] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.631447] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.646220] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.661103] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.675917] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.690763] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.705618] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.720442] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.735316] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.750126] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.764960] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.779810] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.794706] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.809480] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.824381] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.839434] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.854023] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.868814] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.883682] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.898509] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.913298] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.928155] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.942982] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.957845] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.972676] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25014.987482] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.002315] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.017234] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.032028] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.046843] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.061708] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.076590] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.091411] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.106262] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.121071] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.135886] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.150734] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.165577] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.180424] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.195215] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.210048] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.224911] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.239694] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.254613] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.269422] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.284253] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.299066] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.313928] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.328754] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.343575] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.358398] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.373298] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.388095] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.402933] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.417771] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.432621] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.447453] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.462259] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.477123] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.491931] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.506796] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.521657] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.536462] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.551359] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.566113] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.581005] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.595802] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.610667] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.625487] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.640324] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.655173] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.670072] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.684895] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.699706] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.714520] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.729385] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.744194] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.759003] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.773829] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.788710] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.803528] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.818418] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.833204] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.848023] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.862900] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.877723] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.892532] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.907407] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.922237] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.937077] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.951954] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.966768] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.981595] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25015.996440] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.011265] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.026101] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.040906] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.055777] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.070575] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.085464] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.100297] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.115176] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.129990] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.144767] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.159651] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.174462] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.189321] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.204188] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.219011] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.233895] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.248664] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.263512] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.278369] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.293156] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.308011] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.322854] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.337707] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.352535] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.367440] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.382254] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.397041] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.411929] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.426755] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.441548] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.456458] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.471296] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.486098] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.500903] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.515784] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.530603] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.545461] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.560290] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.575092] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.589966] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.604806] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.620220] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.634515] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.649342] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.664164] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.679013] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.693807] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.708683] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.723505] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.738377] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.753172] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.768013] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.782843] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.797676] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.812529] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.827437] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.842243] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.857056] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.871927] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.886738] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.901552] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.916465] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.931258] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.946118] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.960900] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.975763] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25016.990598] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.005466] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.020301] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.035105] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.049943] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.064796] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.079611] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.094475] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.109276] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.124137] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.138949] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.153856] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.168602] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.183497] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.198315] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.213142] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.228028] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.242865] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.257679] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.272501] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.287394] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.302226] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.317065] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.331873] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.346723] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.361517] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.376366] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.391175] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.406044] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.420920] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.435718] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.450562] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.465430] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.480271] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.495091] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.510035] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.524766] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.539589] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.554425] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.569294] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.584116] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.598960] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.613795] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.628595] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.643455] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.658279] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.673134] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.687985] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.702813] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.717649] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.732468] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.747339] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.762173] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.777009] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.791852] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.806713] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.821508] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.836339] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.851178] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.866049] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.880870] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.895695] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.910544] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.925380] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.940214] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.955113] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.969933] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.984764] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25017.999550] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.014435] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.029318] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.044031] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.058897] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.073741] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.088575] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.103478] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.118317] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.133115] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.147975] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.162787] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.177621] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.192519] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.207321] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.222128] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.237000] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.251881] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.266630] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.281447] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.296315] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.311172] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.326028] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.340787] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.355662] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.370472] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.385350] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.400191] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.415057] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.429853] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.444709] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.459563] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.474407] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.489234] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.504034] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.518903] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.533741] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.548549] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.563436] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.578223] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.593097] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.607892] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.622767] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.637586] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.652464] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.667280] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.682082] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.696974] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.711798] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.726612] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.741475] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.756335] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.771142] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.785960] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.800821] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.815618] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.830466] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.845326] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.860124] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.875000] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.889843] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.904636] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.919513] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.934391] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.949195] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.964019] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.978865] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25018.993642] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.008496] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.023363] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.038253] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.053013] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.067865] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.082678] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.097514] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.112402] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.127228] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.142038] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.156880] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.171699] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.186562] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.201598] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.216219] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.231086] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.245903] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.260708] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.275585] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.290405] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.305286] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.320074] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.334983] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.349777] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.364601] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.379481] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.394273] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.409158] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.423971] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.438808] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.453649] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.468469] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.483298] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.498133] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.512943] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.527785] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.542600] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.557465] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.572297] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.587130] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.601992] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.616814] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.631661] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.646509] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.661331] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.676132] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.690996] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.705859] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.720707] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.735542] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.750997] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.765321] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.780045] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.794905] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.809685] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.824552] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.839400] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.854233] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.869042] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.883880] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.898740] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.913561] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.928422] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.943246] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.958078] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.972890] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25019.987744] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.002567] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.017446] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.032260] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.047071] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.061965] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.076809] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.091597] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.106470] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.121268] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.136145] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.151029] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.165806] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.180622] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.195460] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.210346] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.225134] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.239999] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.254827] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.269731] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.284498] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.299968] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.314211] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.328989] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.343831] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.358644] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.373492] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.388432] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.403179] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.418034] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.432904] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.447752] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.462562] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.477365] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.492213] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.507059] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.521882] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.536813] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.551543] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.566589] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.581264] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.596142] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.610961] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.625745] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.640613] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.655399] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.670275] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.685124] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.700131] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.714792] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.729593] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.744430] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.759289] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.774096] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.788969] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.803807] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.818594] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.833457] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.848262] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.863101] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.878006] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.892842] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.907662] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.922513] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.937298] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.952164] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.967009] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.981864] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25020.996640] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.011481] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.026389] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.041153] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.055984] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.070889] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.085641] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.100566] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.115399] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.130221] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.145021] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.159943] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.174748] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.189580] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.204405] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.219230] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.234066] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.248906] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.263708] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.278541] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.293424] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.308230] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.323065] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.337954] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.352737] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.367614] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.382469] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.397283] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.412066] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.426973] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.441790] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.456641] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.471476] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.486311] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.501138] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.515965] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.530853] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.545654] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.560518] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.575386] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.590171] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.605023] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.619893] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.634709] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.649574] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.664502] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.679339] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.694054] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.708925] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.723725] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.738529] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.753496] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.768253] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.783060] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.797931] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.812737] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.827592] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.842440] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.857249] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.872077] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.886949] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.901753] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.916674] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.931519] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.946355] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.961189] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.976007] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25021.990814] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.005634] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.020586] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.035324] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.050154] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.065001] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.079659] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.097295] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.110195] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.313942] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.328798] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.343850] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.358492] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.373283] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.388157] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.402963] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.417813] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.432669] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.447508] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.462361] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.477158] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.492024] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.506854] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.521709] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.536592] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.551428] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.566265] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.581069] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.595940] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.610744] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.625565] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.640446] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.655276] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.670177] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.684953] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.699813] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.714664] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.729480] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.744310] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.759138] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.773986] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.788805] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.803635] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.818445] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.833305] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.848145] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.863002] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.877816] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.892666] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.907481] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.922344] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.937156] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.952049] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.966874] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.981719] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25022.996390] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.013688] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.188963] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.203594] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.218472] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.233314] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.248125] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.262928] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.277779] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.292591] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.307443] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.322275] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.337124] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.351964] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.366777] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.381662] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.396518] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.411347] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.426216] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.441003] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.455856] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.470688] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.485525] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.500350] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.515260] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.530062] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.544927] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.559744] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.574601] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.589453] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.604234] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.619105] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.633969] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.648797] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.663637] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.678478] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.693322] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.708120] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.722973] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.737796] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.752635] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.767468] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.782314] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.797144] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.811998] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.826854] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.841698] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.856528] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.871324] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.886206] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.901041] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.915879] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.930788] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.945589] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.960467] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.975298] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25023.990138] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.004930] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.019831] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.034686] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.049483] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.064357] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.079133] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.094090] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.108795] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.123654] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.138479] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.153321] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.168165] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.183036] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.197870] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.212651] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.227506] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.242397] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.257215] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.272080] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.286918] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.301776] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.316625] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.331480] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.346339] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.361102] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.375966] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.390795] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.405651] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.420509] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.435320] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.450122] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.464936] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.479792] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.494611] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.509468] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.524338] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.539169] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.554032] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.568891] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.584243] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.598560] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.613440] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.628262] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.643180] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.657923] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.672769] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.687636] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.702488] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.717467] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.732136] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.746969] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.761744] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.776615] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.791457] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.806272] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.821119] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.835974] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.850786] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.865630] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.880532] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.895347] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.910153] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.924996] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.939830] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.954673] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.969593] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.984510] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25024.999272] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.013999] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.028903] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.043703] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.058538] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.073417] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.088215] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.103117] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.117939] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.132738] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.147592] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.162473] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.177333] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.192145] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.206978] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.221784] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.236629] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.251479] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.266389] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.281162] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.296037] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.310822] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.325654] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.340512] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.355384] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.370232] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.385041] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.400085] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.414747] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.429579] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.444428] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.459252] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.474065] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.488947] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.503760] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.518653] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.533480] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.548253] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.563092] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.577964] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.592768] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.607581] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.622463] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.637267] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.652137] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.667017] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.681844] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.696697] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.711496] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.726332] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.741150] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.756027] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.770813] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.785713] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.800539] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.815389] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.830191] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.845028] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.859894] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.874762] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.889536] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.904385] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.919092] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.933923] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.948785] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.963663] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.978564] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25025.993406] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25026.008286] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25026.023118] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25026.037904] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25026.052733] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25026.067602] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25026.082467] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25026.097267] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25026.112134] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25026.126969] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25026.141786] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25026.156622] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25026.171482] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25026.186352] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25026.201200] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25026.216025] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25026.230890] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25026.245708] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25026.260501] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25026.275382] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25026.290190] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25026.305021] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00
+[25026.319909] i2c i2c-11: ASF Host Notify from 0x2c: 58 00 00

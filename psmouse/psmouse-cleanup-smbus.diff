@@ -1,0 +1,26 @@
+--- stock/psmouse-base.c	2026-08-27 22:27:04.109800729 -0400
++++ patched/psmouse-base.c	2026-08-27 22:27:22.719434548 -0400
+@@ -1424,6 +1424,15 @@
+ 		psmouse->cleanup(psmouse);
+ 
+ 	/*
++	 * Do not reset a device that has been handed over to its SMBus
++	 * companion: the reset knocks it out of the SMBus mode the RMI4/Elan
++	 * driver expects to find on resume. The companion driver owns the
++	 * device and handles its own suspend/resume.
++	 */
++	if (psmouse->protocol->smbus_companion)
++		goto out;
++
++	/*
+ 	 * Reset the mouse to defaults (bare PS/2 protocol).
+ 	 */
+ 	ps2_command(&psmouse->ps2dev, NULL, PSMOUSE_CMD_RESET_DIS);
+@@ -1434,6 +1443,7 @@
+ 	 */
+ 	ps2_command(&psmouse->ps2dev, NULL, PSMOUSE_CMD_ENABLE);
+ 
++out:
+ 	if (parent) {
+ 		if (parent->pt_deactivate)
+ 			parent->pt_deactivate(parent);

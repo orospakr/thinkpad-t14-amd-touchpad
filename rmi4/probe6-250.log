@@ -1,0 +1,147 @@
+=== Fri Aug 28 10:21:36 PM EDT 2026 start probe6 delay=250 N=8
+OK delay=250 try=1
+=== Fri Aug 28 10:21:38 PM EDT 2026 cycle 1: suspending
+=== Fri Aug 28 10:23:15 PM EDT 2026 cycle 1: resumed; swipe the pad
+--- probe6-250-1
+syn_reports=550
+12ms 150
+13ms 190
+14ms 28
+22ms 15
+23ms 119
+24ms 22
+26ms 2
+35ms 1
+36ms 4
+37ms 1
+47ms 1
+48ms 1
+49ms 3
+24 12 12 12 13 12 13 13 23 23 135 12 12 12 12 23 49 12 12 13 23 13 12 12 13 23 61 13 23 12 13 13 23 12 13 23 723 12 13 23 12 37 36 36 50 35 12 48 12 12 12 13 23 49 13 13 23 13 23 12 12 12 13 23 12 24 12 14 23 13 24 13 22 13 12 12 12 12 13 === cycle 1 DEGRADED (1/1)
+OK delay=250 try=1
+=== Fri Aug 28 10:23:42 PM EDT 2026 cycle 2: suspending
+=== Fri Aug 28 10:25:19 PM EDT 2026 cycle 2: resumed; swipe the pad
+--- probe6-250-2
+syn_reports=259
+12ms 85
+13ms 95
+14ms 12
+15ms 1
+20ms 1
+22ms 1
+23ms 29
+24ms 18
+25ms 4
+26ms 3
+37ms 5
+49ms 1
+74ms 1
+12 20 12 12 12 15 12 22 13 13 24 13 12 12 13 13 13 23 12 14 24 12 13 13 23 12 14 23 12 13 12 12 13 23 3544 25 12 13 24 13 13 13 23 12 12 13 12 14 23 12 13 12 13 13 24 13 23 13 12 12 13 12 13 14 24 12 13 24 12 12 12 13 13 13 14 23 13 14 23 === cycle 2 DEGRADED (2/2)
+OK delay=250 try=1
+=== Fri Aug 28 10:26:04 PM EDT 2026 cycle 3: suspending
+=== Fri Aug 28 10:27:41 PM EDT 2026 cycle 3: resumed; swipe the pad
+--- probe6-250-3
+syn_reports=488
+13ms 2
+14ms 100
+15ms 372
+17ms 1
+29ms 4
+30ms 3
+44ms 1
+45ms 1
+73ms 1
+145ms 1
+511ms 1
+27839ms 1
+13 13 15 14 15 15 15 15 15 14 15 15 14 15 15 15 15 15 15 14 15 15 15 15 15 15 14 15 14 15 15 14 15 15 15 15 15 15 15 15 15 15 15 15 15 14 15 15 15 14 15 15 15 15 14 15 15 15 15 14 15 15 15 14 15 15 15 15 14 15 15 15 15 14 15 15 15 14 15 === cycle 3 clean (2/3 degraded)
+OK delay=250 try=1
+=== Fri Aug 28 10:29:14 PM EDT 2026 cycle 4: suspending
+=== Fri Aug 28 10:30:51 PM EDT 2026 cycle 4: resumed; swipe the pad
+--- probe6-250-4
+syn_reports=802
+12ms 310
+13ms 327
+14ms 27
+23ms 83
+24ms 38
+25ms 5
+36ms 1
+38ms 1
+49ms 1
+63ms 1
+100ms 1
+124ms 1
+149ms 1
+13 24 12 12 24 149 13 24 14 24 14 23 13 13 23 13 12 13 13 23 13 12 13 12 13 13 13 24 13 24 12 12 13 12 13 12 12 12 13 12 12 13 12 12 13 13 13 13 23 13 12 13 12 12 12 12 12 12 12 13 12 12 12 13 12 12 13 12 12 13 12 12 12 12 12 13 12 12 12 === cycle 4 DEGRADED (3/4)
+OK delay=250 try=1
+=== Fri Aug 28 10:31:18 PM EDT 2026 cycle 5: suspending
+=== Fri Aug 28 10:32:56 PM EDT 2026 cycle 5: resumed; swipe the pad
+--- probe6-250-5
+syn_reports=565
+12ms 184
+13ms 215
+14ms 19
+20ms 1
+22ms 1
+23ms 54
+24ms 34
+25ms 7
+26ms 3
+36ms 4
+37ms 8
+38ms 2
+49ms 2
+13 20 13 12 13 13 12 14 23 12 13 13 14 24 13 23 14 23 13 14 23 13 12 13 13 23 12 12 24 137 13 24 13 24 12 13 13 12 13 24 14 23 13 13 24 12 12 13 13 23 12 12 13 13 23 13 12 13 13 24 13 24 13 24 13 23 13 12 13 14 23 13 23 12 14 23 13 23 12 === cycle 5 DEGRADED (4/5)
+OK delay=250 try=1
+=== Fri Aug 28 10:34:22 PM EDT 2026 cycle 6: suspending
+=== Fri Aug 28 10:35:59 PM EDT 2026 cycle 6: resumed; swipe the pad
+--- probe6-250-6
+syn_reports=538
+12ms 121
+13ms 204
+14ms 13
+19ms 1
+22ms 10
+23ms 143
+24ms 27
+26ms 2
+35ms 1
+36ms 5
+48ms 1
+50ms 1
+60ms 1
+19 12 13 23 12 12 24 13 23 13 23 12 13 23 13 24 13 23 13 14 23 12 13 23 13 13 23 12 13 13 23 13 13 23 12 12 13 23 13 13 23 12 24 14 23 13 23 13 24 13 23 24 14 23 13 23 13 13 23 12 13 23 12 12 12 13 22 13 13 23 12 13 23 12 13 23 12 13 13 === cycle 6 DEGRADED (5/6)
+OK delay=250 try=1
+=== Fri Aug 28 10:36:57 PM EDT 2026 cycle 7: suspending
+=== Fri Aug 28 10:38:34 PM EDT 2026 cycle 7: resumed; swipe the pad
+--- probe6-250-7
+syn_reports=55
+12ms 20
+13ms 21
+14ms 2
+22ms 1
+23ms 3
+24ms 7
+30906ms 1
+12 13 12 13 13 24 12 12 14 23 12 13 24 13 23 13 12 13 14 22 13 12 12 13 13 12 13 24 12 12 13 13 24 13 13 23 12 13 24 13 24 12 13 12 13 12 12 13 12 12 13 12 12 24 30906 === cycle 7 DEGRADED (6/7)
+OK delay=250 try=1
+=== Fri Aug 28 10:39:13 PM EDT 2026 cycle 8: suspending
+=== Fri Aug 28 10:40:50 PM EDT 2026 cycle 8: resumed; swipe the pad
+--- probe6-250-8
+syn_reports=534
+12ms 132
+13ms 186
+14ms 27
+19ms 1
+22ms 18
+23ms 135
+24ms 25
+25ms 1
+36ms 2
+49ms 1
+61ms 1
+86ms 1
+95ms 1
+19 12 14 22 13 24 13 23 12 13 23 12 13 23 12 12 13 23 13 13 23 13 13 23 12 12 13 23 13 24 12 12 12 13 23 13 23 13 24 13 23 12 24 14 23 13 24 24 12 23 12 24 86 24 14 23 13 23 13 13 23 12 24 14 23 13 23 12 12 13 23 12 13 23 12 24 13 23 13 === cycle 8 DEGRADED (7/8)
+=== Fri Aug 28 10:42:34 PM EDT 2026 done probe6 delay=250: 7/8 degraded

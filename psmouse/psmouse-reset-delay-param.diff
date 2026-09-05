@@ -1,0 +1,22 @@
+--- src/synaptics.c	2026-08-27 22:26:28.841850198 -0400
++++ delay/synaptics.c	2026-08-28 22:21:16.245293162 -0400
+@@ -32,6 +32,10 @@
+ #include "psmouse.h"
+ #include "synaptics.h"
+ 
++static unsigned int synaptics_smbus_reset_delay = 30;
++module_param(synaptics_smbus_reset_delay, uint, 0644);
++MODULE_PARM_DESC(synaptics_smbus_reset_delay, "reset_delay_ms passed to rmi4_smbus (experiment)");
++
+ /*
+  * The x/y limits are taken from the Synaptics TouchPad interfacing Guide,
+  * section 2.3.2, which says that they should be valid regardless of the
+@@ -1789,7 +1793,7 @@
+ 		psmouse_matches_pnp_id(psmouse, topbuttonpad_pnp_ids) &&
+ 		!SYN_CAP_EXT_BUTTONS_STICK(info->ext_cap_10);
+ 	const struct rmi_device_platform_data pdata = {
+-		.reset_delay_ms = 30,
++		.reset_delay_ms = synaptics_smbus_reset_delay,
+ 		.sensor_pdata = {
+ 			.sensor_type = rmi_sensor_touchpad,
+ 			.axis_align.flip_y = true,

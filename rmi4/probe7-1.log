@@ -1,0 +1,38 @@
+=== Fri Aug 28 10:43:19 PM EDT 2026 start probe7 reactivate=1 N=8
+OK rmi_smbus resume_reactivate=1 try=1
+=== Fri Aug 28 10:43:22 PM EDT 2026 cycle 1: suspending
+=== Fri Aug 28 10:45:00 PM EDT 2026 cycle 1: resumed; swipe the pad
+--- probe7-1-1
+syn_reports=307
+14ms 105
+15ms 193
+16ms 1
+17ms 2
+18ms 2
+175ms 1
+246ms 1
+476ms 1
+20711ms 1
+14 15 14 15 15 15 15 15 14 15 14 15 14 15 15 15 15 15 14 14 18 246 14 14 15 15 14 15 15 14 15 15 14 14 15 15 15 15 15 15 15 15 15 14 15 15 14 15 15 14 15 15 14 15 15 14 15 15 14 15 15 14 17 175 15 15 14 15 15 15 14 15 15 15 15 14 15 15 14 === cycle 1 clean (0/1 degraded)
+OK rmi_smbus resume_reactivate=1 try=1
+=== Fri Aug 28 10:45:33 PM EDT 2026 cycle 2: suspending
+=== Fri Aug 28 10:47:11 PM EDT 2026 cycle 2: resumed; swipe the pad
+--- probe7-1-2
+syn_reports=837
+12ms 338
+13ms 331
+14ms 29
+19ms 1
+22ms 1
+23ms 91
+24ms 38
+50ms 1
+137ms 1
+260ms 1
+433ms 1
+458ms 1
+816ms 1
+12 19 13 12 12 13 12 12 13 13 23 12 14 23 13 12 13 13 13 24 13 12 14 23 24 3069 12 14 23 12 13 12 14 23 12 12 12 12 13 12 12 13 12 12 13 12 12 13 23 12 13 13 13 23 13 13 12 12 12 12 12 12 13 13 23 13 12 13 13 23 13 12 13 12 12 13 12 12 13 === cycle 2 DEGRADED (1/2)
+OK rmi_smbus resume_reactivate=1 try=1
+=== Fri Aug 28 10:47:38 PM EDT 2026 cycle 3: suspending
+=== Fri Aug 28 10:49:14 PM EDT 2026 cycle 3: resumed; swipe the pad

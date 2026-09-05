@@ -1,0 +1,145 @@
+=== Thu Aug 27 10:44:18 PM EDT 2026 start patched N=8 srcversion=5E1790ABDD93A3184C49732
+cycle 0 (pre-suspend baseline): swipe the pad
+syn_reports=54
+12ms 17
+13ms 21
+14ms 4
+23ms 7
+24ms 4
+32689ms 1
+12 12 12 13 12 13 12 13 13 14 23 12 12 13 12 12 12 13 13 13 24 12 13 13 14 23 12 14 23 13 24 13 24 13 14 23 12 13 23 13 12 13 13 24 12 13 23 12 13 12 13 13 23 32689 OK patched try=1
+=== Thu Aug 27 10:45:41 PM EDT 2026 cycle 1: suspending
+=== Thu Aug 27 10:47:20 PM EDT 2026 cycle 1: resumed; swipe the pad
+--- patched-1
+syn_reports=763
+13ms 1
+14ms 113
+15ms 539
+16ms 3
+17ms 1
+18ms 1
+29ms 15
+30ms 25
+44ms 5
+45ms 9
+59ms 3
+60ms 2
+74ms 7
+15 15 15 14 15 15 15 15 15 14 15 15 14 15 15 14 15 15 15 15 14 15 15 15 14 15 15 18 185 15 15 14 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 14 15 15 15 15 15 14 15 15 15 15 15 15 16 14 15 15 15 15 15 15 15 15 15 14 15 15 15 15 14 15 OK patched try=1
+=== Thu Aug 27 10:47:47 PM EDT 2026 cycle 2: suspending
+=== Thu Aug 27 10:49:24 PM EDT 2026 cycle 2: resumed; swipe the pad
+--- patched-2
+syn_reports=365
+12ms 144
+13ms 147
+14ms 13
+22ms 1
+23ms 41
+24ms 14
+25ms 2
+3209ms 1
+6689ms 1
+134980ms 1
+12 25 12 13 12 13 24 13 23 12 13 23 13 12 13 13 24 13 23 12 13 12 13 12 13 13 23 13 12 13 13 23 12 13 13 13 24 13 24 12 13 12 12 13 12 12 13 13 13 13 23 13 12 12 14 23 12 12 12 12 13 13 12 13 13 12 12 13 12 13 13 13 23 12 13 12 13 13 23 OK patched try=1
+=== Thu Aug 27 10:52:03 PM EDT 2026 cycle 3: suspending
+=== Thu Aug 27 10:53:40 PM EDT 2026 cycle 3: resumed; swipe the pad
+--- patched-3
+syn_reports=239
+12ms 42
+13ms 81
+14ms 20
+19ms 1
+20ms 1
+22ms 4
+23ms 70
+24ms 12
+26ms 1
+36ms 2
+37ms 2
+5918ms 1
+9101ms 1
+19 13 13 23 12 14 22 13 13 23 12 13 23 12 12 13 23 12 12 13 23 12 12 13 23 12 12 12 13 13 23 12 13 23 12 13 23 14 23 12 13 23 12 12 13 23 12 12 12 13 13 23 13 23 13 13 24 14 22 12 14 23 12 12 13 24 9101 24 14 23 13 23 13 23 13 23 12 12 13 OK patched try=1
+=== Thu Aug 27 10:54:49 PM EDT 2026 cycle 4: suspending
+=== Thu Aug 27 10:56:25 PM EDT 2026 cycle 4: resumed; swipe the pad
+--- patched-4
+syn_reports=21
+12ms 4
+13ms 7
+23ms 3
+24ms 4
+186ms 1
+10007ms 1
+12696ms 1
+13 24 12 13 23 13 13 23 12 13 13 23 186 12 24 12 13 24 12696 24 10007 OK patched try=1
+=== Thu Aug 27 10:56:56 PM EDT 2026 cycle 5: suspending
+=== Thu Aug 27 10:58:33 PM EDT 2026 cycle 5: resumed; swipe the pad
+--- patched-5
+syn_reports=640
+13ms 1
+14ms 274
+15ms 311
+16ms 1
+17ms 6
+18ms 1
+29ms 16
+30ms 3
+43ms 1
+44ms 2
+58ms 2
+102ms 1
+146ms 1
+15 14 15 15 14 14 14 15 15 15 14 15 14 14 15 15 14 15 15 15 14 15 14 14 14 14 15 15 14 15 14 15 14 15 14 15 14 15 14 15 15 14 15 14 14 15 15 14 14 14 15 15 14 14 14 15 14 15 15 14 709 14 15 14 15 15 15 14 15 14 15 15 15 14 14 15 14 15 14 OK patched try=1
+=== Thu Aug 27 10:59:00 PM EDT 2026 cycle 6: suspending
+=== Thu Aug 27 11:00:38 PM EDT 2026 cycle 6: resumed; swipe the pad
+--- patched-6
+syn_reports=431
+12ms 2
+13ms 2
+14ms 185
+15ms 209
+17ms 6
+18ms 4
+29ms 8
+115ms 1
+144ms 1
+177ms 1
+185ms 1
+264ms 1
+276ms 1
+12 15 12 14 14 15 14 15 14 14 15 14 15 14 15 14 15 15 14 14 15 15 15 14 15 14 14 15 14 15 15 15 15 14 15 14 15 15 14 14 15 14 15 15 14 15 15 14 15 14 14 15 15 15 15 14 15 14 15 14 15 15 14 15 14 15 14 14 14 15 14 15 15 14 15 15 15 14 15 OK patched try=1
+=== Thu Aug 27 11:02:46 PM EDT 2026 cycle 7: suspending
+=== Thu Aug 27 11:04:23 PM EDT 2026 cycle 7: resumed; swipe the pad
+--- patched-7
+syn_reports=676
+12ms 170
+13ms 263
+14ms 10
+22ms 11
+23ms 177
+24ms 24
+25ms 2
+26ms 1
+33ms 1
+36ms 5
+37ms 1
+48ms 1
+49ms 2
+33 13 23 13 13 23 13 13 23 12 24 13 23 12 13 23 12 13 13 23 12 13 23 13 13 23 12 13 23 12 24 13 23 12 12 12 12 13 13 23 12 24 14 22 13 12 12 12 12 12 14 22 13 13 23 12 14 23 12 13 23 13 13 23 13 23 13 23 12 12 12 13 24 13 23 12 13 23 13 OK patched try=1
+=== Thu Aug 27 11:04:56 PM EDT 2026 cycle 8: suspending
+=== Thu Aug 27 11:06:33 PM EDT 2026 cycle 8: resumed; swipe the pad
+--- patched-8
+syn_reports=711
+12ms 319
+13ms 274
+14ms 8
+23ms 54
+24ms 28
+25ms 4
+26ms 2
+37ms 4
+49ms 2
+86ms 1
+136ms 1
+137ms 1
+149ms 1
+13 12 12 13 23 12 13 12 24 186 13 13 23 12 13 12 12 13 12 12 13 13 13 23 12 13 12 12 12 12 12 13 12 13 13 24 13 23 13 12 12 13 12 12 12 12 247 13 13 12 12 12 13 14 23 14 23 12 24 692 13 13 13 24 12 12 13 12 12 13 12 12 13 12 14 23 12 13 12 === Thu Aug 27 11:06:58 PM EDT 2026 done patched

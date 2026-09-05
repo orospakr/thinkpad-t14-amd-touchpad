@@ -1,0 +1,36 @@
+=== Fri Aug 28 10:01:02 PM EDT 2026 start probe N=8 srcversion=C6EF8B992DB830DA0DC7F29
+OK stock try=1
+=== Fri Aug 28 10:01:04 PM EDT 2026 cycle 1: suspending
+=== Fri Aug 28 10:01:32 PM EDT 2026 cycle 1: resumed; swipe the pad
+--- probe2-1
+syn_reports=409
+12ms 200
+13ms 154
+14ms 4
+23ms 27
+24ms 7
+25ms 4
+49ms 1
+122ms 1
+322ms 1
+347ms 1
+433ms 1
+446ms 1
+472ms 1
+12 12 13 12 13 12 12 13 13 12 13 12 12 12 13 12 12 12 13 12 12 13 12 12 12 13 12 12 13 12 13 12 13 12 12 13 25 12 13 12 12 12 13 12 12 12 13 12 12 12 12 13 14 23 12 12 13 13 23 13 12 13 12 12 13 12 12 13 12 13 12 12 13 12 13 13 23 13 13 === Fri Aug 28 10:02:06 PM EDT 2026 cycle 1 DEGRADED -> rmi4_smbus unbind+bind; swipe again
+--- probe2-1-afterRebind
+syn_reports=1010
+14ms 157
+15ms 759
+18ms 2
+29ms 13
+30ms 36
+44ms 4
+45ms 8
+59ms 7
+60ms 2
+74ms 4
+75ms 2
+104ms 1
+118ms 1
+15 14 15 15 14 15 14 450 15 15 15 14 15 15 15 15 15 14 15 15 15 15 15 15 15 15 15 15 15 15 14 15 15 15 15 15 14 15 15 15 15 15 14 15 15 15 15 15 14 15 15 15 15 15 14 15 15 15 15 15 15 15 15 15 15 15 15 15 14 15 15 15 15 14 15 15 15 15 15 === Fri Aug 28 10:02:31 PM EDT 2026 done probe

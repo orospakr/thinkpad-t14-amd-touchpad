@@ -1,5 +1,5 @@
 artifacts/
-*.diff
+/asf-host-notify.diff
 *.ko
 *.o
 *.mod*
@@ -16,3 +16,10 @@ pkg/Makefile
 pkg/dkms.conf
 pkg/i2c-piix4-asf.conf
 dmesg.out
+# build trees regenerated from */src + the diffs (see psmouse/README.md, rmi4/README.md)
+psmouse/stock/
+psmouse/patched/
+psmouse/delay/
+rmi4/stock/
+rmi4/patched/
+rmi4/smbus/

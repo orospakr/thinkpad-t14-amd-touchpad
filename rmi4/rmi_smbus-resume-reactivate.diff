@@ -1,0 +1,79 @@
+--- ../src/rmi_smbus.c	2026-08-28 22:05:11.051584881 -0400
++++ rmi_smbus.c	2026-08-28 22:51:02.507044178 -0400
+@@ -37,6 +37,7 @@
+ 	u8 table_index;
+ 	struct mutex mappingtable_mutex;
+ 	struct mapping_table_entry mapping_table[RMI_SMB2_MAP_SIZE];
++	struct delayed_work reactivate_work;
+ };
+ 
+ static int rmi_smb_get_version(struct rmi_smb_xport *rmi_smb)
+@@ -262,6 +263,18 @@
+ 	return 0;
+ }
+ 
++static unsigned int resume_reactivate_delay_ms;
++module_param(resume_reactivate_delay_ms, uint, 0644);
++MODULE_PARM_DESC(resume_reactivate_delay_ms, "Re-run SMBus mode activation N ms after resume (experiment)");
++
++static void rmi_smb_reactivate_work(struct work_struct *work)
++{
++	struct rmi_smb_xport *rmi_smb = container_of(work, struct rmi_smb_xport, reactivate_work.work);
++	int ret = rmi_smb_enable_smbus_mode(rmi_smb);
++
++	dev_info(&rmi_smb->client->dev, "delayed reactivate (%u ms) -> %d\n", resume_reactivate_delay_ms, ret);
++}
++
+ static int rmi_smb_reset(struct rmi_transport_dev *xport, u16 reset_addr)
+ {
+ 	struct rmi_smb_xport *rmi_smb =
+@@ -319,6 +332,7 @@
+ 	rmi_smb->client = client;
+ 	mutex_init(&rmi_smb->page_mutex);
+ 	mutex_init(&rmi_smb->mappingtable_mutex);
++	INIT_DELAYED_WORK(&rmi_smb->reactivate_work, rmi_smb_reactivate_work);
+ 
+ 	rmi_smb->xport.dev = &client->dev;
+ 	rmi_smb->xport.pdata = *pdata;
+@@ -347,6 +361,7 @@
+ {
+ 	struct rmi_smb_xport *rmi_smb = i2c_get_clientdata(client);
+ 
++	cancel_delayed_work_sync(&rmi_smb->reactivate_work);
+ 	rmi_unregister_transport_device(&rmi_smb->xport);
+ }
+ 
+@@ -356,6 +371,7 @@
+ 	struct rmi_smb_xport *rmi_smb = i2c_get_clientdata(client);
+ 	int ret;
+ 
++	cancel_delayed_work_sync(&rmi_smb->reactivate_work);
+ 	ret = rmi_driver_suspend(rmi_smb->xport.rmi_dev, true);
+ 	if (ret)
+ 		dev_warn(dev, "Failed to suspend device: %d\n", ret);
+@@ -376,6 +392,10 @@
+ 	return ret;
+ }
+ 
++static bool resume_reactivate;
++module_param(resume_reactivate, bool, 0644);
++MODULE_PARM_DESC(resume_reactivate, "Re-run SMBus mode activation after function resume (experiment)");
++
+ static int rmi_smb_resume(struct device *dev)
+ {
+ 	struct i2c_client *client = container_of(dev, struct i2c_client, dev);
+@@ -391,6 +411,14 @@
+ 	if (ret)
+ 		dev_warn(dev, "Failed to resume device: %d\n", ret);
+ 
++	if (resume_reactivate) {
++		ret = rmi_smb_enable_smbus_mode(rmi_smb);
++		dev_info(dev, "resume_reactivate: enable_smbus_mode -> %d\n", ret);
++	}
++	if (resume_reactivate_delay_ms)
++		mod_delayed_work(system_wq, &rmi_smb->reactivate_work,
++				 msecs_to_jiffies(resume_reactivate_delay_ms));
++
+ 	return 0;
+ }
+ 

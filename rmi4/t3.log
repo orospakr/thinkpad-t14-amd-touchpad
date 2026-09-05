@@ -1,0 +1,41 @@
+=== Fri Aug 28 10:49:19 PM EDT 2026 start t3 R=/sys/bus/i2c/devices/11-002c/rmi4-11 TP=/sys/bus/serio/devices/serio60
+=== Fri Aug 28 10:49:20 PM EDT 2026 1-after-armB: swipe the pad
+--- t3-1-after-armB
+syn_reports=1056
+13ms 2
+14ms 233
+15ms 789
+16ms 5
+17ms 1
+18ms 4
+29ms 6
+=== Fri Aug 28 10:49:49 PM EDT 2026 TrackPoint reconnect via /sys/bus/serio/devices/serio60/drvctl
+=== Fri Aug 28 10:49:52 PM EDT 2026 2-after-TPreconnect: swipe the pad
+--- t3-2-after-TPreconnect
+syn_reports=542
+14ms 125
+15ms 377
+16ms 5
+17ms 2
+29ms 2
+30ms 10
+44ms 3
+=== Fri Aug 28 10:50:15 PM EDT 2026 3-after-armB-again: swipe the pad
+--- t3-3-after-armB-again
+syn_reports=524
+13ms 2
+14ms 222
+15ms 294
+16ms 1
+17ms 1
+246ms 1
+268ms 1
+gondolin kernel: rmi4_f01 rmi4-11.fn01: found RMI device, manufacturer: Synaptics, product: TM3471-030, fw id: 3942087
+gondolin kernel: input: Synaptics TM3471-030 as /devices/pci0000:00/0000:00:14.0/i2c-11/11-002c/rmi4-11/input/input243
+gondolin kernel: serio: RMI4 PS/2 pass-through port at rmi4-11.fn03
+gondolin kernel: psmouse serio60: trackpoint: Elan TrackPoint firmware: 0x11, buttons: 3/3
+gondolin kernel: input: TPPS/2 Elan TrackPoint as /devices/pci0000:00/0000:00:14.0/i2c-11/11-002c/rmi4-11/rmi4-11.fn03/serio
+gondolin kernel: rmi4_smbus 11-002c: resume_reactivate: enable_smbus_mode -> 0
+gondolin kernel: rmi4_physical rmi4-11: xport_reset -> 0
+gondolin kernel: rmi4_physical rmi4-11: xport_reset -> 0
+=== Fri Aug 28 10:50:37 PM EDT 2026 done t3

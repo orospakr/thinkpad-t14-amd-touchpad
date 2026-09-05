@@ -1,0 +1,118 @@
+--- stock/rmi_driver.c	2026-08-28 22:05:58.496843277 -0400
++++ patched/rmi_driver.c	2026-08-28 22:16:51.733083222 -0400
+@@ -957,6 +957,10 @@
+ }
+ EXPORT_SYMBOL_GPL(rmi_driver_suspend);
+ 
++static bool resume_reconfig;
++module_param(resume_reconfig, bool, 0644);
++MODULE_PARM_DESC(resume_reconfig, "Re-run function config on resume (experiment)");
++
+ int rmi_driver_resume(struct rmi_device *rmi_dev, bool clear_wake)
+ {
+ 	int retval;
+@@ -968,8 +972,86 @@
+ 		dev_warn(&rmi_dev->dev, "Failed to suspend functions: %d\n",
+ 			retval);
+ 
++	if (resume_reconfig) {
++		retval = rmi_driver_process_config_requests(rmi_dev);
++		dev_info(&rmi_dev->dev, "resume_reconfig: config requests -> %d\n", retval);
++	}
++
+ 	return retval;
+ }
++
++/* experiment: raw register dump of every function's control/data space */
++static ssize_t regdump_show(struct device *dev, struct device_attribute *attr, char *buf)
++{
++	struct rmi_device *rmi_dev = to_rmi_device(dev);
++	struct rmi_driver_data *data = dev_get_drvdata(&rmi_dev->dev);
++	struct rmi_function *fn;
++	u8 tmp[64];
++	ssize_t n = 0;
++	int i, len, error;
++
++	list_for_each_entry(fn, &data->function_list, node) {
++		len = fn->fd.function_number == 0x12 ? 64 : 16;
++		error = rmi_read_block(rmi_dev, fn->fd.control_base_addr, tmp, len);
++		n += scnprintf(buf + n, PAGE_SIZE - n, "F%02X ctrl@%04x (%d):", fn->fd.function_number,
++			       fn->fd.control_base_addr, error);
++		for (i = 0; i < len; i++)
++			n += scnprintf(buf + n, PAGE_SIZE - n, " %02x", tmp[i]);
++		n += scnprintf(buf + n, PAGE_SIZE - n, "\n");
++		if (fn->fd.function_number == 0x01) {
++			error = rmi_read(rmi_dev, fn->fd.data_base_addr, tmp);
++			n += scnprintf(buf + n, PAGE_SIZE - n, "F01 data0@%04x (%d): %02x\n",
++				       fn->fd.data_base_addr, error, tmp[0]);
++		}
++	}
++	return n;
++}
++static DEVICE_ATTR_RO(regdump);
++
++/* experiment triggers: echo 1 > xport_reset | reconfig | hwreset */
++static ssize_t xport_reset_store(struct device *dev, struct device_attribute *attr,
++				 const char *buf, size_t count)
++{
++	struct rmi_device *rmi_dev = to_rmi_device(dev);
++	int error = rmi_reset(rmi_dev);
++
++	dev_info(dev, "xport_reset -> %d\n", error);
++	return count;
++}
++static DEVICE_ATTR_WO(xport_reset);
++
++static ssize_t reconfig_store(struct device *dev, struct device_attribute *attr,
++			      const char *buf, size_t count)
++{
++	struct rmi_device *rmi_dev = to_rmi_device(dev);
++	int error = rmi_driver_process_config_requests(rmi_dev);
++
++	dev_info(dev, "reconfig -> %d\n", error);
++	return count;
++}
++static DEVICE_ATTR_WO(reconfig);
++
++static ssize_t hwreset_store(struct device *dev, struct device_attribute *attr,
++			     const char *buf, size_t count)
++{
++	struct rmi_device *rmi_dev = to_rmi_device(dev);
++	struct rmi_driver_data *data = dev_get_drvdata(&rmi_dev->dev);
++	u8 cmd = RMI_DEVICE_RESET_CMD;
++	int error;
++
++	if (!data || !data->f01_container)
++		return -ENODEV;
++	error = rmi_write_block(rmi_dev, data->f01_container->fd.command_base_addr, &cmd, 1);
++	msleep(100);
++	dev_info(dev, "hwreset -> %d\n", error);
++	return count;
++}
++static DEVICE_ATTR_WO(hwreset);
++
++static struct attribute *rmi_exp_attrs[] = {
++	&dev_attr_regdump.attr, &dev_attr_xport_reset.attr, &dev_attr_reconfig.attr, &dev_attr_hwreset.attr, NULL,
++};
++static const struct attribute_group rmi_exp_group = { .attrs = rmi_exp_attrs };
+ EXPORT_SYMBOL_GPL(rmi_driver_resume);
+ 
+ static int rmi_driver_remove(struct device *dev)
+@@ -979,6 +1061,7 @@
+ 
+ 	rmi_disable_irq(rmi_dev, false);
+ 
++	sysfs_remove_group(&rmi_dev->dev.kobj, &rmi_exp_group);
+ 	rmi_f34_remove_sysfs(rmi_dev);
+ 	rmi_free_function_list(rmi_dev);
+ 
+@@ -1235,6 +1318,9 @@
+ 			goto err_disable_irq;
+ 	}
+ 
++	if (sysfs_create_group(&rmi_dev->dev.kobj, &rmi_exp_group))
++		dev_warn(&rmi_dev->dev, "experiment attrs failed\n");
++
+ 	return 0;
+ 
+ err_disable_irq:

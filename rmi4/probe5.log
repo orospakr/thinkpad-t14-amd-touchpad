@@ -1,0 +1,54 @@
+=== Fri Aug 28 10:17:19 PM EDT 2026 start probe5 N=8
+OK rmi_core=  try=1
+=== Fri Aug 28 10:17:22 PM EDT 2026 cycle 1: suspending
+=== Fri Aug 28 10:18:57 PM EDT 2026 cycle 1: resumed; swipe the pad
+--- probe5-1
+syn_reports=733
+12ms 216
+13ms 282
+14ms 51
+20ms 1
+22ms 2
+23ms 109
+24ms 46
+25ms 1
+26ms 2
+36ms 1
+37ms 1
+38ms 1
+50ms 1
+13 20 13 24 12 14 23 13 13 12 12 13 24 13 23 13 12 12 12 12 13 13 24 12 13 23 13 13 23 13 12 13 14 23 13 12 14 23 13 13 23 12 13 23 12 13 12 12 13 12 13 13 23 13 12 14 23 12 12 12 13 13 23 13 14 23 13 12 13 14 23 12 13 14 22 396 13 26 24 === Fri Aug 28 10:19:39 PM EDT 2026 cycle 1 DEGRADED
+=== Fri Aug 28 10:19:39 PM EDT 2026 arm B-xport_reset: echo 1 > /sys/bus/i2c/devices/11-002c/rmi4-00/xport_reset
+=== Fri Aug 28 10:19:41 PM EDT 2026 B-xport_reset: swipe the pad
+--- probe5-B-xport_reset
+syn_reports=1175
+14ms 192
+15ms 944
+16ms 3
+17ms 1
+18ms 1
+29ms 6
+30ms 13
+45ms 2
+59ms 3
+60ms 1
+74ms 1
+75ms 1
+145ms 1
+14 15 15 15 15 15 15 15 15 15 14 15 15 15 15 15 14 15 15 15 15 15 14 15 15 15 15 15 15 14 15 15 15 15 15 14 15 15 15 15 15 14 15 15 15 15 15 15 15 15 15 15 15 14 15 15 15 15 15 14 15 15 15 15 15 15 14 15 15 15 15 15 14 15 15 15 15 15 14 === CLEAN after B-xport_reset
+gondolin kernel: serio: RMI4 PS/2 pass-through port at rmi4-00.fn03
+gondolin kernel: input: TPPS/2 Elan TrackPoint as /devices/pci0000:00/0000:00:14.0/i2c-11/11-002c/rmi4-00/rmi4-00.fn03/serio
+gondolin kernel: input: TPPS/2 Elan TrackPoint as /devices/pci0000:00/0000:00:14.0/i2c-11/11-002c/rmi4-00/rmi4-00.fn03/serio
+gondolin kernel: rmi4_smbus 11-002c: registering SMbus-connected sensor
+gondolin kernel: rmi4_f01 rmi4-01.fn01: found RMI device, manufacturer: Synaptics, product: TM3471-030, fw id: 3942087
+gondolin kernel: input: Synaptics TM3471-030 as /devices/pci0000:00/0000:00:14.0/i2c-11/11-002c/rmi4-01/input/input195
+gondolin kernel: serio: RMI4 PS/2 pass-through port at rmi4-01.fn03
+gondolin kernel: input: TPPS/2 Elan TrackPoint as /devices/pci0000:00/0000:00:14.0/i2c-11/11-002c/rmi4-01/rmi4-01.fn03/serio
+gondolin kernel: rmi4_physical rmi4-01: rmi_driver_clear_irq_bits: Failed to change enabled interrupts!
+gondolin kernel: rmi4_smbus 11-002c: registering SMbus-connected sensor
+gondolin kernel: rmi4_f01 rmi4-00.fn01: found RMI device, manufacturer: Synaptics, product: TM3471-030, fw id: 3942087
+gondolin kernel: input: Synaptics TM3471-030 as /devices/pci0000:00/0000:00:14.0/i2c-11/11-002c/rmi4-00/input/input199
+gondolin kernel: serio: RMI4 PS/2 pass-through port at rmi4-00.fn03
+gondolin kernel: input: TPPS/2 Elan TrackPoint as /devices/pci0000:00/0000:00:14.0/i2c-11/11-002c/rmi4-00/rmi4-00.fn03/serio
+gondolin kernel: rmi4_physical rmi4-00: xport_reset -> 0
+=== Fri Aug 28 10:20:01 PM EDT 2026 done probe5

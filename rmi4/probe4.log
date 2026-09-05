@@ -1,0 +1,83 @@
+=== Fri Aug 28 10:13:00 PM EDT 2026 start probe4 N=8
+OK rmi_core=  try=1
+=== Fri Aug 28 10:13:02 PM EDT 2026 cycle 1: suspending
+=== Fri Aug 28 10:14:39 PM EDT 2026 cycle 1: resumed; swipe the pad
+--- irqs before capture 1
+7: 51754265 piix4-asf
+95: 186501 rmi4_smbus
+96: 0 rmi4-00.fn34
+97: 0 rmi4-00.fn01
+98: 0 rmi4-00.fn01
+99: 0 rmi4-00.fn12
+100: 0 rmi4-00.fn12
+101: 0 rmi4-00.fn3a
+102: 32 rmi4-00.fn03
+--- probe4-1
+syn_reports=569
+12ms 136
+13ms 197
+14ms 32
+16ms 1
+20ms 1
+21ms 1
+22ms 18
+23ms 128
+24ms 22
+25ms 1
+26ms 3
+35ms 2
+36ms 4
+13 20 12 13 13 23 13 13 23 13 23 13 23 12 12 12 13 23 13 14 23 13 22 12 12 12 12 13 13 23 12 12 12 13 13 23 12 14 23 12 13 22 256 36 12 12 12 13 12 12 12 12 12 13 23 12 14 22 13 13 23 16 12 1759 13 13 23 12 12 12 13 14 23 14 23 13 23 12 12 --- irqs after capture 1
+7: 51826455 piix4-asf
+95: 187129 rmi4_smbus
+96: 0 rmi4-00.fn34
+97: 0 rmi4-00.fn01
+98: 0 rmi4-00.fn01
+99: 627 rmi4-00.fn12
+100: 0 rmi4-00.fn12
+101: 0 rmi4-00.fn3a
+102: 35 rmi4-00.fn03
+=== Fri Aug 28 10:15:04 PM EDT 2026 cycle 1 DEGRADED -> rebind TrackPoint psmouse on /sys/bus/serio/devices/serio47; swipe again
+--- irqs before TPrebind capture
+7: 51843897 piix4-asf
+95: 187285 rmi4_smbus
+96: 0 rmi4-00.fn34
+97: 0 rmi4-00.fn01
+98: 0 rmi4-00.fn01
+99: 775 rmi4-00.fn12
+100: 0 rmi4-00.fn12
+101: 0 rmi4-00.fn3a
+102: 53 rmi4-00.fn03
+--- probe4-1-afterTPrebind
+syn_reports=260
+12ms 38
+13ms 78
+14ms 22
+21ms 1
+22ms 9
+23ms 66
+24ms 9
+25ms 4
+26ms 3
+29ms 1
+31ms 1
+34ms 1
+35ms 1
+12 12 13 13 23 12 12 13 13 23 12 12 25 36 29 31 24 39 34 12 48 12 25 12 36 13 23 13 13 23 12 13 13 23 12 13 14 22 13 13 23 23 2773 13 23 13 23 14 22 13 14 23 14 23 13 23 36 158 12 87 23 74 461 24 353 36 12 13 23 1107 13 13 23 13 23 13 23 13 23 --- irqs after TPrebind capture
+7: 51884459 piix4-asf
+95: 187661 rmi4_smbus
+96: 0 rmi4-00.fn34
+97: 0 rmi4-00.fn01
+98: 0 rmi4-00.fn01
+99: 1150 rmi4-00.fn12
+100: 0 rmi4-00.fn12
+101: 0 rmi4-00.fn3a
+102: 59 rmi4-00.fn03
+=== Fri Aug 28 10:15:29 PM EDT 2026 still DEGRADED -> rebind rmi4_smbus; swipe again
+--- probe4-1-afterRebind
+syn_reports=18
+14ms 1
+15ms 15
+18ms 1
+40056ms 1
+15 15 15 15 14 15 15 15 15 15 15 15 15 15 15 15 18 40056 === Fri Aug 28 10:16:14 PM EDT 2026 done probe4

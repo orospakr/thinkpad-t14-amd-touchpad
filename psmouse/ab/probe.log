@@ -1,0 +1,20 @@
+=== Fri Aug 28 09:47:26 PM EDT 2026 start probe N=8 srcversion=C6EF8B992DB830DA0DC7F29
+OK stock try=1
+=== Fri Aug 28 09:47:29 PM EDT 2026 cycle 1: suspending
+=== Fri Aug 28 09:49:05 PM EDT 2026 cycle 1: resumed; swipe the pad
+--- probe-1
+syn_reports=679
+12ms 277
+13ms 254
+14ms 17
+23ms 58
+24ms 22
+25ms 11
+26ms 1
+36ms 2
+37ms 11
+49ms 3
+62ms 1
+74ms 3
+87ms 1
+13 14 23 12 13 12 12 13 13 24 12 14 23 12 13 12 14 23 13 14 23 12 13 13 14 23 13 12 13 13 23 24 297 13 13 12 12 12 13 12 12 13 12 14 23 12 13 13 24 12 12 13 12 13 14 23 13 12 13 13 23 13 12 13 13 23 12 12 13 13 23 273 24 13 12 12 12 24 13 === Fri Aug 28 09:49:25 PM EDT 2026 cycle 1 DEGRADED -> drvctl reconnect (F5); swipe again
