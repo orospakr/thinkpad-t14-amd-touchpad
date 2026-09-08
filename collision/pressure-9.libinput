@@ -1,0 +1,713 @@
+libinput version: 1.31.3
+event13 - Synaptics TM3471-030: is tagged by udev as: Touchpad
+  ... event13 - using pressure-based touch detection (25:30)
+  ... event13 - palm: pressure threshold is 130
+  ... event13 - thumb: enabled thumb detection (area, pressure)
+event13 - Synaptics TM3471-030: device is a touchpad
+-event13  DEVICE_ADDED                 Synaptics TM3471-030              seat0 default group1  cap:pg  size 97x65mm tap (dl off) left scroll-nat scroll-2fg-edge click-buttonareas-clickfinger dwt-on dwtp-on
+   2: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+   3: event13 - pressure: begin touch 1
+  ... event13 - button state: touch 1 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_BOTTOM_M to BUTTON_STATE_BOTTOM 
+  ... event13 - tap: touch 1 (TOUCH_BEGIN), tap state TAP_STATE_TOUCH → TAP_EVENT_TOUCH → TAP_STATE_TOUCH_2
+   5: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_HOLD_TIMEOUT → GESTURE_STATE_HOLD
+ event13  GESTURE_HOLD_BEGIN           +0.040s	1
+   6: event13 - tap: touch 1 (TOUCH_UPDATE), tap state TAP_STATE_TOUCH_2 → TAP_EVENT_MOTION → TAP_STATE_DEAD
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_HOLD_AND_MOTION_START → GESTURE_STATE_HOLD_AND_MOTION
+  ... event13 - gesture: [1fg] state GESTURE_STATE_HOLD → GESTURE_STATE_HOLD_AND_MOTION
+ event13  POINTER_MOTION               +0.045s	  0.00/ -3.91 ( +0.00/ -5.00)
+   7: event13 - gesture: [1fg] event GESTURE_STATE_HOLD_AND_MOTION → GESTURE_EVENT_CANCEL → GESTURE_STATE_NONE
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD_AND_MOTION → GESTURE_EVENT_POINTER_MOTION_START → GESTURE_STATE_POINTER_MOTION
+  ... event13 - gesture: [1fg] state GESTURE_STATE_HOLD_AND_MOTION → GESTURE_STATE_POINTER_MOTION
+ event13  POINTER_MOTION               +0.060s	  0.00/-13.18 ( +0.00/-15.00)
+ event13  GESTURE_HOLD_END             +0.060s	1 cancelled
+   8: event13 - button state: touch 1 from BUTTON_STATE_BOTTOM  event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_POINTER_MOTION → GESTURE_EVENT_RESET → GESTURE_STATE_NONE
+  ... event13 - gesture: [2fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [2fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+   9: event13 - gesture: [2fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_SCROLL_START → GESTURE_STATE_SCROLL_START
+  ... event13 - gesture: [2fg] state GESTURE_STATE_UNKNOWN → GESTURE_STATE_SCROLL_START → GESTURE_STATE_SCROLL
+ event13  POINTER_SCROLL_FINGER        +0.105s	vert -25.48/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     2  +0.120s	vert -29.88/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     3  +0.134s	vert -32.07/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     4  +0.149s	vert -32.07/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     5  +0.164s	vert -29.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     6  +0.179s	vert -24.60/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     7  +0.194s	vert -16.26/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     8  +0.208s	vert -10.10/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     9  +0.223s	vert -5.27/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    10  +0.238s	vert -1.76/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    11  +0.253s	vert -1.32/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    12  +0.283s	vert -0.88/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    13  +0.312s	vert -0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    14  +0.342s	vert -0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    15  +0.387s	vert -0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    16  +0.639s	vert -0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    17  +1.396s	vert -0.44/0.0* horiz 0.00/0.0 (finger)
+  86: event13 - pressure: end touch 1
+  ... event13 - button state: touch 1 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  88: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_SCROLL → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_DEAD → TAP_EVENT_RELEASE → TAP_STATE_IDLE
+ event13  POINTER_SCROLL_FINGER        +1.750s	vert 0.00/0.0* horiz 0.00/0.0* (finger)
+  90: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+  93: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_HOLD_TIMEOUT → GESTURE_STATE_HOLD
+ event13  GESTURE_HOLD_BEGIN           +2.176s	1
+  95: event13 - tap: touch 0 (TOUCH_UPDATE), tap state TAP_STATE_TOUCH → TAP_EVENT_MOTION → TAP_STATE_DEAD
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_CANCEL → GESTURE_STATE_NONE
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_POINTER_MOTION_START → GESTURE_STATE_POINTER_MOTION
+  ... event13 - gesture: [1fg] state GESTURE_STATE_HOLD → GESTURE_STATE_POINTER_MOTION
+ event13  GESTURE_HOLD_END             +2.196s	1 cancelled
+ event13  POINTER_MOTION               +2.196s	  4.39/-20.21 ( +5.00/-23.00)
+ event13  POINTER_MOTION            2  +2.211s	  8.31/-32.33 ( +9.00/-35.00)
+ event13  POINTER_MOTION            3  +2.225s	 17.11/-56.59 (+13.00/-43.00)
+ event13  POINTER_MOTION            4  +2.240s	 23.99/-76.77 (+15.00/-48.00)
+ event13  POINTER_MOTION            5  +2.255s	 19.99/-78.28 (+12.00/-47.00)
+ event13  POINTER_MOTION            6  +2.270s	 14.45/-56.37 (+10.00/-39.00)
+ event13  POINTER_MOTION            7  +2.285s	 10.53/-37.45 ( +9.00/-32.00)
+ event13  POINTER_MOTION            8  +2.299s	  5.91/-23.65 ( +6.00/-24.00)
+ event13  POINTER_MOTION            9  +2.314s	  0.88/-12.37 ( +1.00/-14.00)
+ event13  POINTER_MOTION           10  +2.329s	 -0.88/ -7.03 ( -1.00/ -8.00)
+ event13  POINTER_MOTION           11  +2.344s	 -0.88/ -1.76 ( -1.00/ -2.00)
+ event13  POINTER_MOTION           12  +2.359s	 -4.39/ -2.64 ( -5.00/ -3.00)
+ event13  POINTER_MOTION           13  +2.374s	 -5.27/ -1.76 ( -6.00/ -2.00)
+ event13  POINTER_MOTION           14  +2.389s	 -3.51/  0.88 ( -4.00/ +1.00)
+ event13  POINTER_MOTION           15  +2.403s	-17.60/ 10.56 (-20.00/+12.00)
+ event13  POINTER_MOTION           16  +2.418s	-16.49/ 19.24 (-18.00/+21.00)
+ event13  POINTER_MOTION           17  +2.433s	-20.49/ 36.67 (-19.00/+34.00)
+ event13  POINTER_MOTION           18  +2.448s	-32.36/ 57.69 (-23.00/+41.00)
+ event13  POINTER_MOTION           19  +2.463s	-27.27/ 62.11 (-18.00/+41.00)
+ event13  POINTER_MOTION           20  +2.478s	-17.77/ 53.31 (-13.00/+39.00)
+ event13  POINTER_MOTION           21  +2.492s	-13.43/ 40.28 (-11.00/+33.00)
+ event13  POINTER_MOTION           22  +2.507s	 -6.14/ 25.60 ( -6.00/+25.00)
+ event13  POINTER_MOTION           23  +2.522s	 -2.66/ 11.52 ( -3.00/+13.00)
+ event13  POINTER_MOTION           24  +2.537s	  0.00/  4.39 ( +0.00/ +5.00)
+ event13  POINTER_MOTION           25  +2.552s	  0.00/  0.87 ( +0.00/ +1.00)
+ 122: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_POINTER_MOTION → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_DEAD → TAP_EVENT_RELEASE → TAP_STATE_IDLE
+ 123: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 125: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_HOLD_TIMEOUT → GESTURE_STATE_HOLD
+ event13  GESTURE_HOLD_BEGIN           +4.906s	1
+ 128: event13 - tap: touch 0 (TOUCH_UPDATE), tap state TAP_STATE_TOUCH → TAP_EVENT_MOTION → TAP_STATE_DEAD
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_CANCEL → GESTURE_STATE_NONE
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_POINTER_MOTION_START → GESTURE_STATE_POINTER_MOTION
+  ... event13 - gesture: [1fg] state GESTURE_STATE_HOLD → GESTURE_STATE_POINTER_MOTION
+ event13  GESTURE_HOLD_END             +4.940s	1 cancelled
+ event13  POINTER_MOTION               +4.940s	 -3.49/-18.30 ( -4.00/-21.00)
+ event13  POINTER_MOTION            2  +4.955s	 -4.54/-29.03 ( -5.00/-32.00)
+ event13  POINTER_MOTION            3  +4.970s	 -6.12/-52.64 ( -5.00/-43.00)
+ event13  POINTER_MOTION            4  +4.985s	-10.75/-75.28 ( -7.00/-49.00)
+ event13  POINTER_MOTION            5  +5.000s	-11.21/-75.25 ( -7.00/-47.00)
+ event13  POINTER_MOTION            6  +5.014s	 -9.33/-45.30 ( -7.00/-34.00)
+ event13  POINTER_MOTION            7  +5.029s	 -6.09/-25.37 ( -6.00/-25.00)
+ event13  POINTER_MOTION            8  +5.044s	 -3.54/-13.26 ( -4.00/-15.00)
+ event13  POINTER_MOTION            9  +5.059s	 -2.64/ -8.79 ( -3.00/-10.00)
+ event13  POINTER_MOTION           10  +5.074s	 -2.64/ -7.03 ( -3.00/ -8.00)
+ event13  POINTER_MOTION           11  +5.089s	 -1.76/ -5.27 ( -2.00/ -6.00)
+ event13  POINTER_MOTION           12  +5.103s	 -1.76/ -5.27 ( -2.00/ -6.00)
+ event13  POINTER_MOTION           13  +5.118s	 -1.76/ -6.15 ( -2.00/ -7.00)
+ event13  POINTER_MOTION           14  +5.133s	 -0.88/ -7.91 ( -1.00/ -9.00)
+ event13  POINTER_MOTION           15  +5.148s	 -2.64/ -7.03 ( -3.00/ -8.00)
+ event13  POINTER_MOTION           16  +5.163s	 -1.76/ -6.15 ( -2.00/ -7.00)
+ event13  POINTER_MOTION           17  +5.178s	 -1.76/ -4.39 ( -2.00/ -5.00)
+ event13  POINTER_MOTION           18  +5.192s	 -0.88/ -1.76 ( -1.00/ -2.00)
+ event13  POINTER_MOTION           19  +5.207s	 -0.88/ -0.88 ( -1.00/ -1.00)
+ event13  POINTER_MOTION           20  +5.222s	 -1.76/ -0.88 ( -2.00/ -1.00)
+ event13  POINTER_MOTION           21  +5.237s	 -0.87/  0.00 ( -1.00/ +0.00)
+ event13  POINTER_MOTION           22  +5.252s	 -1.75/ -0.87 ( -2.00/ -1.00)
+ event13  POINTER_MOTION           23  +5.267s	 -1.76/ -1.76 ( -2.00/ -2.00)
+ event13  POINTER_MOTION           24  +5.281s	 -0.88/ -1.76 ( -1.00/ -2.00)
+ event13  POINTER_MOTION           25  +5.296s	 -1.76/ -0.88 ( -2.00/ -1.00)
+ event13  POINTER_MOTION           26  +5.311s	 -0.88/ -1.76 ( -1.00/ -2.00)
+ event13  POINTER_MOTION           27  +5.341s	 -0.85/ -0.85 ( -1.00/ -1.00)
+ event13  POINTER_MOTION           28  +5.355s	  0.00/ -0.76 ( +0.00/ -1.00)
+ event13  POINTER_MOTION           29  +5.370s	 -0.85/  0.00 ( -1.00/ +0.00)
+ event13  POINTER_MOTION           30  +5.385s	  0.00/ -0.84 ( +0.00/ -1.00)
+ event13  POINTER_MOTION           31  +5.400s	 -2.62/ -2.62 ( -3.00/ -3.00)
+ event13  POINTER_MOTION           32  +5.415s	 -1.76/ -1.76 ( -2.00/ -2.00)
+ event13  POINTER_MOTION           33  +5.430s	 -2.64/ -2.64 ( -3.00/ -3.00)
+ event13  POINTER_MOTION           34  +5.445s	 -0.88/ -0.88 ( -1.00/ -1.00)
+ event13  POINTER_MOTION           35  +5.459s	  0.00/ -0.88 ( +0.00/ -1.00)
+ 164: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_POINTER_MOTION → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_DEAD → TAP_EVENT_RELEASE → TAP_STATE_IDLE
+ 165: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 168: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_HOLD_TIMEOUT → GESTURE_STATE_HOLD
+ event13  GESTURE_HOLD_BEGIN           +5.700s	1
+ 170: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_TOUCH → TAP_EVENT_RELEASE → TAP_STATE_1FGTAP_TAPPED
+ event13  GESTURE_HOLD_END             +5.718s	1
+ event13  POINTER_BUTTON               +5.660s	BTN_LEFT (272) pressed, seat count: 1
+ 171: event13 - tap: touch -1 (), tap state TAP_STATE_1FGTAP_TAPPED → TAP_EVENT_TIMEOUT → TAP_STATE_IDLE
+ event13  POINTER_BUTTON               +5.718s	BTN_LEFT (272) released, seat count: 0
+ 172: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 175: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_HOLD_TIMEOUT → GESTURE_STATE_HOLD
+ event13  GESTURE_HOLD_BEGIN           +6.086s	1
+ 179: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_TOUCH → TAP_EVENT_RELEASE → TAP_STATE_1FGTAP_TAPPED
+ event13  GESTURE_HOLD_END             +6.134s	1
+ event13  POINTER_BUTTON               +6.046s	BTN_LEFT (272) pressed, seat count: 1
+ 180: event13 - tap: touch -1 (), tap state TAP_STATE_1FGTAP_TAPPED → TAP_EVENT_TIMEOUT → TAP_STATE_IDLE
+ event13  POINTER_BUTTON               +6.134s	BTN_LEFT (272) released, seat count: 0
+ 181: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 184: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_HOLD_TIMEOUT → GESTURE_STATE_HOLD
+ event13  GESTURE_HOLD_BEGIN           +6.494s	1
+ 187: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_TOUCH → TAP_EVENT_RELEASE → TAP_STATE_1FGTAP_TAPPED
+ event13  GESTURE_HOLD_END             +6.527s	1
+ event13  POINTER_BUTTON               +6.454s	BTN_LEFT (272) pressed, seat count: 1
+ 188: event13 - tap: touch -1 (), tap state TAP_STATE_1FGTAP_TAPPED → TAP_EVENT_TIMEOUT → TAP_STATE_IDLE
+ event13  POINTER_BUTTON               +6.527s	BTN_LEFT (272) released, seat count: 0
+ 189: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 191: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_HOLD_TIMEOUT → GESTURE_STATE_HOLD
+ event13  GESTURE_HOLD_BEGIN           +6.924s	1
+ 195: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_TOUCH → TAP_EVENT_RELEASE → TAP_STATE_1FGTAP_TAPPED
+ event13  GESTURE_HOLD_END             +6.987s	1
+ event13  POINTER_BUTTON               +6.884s	BTN_LEFT (272) pressed, seat count: 1
+ 196: event13 - tap: touch -1 (), tap state TAP_STATE_1FGTAP_TAPPED → TAP_EVENT_TIMEOUT → TAP_STATE_IDLE
+ event13  POINTER_BUTTON               +6.987s	BTN_LEFT (272) released, seat count: 0
+ 197: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 200: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_HOLD_TIMEOUT → GESTURE_STATE_HOLD
+ event13  GESTURE_HOLD_BEGIN           +7.414s	1
+ 206: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_TOUCH → TAP_EVENT_RELEASE → TAP_STATE_1FGTAP_TAPPED
+ event13  GESTURE_HOLD_END             +7.491s	1
+ event13  POINTER_BUTTON               +7.374s	BTN_LEFT (272) pressed, seat count: 1
+ 207: event13 - tap: touch -1 (), tap state TAP_STATE_1FGTAP_TAPPED → TAP_EVENT_TIMEOUT → TAP_STATE_IDLE
+ event13  POINTER_BUTTON               +7.491s	BTN_LEFT (272) released, seat count: 0
+ 208: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 211: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_HOLD_TIMEOUT → GESTURE_STATE_HOLD
+ event13  GESTURE_HOLD_BEGIN           +7.888s	1
+ 218: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_TOUCH → TAP_EVENT_RELEASE → TAP_STATE_1FGTAP_TAPPED
+ event13  GESTURE_HOLD_END             +7.980s	1
+ event13  POINTER_BUTTON               +7.848s	BTN_LEFT (272) pressed, seat count: 1
+ 219: event13 - tap: touch -1 (), tap state TAP_STATE_1FGTAP_TAPPED → TAP_EVENT_TIMEOUT → TAP_STATE_IDLE
+ event13  POINTER_BUTTON               +7.980s	BTN_LEFT (272) released, seat count: 0
+ 220: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 223: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_HOLD_TIMEOUT → GESTURE_STATE_HOLD
+ event13  GESTURE_HOLD_BEGIN           +8.467s	1
+ 229: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_TOUCH → TAP_EVENT_RELEASE → TAP_STATE_1FGTAP_TAPPED
+ event13  GESTURE_HOLD_END             +8.559s	1
+ event13  POINTER_BUTTON               +8.427s	BTN_LEFT (272) pressed, seat count: 1
+ 230: event13 - tap: touch -1 (), tap state TAP_STATE_1FGTAP_TAPPED → TAP_EVENT_TIMEOUT → TAP_STATE_IDLE
+ event13  POINTER_BUTTON               +8.559s	BTN_LEFT (272) released, seat count: 0
+ 231: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 233: event13 - tap: touch 0 (TOUCH_UPDATE), tap state TAP_STATE_TOUCH → TAP_EVENT_MOTION → TAP_STATE_DEAD
+  ... event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_POINTER_MOTION_START → GESTURE_STATE_POINTER_MOTION
+  ... event13 - gesture: [1fg] state GESTURE_STATE_UNKNOWN → GESTURE_STATE_POINTER_MOTION
+ event13  POINTER_MOTION               +8.961s	  0.00/  7.00 ( +0.00/ +8.00)
+ event13  POINTER_MOTION            2  +8.976s	  0.00/  3.51 ( +0.00/ +4.00)
+ event13  POINTER_MOTION            3  +8.990s	  0.00/  2.64 ( +0.00/ +3.00)
+ event13  POINTER_MOTION            4  +9.005s	  0.88/  1.76 ( +1.00/ +2.00)
+ event13  POINTER_MOTION            5  +9.020s	  0.00/  0.87 ( +0.00/ +1.00)
+ event13  POINTER_MOTION            6  +9.035s	  0.87/  0.87 ( +1.00/ +1.00)
+ 240: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_POINTER_MOTION → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_DEAD → TAP_EVENT_RELEASE → TAP_STATE_IDLE
+ 241: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 244: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_HOLD_TIMEOUT → GESTURE_STATE_HOLD
+ event13  GESTURE_HOLD_BEGIN           +9.498s	1
+ 249: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_TOUCH → TAP_EVENT_RELEASE → TAP_STATE_1FGTAP_TAPPED
+ event13  GESTURE_HOLD_END             +9.605s	1
+ event13  POINTER_BUTTON               +9.458s	BTN_LEFT (272) pressed, seat count: 1
+ 250: event13 - tap: touch -1 (), tap state TAP_STATE_1FGTAP_TAPPED → TAP_EVENT_TIMEOUT → TAP_STATE_IDLE
+ event13  POINTER_BUTTON               +9.605s	BTN_LEFT (272) released, seat count: 0
+ 251: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 253: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_HOLD_TIMEOUT → GESTURE_STATE_HOLD
+ event13  GESTURE_HOLD_BEGIN           +10.039s	1
+ 257: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_TOUCH → TAP_EVENT_RELEASE → TAP_STATE_1FGTAP_TAPPED
+ event13  GESTURE_HOLD_END             +10.102s	1
+ event13  POINTER_BUTTON               +9.999s	BTN_LEFT (272) pressed, seat count: 1
+ 258: event13 - tap: touch -1 (), tap state TAP_STATE_1FGTAP_TAPPED → TAP_EVENT_TIMEOUT → TAP_STATE_IDLE
+ event13  POINTER_BUTTON               +10.102s	BTN_LEFT (272) released, seat count: 0
+ 259: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 262: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_HOLD_TIMEOUT → GESTURE_STATE_HOLD
+ event13  GESTURE_HOLD_BEGIN           +10.588s	1
+ 266: event13 - pressure: end touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_TOUCH → TAP_EVENT_RELEASE → TAP_STATE_1FGTAP_TAPPED
+ event13  GESTURE_HOLD_END             +10.651s	1
+ event13  POINTER_BUTTON               +10.548s	BTN_LEFT (272) pressed, seat count: 1
+ 268: event13 - tap: touch -1 (), tap state TAP_STATE_1FGTAP_TAPPED → TAP_EVENT_TIMEOUT → TAP_STATE_IDLE
+ event13  POINTER_BUTTON               +10.651s	BTN_LEFT (272) released, seat count: 0
+ 269: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 271: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_HOLD_TIMEOUT → GESTURE_STATE_HOLD
+ event13  GESTURE_HOLD_BEGIN           +11.182s	1
+ 279: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_TOUCH → TAP_EVENT_RELEASE → TAP_STATE_1FGTAP_TAPPED
+ event13  GESTURE_HOLD_END             +11.304s	1
+ event13  POINTER_BUTTON               +11.142s	BTN_LEFT (272) pressed, seat count: 1
+ 280: event13 - tap: touch -1 (), tap state TAP_STATE_1FGTAP_TAPPED → TAP_EVENT_TIMEOUT → TAP_STATE_IDLE
+ event13  POINTER_BUTTON               +11.304s	BTN_LEFT (272) released, seat count: 0
+ 281: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 283: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_HOLD_TIMEOUT → GESTURE_STATE_HOLD
+ event13  GESTURE_HOLD_BEGIN           +11.716s	1
+ 289: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_TOUCH → TAP_EVENT_RELEASE → TAP_STATE_1FGTAP_TAPPED
+ event13  GESTURE_HOLD_END             +11.823s	1
+ event13  POINTER_BUTTON               +11.676s	BTN_LEFT (272) pressed, seat count: 1
+ 290: event13 - tap: touch -1 (), tap state TAP_STATE_1FGTAP_TAPPED → TAP_EVENT_TIMEOUT → TAP_STATE_IDLE
+ event13  POINTER_BUTTON               +11.823s	BTN_LEFT (272) released, seat count: 0
+ 291: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 293: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_HOLD_TIMEOUT → GESTURE_STATE_HOLD
+ event13  GESTURE_HOLD_BEGIN           +12.190s	1
+ 299: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_TOUCH → TAP_EVENT_RELEASE → TAP_STATE_1FGTAP_TAPPED
+ event13  GESTURE_HOLD_END             +12.328s	1
+ event13  POINTER_BUTTON               +12.150s	BTN_LEFT (272) pressed, seat count: 1
+ 300: event13 - tap: touch -1 (), tap state TAP_STATE_1FGTAP_TAPPED → TAP_EVENT_TIMEOUT → TAP_STATE_IDLE
+ event13  POINTER_BUTTON               +12.328s	BTN_LEFT (272) released, seat count: 0
+ 301: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 303: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_HOLD_TIMEOUT → GESTURE_STATE_HOLD
+ event13  GESTURE_HOLD_BEGIN           +12.739s	1
+ 312: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_TOUCH → TAP_EVENT_RELEASE → TAP_STATE_1FGTAP_TAPPED
+ event13  GESTURE_HOLD_END             +12.862s	1
+ event13  POINTER_BUTTON               +12.699s	BTN_LEFT (272) pressed, seat count: 1
+ 313: event13 - tap: touch -1 (), tap state TAP_STATE_1FGTAP_TAPPED → TAP_EVENT_TIMEOUT → TAP_STATE_IDLE
+ event13  POINTER_BUTTON               +12.862s	BTN_LEFT (272) released, seat count: 0
+ 314: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 317: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_HOLD_TIMEOUT → GESTURE_STATE_HOLD
+ event13  GESTURE_HOLD_BEGIN           +13.251s	1
+ 324: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_TOUCH → TAP_EVENT_RELEASE → TAP_STATE_1FGTAP_TAPPED
+ event13  GESTURE_HOLD_END             +13.388s	1
+ event13  POINTER_BUTTON               +13.211s	BTN_LEFT (272) pressed, seat count: 1
+ 325: event13 - tap: touch -1 (), tap state TAP_STATE_1FGTAP_TAPPED → TAP_EVENT_TIMEOUT → TAP_STATE_IDLE
+ event13  POINTER_BUTTON               +13.388s	BTN_LEFT (272) released, seat count: 0
+ 326: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 328: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_HOLD_TIMEOUT → GESTURE_STATE_HOLD
+ event13  GESTURE_HOLD_BEGIN           +13.808s	1
+ 336: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_TOUCH → TAP_EVENT_RELEASE → TAP_STATE_1FGTAP_TAPPED
+ event13  GESTURE_HOLD_END             +13.945s	1
+ event13  POINTER_BUTTON               +13.768s	BTN_LEFT (272) pressed, seat count: 1
+ 337: event13 - tap: touch -1 (), tap state TAP_STATE_1FGTAP_TAPPED → TAP_EVENT_TIMEOUT → TAP_STATE_IDLE
+ event13  POINTER_BUTTON               +13.945s	BTN_LEFT (272) released, seat count: 0
+ 338: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 341: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_HOLD_TIMEOUT → GESTURE_STATE_HOLD
+ event13  GESTURE_HOLD_BEGIN           +14.282s	1
+ 351: event13 - tap: touch -1 (), tap state TAP_STATE_TOUCH → TAP_EVENT_TIMEOUT → TAP_STATE_HOLD
+ 352: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_HOLD → TAP_EVENT_RELEASE → TAP_STATE_IDLE
+ event13  GESTURE_HOLD_END             +14.434s	1
+ 353: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 355: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_HOLD_TIMEOUT → GESTURE_STATE_HOLD
+ event13  GESTURE_HOLD_BEGIN           +14.809s	1
+ 364: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_TOUCH → TAP_EVENT_RELEASE → TAP_STATE_1FGTAP_TAPPED
+ event13  GESTURE_HOLD_END             +14.931s	1
+ event13  POINTER_BUTTON               +14.769s	BTN_LEFT (272) pressed, seat count: 1
+ 365: event13 - tap: touch -1 (), tap state TAP_STATE_1FGTAP_TAPPED → TAP_EVENT_TIMEOUT → TAP_STATE_IDLE
+ event13  POINTER_BUTTON               +14.931s	BTN_LEFT (272) released, seat count: 0
+ 366: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 368: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_HOLD_TIMEOUT → GESTURE_STATE_HOLD
+ event13  GESTURE_HOLD_BEGIN           +15.321s	1
+ 371: event13 - tap: touch 0 (TOUCH_UPDATE), tap state TAP_STATE_TOUCH → TAP_EVENT_MOTION → TAP_STATE_DEAD
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_CANCEL → GESTURE_STATE_NONE
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_POINTER_MOTION_START → GESTURE_STATE_POINTER_MOTION
+  ... event13 - gesture: [1fg] state GESTURE_STATE_HOLD → GESTURE_STATE_POINTER_MOTION
+ event13  GESTURE_HOLD_END             +15.355s	1 cancelled
+ event13  POINTER_MOTION               +15.355s	  0.78/  1.56 ( +1.00/ +2.00)
+ event13  POINTER_MOTION            2  +15.370s	  0.00/  0.69 ( +0.00/ +1.00)
+ 374: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_POINTER_MOTION → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_DEAD → TAP_EVENT_RELEASE → TAP_STATE_IDLE
+ 375: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 377: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_HOLD_TIMEOUT → GESTURE_STATE_HOLD
+ event13  GESTURE_HOLD_BEGIN           +16.656s	1
+ 380: event13 - tap: touch 0 (TOUCH_UPDATE), tap state TAP_STATE_TOUCH → TAP_EVENT_MOTION → TAP_STATE_DEAD
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_CANCEL → GESTURE_STATE_NONE
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_POINTER_MOTION_START → GESTURE_STATE_POINTER_MOTION
+  ... event13 - gesture: [1fg] state GESTURE_STATE_HOLD → GESTURE_STATE_POINTER_MOTION
+ event13  GESTURE_HOLD_END             +16.690s	1 cancelled
+ event13  POINTER_MOTION               +16.690s	-11.33/ 14.82 (-13.00/+17.00)
+ event13  POINTER_MOTION            2  +16.705s	-16.18/ 20.67 (-18.00/+23.00)
+ event13  POINTER_MOTION            3  +16.720s	-18.66/ 30.06 (-18.00/+29.00)
+ event13  POINTER_MOTION            4  +16.735s	-32.23/ 43.39 (-26.00/+35.00)
+ event13  POINTER_MOTION            5  +16.750s	-32.65/ 44.89 (-24.00/+33.00)
+ event13  POINTER_MOTION            6  +16.764s	-40.57/ 47.57 (-29.00/+34.00)
+ event13  POINTER_MOTION            7  +16.779s	-33.14/ 35.79 (-25.00/+27.00)
+ event13  POINTER_MOTION            8  +16.794s	-34.15/ 28.26 (-29.00/+24.00)
+ event13  POINTER_MOTION            9  +16.809s	-35.33/ 22.37 (-30.00/+19.00)
+ event13  POINTER_MOTION           10  +16.824s	-30.08/ 11.82 (-28.00/+11.00)
+ event13  POINTER_MOTION           11  +16.839s	-28.73/  5.94 (-29.00/ +6.00)
+ event13  POINTER_MOTION           12  +16.853s	-25.00/ -0.96 (-26.00/ -1.00)
+ event13  POINTER_MOTION           13  +16.868s	-24.43/ -7.52 (-26.00/ -8.00)
+ event13  POINTER_MOTION           14  +16.883s	-23.98/-14.39 (-25.00/-15.00)
+ event13  POINTER_MOTION           15  +16.898s	-15.73/-13.88 (-17.00/-15.00)
+ event13  POINTER_MOTION           16  +16.913s	-16.51/-20.17 (-18.00/-22.00)
+ event13  POINTER_MOTION           17  +16.928s	-12.98/-18.54 (-14.00/-20.00)
+ event13  POINTER_MOTION           18  +16.942s	 -8.82/-16.76 (-10.00/-19.00)
+ event13  POINTER_MOTION           19  +16.957s	 -5.27/-17.57 ( -6.00/-20.00)
+ event13  POINTER_MOTION           20  +16.972s	 -1.76/-14.94 ( -2.00/-17.00)
+ event13  POINTER_MOTION           21  +16.987s	  3.51/-11.42 ( +4.00/-13.00)
+ event13  POINTER_MOTION           22  +17.002s	  9.67/ -9.67 (+11.00/-11.00)
+ event13  POINTER_MOTION           23  +17.017s	 13.18/-10.54 (+15.00/-12.00)
+ event13  POINTER_MOTION           24  +17.032s	 22.47/-12.59 (+25.00/-14.00)
+ event13  POINTER_MOTION           25  +17.046s	 23.94/ -8.62 (+25.00/ -9.00)
+ event13  POINTER_MOTION           26  +17.061s	 34.70/ -5.10 (+34.00/ -5.00)
+ event13  POINTER_MOTION           27  +17.076s	 40.83/  1.13 (+36.00/ +1.00)
+ event13  POINTER_MOTION           28  +17.091s	 45.62/ 10.80 (+38.00/ +9.00)
+ event13  POINTER_MOTION           29  +17.106s	 49.41/ 15.20 (+39.00/+12.00)
+ event13  POINTER_MOTION           30  +17.120s	 56.34/ 19.24 (+41.00/+14.00)
+ event13  POINTER_MOTION           31  +17.135s	 62.60/ 32.79 (+42.00/+22.00)
+ event13  POINTER_MOTION           32  +17.150s	 53.29/ 30.25 (+37.00/+21.00)
+ event13  POINTER_MOTION           33  +17.165s	 49.97/ 36.09 (+36.00/+26.00)
+ event13  POINTER_MOTION           34  +17.180s	 49.20/ 36.55 (+35.00/+26.00)
+ event13  POINTER_MOTION           35  +17.195s	 35.65/ 35.65 (+27.00/+27.00)
+ event13  POINTER_MOTION           36  +17.210s	 26.20/ 33.34 (+22.00/+28.00)
+ event13  POINTER_MOTION           37  +17.225s	 27.60/ 39.60 (+23.00/+33.00)
+ event13  POINTER_MOTION           38  +17.239s	 15.87/ 29.47 (+14.00/+26.00)
+ event13  POINTER_MOTION           39  +17.254s	  7.94/ 26.78 ( +8.00/+27.00)
+ event13  POINTER_MOTION           40  +17.269s	  0.92/ 20.14 ( +1.00/+22.00)
+ event13  POINTER_MOTION           41  +17.284s	 -7.03/ 13.18 ( -8.00/+15.00)
+ event13  POINTER_MOTION           42  +17.299s	-17.68/ 14.14 (-20.00/+16.00)
+ event13  POINTER_MOTION           43  +17.313s	-30.85/ 10.95 (-31.00/+11.00)
+ event13  POINTER_MOTION           44  +17.328s	-42.07/  6.82 (-37.00/ +6.00)
+ event13  POINTER_MOTION           45  +17.343s	-58.29/ -5.30 (-44.00/ -4.00)
+ event13  POINTER_MOTION           46  +17.358s	-66.33/ -8.84 (-45.00/ -6.00)
+ event13  POINTER_MOTION           47  +17.373s	-65.59/-10.20 (-45.00/ -7.00)
+ event13  POINTER_MOTION           48  +17.388s	-70.54/ -9.00 (-47.00/ -6.00)
+ event13  POINTER_MOTION           49  +17.402s	-69.79/-12.41 (-45.00/ -8.00)
+ event13  POINTER_MOTION           50  +17.417s	-57.08/-14.27 (-40.00/-10.00)
+ event13  POINTER_MOTION           51  +17.432s	-39.95/-14.53 (-33.00/-12.00)
+ event13  POINTER_MOTION           52  +17.447s	-36.08/-14.66 (-32.00/-13.00)
+ event13  POINTER_MOTION           53  +17.462s	-24.47/-10.20 (-24.00/-10.00)
+ event13  POINTER_MOTION           54  +17.477s	-17.91/ -9.85 (-20.00/-11.00)
+ event13  POINTER_MOTION           55  +17.491s	-15.89/-13.24 (-18.00/-15.00)
+ event13  POINTER_MOTION           56  +17.506s	-10.57/-11.45 (-12.00/-13.00)
+ event13  POINTER_MOTION           57  +17.521s	 -7.03/ -9.67 ( -8.00/-11.00)
+ event13  POINTER_MOTION           58  +17.536s	 -3.51/ -8.79 ( -4.00/-10.00)
+ event13  POINTER_MOTION           59  +17.551s	  2.64/-14.06 ( +3.00/-16.00)
+ event13  POINTER_MOTION           60  +17.566s	  9.67/-13.18 (+11.00/-15.00)
+ event13  POINTER_MOTION           61  +17.580s	 12.30/-11.42 (+14.00/-13.00)
+ event13  POINTER_MOTION           62  +17.595s	 19.43/-10.60 (+22.00/-12.00)
+ event13  POINTER_MOTION           63  +17.610s	 24.32/-11.22 (+26.00/-12.00)
+ event13  POINTER_MOTION           64  +17.625s	 38.03/-15.21 (+35.00/-14.00)
+ event13  POINTER_MOTION           65  +17.640s	 52.84/-15.47 (+41.00/-12.00)
+ event13  POINTER_MOTION           66  +17.655s	 61.41/-11.17 (+44.00/ -8.00)
+ event13  POINTER_MOTION           67  +17.669s	 71.85/ -7.64 (+47.00/ -5.00)
+ event13  POINTER_MOTION           68  +17.684s	 76.55/ -1.59 (+48.00/ -1.00)
+ event13  POINTER_MOTION           69  +17.699s	 75.28/  4.71 (+48.00/ +3.00)
+ event13  POINTER_MOTION           70  +17.714s	 72.51/ 14.19 (+46.00/ +9.00)
+ event13  POINTER_MOTION           71  +17.729s	 60.63/ 19.22 (+41.00/+13.00)
+ event13  POINTER_MOTION           72  +17.744s	 33.10/ 15.37 (+28.00/+13.00)
+ event13  POINTER_MOTION           73  +17.759s	 17.83/ 12.20 (+19.00/+13.00)
+ event13  POINTER_MOTION           74  +17.773s	 11.42/ 14.94 (+13.00/+17.00)
+ event13  POINTER_MOTION           75  +17.788s	  1.76/ 13.18 ( +2.00/+15.00)
+ event13  POINTER_MOTION           76  +17.803s	 -6.15/ 13.18 ( -7.00/+15.00)
+ event13  POINTER_MOTION           77  +17.818s	-18.07/ 19.88 (-20.00/+22.00)
+ event13  POINTER_MOTION           78  +17.833s	-29.68/ 22.26 (-28.00/+21.00)
+ event13  POINTER_MOTION           79  +17.848s	-48.26/ 22.27 (-39.00/+18.00)
+ event13  POINTER_MOTION           80  +17.862s	-67.36/ 22.45 (-45.00/+15.00)
+ event13  POINTER_MOTION           81  +17.877s	-85.37/ 21.76 (-51.00/+13.00)
+ event13  POINTER_MOTION           82  +17.892s	-95.19/  8.98 (-53.00/ +5.00)
+ event13  POINTER_MOTION           83  +17.907s	-98.63/ -3.72 (-53.00/ -2.00)
+ event13  POINTER_MOTION           84  +17.922s	-88.53/-12.39 (-50.00/ -7.00)
+ event13  POINTER_MOTION           85  +17.937s	-74.01/-16.09 (-46.00/-10.00)
+ event13  POINTER_MOTION           86  +17.951s	-45.91/-17.55 (-34.00/-13.00)
+ event13  POINTER_MOTION           87  +17.966s	-34.13/-25.89 (-29.00/-22.00)
+ event13  POINTER_MOTION           88  +17.981s	-20.90/-19.85 (-20.00/-19.00)
+ event13  POINTER_MOTION           89  +17.996s	-14.20/-30.43 (-14.00/-30.00)
+ event13  POINTER_MOTION           90  +18.011s	 -4.98/-24.90 ( -5.00/-25.00)
+ event13  POINTER_MOTION           91  +18.026s	  1.90/-28.57 ( +2.00/-30.00)
+ event13  POINTER_MOTION           92  +18.040s	 11.60/-22.22 (+12.00/-23.00)
+ event13  POINTER_MOTION           93  +18.056s	 17.17/-22.90 (+18.00/-24.00)
+ event13  POINTER_MOTION           94  +18.070s	 31.70/-26.23 (+29.00/-24.00)
+ event13  POINTER_MOTION           95  +18.085s	 38.54/-19.27 (+32.00/-16.00)
+ event13  POINTER_MOTION           96  +18.100s	 47.92/-14.75 (+39.00/-12.00)
+ event13  POINTER_MOTION           97  +18.114s	 57.29/-13.64 (+42.00/-10.00)
+ event13  POINTER_MOTION           98  +18.129s	 72.84/-12.14 (+48.00/ -8.00)
+ event13  POINTER_MOTION           99  +18.144s	 76.23/ -9.53 (+48.00/ -6.00)
+ event13  POINTER_MOTION          100  +18.159s	 81.08/ -1.62 (+50.00/ -1.00)
+ event13  POINTER_MOTION          101  +18.174s	 81.75/  5.00 (+49.00/ +3.00)
+ event13  POINTER_MOTION          102  +18.189s	 65.79/  9.18 (+43.00/ +6.00)
+ event13  POINTER_MOTION          103  +18.204s	 49.48/  9.12 (+38.00/ +7.00)
+ event13  POINTER_MOTION          104  +18.219s	 41.25/  9.43 (+35.00/ +8.00)
+ event13  POINTER_MOTION          105  +18.233s	 25.88/  8.28 (+25.00/ +8.00)
+ event13  POINTER_MOTION          106  +18.248s	 17.40/ 13.74 (+19.00/+15.00)
+ event13  POINTER_MOTION          107  +18.263s	 12.35/ 15.88 (+14.00/+18.00)
+ event13  POINTER_MOTION          108  +18.278s	  5.27/ 18.45 ( +6.00/+21.00)
+ event13  POINTER_MOTION          109  +18.293s	 -5.44/ 24.46 ( -6.00/+27.00)
+ event13  POINTER_MOTION          110  +18.307s	-13.47/ 33.17 (-13.00/+32.00)
+ event13  POINTER_MOTION          111  +18.322s	-29.71/ 35.65 (-25.00/+30.00)
+ event13  POINTER_MOTION          112  +18.337s	-40.21/ 45.57 (-30.00/+34.00)
+ event13  POINTER_MOTION          113  +18.352s	-43.00/ 36.06 (-31.00/+26.00)
+ event13  POINTER_MOTION          114  +18.367s	-53.30/ 27.33 (-39.00/+20.00)
+ event13  POINTER_MOTION          115  +18.382s	-54.70/ 16.41 (-40.00/+12.00)
+ event13  POINTER_MOTION          116  +18.397s	-49.96/  3.84 (-39.00/ +3.00)
+ event13  POINTER_MOTION          117  +18.411s	-47.34/ -3.74 (-38.00/ -3.00)
+ event13  POINTER_MOTION          118  +18.426s	-47.42/-11.23 (-38.00/ -9.00)
+ event13  POINTER_MOTION          119  +18.441s	-29.10/-16.79 (-26.00/-15.00)
+ event13  POINTER_MOTION          120  +18.456s	-19.85/-20.84 (-20.00/-21.00)
+ event13  POINTER_MOTION          121  +18.471s	-13.86/-26.73 (-14.00/-27.00)
+ event13  POINTER_MOTION          122  +18.486s	  0.96/-25.01 ( +1.00/-26.00)
+ event13  POINTER_MOTION          123  +18.500s	 10.20/-33.65 (+10.00/-33.00)
+ event13  POINTER_MOTION          124  +18.515s	 27.87/-33.68 (+24.00/-29.00)
+ event13  POINTER_MOTION          125  +18.530s	 46.31/-38.37 (+35.00/-29.00)
+ event13  POINTER_MOTION          126  +18.545s	 56.54/-35.71 (+38.00/-24.00)
+ event13  POINTER_MOTION          127  +18.559s	 62.10/-23.66 (+42.00/-16.00)
+ event13  POINTER_MOTION          128  +18.574s	 67.51/-16.50 (+45.00/-11.00)
+ event13  POINTER_MOTION          129  +18.589s	 58.86/-12.92 (+41.00/ -9.00)
+ event13  POINTER_MOTION          130  +18.604s	 39.76/ -9.64 (+33.00/ -8.00)
+ event13  POINTER_MOTION          131  +18.619s	 30.22/ -8.34 (+29.00/ -8.00)
+ event13  POINTER_MOTION          132  +18.634s	 16.46/ -6.40 (+18.00/ -7.00)
+ event13  POINTER_MOTION          133  +18.649s	  7.03/ -3.51 ( +8.00/ -4.00)
+ event13  POINTER_MOTION          134  +18.664s	  2.64/ -1.76 ( +3.00/ -2.00)
+ event13  POINTER_MOTION          135  +18.678s	  0.88/ -4.39 ( +1.00/ -5.00)
+ event13  POINTER_MOTION          136  +18.693s	-11.42/ -9.67 (-13.00/-11.00)
+ event13  POINTER_MOTION          137  +18.708s	-16.70/ -8.79 (-19.00/-10.00)
+ event13  POINTER_MOTION          138  +18.723s	-29.22/ -1.89 (-31.00/ -2.00)
+ event13  POINTER_MOTION          139  +18.738s	-41.04/  5.55 (-37.00/ +5.00)
+ event13  POINTER_MOTION          140  +18.753s	-56.17/ 16.98 (-43.00/+13.00)
+ event13  POINTER_MOTION          141  +18.767s	-70.50/ 40.06 (-44.00/+25.00)
+ event13  POINTER_MOTION          142  +18.782s	-73.93/ 54.57 (-42.00/+31.00)
+ event13  POINTER_MOTION          143  +18.797s	-69.32/ 55.46 (-40.00/+32.00)
+ event13  POINTER_MOTION          144  +18.813s	-42.27/ 49.82 (-28.00/+33.00)
+ event13  POINTER_MOTION          145  +18.827s	-24.66/ 33.30 (-20.00/+27.00)
+ event13  POINTER_MOTION          146  +18.842s	-16.70/ 33.40 (-15.00/+30.00)
+ event13  POINTER_MOTION          147  +18.856s	 -6.76/ 20.27 ( -7.00/+21.00)
+ event13  POINTER_MOTION          148  +18.871s	 -2.64/ 12.30 ( -3.00/+14.00)
+ event13  POINTER_MOTION          149  +18.886s	 -1.76/  5.27 ( -2.00/ +6.00)
+ event13  POINTER_MOTION          150  +18.901s	 -0.88/  1.76 ( -1.00/ +2.00)
+ event13  POINTER_MOTION          151  +18.916s	 -7.91/  3.51 ( -9.00/ +4.00)
+ event13  POINTER_MOTION          152  +18.931s	-20.21/ -0.88 (-23.00/ -1.00)
+ event13  POINTER_MOTION          153  +18.945s	-23.61/ -3.63 (-26.00/ -4.00)
+ event13  POINTER_MOTION          154  +18.960s	-34.79/ -7.16 (-34.00/ -7.00)
+ event13  POINTER_MOTION          155  +18.975s	-44.79/-12.96 (-38.00/-11.00)
+ event13  POINTER_MOTION          156  +18.990s	-33.69/-17.43 (-29.00/-15.00)
+ event13  POINTER_MOTION          157  +19.005s	-28.04/-14.54 (-27.00/-14.00)
+ event13  POINTER_MOTION          158  +19.020s	-16.01/-16.01 (-17.00/-17.00)
+ event13  POINTER_MOTION          159  +19.035s	 -6.22/-20.44 ( -7.00/-23.00)
+ event13  POINTER_MOTION          160  +19.049s	  7.30/-22.81 ( +8.00/-25.00)
+ event13  POINTER_MOTION          161  +19.064s	 22.91/-30.20 (+22.00/-29.00)
+ event13  POINTER_MOTION          162  +19.079s	 49.29/-38.64 (+37.00/-29.00)
+ event13  POINTER_MOTION          163  +19.094s	 80.99/-46.53 (+47.00/-27.00)
+ event13  POINTER_MOTION          164  +19.109s	 93.25/-31.08 (+51.00/-17.00)
+ event13  POINTER_MOTION          165  +19.124s	 98.01/-18.49 (+53.00/-10.00)
+ event13  POINTER_MOTION          166  +19.138s	 95.96/ -1.88 (+51.00/ -1.00)
+ event13  POINTER_MOTION          167  +19.153s	 82.15/ 10.27 (+48.00/ +6.00)
+ event13  POINTER_MOTION          168  +19.168s	 70.69/ 30.52 (+44.00/+19.00)
+ event13  POINTER_MOTION          169  +19.183s	 41.26/ 22.62 (+31.00/+17.00)
+ event13  POINTER_MOTION          170  +19.198s	 34.59/ 25.37 (+30.00/+22.00)
+ event13  POINTER_MOTION          171  +19.213s	 21.64/ 23.81 (+20.00/+22.00)
+ event13  POINTER_MOTION          172  +19.227s	 11.09/ 16.63 (+12.00/+18.00)
+ event13  POINTER_MOTION          173  +19.242s	  8.79/ 13.18 (+10.00/+15.00)
+ event13  POINTER_MOTION          174  +19.257s	 13.18/ 13.18 (+15.00/+15.00)
+ event13  POINTER_MOTION          175  +19.272s	 15.82/  7.91 (+18.00/ +9.00)
+ event13  POINTER_MOTION          176  +19.287s	 26.43/  0.00 (+29.00/ +0.00)
+ event13  POINTER_MOTION          177  +19.302s	 35.69/-10.50 (+34.00/-10.00)
+ event13  POINTER_MOTION          178  +19.316s	 34.67/-14.54 (+31.00/-13.00)
+ event13  POINTER_MOTION          179  +19.331s	 46.44/-30.12 (+37.00/-24.00)
+ event13  POINTER_MOTION          180  +19.346s	 33.09/-31.82 (+26.00/-25.00)
+ event13  POINTER_MOTION          181  +19.361s	 27.63/-37.25 (+23.00/-31.00)
+ event13  POINTER_MOTION          182  +19.376s	 11.65/-23.30 (+11.00/-22.00)
+ event13  POINTER_MOTION          183  +19.391s	  1.76/-14.99 ( +2.00/-17.00)
+ event13  POINTER_MOTION          184  +19.405s	 -5.27/-10.54 ( -6.00/-12.00)
+ event13  POINTER_MOTION          185  +19.420s	-19.35/ -7.92 (-22.00/ -9.00)
+ event13  POINTER_MOTION          186  +19.435s	-36.59/  5.08 (-36.00/ +5.00)
+ event13  POINTER_MOTION          187  +19.450s	-67.12/ 16.78 (-48.00/+12.00)
+ event13  POINTER_MOTION          188  +19.465s	-112.34/ 51.24 (-57.00/+26.00)
+ event13  POINTER_MOTION          189  +19.480s	-201.53/ 96.51 (-71.00/+34.00)
+ event13  POINTER_MOTION          190  +19.494s	-263.90/150.27 (-72.00/+41.00)
+ event13  POINTER_MOTION          191  +19.509s	-282.20/168.53 (-72.00/+43.00)
+ event13  POINTER_MOTION          192  +19.524s	-244.08/166.42 (-66.00/+45.00)
+ event13  POINTER_MOTION          193  +19.539s	-184.91/121.15 (-58.00/+38.00)
+ event13  POINTER_MOTION          194  +19.554s	-116.61/ 77.74 (-48.00/+32.00)
+ event13  POINTER_MOTION          195  +19.569s	-47.09/ 24.30 (-31.00/+16.00)
+ event13  POINTER_MOTION          196  +19.583s	-20.72/  8.88 (-21.00/ +9.00)
+ event13  POINTER_MOTION          197  +19.598s	-12.31/  0.88 (-14.00/ +1.00)
+ event13  POINTER_MOTION          198  +19.613s	 -7.91/ -2.64 ( -9.00/ -3.00)
+ event13  POINTER_MOTION          199  +19.628s	 -5.27/-16.70 ( -6.00/-19.00)
+ event13  POINTER_MOTION          200  +19.643s	  7.57/-30.29 ( +8.00/-32.00)
+ event13  POINTER_MOTION          201  +19.658s	 20.70/-58.22 (+16.00/-45.00)
+ event13  POINTER_MOTION          202  +19.672s	 45.67/-84.31 (+26.00/-48.00)
+ event13  POINTER_MOTION          203  +19.687s	 59.94/-88.95 (+31.00/-46.00)
+ event13  POINTER_MOTION          204  +19.702s	 67.51/-82.94 (+35.00/-43.00)
+ event13  POINTER_MOTION          205  +19.717s	 82.44/-61.35 (+43.00/-32.00)
+ event13  POINTER_MOTION          206  +19.732s	 90.84/-40.79 (+49.00/-22.00)
+ event13  POINTER_MOTION          207  +19.747s	 95.68/-25.76 (+52.00/-14.00)
+ event13  POINTER_MOTION          208  +19.761s	108.49/ -1.94 (+56.00/ -1.00)
+ event13  POINTER_MOTION          209  +19.776s	118.69/ 12.28 (+58.00/ +6.00)
+ event13  POINTER_MOTION          210  +19.791s	107.35/ 23.86 (+54.00/+12.00)
+ event13  POINTER_MOTION          211  +19.805s	 97.04/ 38.82 (+50.00/+20.00)
+ event13  POINTER_MOTION          212  +19.821s	 70.32/ 37.73 (+41.00/+22.00)
+ event13  POINTER_MOTION          213  +19.836s	 31.55/ 27.77 (+25.00/+22.00)
+ event13  POINTER_MOTION          214  +19.850s	 15.89/ 28.59 (+15.00/+27.00)
+ event13  POINTER_MOTION          215  +19.866s	  0.00/ 27.64 ( +0.00/+28.00)
+ event13  POINTER_MOTION          216  +19.879s	-19.00/ 31.66 (-18.00/+30.00)
+ event13  POINTER_MOTION          217  +19.895s	-45.47/ 45.47 (-34.00/+34.00)
+ event13  POINTER_MOTION          218  +19.910s	-77.98/ 55.45 (-45.00/+32.00)
+ event13  POINTER_MOTION          219  +19.925s	-108.99/ 64.97 (-52.00/+31.00)
+ event13  POINTER_MOTION          220  +19.939s	-129.62/ 52.30 (-57.00/+23.00)
+ event13  POINTER_MOTION          221  +19.954s	-122.40/ 26.23 (-56.00/+12.00)
+ event13  POINTER_MOTION          222  +19.969s	-94.60/  3.71 (-51.00/ +2.00)
+ event13  POINTER_MOTION          223  +19.984s	-54.63/-17.72 (-37.00/-12.00)
+ event13  POINTER_MOTION          224  +19.999s	-32.75/-21.05 (-28.00/-18.00)
+ event13  POINTER_MOTION          225  +20.014s	-17.92/-28.46 (-17.00/-27.00)
+ event13  POINTER_MOTION          226  +20.028s	  2.19/-38.24 ( +2.00/-35.00)
+ event13  POINTER_MOTION          227  +20.043s	 24.08/-58.85 (+18.00/-44.00)
+ event13  POINTER_MOTION          228  +20.058s	 53.94/-80.04 (+31.00/-46.00)
+ event13  POINTER_MOTION          229  +20.073s	 88.01/-90.10 (+42.00/-43.00)
+ event13  POINTER_MOTION          230  +20.088s	102.82/-68.55 (+48.00/-32.00)
+ event13  POINTER_MOTION          231  +20.103s	100.28/-41.29 (+51.00/-21.00)
+ event13  POINTER_MOTION          232  +20.117s	 95.03/-18.63 (+51.00/-10.00)
+ event13  POINTER_MOTION          233  +20.132s	 78.68/ -1.67 (+47.00/ -1.00)
+ event13  POINTER_MOTION          234  +20.147s	 54.05/  4.16 (+39.00/ +3.00)
+ event13  POINTER_MOTION          235  +20.162s	 44.17/ 11.04 (+36.00/ +9.00)
+ event13  POINTER_MOTION          236  +20.177s	 28.08/ 14.04 (+26.00/+13.00)
+ event13  POINTER_MOTION          237  +20.192s	 21.32/ 17.44 (+22.00/+18.00)
+ event13  POINTER_MOTION          238  +20.207s	 14.79/ 16.63 (+16.00/+18.00)
+ event13  POINTER_MOTION          239  +20.221s	  4.55/ 22.76 ( +5.00/+25.00)
+ event13  POINTER_MOTION          240  +20.236s	 -8.22/ 21.01 ( -9.00/+23.00)
+ event13  POINTER_MOTION          241  +20.251s	-20.00/ 28.00 (-20.00/+28.00)
+ event13  POINTER_MOTION          242  +20.266s	-38.51/ 30.08 (-32.00/+25.00)
+ event13  POINTER_MOTION          243  +20.281s	-58.76/ 29.38 (-42.00/+21.00)
+ event13  POINTER_MOTION          244  +20.295s	-69.49/ 28.43 (-44.00/+18.00)
+ event13  POINTER_MOTION          245  +20.310s	-62.72/ 14.93 (-42.00/+10.00)
+ event13  POINTER_MOTION          246  +20.325s	-39.93/ -3.63 (-33.00/ -3.00)
+ event13  POINTER_MOTION          247  +20.340s	-22.45/ -7.81 (-23.00/ -8.00)
+ event13  POINTER_MOTION          248  +20.355s	-13.21/-13.21 (-15.00/-15.00)
+ event13  POINTER_MOTION          249  +20.370s	 -2.87/-31.56 ( -3.00/-33.00)
+ event13  POINTER_MOTION          250  +20.385s	 15.46/-59.27 (+12.00/-46.00)
+ event13  POINTER_MOTION          251  +20.400s	 62.51/-100.40 (+33.00/-53.00)
+ event13  POINTER_MOTION          252  +20.414s	114.73/-140.81 (+44.00/-54.00)
+ event13  POINTER_MOTION          253  +20.429s	146.84/-138.20 (+51.00/-48.00)
+ event13  POINTER_MOTION          254  +20.444s	119.41/-82.09 (+48.00/-33.00)
+ event13  POINTER_MOTION          255  +20.459s	 68.43/-33.34 (+39.00/-19.00)
+ event13  POINTER_MOTION          256  +20.474s	 31.01/-10.34 (+27.00/ -9.00)
+ event13  POINTER_MOTION          257  +20.488s	 11.60/ -0.89 (+13.00/ -1.00)
+ event13  POINTER_MOTION          258  +20.503s	  3.51/  0.88 ( +4.00/ +1.00)
+ event13  POINTER_MOTION          259  +20.518s	 -2.64/  4.39 ( -3.00/ +5.00)
+ event13  POINTER_MOTION          260  +20.533s	-27.00/ 20.48 (-29.00/+22.00)
+ event13  POINTER_MOTION          261  +20.548s	-52.70/ 27.67 (-40.00/+21.00)
+ event13  POINTER_MOTION          262  +20.563s	-62.78/ 21.90 (-43.00/+15.00)
+ event13  POINTER_MOTION          263  +20.577s	-54.16/ 12.50 (-39.00/ +9.00)
+ event13  POINTER_MOTION          264  +20.592s	-24.52/  2.13 (-23.00/ +2.00)
+ event13  POINTER_MOTION          265  +20.607s	 -9.67/ -0.88 (-11.00/ -1.00)
+ event13  POINTER_MOTION          266  +20.637s	  3.51/-11.42 ( +4.00/-13.00)
+ event13  POINTER_MOTION          267  +20.653s	 25.51/-20.04 (+28.00/-22.00)
+ event13  POINTER_MOTION          268  +20.667s	 47.52/-22.51 (+38.00/-18.00)
+ 649: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_POINTER_MOTION → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_DEAD → TAP_EVENT_RELEASE → TAP_STATE_IDLE

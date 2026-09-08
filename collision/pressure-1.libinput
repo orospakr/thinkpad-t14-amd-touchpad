@@ -1,0 +1,342 @@
+libinput version: 1.31.3
+event13 - Synaptics TM3471-030: is tagged by udev as: Touchpad
+  ... event13 - using pressure-based touch detection (25:30)
+  ... event13 - palm: pressure threshold is 130
+  ... event13 - thumb: enabled thumb detection (area, pressure)
+event13 - Synaptics TM3471-030: device is a touchpad
+-event13  DEVICE_ADDED                 Synaptics TM3471-030              seat0 default group1  cap:pg  size 97x65mm tap (dl off) left scroll-nat scroll-2fg-edge click-buttonareas-clickfinger dwt-on dwtp-on
+   2: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+   4: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_POINTER_MOTION_START → GESTURE_STATE_POINTER_MOTION
+  ... event13 - gesture: [1fg] state GESTURE_STATE_UNKNOWN → GESTURE_STATE_POINTER_MOTION
+ event13  POINTER_MOTION               +0.030s	-18.75/ -7.03 (-24.00/ -9.00)
+ event13  POINTER_MOTION            2  +0.045s	-14.94/-11.42 (-17.00/-13.00)
+ event13  POINTER_MOTION            3  +0.059s	 -8.79/-13.18 (-10.00/-15.00)
+ event13  POINTER_MOTION            4  +0.074s	 -1.76/-14.94 ( -2.00/-17.00)
+ event13  POINTER_MOTION            5  +0.089s	  1.76/-14.94 ( +2.00/-17.00)
+ event13  POINTER_MOTION            6  +0.104s	  3.51/-11.42 ( +4.00/-13.00)
+ event13  POINTER_MOTION            7  +0.119s	  2.64/ -6.15 ( +3.00/ -7.00)
+ event13  POINTER_MOTION            8  +0.134s	  1.76/ -3.51 ( +2.00/ -4.00)
+ event13  POINTER_MOTION            9  +0.148s	  0.87/  0.00 ( +1.00/ +0.00)
+ event13  POINTER_MOTION           10  +0.163s	  0.00/ -0.85 ( +0.00/ -1.00)
+ event13  POINTER_MOTION           11  +0.178s	  0.00/ -0.84 ( +0.00/ -1.00)
+ event13  POINTER_MOTION           12  +0.193s	  0.84/  0.00 ( +1.00/ +0.00)
+  18: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_POINTER_MOTION → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  19: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+  20: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_RESET → GESTURE_STATE_NONE
+  21: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+  22: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_RESET → GESTURE_STATE_NONE
+  23: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+  24: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_RESET → GESTURE_STATE_NONE
+  25: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+  26: event13 - pressure: begin touch 1
+  ... event13 - button state: touch 1 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_RESET → GESTURE_STATE_NONE
+  ... event13 - gesture: [2fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [2fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+  27: event13 - gesture: [2fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_SCROLL_START → GESTURE_STATE_SCROLL_START
+  ... event13 - gesture: [2fg] state GESTURE_STATE_UNKNOWN → GESTURE_STATE_SCROLL_START
+  28: event13 - gesture: [2fg] state GESTURE_STATE_SCROLL_START → GESTURE_STATE_SCROLL
+ event13  POINTER_SCROLL_FINGER        +4.657s	vert -38.66/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     2  +4.672s	vert -44.81/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     3  +4.687s	vert -43.06/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     4  +4.702s	vert -32.51/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     5  +4.717s	vert -18.45/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     6  +4.731s	vert -8.35/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     7  +4.746s	vert -1.76/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     8  +4.791s	vert 8.79/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     9  +4.806s	vert 23.29/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    10  +4.821s	vert 35.15/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    11  +4.836s	vert 43.06/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    12  +4.850s	vert 45.25/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    13  +4.865s	vert 40.42/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    14  +4.880s	vert 32.51/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    15  +4.895s	vert 17.13/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    16  +4.909s	vert 5.71/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    17  +4.924s	vert 0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    18  +4.939s	vert -17.13/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    19  +4.954s	vert -34.27/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    20  +4.969s	vert -46.13/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    21  +4.983s	vert -51.84/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    22  +4.998s	vert -49.65/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    23  +5.013s	vert -38.66/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    24  +5.028s	vert -20.21/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    25  +5.043s	vert -8.35/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    26  +5.057s	vert -0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    27  +5.088s	vert 18.01/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    28  +5.102s	vert 32.51/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    29  +5.117s	vert 40.86/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    30  +5.132s	vert 44.37/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    31  +5.147s	vert 42.62/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    32  +5.162s	vert 31.63/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    33  +5.176s	vert 16.70/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    34  +5.191s	vert 5.71/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    35  +5.206s	vert 0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    36  +5.221s	vert -4.39/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    37  +5.236s	vert -25.04/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    38  +5.251s	vert -35.59/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    39  +5.265s	vert -43.49/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    40  +5.280s	vert -44.81/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    41  +5.295s	vert -39.10/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    42  +5.310s	vert -26.80/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    43  +5.325s	vert -13.18/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    44  +5.340s	vert -4.39/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    45  +5.355s	vert -0.88/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    46  +5.369s	vert 3.51/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    47  +5.384s	vert 21.53/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    48  +5.399s	vert 33.83/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    49  +5.413s	vert 40.42/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    50  +5.429s	vert 43.93/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    51  +5.444s	vert 39.98/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    52  +5.458s	vert 30.31/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    53  +5.473s	vert 16.70/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    54  +5.488s	vert 7.03/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    55  +5.503s	vert 0.88/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    56  +5.533s	vert -21.53/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    57  +5.548s	vert -34.27/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    58  +5.562s	vert -42.18/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    59  +5.577s	vert -43.93/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    60  +5.592s	vert -34.71/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    61  +5.607s	vert -20.21/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    62  +5.622s	vert -9.23/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    63  +5.637s	vert -1.76/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    64  +5.666s	vert 7.91/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    65  +5.681s	vert 26.36/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    66  +5.696s	vert 35.59/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    67  +5.711s	vert 40.42/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    68  +5.726s	vert 37.78/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    69  +5.740s	vert 30.31/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    70  +5.755s	vert 17.13/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    71  +5.770s	vert 7.47/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    72  +5.785s	vert 0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    73  +5.815s	vert -24.16/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    74  +5.829s	vert -38.66/0.0* horiz 0.00/0.0 (finger)
+ 109: event13 - pressure: end touch 1
+  ... event13 - button state: touch 1 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+ 110: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_SCROLL → GESTURE_EVENT_END → GESTURE_STATE_NONE
+ event13  POINTER_SCROLL_FINGER        +5.857s	vert 0.00/0.0* horiz 0.00/0.0* (finger)
+ 112: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 113: event13 - pressure: begin touch 1
+  ... event13 - button state: touch 1 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_RESET → GESTURE_STATE_NONE
+  ... event13 - gesture: [2fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [2fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 114: event13 - gesture: [2fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_SCROLL_START → GESTURE_STATE_SCROLL_START
+  ... event13 - gesture: [2fg] state GESTURE_STATE_UNKNOWN → GESTURE_STATE_SCROLL_START
+ 115: event13 - gesture: [2fg] state GESTURE_STATE_SCROLL_START → GESTURE_STATE_SCROLL
+ event13  POINTER_SCROLL_FINGER        +6.165s	vert -39.98/0.0* horiz 0.00/0.0 (finger)
+ 117: event13 - button state: touch 1 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+ 118: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_SCROLL → GESTURE_EVENT_END → GESTURE_STATE_NONE
+ event13  POINTER_SCROLL_FINGER        +6.196s	vert 0.00/0.0* horiz 0.00/0.0* (finger)
+ 120: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 121: event13 - pressure: begin touch 1
+  ... event13 - button state: touch 1 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_RESET → GESTURE_STATE_NONE
+  ... event13 - gesture: [2fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [2fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 122: event13 - gesture: [2fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_SCROLL_START → GESTURE_STATE_SCROLL_START
+  ... event13 - gesture: [2fg] state GESTURE_STATE_UNKNOWN → GESTURE_STATE_SCROLL_START
+ 123: event13 - gesture: [2fg] state GESTURE_STATE_SCROLL_START → GESTURE_STATE_SCROLL
+ event13  POINTER_SCROLL_FINGER        +6.463s	vert 42.18/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     2  +6.478s	vert 39.54/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     3  +6.492s	vert 33.39/0.0* horiz 0.00/0.0 (finger)
+ 127: event13 - pressure: end touch 1
+  ... event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - button state: touch 1 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_SCROLL → GESTURE_EVENT_END → GESTURE_STATE_NONE
+ event13  POINTER_SCROLL_FINGER        +6.506s	vert 0.00/0.0* horiz 0.00/0.0* (finger)
+ 129: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 130: event13 - pressure: begin touch 1
+  ... event13 - button state: touch 1 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_RESET → GESTURE_STATE_NONE
+  ... event13 - gesture: [2fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [2fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 131: event13 - gesture: [2fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_SCROLL_START → GESTURE_STATE_SCROLL_START
+  ... event13 - gesture: [2fg] state GESTURE_STATE_UNKNOWN → GESTURE_STATE_SCROLL_START
+ 132: event13 - gesture: [2fg] state GESTURE_STATE_SCROLL_START → GESTURE_STATE_SCROLL
+ event13  POINTER_SCROLL_FINGER        +6.821s	vert -42.62/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     2  +6.836s	vert -45.25/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     3  +6.850s	vert -37.34/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     4  +6.865s	vert -27.68/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     5  +6.880s	vert -12.74/0.0* horiz 0.00/0.0 (finger)
+ 138: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - button state: touch 1 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_SCROLL → GESTURE_EVENT_END → GESTURE_STATE_NONE
+ event13  POINTER_SCROLL_FINGER        +6.894s	vert 0.00/0.0* horiz 0.00/0.0* (finger)
+ 139: event13 - pressure: begin touch 0
+  ... event13 - pressure: begin touch 1
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - button state: touch 1 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [2fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 140: event13 - gesture: [2fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_SCROLL_START → GESTURE_STATE_SCROLL_START
+  ... event13 - gesture: [2fg] state GESTURE_STATE_UNKNOWN → GESTURE_STATE_SCROLL_START
+ 141: event13 - gesture: [2fg] state GESTURE_STATE_SCROLL_START → GESTURE_STATE_SCROLL
+ event13  POINTER_SCROLL_FINGER        +7.217s	vert -29.00/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     2  +7.232s	vert -36.03/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     3  +7.247s	vert -36.03/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     4  +7.262s	vert -29.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     5  +7.276s	vert -21.09/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     6  +7.291s	vert -11.86/0.0* horiz 0.00/0.0 (finger)
+ 148: event13 - button state: touch 1 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+ 149: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_SCROLL → GESTURE_EVENT_END → GESTURE_STATE_NONE
+ event13  POINTER_SCROLL_FINGER        +7.323s	vert 0.00/0.0* horiz 0.00/0.0* (finger)
+ 151: event13 - pressure: begin touch 0
+  ... event13 - pressure: begin touch 1
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - button state: touch 1 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [2fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 152: event13 - gesture: [2fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_SCROLL_START → GESTURE_STATE_SCROLL_START
+  ... event13 - gesture: [2fg] state GESTURE_STATE_UNKNOWN → GESTURE_STATE_SCROLL_START
+ 153: event13 - gesture: [2fg] state GESTURE_STATE_SCROLL_START → GESTURE_STATE_SCROLL
+ event13  POINTER_SCROLL_FINGER        +7.677s	vert 33.39/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     2  +7.692s	vert 30.31/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     3  +7.707s	vert 25.04/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     4  +7.721s	vert 13.62/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     5  +7.736s	vert 5.27/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     6  +7.751s	vert 0.88/0.0* horiz 0.00/0.0 (finger)
+ 163: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+ 165: event13 - button state: touch 1 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_SCROLL → GESTURE_EVENT_END → GESTURE_STATE_NONE
+ event13  POINTER_SCROLL_FINGER        +7.838s	vert 0.00/0.0* horiz 0.00/0.0* (finger)
+ 167: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 168: event13 - pressure: begin touch 1
+  ... event13 - button state: touch 1 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_RESET → GESTURE_STATE_NONE
+  ... event13 - gesture: [2fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [2fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 169: event13 - gesture: [2fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_SCROLL_START → GESTURE_STATE_SCROLL_START
+  ... event13 - gesture: [2fg] state GESTURE_STATE_UNKNOWN → GESTURE_STATE_SCROLL_START
+ 170: event13 - gesture: [2fg] state GESTURE_STATE_SCROLL_START → GESTURE_STATE_SCROLL
+ event13  POINTER_SCROLL_FINGER        +8.145s	vert -38.66/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     2  +8.160s	vert -40.86/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     3  +8.175s	vert -36.47/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     4  +8.190s	vert -26.36/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     5  +8.205s	vert -17.57/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     6  +8.220s	vert -7.91/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     7  +8.234s	vert -2.64/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     8  +8.249s	vert -0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     9  +8.264s	vert -0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    10  +8.279s	vert 0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    11  +8.294s	vert 0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    12  +8.309s	vert 3.95/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    13  +8.324s	vert 7.03/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    14  +8.338s	vert 16.70/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    15  +8.354s	vert 24.60/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    16  +8.368s	vert 29.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    17  +8.383s	vert 29.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    18  +8.398s	vert 32.07/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    19  +8.412s	vert 31.19/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    20  +8.427s	vert 28.12/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    21  +8.442s	vert 29.00/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    22  +8.457s	vert 23.29/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    23  +8.472s	vert 19.77/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    24  +8.487s	vert 10.54/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    25  +8.502s	vert 5.27/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    26  +8.516s	vert 0.88/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    27  +8.531s	vert 0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    28  +8.546s	vert -0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    29  +8.561s	vert -18.45/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    30  +8.575s	vert -30.31/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    31  +8.591s	vert -43.06/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    32  +8.605s	vert -50.52/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    33  +8.620s	vert -54.48/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    34  +8.635s	vert -51.40/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    35  +8.650s	vert -36.03/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    36  +8.665s	vert -18.45/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    37  +8.680s	vert -6.15/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    38  +8.695s	vert -0.88/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    39  +8.709s	vert 0.88/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    40  +8.724s	vert 17.13/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    41  +8.739s	vert 27.24/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    42  +8.754s	vert 36.90/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    43  +8.769s	vert 43.49/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    44  +8.783s	vert 44.81/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    45  +8.798s	vert 44.37/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    46  +8.813s	vert 39.98/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    47  +8.828s	vert 29.00/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    48  +8.843s	vert 18.01/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    49  +8.858s	vert 7.03/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    50  +8.873s	vert 1.76/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    51  +8.887s	vert 0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    52  +8.917s	vert -10.10/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    53  +8.932s	vert -25.04/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    54  +8.947s	vert -38.66/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    55  +8.962s	vert -49.21/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    56  +8.976s	vert -53.60/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    57  +8.991s	vert -49.65/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    58  +9.006s	vert -37.34/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    59  +9.021s	vert -18.89/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    60  +9.036s	vert -7.03/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    61  +9.051s	vert -0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    62  +9.065s	vert -0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    63  +9.081s	vert 7.91/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    64  +9.095s	vert 19.33/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    65  +9.110s	vert 31.19/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    66  +9.125s	vert 41.30/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    67  +9.140s	vert 45.25/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    68  +9.154s	vert 46.13/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    69  +9.169s	vert 43.06/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    70  +9.184s	vert 29.88/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    71  +9.199s	vert 17.57/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    72  +9.214s	vert 6.59/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    73  +9.229s	vert 2.20/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    74  +9.258s	vert -5.71/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    75  +9.273s	vert -26.80/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    76  +9.288s	vert -38.66/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    77  +9.303s	vert -48.77/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    78  +9.318s	vert -53.60/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    79  +9.333s	vert -50.52/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    80  +9.347s	vert -39.10/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    81  +9.362s	vert -19.33/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    82  +9.377s	vert -4.83/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    83  +9.392s	vert -0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    84  +9.407s	vert 17.57/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    85  +9.422s	vert 31.19/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    86  +9.437s	vert 36.47/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    87  +9.451s	vert 36.90/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    88  +9.466s	vert 28.56/0.0* horiz 0.00/0.0 (finger)
+ 261: event13 - pressure: end touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+ 262: event13 - button state: touch 1 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_SCROLL → GESTURE_EVENT_END → GESTURE_STATE_NONE
+ event13  POINTER_SCROLL_FINGER        +9.494s	vert 0.00/0.0* horiz 0.00/0.0* (finger)
+ 264: event13 - pressure: begin touch 0
+  ... event13 - palm: touch 0 (TOUCH_BEGIN), palm detected (tool-palm)
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+ 266: event13 - palm: touch 0 (TOUCH_END), palm detected (tool-palm)
+  ... event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   

@@ -1,0 +1,406 @@
+libinput version: 1.31.3
+event13 - Synaptics TM3471-030: is tagged by udev as: Touchpad
+  ... event13 - using pressure-based touch detection (25:30)
+  ... event13 - palm: pressure threshold is 130
+  ... event13 - thumb: enabled thumb detection (area, pressure)
+event13 - Synaptics TM3471-030: device is a touchpad
+-event13  DEVICE_ADDED                 Synaptics TM3471-030              seat0 default group1  cap:pg  size 97x65mm tap (dl off) left scroll-nat scroll-2fg-edge click-buttonareas-clickfinger dwt-on dwtp-on
+   2: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+   4: event13 - tap: touch 0 (TOUCH_UPDATE), tap state TAP_STATE_TOUCH → TAP_EVENT_MOTION → TAP_STATE_DEAD
+  ... event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_POINTER_MOTION_START → GESTURE_STATE_POINTER_MOTION
+  ... event13 - gesture: [1fg] state GESTURE_STATE_UNKNOWN → GESTURE_STATE_POINTER_MOTION
+ event13  POINTER_MOTION               +0.030s	 17.96/ -3.91 (+23.00/ -5.00)
+ event13  POINTER_MOTION            2  +0.044s	 14.06/ -2.64 (+16.00/ -3.00)
+ event13  POINTER_MOTION            3  +0.059s	 15.82/ -3.51 (+18.00/ -4.00)
+ event13  POINTER_MOTION            4  +0.074s	 14.06/ -3.51 (+16.00/ -4.00)
+ event13  POINTER_MOTION            5  +0.089s	  9.67/ -2.64 (+11.00/ -3.00)
+ event13  POINTER_MOTION            6  +0.104s	  5.27/ -1.76 ( +6.00/ -2.00)
+ event13  POINTER_MOTION            7  +0.119s	  1.76/ -0.88 ( +2.00/ -1.00)
+ event13  POINTER_MOTION            8  +0.133s	  0.88/  0.00 ( +1.00/ +0.00)
+ event13  POINTER_MOTION            9  +0.148s	  0.86/  0.00 ( +1.00/ +0.00)
+ event13  POINTER_MOTION           10  +0.163s	  0.84/  0.00 ( +1.00/ +0.00)
+ event13  POINTER_MOTION           11  +0.267s	  0.00/  0.60 ( +0.00/ +1.00)
+  23: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_POINTER_MOTION → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_DEAD → TAP_EVENT_RELEASE → TAP_STATE_IDLE
+  24: event13 - pressure: begin touch 0
+  ... event13 - pressure: begin touch 1
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - button state: touch 1 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - tap: touch 1 (TOUCH_BEGIN), tap state TAP_STATE_TOUCH → TAP_EVENT_TOUCH → TAP_STATE_TOUCH_2
+  ... event13 - gesture: [2fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [2fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+  25: event13 - tap: touch 0 (TOUCH_UPDATE), tap state TAP_STATE_TOUCH_2 → TAP_EVENT_MOTION → TAP_STATE_DEAD
+  ... event13 - gesture: [2fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_SCROLL_START → GESTURE_STATE_SCROLL_START
+  ... event13 - gesture: [2fg] state GESTURE_STATE_UNKNOWN → GESTURE_STATE_SCROLL_START
+  26: event13 - gesture: [2fg] state GESTURE_STATE_SCROLL_START → GESTURE_STATE_SCROLL
+ event13  POINTER_SCROLL_FINGER        +0.685s	vert -31.63/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     2  +0.700s	vert -29.00/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     3  +0.715s	vert -20.21/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     4  +0.730s	vert -10.54/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     5  +0.745s	vert -4.39/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     6  +0.759s	vert -1.32/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     7  +0.774s	vert -0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     8  +0.789s	vert -0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     9  +0.893s	vert -0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    10  +0.938s	vert -0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    11  +1.071s	vert 0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    12  +1.086s	vert 0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    13  +1.101s	vert 0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    14  +1.115s	vert 0.88/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    15  +1.145s	vert 1.76/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    16  +1.160s	vert 2.20/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    17  +1.175s	vert 7.47/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    18  +1.190s	vert 13.62/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    19  +1.205s	vert 20.21/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    20  +1.219s	vert 25.92/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    21  +1.234s	vert 29.88/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    22  +1.249s	vert 29.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    23  +1.264s	vert 27.24/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    24  +1.279s	vert 22.85/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    25  +1.294s	vert 16.70/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    26  +1.308s	vert 9.67/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    27  +1.323s	vert 4.39/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    28  +1.338s	vert 0.88/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    29  +1.353s	vert 0.88/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    30  +1.383s	vert 0.88/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    31  +1.412s	vert 0.88/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    32  +1.561s	vert -0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    33  +1.590s	vert -0.88/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    34  +1.620s	vert -0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    35  +1.650s	vert -0.88/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    36  +1.694s	vert -0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    37  +1.709s	vert -0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    38  +1.724s	vert -0.88/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    39  +1.739s	vert -2.20/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    40  +1.754s	vert -4.83/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    41  +1.768s	vert -13.18/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    42  +1.783s	vert -19.33/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    43  +1.798s	vert -27.24/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    44  +1.813s	vert -35.59/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    45  +1.828s	vert -39.98/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    46  +1.843s	vert -38.22/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    47  +1.857s	vert -32.95/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    48  +1.872s	vert -20.65/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    49  +1.887s	vert -10.10/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    50  +1.902s	vert -3.51/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    51  +1.917s	vert -0.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    52  +1.932s	vert -0.88/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    53  +1.976s	vert 0.44/0.0* horiz 0.00/0.0 (finger)
+ 104: event13 - button state: touch 1 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+ 105: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_SCROLL → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_DEAD → TAP_EVENT_RELEASE → TAP_STATE_IDLE
+ event13  POINTER_SCROLL_FINGER        +2.008s	vert 0.00/0.0* horiz 0.00/0.0* (finger)
+ 107: event13 - pressure: begin touch 0
+  ... event13 - pressure: begin touch 1
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - button state: touch 1 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - tap: touch 1 (TOUCH_BEGIN), tap state TAP_STATE_TOUCH → TAP_EVENT_TOUCH → TAP_STATE_TOUCH_2
+  ... event13 - gesture: [2fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [2fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 108: event13 - tap: touch 0 (TOUCH_UPDATE), tap state TAP_STATE_TOUCH_2 → TAP_EVENT_MOTION → TAP_STATE_DEAD
+  ... event13 - gesture: [2fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_SCROLL_START → GESTURE_STATE_SCROLL_START
+  ... event13 - gesture: [2fg] state GESTURE_STATE_UNKNOWN → GESTURE_STATE_SCROLL_START
+ 109: event13 - gesture: [2fg] state GESTURE_STATE_SCROLL_START → GESTURE_STATE_SCROLL
+ event13  POINTER_SCROLL_FINGER        +2.472s	vert 27.68/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     2  +2.487s	vert 33.39/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     3  +2.502s	vert 37.78/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     4  +2.516s	vert 39.10/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     5  +2.531s	vert 35.15/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     6  +2.546s	vert 31.19/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     7  +2.561s	vert 22.85/0.0* horiz 0.00/0.0 (finger)
+ 117: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - button state: touch 1 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_SCROLL → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 1 (TOUCH_END), tap state TAP_STATE_DEAD → TAP_EVENT_RELEASE → TAP_STATE_IDLE
+ event13  POINTER_SCROLL_FINGER        +2.574s	vert 0.00/0.0* horiz 0.00/0.0* (finger)
+ 118: event13 - pressure: begin touch 0
+  ... event13 - pressure: begin touch 1
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - button state: touch 1 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - tap: touch 1 (TOUCH_BEGIN), tap state TAP_STATE_TOUCH → TAP_EVENT_TOUCH → TAP_STATE_TOUCH_2
+  ... event13 - gesture: [2fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [2fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 119: event13 - tap: touch 0 (TOUCH_UPDATE), tap state TAP_STATE_TOUCH_2 → TAP_EVENT_MOTION → TAP_STATE_DEAD
+  ... event13 - gesture: [2fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_PINCH_START → GESTURE_STATE_PINCH_START
+  ... event13 - gesture: [2fg] state GESTURE_STATE_UNKNOWN → GESTURE_STATE_PINCH_START
+ 120: event13 - gesture: [2fg] state GESTURE_STATE_PINCH_START → GESTURE_STATE_PINCH
+ event13  GESTURE_PINCH_BEGIN          +3.034s	2
+ event13  GESTURE_PINCH_UPDATE         +3.049s	2  1.35/-26.08 ( 1.32/-25.48 unaccelerated)  2.45 @  0.77
+ event13  GESTURE_PINCH_UPDATE      2  +3.064s	2  3.72/-37.77 ( 3.08/-31.19 unaccelerated)  2.75 @  1.36
+ event13  GESTURE_PINCH_UPDATE      3  +3.079s	2  4.70/-45.20 ( 3.51/-33.83 unaccelerated)  2.88 @  1.39
+ event13  GESTURE_PINCH_UPDATE      4  +3.094s	2  5.10/-36.24 ( 3.95/-28.12 unaccelerated)  2.99 @  1.23
+ event13  GESTURE_PINCH_UPDATE      5  +3.108s	2  5.88/-34.18 ( 4.83/-28.12 unaccelerated)  2.98 @  1.57
+ event13  GESTURE_PINCH_UPDATE      6  +3.123s	2  5.72/-31.20 ( 4.83/-26.36 unaccelerated)  3.04 @  0.64
+ event13  GESTURE_PINCH_UPDATE      7  +3.138s	2  6.56/-30.78 ( 5.71/-26.80 unaccelerated)  3.02 @  0.64
+ event13  GESTURE_PINCH_UPDATE      8  +3.153s	2  7.58/-28.31 ( 6.59/-24.60 unaccelerated)  3.05 @  0.55
+ event13  GESTURE_PINCH_UPDATE      9  +3.168s	2  8.75/-25.27 ( 7.91/-22.85 unaccelerated)  3.01 @  0.62
+ event13  GESTURE_PINCH_UPDATE     10  +3.183s	2  7.59/-16.07 ( 7.47/-15.82 unaccelerated)  2.96 @  0.46
+ event13  GESTURE_PINCH_UPDATE     11  +3.198s	2  5.71/-10.98 ( 5.71/-10.98 unaccelerated)  2.94 @  0.68
+ event13  GESTURE_PINCH_UPDATE     12  +3.212s	2  1.32/-1.76 ( 1.32/-1.76 unaccelerated)  3.00 @ -0.11
+ 133: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+ 134: event13 - button state: touch 1 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_PINCH → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 1 (TOUCH_END), tap state TAP_STATE_DEAD → TAP_EVENT_RELEASE → TAP_STATE_IDLE
+ event13  GESTURE_PINCH_END            +3.244s	2
+ 136: event13 - pressure: begin touch 0
+  ... event13 - pressure: begin touch 1
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - button state: touch 1 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - tap: touch 1 (TOUCH_BEGIN), tap state TAP_STATE_TOUCH → TAP_EVENT_TOUCH → TAP_STATE_TOUCH_2
+  ... event13 - gesture: [2fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [2fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 137: event13 - tap: touch 0 (TOUCH_UPDATE), tap state TAP_STATE_TOUCH_2 → TAP_EVENT_MOTION → TAP_STATE_DEAD
+  ... event13 - gesture: [2fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_SCROLL_START → GESTURE_STATE_SCROLL_START
+  ... event13 - gesture: [2fg] state GESTURE_STATE_UNKNOWN → GESTURE_STATE_SCROLL_START
+ 138: event13 - gesture: [2fg] state GESTURE_STATE_SCROLL_START → GESTURE_STATE_SCROLL
+ event13  POINTER_SCROLL_FINGER        +3.719s	vert -33.83/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     2  +3.734s	vert -37.78/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     3  +3.749s	vert -39.98/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     4  +3.763s	vert -36.90/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     5  +3.779s	vert -27.68/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     6  +3.793s	vert -24.60/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     7  +3.808s	vert -17.57/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     8  +3.823s	vert -9.67/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     9  +3.838s	vert -1.32/0.0* horiz 0.00/0.0 (finger)
+ 148: event13 - pressure: end touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+ 150: event13 - button state: touch 1 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_SCROLL → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 1 (TOUCH_END), tap state TAP_STATE_DEAD → TAP_EVENT_RELEASE → TAP_STATE_IDLE
+ event13  POINTER_SCROLL_FINGER        +3.881s	vert 0.00/0.0* horiz 0.00/0.0* (finger)
+ 152: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 153: event13 - pressure: begin touch 1
+  ... event13 - button state: touch 1 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_RESET → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_UPDATE), tap state TAP_STATE_TOUCH → TAP_EVENT_MOTION → TAP_STATE_DEAD
+  ... event13 - gesture: [2fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [2fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 154: event13 - gesture: [2fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_SCROLL_START → GESTURE_STATE_SCROLL_START
+  ... event13 - gesture: [2fg] state GESTURE_STATE_UNKNOWN → GESTURE_STATE_SCROLL_START
+ 155: event13 - gesture: [2fg] state GESTURE_STATE_SCROLL_START → GESTURE_STATE_SCROLL
+ event13  POINTER_SCROLL_FINGER        +4.381s	vert 33.83/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     2  +4.396s	vert 33.83/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     3  +4.411s	vert 32.07/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     4  +4.426s	vert 31.63/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     5  +4.441s	vert 25.48/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     6  +4.455s	vert 25.48/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     7  +4.470s	vert 21.09/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     8  +4.485s	vert 16.26/0.0* horiz 0.00/0.0 (finger)
+ 164: event13 - pressure: end touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - button state: touch 1 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_SCROLL → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 1 (TOUCH_END), tap state TAP_STATE_DEAD → TAP_EVENT_RELEASE → TAP_STATE_IDLE
+ event13  POINTER_SCROLL_FINGER        +4.499s	vert 0.00/0.0* horiz 0.00/0.0* (finger)
+ 166: event13 - pressure: begin touch 0
+  ... event13 - pressure: begin touch 1
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - button state: touch 1 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_BOTTOM_M to BUTTON_STATE_BOTTOM 
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - tap: touch 1 (TOUCH_BEGIN), tap state TAP_STATE_TOUCH → TAP_EVENT_TOUCH → TAP_STATE_TOUCH_2
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 167: event13 - button state: touch 1 from BUTTON_STATE_BOTTOM  event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_RESET → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_UPDATE), tap state TAP_STATE_TOUCH_2 → TAP_EVENT_MOTION → TAP_STATE_DEAD
+  ... event13 - gesture: [2fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [2fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 168: event13 - gesture: [2fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_SCROLL_START → GESTURE_STATE_SCROLL_START
+  ... event13 - gesture: [2fg] state GESTURE_STATE_UNKNOWN → GESTURE_STATE_SCROLL_START → GESTURE_STATE_SCROLL
+ event13  POINTER_SCROLL_FINGER        +5.023s	vert -36.90/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     2  +5.037s	vert -42.62/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     3  +5.052s	vert -41.74/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     4  +5.067s	vert -34.27/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     5  +5.082s	vert -31.19/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     6  +5.097s	vert -21.53/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     7  +5.112s	vert -9.23/0.0* horiz 0.00/0.0 (finger)
+ 176: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - button state: touch 1 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_SCROLL → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 1 (TOUCH_END), tap state TAP_STATE_DEAD → TAP_EVENT_RELEASE → TAP_STATE_IDLE
+ event13  POINTER_SCROLL_FINGER        +5.125s	vert 0.00/0.0* horiz 0.00/0.0* (finger)
+ 177: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 178: event13 - pressure: begin touch 1
+  ... event13 - button state: touch 1 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_RESET → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_UPDATE), tap state TAP_STATE_TOUCH → TAP_EVENT_MOTION → TAP_STATE_DEAD
+  ... event13 - gesture: [2fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [2fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 179: event13 - gesture: [2fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_SCROLL_START → GESTURE_STATE_SCROLL_START
+  ... event13 - gesture: [2fg] state GESTURE_STATE_UNKNOWN → GESTURE_STATE_SCROLL_START
+ 180: event13 - gesture: [2fg] state GESTURE_STATE_SCROLL_START → GESTURE_STATE_SCROLL
+ event13  POINTER_SCROLL_FINGER        +5.778s	vert -30.31/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     2  +5.792s	vert -28.56/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     3  +5.807s	vert -24.60/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     4  +5.822s	vert -15.82/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     5  +5.837s	vert -11.86/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     6  +5.852s	vert -7.03/0.0* horiz 0.00/0.0 (finger)
+ 187: event13 - pressure: end touch 1
+  ... event13 - button state: touch 1 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+ 188: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_SCROLL → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_DEAD → TAP_EVENT_RELEASE → TAP_STATE_IDLE
+ event13  POINTER_SCROLL_FINGER        +5.880s	vert 0.00/0.0* horiz 0.00/0.0* (finger)
+ 190: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 191: event13 - pressure: begin touch 1
+  ... event13 - button state: touch 1 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_RESET → GESTURE_STATE_NONE
+  ... event13 - tap: touch 1 (TOUCH_BEGIN), tap state TAP_STATE_TOUCH → TAP_EVENT_TOUCH → TAP_STATE_TOUCH_2
+  ... event13 - gesture: [2fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [2fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 192: event13 - tap: touch 0 (TOUCH_UPDATE), tap state TAP_STATE_TOUCH_2 → TAP_EVENT_MOTION → TAP_STATE_DEAD
+  ... event13 - gesture: [2fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_SCROLL_START → GESTURE_STATE_SCROLL_START
+  ... event13 - gesture: [2fg] state GESTURE_STATE_UNKNOWN → GESTURE_STATE_SCROLL_START
+ 193: event13 - gesture: [2fg] state GESTURE_STATE_SCROLL_START → GESTURE_STATE_SCROLL
+ event13  POINTER_SCROLL_FINGER        +6.490s	vert 25.92/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     2  +6.506s	vert 29.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     3  +6.521s	vert 33.83/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     4  +6.535s	vert 30.75/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     5  +6.550s	vert 30.75/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     6  +6.565s	vert 26.36/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     7  +6.580s	vert 22.41/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     8  +6.595s	vert 15.82/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     9  +6.610s	vert 11.86/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    10  +6.624s	vert 10.54/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    11  +6.639s	vert 7.91/0.0* horiz 0.00/0.0 (finger)
+ 205: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - button state: touch 1 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_SCROLL → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 1 (TOUCH_END), tap state TAP_STATE_DEAD → TAP_EVENT_RELEASE → TAP_STATE_IDLE
+ event13  POINTER_SCROLL_FINGER        +6.653s	vert 0.00/0.0* horiz 0.00/0.0* (finger)
+ 206: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 207: event13 - pressure: begin touch 1
+  ... event13 - button state: touch 1 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_BOTTOM_M to BUTTON_STATE_BOTTOM 
+  ... event13 - tap: touch 0 (TOUCH_UPDATE), tap state TAP_STATE_TOUCH → TAP_EVENT_MOTION → TAP_STATE_DEAD
+ 208: event13 - button state: touch 1 from BUTTON_STATE_BOTTOM  event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_RESET → GESTURE_STATE_NONE
+  ... event13 - gesture: [2fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [2fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 209: event13 - gesture: [2fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_SCROLL_START → GESTURE_STATE_SCROLL_START
+  ... event13 - gesture: [2fg] state GESTURE_STATE_UNKNOWN → GESTURE_STATE_SCROLL_START → GESTURE_STATE_SCROLL
+ event13  POINTER_SCROLL_FINGER        +7.346s	vert -26.80/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     2  +7.361s	vert -27.24/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     3  +7.376s	vert -21.53/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     4  +7.391s	vert -22.41/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     5  +7.406s	vert -20.21/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     6  +7.421s	vert -23.72/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     7  +7.435s	vert -25.04/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     8  +7.450s	vert -29.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     9  +7.465s	vert -26.80/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER    10  +7.480s	vert -26.80/0.0* horiz 0.00/0.0 (finger)
+ 220: event13 - button state: touch 1 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+ 221: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_SCROLL → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_DEAD → TAP_EVENT_RELEASE → TAP_STATE_IDLE
+ event13  POINTER_SCROLL_FINGER        +7.511s	vert 0.00/0.0* horiz 0.00/0.0* (finger)
+ 223: event13 - pressure: begin touch 0
+  ... event13 - pressure: begin touch 1
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - button state: touch 1 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - tap: touch 1 (TOUCH_BEGIN), tap state TAP_STATE_TOUCH → TAP_EVENT_TOUCH → TAP_STATE_TOUCH_2
+  ... event13 - gesture: [2fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [2fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 224: event13 - tap: touch 0 (TOUCH_UPDATE), tap state TAP_STATE_TOUCH_2 → TAP_EVENT_MOTION → TAP_STATE_DEAD
+  ... event13 - gesture: [2fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_SCROLL_START → GESTURE_STATE_SCROLL_START
+  ... event13 - gesture: [2fg] state GESTURE_STATE_UNKNOWN → GESTURE_STATE_SCROLL_START
+ 225: event13 - gesture: [2fg] state GESTURE_STATE_SCROLL_START → GESTURE_STATE_SCROLL
+ event13  POINTER_SCROLL_FINGER        +8.158s	vert 22.41/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     2  +8.173s	vert 24.16/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     3  +8.187s	vert 29.44/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     4  +8.202s	vert 28.12/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     5  +8.217s	vert 30.75/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     6  +8.232s	vert 25.04/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     7  +8.247s	vert 22.41/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     8  +8.262s	vert 15.38/0.0* horiz 0.00/0.0 (finger)
+ event13  POINTER_SCROLL_FINGER     9  +8.276s	vert 4.39/0.0* horiz 0.00/0.0 (finger)
+ 235: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - button state: touch 1 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [2fg] event GESTURE_STATE_SCROLL → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 1 (TOUCH_END), tap state TAP_STATE_DEAD → TAP_EVENT_RELEASE → TAP_STATE_IDLE
+ event13  POINTER_SCROLL_FINGER        +8.293s	vert 0.00/0.0* horiz 0.00/0.0* (finger)
+ 236: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 237: event13 - tap: touch 0 (TOUCH_UPDATE), tap state TAP_STATE_TOUCH → TAP_EVENT_MOTION → TAP_STATE_DEAD
+ 238: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_POINTER_MOTION_START → GESTURE_STATE_POINTER_MOTION
+  ... event13 - gesture: [1fg] state GESTURE_STATE_UNKNOWN → GESTURE_STATE_POINTER_MOTION
+ event13  POINTER_MOTION               +32.651s	 23.72/-24.60 (+27.00/-28.00)
+ event13  POINTER_MOTION            2  +32.666s	 32.96/-38.45 (+30.00/-35.00)
+ event13  POINTER_MOTION            3  +32.681s	 55.92/-64.14 (+34.00/-39.00)
+ event13  POINTER_MOTION            4  +32.696s	 68.43/-83.63 (+36.00/-44.00)
+ event13  POINTER_MOTION            5  +32.711s	 62.68/-79.77 (+33.00/-42.00)
+ event13  POINTER_MOTION            6  +32.725s	 49.44/-52.73 (+30.00/-32.00)
+ event13  POINTER_MOTION            7  +32.740s	 30.88/-33.45 (+24.00/-26.00)
+ event13  POINTER_MOTION            8  +32.755s	  8.31/ -8.31 ( +9.00/ -9.00)
+ 247: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_POINTER_MOTION → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_DEAD → TAP_EVENT_RELEASE → TAP_STATE_IDLE
+ 248: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+ 249: event13 - tap: touch 0 (TOUCH_UPDATE), tap state TAP_STATE_TOUCH → TAP_EVENT_MOTION → TAP_STATE_DEAD
+ 250: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_POINTER_MOTION_START → GESTURE_STATE_POINTER_MOTION
+  ... event13 - gesture: [1fg] state GESTURE_STATE_UNKNOWN → GESTURE_STATE_POINTER_MOTION
+ event13  POINTER_MOTION               +32.997s	 21.97/ -7.91 (+25.00/ -9.00)
+ event13  POINTER_MOTION            2  +33.011s	 18.45/ -5.27 (+21.00/ -6.00)
+ event13  POINTER_MOTION            3  +33.026s	 18.45/ -0.88 (+21.00/ -1.00)
+ event13  POINTER_MOTION            4  +33.041s	 14.94/  2.64 (+17.00/ +3.00)
+ event13  POINTER_MOTION            5  +33.056s	 12.30/  4.39 (+14.00/ +5.00)
+ event13  POINTER_MOTION            6  +33.071s	  7.03/  6.15 ( +8.00/ +7.00)
+ event13  POINTER_MOTION            7  +33.085s	  5.27/  5.27 ( +6.00/ +6.00)
+ event13  POINTER_MOTION            8  +33.100s	  2.64/  3.51 ( +3.00/ +4.00)
+ event13  POINTER_MOTION            9  +33.115s	  0.88/  2.64 ( +1.00/ +3.00)
+ event13  POINTER_MOTION           10  +33.130s	  0.88/  0.88 ( +1.00/ +1.00)
+ event13  POINTER_MOTION           11  +33.145s	  0.88/  0.88 ( +1.00/ +1.00)
+ event13  POINTER_MOTION           12  +33.175s	  0.00/  0.79 ( +0.00/ +1.00)
+ event13  POINTER_MOTION           13  +33.189s	  0.71/  0.00 ( +1.00/ +0.00)
+ event13  POINTER_MOTION           14  +33.204s	  0.00/  0.85 ( +0.00/ +1.00)
+ event13  POINTER_MOTION           15  +33.234s	  0.76/  0.76 ( +1.00/ +1.00)
+ event13  POINTER_MOTION           16  +33.278s	  0.58/  0.00 ( +1.00/ +0.00)
+ event13  POINTER_MOTION           17  +33.367s	  0.43/  0.00 ( +1.00/ +0.00)
+ event13  POINTER_MOTION           18  +33.382s	  0.00/ -0.61 ( +0.00/ -1.00)
+ event13  POINTER_MOTION           19  +33.412s	  0.87/ -2.62 ( +1.00/ -3.00)
+ event13  POINTER_MOTION           20  +33.427s	  4.39/ -4.39 ( +5.00/ -5.00)
+ event13  POINTER_MOTION           21  +33.442s	  6.15/ -5.27 ( +7.00/ -6.00)
+ event13  POINTER_MOTION           22  +33.456s	  6.15/ -3.51 ( +7.00/ -4.00)
+ event13  POINTER_MOTION           23  +33.471s	  4.39/ -2.64 ( +5.00/ -3.00)
+ event13  POINTER_MOTION           24  +33.486s	  2.64/ -0.88 ( +3.00/ -1.00)
+ event13  POINTER_MOTION           25  +33.501s	  1.76/  0.00 ( +2.00/ +0.00)
+ event13  POINTER_MOTION           26  +33.516s	  0.00/ -0.87 ( +0.00/ -1.00)
+ event13  POINTER_MOTION           27  +33.531s	  0.84/  0.00 ( +1.00/ +0.00)
+ event13  POINTER_MOTION           28  +33.560s	  0.70/  0.00 ( +1.00/ +0.00)
+ event13  POINTER_MOTION           29  +33.590s	  0.57/  0.00 ( +1.00/ +0.00)
+ 283: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_POINTER_MOTION → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_DEAD → TAP_EVENT_RELEASE → TAP_STATE_IDLE

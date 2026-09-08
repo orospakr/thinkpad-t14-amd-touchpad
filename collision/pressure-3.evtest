@@ -1,0 +1,168 @@
+    Event code 272 (BTN_LEFT)
+    Event code 325 (BTN_TOOL_FINGER)
+    Event code 333 (BTN_TOOL_DOUBLETAP)
+    Event code 334 (BTN_TOOL_TRIPLETAP)
+    Event code 335 (BTN_TOOL_QUADTAP)
+    Event code 47 (ABS_MT_SLOT)
+    Event code 48 (ABS_MT_TOUCH_MAJOR)
+    Event code 53 (ABS_MT_POSITION_X)
+    Event code 54 (ABS_MT_POSITION_Y)
+    Event code 55 (ABS_MT_TOOL_TYPE)
+    Event code 57 (ABS_MT_TRACKING_ID)
+    Event code 58 (ABS_MT_PRESSURE)
+Event: time 1788832884.954996, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value 1225
+Event: time 1788832884.954996, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 701
+Event: time 1788832884.954996, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 195
+Event: time 1788832884.954996, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 31
+Event: time 1788832884.954996, type 3 (EV_ABS), code 48 (ABS_MT_TOUCH_MAJOR), value 1
+Event: time 1788832884.954996, type 1 (EV_KEY), code 325 (BTN_TOOL_FINGER), value 1
+Event: time 1788832884.954996, -------------- SYN_REPORT ------------
+Event: time 1788832884.968354, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value -1
+Event: time 1788832884.968354, type 1 (EV_KEY), code 325 (BTN_TOOL_FINGER), value 0
+Event: time 1788832884.968354, -------------- SYN_REPORT ------------
+Event: time 1788832887.904892, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value 1226
+Event: time 1788832887.904892, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 699
+Event: time 1788832887.904892, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 231
+Event: time 1788832887.904892, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 51
+Event: time 1788832887.904892, type 3 (EV_ABS), code 48 (ABS_MT_TOUCH_MAJOR), value 3
+Event: time 1788832887.904892, type 1 (EV_KEY), code 325 (BTN_TOOL_FINGER), value 1
+Event: time 1788832887.904892, -------------- SYN_REPORT ------------
+Event: time 1788832887.922431, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value -1
+Event: time 1788832887.922431, type 1 (EV_KEY), code 325 (BTN_TOOL_FINGER), value 0
+Event: time 1788832887.922431, -------------- SYN_REPORT ------------
+Event: time 1788832892.117496, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value 1227
+Event: time 1788832892.117496, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 541
+Event: time 1788832892.117496, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 283
+Event: time 1788832892.117496, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 34
+Event: time 1788832892.117496, type 3 (EV_ABS), code 48 (ABS_MT_TOUCH_MAJOR), value 2
+Event: time 1788832892.117496, type 1 (EV_KEY), code 325 (BTN_TOOL_FINGER), value 1
+Event: time 1788832892.117496, -------------- SYN_REPORT ------------
+Event: time 1788832892.134818, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value -1
+Event: time 1788832892.134818, type 1 (EV_KEY), code 325 (BTN_TOOL_FINGER), value 0
+Event: time 1788832892.134818, -------------- SYN_REPORT ------------
+Event: time 1788832892.765374, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value 1228
+Event: time 1788832892.765374, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 683
+Event: time 1788832892.765374, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 208
+Event: time 1788832892.765374, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 43
+Event: time 1788832892.765374, type 3 (EV_ABS), code 48 (ABS_MT_TOUCH_MAJOR), value 4
+Event: time 1788832892.765374, type 1 (EV_KEY), code 325 (BTN_TOOL_FINGER), value 1
+Event: time 1788832892.765374, -------------- SYN_REPORT ------------
+Event: time 1788832892.782943, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value -1
+Event: time 1788832892.782943, type 1 (EV_KEY), code 325 (BTN_TOOL_FINGER), value 0
+Event: time 1788832892.782943, -------------- SYN_REPORT ------------
+Event: time 1788832893.443895, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value 1229
+Event: time 1788832893.443895, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 567
+Event: time 1788832893.443895, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 318
+Event: time 1788832893.443895, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 51
+Event: time 1788832893.443895, type 3 (EV_ABS), code 48 (ABS_MT_TOUCH_MAJOR), value 3
+Event: time 1788832893.443895, type 1 (EV_KEY), code 325 (BTN_TOOL_FINGER), value 1
+Event: time 1788832893.443895, -------------- SYN_REPORT ------------
+Event: time 1788832893.457382, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value -1
+Event: time 1788832893.457382, type 1 (EV_KEY), code 325 (BTN_TOOL_FINGER), value 0
+Event: time 1788832893.457382, -------------- SYN_REPORT ------------
+Event: time 1788832896.781436, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value 1230
+Event: time 1788832896.781436, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 631
+Event: time 1788832896.781436, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 320
+Event: time 1788832896.781436, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 46
+Event: time 1788832896.781436, type 3 (EV_ABS), code 48 (ABS_MT_TOUCH_MAJOR), value 4
+Event: time 1788832896.781436, type 1 (EV_KEY), code 325 (BTN_TOOL_FINGER), value 1
+Event: time 1788832896.781436, -------------- SYN_REPORT ------------
+Event: time 1788832896.798407, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value -1
+Event: time 1788832896.798407, type 1 (EV_KEY), code 325 (BTN_TOOL_FINGER), value 0
+Event: time 1788832896.798407, -------------- SYN_REPORT ------------
+Event: time 1788832898.757441, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value 1231
+Event: time 1788832898.757441, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 636
+Event: time 1788832898.757441, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 326
+Event: time 1788832898.757441, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 63
+Event: time 1788832898.757441, type 3 (EV_ABS), code 48 (ABS_MT_TOUCH_MAJOR), value 5
+Event: time 1788832898.757441, type 1 (EV_KEY), code 325 (BTN_TOOL_FINGER), value 1
+Event: time 1788832898.757441, -------------- SYN_REPORT ------------
+Event: time 1788832898.787455, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 64
+Event: time 1788832898.787455, -------------- SYN_REPORT ------------
+Event: time 1788832898.831395, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 327
+Event: time 1788832898.831395, -------------- SYN_REPORT ------------
+Event: time 1788832898.861347, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 328
+Event: time 1788832898.861347, -------------- SYN_REPORT ------------
+Event: time 1788832899.320885, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 63
+Event: time 1788832899.320885, -------------- SYN_REPORT ------------
+Event: time 1788832899.336530, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 62
+Event: time 1788832899.336530, type 3 (EV_ABS), code 48 (ABS_MT_TOUCH_MAJOR), value 4
+Event: time 1788832899.336530, -------------- SYN_REPORT ------------
+Event: time 1788832899.350841, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 58
+Event: time 1788832899.350841, -------------- SYN_REPORT ------------
+Event: time 1788832899.365374, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 53
+Event: time 1788832899.365374, -------------- SYN_REPORT ------------
+Event: time 1788832899.382870, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value -1
+Event: time 1788832899.382870, type 1 (EV_KEY), code 325 (BTN_TOOL_FINGER), value 0
+Event: time 1788832899.382870, -------------- SYN_REPORT ------------
+Event: time 1788832906.375838, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value 1232
+Event: time 1788832906.375838, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 522
+Event: time 1788832906.375838, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 275
+Event: time 1788832906.375838, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 71
+Event: time 1788832906.375838, type 3 (EV_ABS), code 48 (ABS_MT_TOUCH_MAJOR), value 5
+Event: time 1788832906.375838, type 1 (EV_KEY), code 325 (BTN_TOOL_FINGER), value 1
+Event: time 1788832906.375838, -------------- SYN_REPORT ------------
+Event: time 1788832906.390441, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 69
+Event: time 1788832906.390441, -------------- SYN_REPORT ------------
+Event: time 1788832906.405500, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 66
+Event: time 1788832906.405500, -------------- SYN_REPORT ------------
+Event: time 1788832906.419897, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 57
+Event: time 1788832906.419897, type 3 (EV_ABS), code 48 (ABS_MT_TOUCH_MAJOR), value 4
+Event: time 1788832906.419897, -------------- SYN_REPORT ------------
+Event: time 1788832906.433858, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value -1
+Event: time 1788832906.433858, type 1 (EV_KEY), code 325 (BTN_TOOL_FINGER), value 0
+Event: time 1788832906.433858, -------------- SYN_REPORT ------------
+Event: time 1788832907.403505, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value 1233
+Event: time 1788832907.403505, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 567
+Event: time 1788832907.403505, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 229
+Event: time 1788832907.403505, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 100
+Event: time 1788832907.403505, type 3 (EV_ABS), code 48 (ABS_MT_TOUCH_MAJOR), value 7
+Event: time 1788832907.403505, type 1 (EV_KEY), code 325 (BTN_TOOL_FINGER), value 1
+Event: time 1788832907.403505, -------------- SYN_REPORT ------------
+Event: time 1788832907.417944, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 101
+Event: time 1788832907.417944, -------------- SYN_REPORT ------------
+Event: time 1788832907.447847, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 231
+Event: time 1788832907.447847, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 100
+Event: time 1788832907.447847, -------------- SYN_REPORT ------------
+Event: time 1788832907.462482, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 232
+Event: time 1788832907.462482, -------------- SYN_REPORT ------------
+Event: time 1788832907.492464, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 233
+Event: time 1788832907.492464, -------------- SYN_REPORT ------------
+Event: time 1788832907.521817, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 234
+Event: time 1788832907.521817, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 99
+Event: time 1788832907.521817, -------------- SYN_REPORT ------------
+Event: time 1788832907.566451, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 98
+Event: time 1788832907.566451, -------------- SYN_REPORT ------------
+Event: time 1788832907.581465, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 96
+Event: time 1788832907.581465, -------------- SYN_REPORT ------------
+Event: time 1788832907.595955, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 89
+Event: time 1788832907.595955, -------------- SYN_REPORT ------------
+Event: time 1788832907.610994, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 78
+Event: time 1788832907.610994, type 3 (EV_ABS), code 48 (ABS_MT_TOUCH_MAJOR), value 6
+Event: time 1788832907.610994, -------------- SYN_REPORT ------------
+Event: time 1788832907.625383, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 57
+Event: time 1788832907.625383, type 3 (EV_ABS), code 48 (ABS_MT_TOUCH_MAJOR), value 4
+Event: time 1788832907.625383, -------------- SYN_REPORT ------------
+Event: time 1788832907.642949, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value -1
+Event: time 1788832907.642949, type 1 (EV_KEY), code 325 (BTN_TOOL_FINGER), value 0
+Event: time 1788832907.642949, -------------- SYN_REPORT ------------
+Event: time 1788832908.790935, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value 1234
+Event: time 1788832908.790935, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 513
+Event: time 1788832908.790935, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 285
+Event: time 1788832908.790935, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 83
+Event: time 1788832908.790935, type 3 (EV_ABS), code 48 (ABS_MT_TOUCH_MAJOR), value 6
+Event: time 1788832908.790935, type 1 (EV_KEY), code 325 (BTN_TOOL_FINGER), value 1
+Event: time 1788832908.790935, -------------- SYN_REPORT ------------
+Event: time 1788832908.805462, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 82
+Event: time 1788832908.805462, -------------- SYN_REPORT ------------
+Event: time 1788832908.820492, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 79
+Event: time 1788832908.820492, -------------- SYN_REPORT ------------
+Event: time 1788832908.835008, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 73
+Event: time 1788832908.835008, type 3 (EV_ABS), code 48 (ABS_MT_TOUCH_MAJOR), value 5
+Event: time 1788832908.835008, -------------- SYN_REPORT ------------
+Event: time 1788832908.850026, type 3 (EV_ABS), code 58 (ABS_MT_PRESSURE), value 62
+Event: time 1788832908.850026, type 3 (EV_ABS), code 48 (ABS_MT_TOUCH_MAJOR), value 4
+Event: time 1788832908.850026, -------------- SYN_REPORT ------------
+Event: time 1788832908.863448, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value -1
+Event: time 1788832908.863448, type 1 (EV_KEY), code 325 (BTN_TOOL_FINGER), value 0
+Event: time 1788832908.863448, -------------- SYN_REPORT ------------

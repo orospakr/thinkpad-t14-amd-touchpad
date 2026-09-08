@@ -1,0 +1,39 @@
+--- src/synaptics.c	2026-08-27 22:26:28.841850198 -0400
++++ nosleep/synaptics.c	2026-09-07 22:08:57.075718929 -0400
+@@ -1781,6 +1781,18 @@
+ module_param_named(synaptics_intertouch, synaptics_intertouch, int, 0644);
+ MODULE_PARM_DESC(synaptics_intertouch, "Use a secondary bus for the Synaptics device.");
+ 
++/* experiment: F01 power management overrides passed to rmi_core via pdata */
++static bool synaptics_rmi_kernel_tracking;
++module_param(synaptics_rmi_kernel_tracking, bool, 0644);
++MODULE_PARM_DESC(synaptics_rmi_kernel_tracking, "Let rmi_core track finger slots by position instead of trusting firmware object order (experiment)");
++static bool synaptics_rmi_nosleep;
++module_param(synaptics_rmi_nosleep, bool, 0644);
++MODULE_PARM_DESC(synaptics_rmi_nosleep, "Set the F01 NoSleep bit on RMI4 companions (experiment)");
++static unsigned char synaptics_rmi_wakeup_threshold, synaptics_rmi_doze_holdoff, synaptics_rmi_doze_interval;
++module_param(synaptics_rmi_wakeup_threshold, byte, 0644);
++module_param(synaptics_rmi_doze_holdoff, byte, 0644);
++module_param(synaptics_rmi_doze_interval, byte, 0644);
++
+ static int synaptics_create_intertouch(struct psmouse *psmouse,
+ 				       struct synaptics_device_info *info,
+ 				       bool leave_breadcrumbs)
+@@ -1790,10 +1802,16 @@
+ 		!SYN_CAP_EXT_BUTTONS_STICK(info->ext_cap_10);
+ 	const struct rmi_device_platform_data pdata = {
+ 		.reset_delay_ms = 30,
++		.power_management = {
++			.nosleep = synaptics_rmi_nosleep ? RMI_REG_STATE_ON : RMI_REG_STATE_DEFAULT,
++			.wakeup_threshold = synaptics_rmi_wakeup_threshold,
++			.doze_holdoff = synaptics_rmi_doze_holdoff,
++			.doze_interval = synaptics_rmi_doze_interval,
++		},
+ 		.sensor_pdata = {
+ 			.sensor_type = rmi_sensor_touchpad,
+ 			.axis_align.flip_y = true,
+-			.kernel_tracking = false,
++			.kernel_tracking = synaptics_rmi_kernel_tracking,
+ 			.topbuttonpad = topbuttonpad,
+ 		},
+ 		.gpio_data = {

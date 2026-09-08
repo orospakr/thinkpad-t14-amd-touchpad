@@ -1,0 +1,125 @@
+libinput version: 1.31.3
+event13 - Synaptics TM3471-030: is tagged by udev as: Touchpad
+  ... event13 - using pressure-based touch detection (25:30)
+  ... event13 - palm: pressure threshold is 130
+  ... event13 - thumb: enabled thumb detection (area, pressure)
+event13 - Synaptics TM3471-030: device is a touchpad
+-event13  DEVICE_ADDED                 Synaptics TM3471-030              seat0 default group1  cap:pg  size 97x65mm tap (dl off) left scroll-nat scroll-2fg-edge click-buttonareas-clickfinger dwt-on dwtp-on
+   2: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+   3: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_RESET → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_TOUCH → TAP_EVENT_RELEASE → TAP_STATE_1FGTAP_TAPPED
+ event13  POINTER_BUTTON               +0.000s	BTN_LEFT (272) pressed, seat count: 1
+   4: event13 - tap: touch -1 (), tap state TAP_STATE_1FGTAP_TAPPED → TAP_EVENT_TIMEOUT → TAP_STATE_IDLE
+ event13  POINTER_BUTTON               +0.014s	BTN_LEFT (272) released, seat count: 0
+   5: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+   6: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_RESET → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_TOUCH → TAP_EVENT_RELEASE → TAP_STATE_1FGTAP_TAPPED
+ event13  POINTER_BUTTON               +2.950s	BTN_LEFT (272) pressed, seat count: 1
+   7: event13 - tap: touch -1 (), tap state TAP_STATE_1FGTAP_TAPPED → TAP_EVENT_TIMEOUT → TAP_STATE_IDLE
+ event13  POINTER_BUTTON               +2.968s	BTN_LEFT (272) released, seat count: 0
+   8: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+   9: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_RESET → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_TOUCH → TAP_EVENT_RELEASE → TAP_STATE_1FGTAP_TAPPED
+ event13  POINTER_BUTTON               +7.163s	BTN_LEFT (272) pressed, seat count: 1
+  10: event13 - tap: touch -1 (), tap state TAP_STATE_1FGTAP_TAPPED → TAP_EVENT_TIMEOUT → TAP_STATE_IDLE
+ event13  POINTER_BUTTON               +7.180s	BTN_LEFT (272) released, seat count: 0
+  11: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+  12: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_RESET → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_TOUCH → TAP_EVENT_RELEASE → TAP_STATE_1FGTAP_TAPPED
+ event13  POINTER_BUTTON               +7.811s	BTN_LEFT (272) pressed, seat count: 1
+  13: event13 - tap: touch -1 (), tap state TAP_STATE_1FGTAP_TAPPED → TAP_EVENT_TIMEOUT → TAP_STATE_IDLE
+ event13  POINTER_BUTTON               +7.828s	BTN_LEFT (272) released, seat count: 0
+  14: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+  15: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_RESET → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_TOUCH → TAP_EVENT_RELEASE → TAP_STATE_1FGTAP_TAPPED
+ event13  POINTER_BUTTON               +8.489s	BTN_LEFT (272) pressed, seat count: 1
+  16: event13 - tap: touch -1 (), tap state TAP_STATE_1FGTAP_TAPPED → TAP_EVENT_TIMEOUT → TAP_STATE_IDLE
+ event13  POINTER_BUTTON               +8.503s	BTN_LEFT (272) released, seat count: 0
+  17: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+  18: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_RESET → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_TOUCH → TAP_EVENT_RELEASE → TAP_STATE_1FGTAP_TAPPED
+ event13  POINTER_BUTTON               +11.827s	BTN_LEFT (272) pressed, seat count: 1
+  19: event13 - tap: touch -1 (), tap state TAP_STATE_1FGTAP_TAPPED → TAP_EVENT_TIMEOUT → TAP_STATE_IDLE
+ event13  POINTER_BUTTON               +11.844s	BTN_LEFT (272) released, seat count: 0
+  20: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+  22: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_HOLD_TIMEOUT → GESTURE_STATE_HOLD
+ event13  GESTURE_HOLD_BEGIN           +13.843s	1
+  25: event13 - tap: touch -1 (), tap state TAP_STATE_TOUCH → TAP_EVENT_TIMEOUT → TAP_STATE_HOLD
+  30: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_HOLD → TAP_EVENT_RELEASE → TAP_STATE_IDLE
+ event13  GESTURE_HOLD_END             +14.428s	1
+  31: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+  34: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_HOLD_TIMEOUT → GESTURE_STATE_HOLD
+ event13  GESTURE_HOLD_BEGIN           +21.461s	1
+  36: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_TOUCH → TAP_EVENT_RELEASE → TAP_STATE_1FGTAP_TAPPED
+ event13  GESTURE_HOLD_END             +21.479s	1
+ event13  POINTER_BUTTON               +21.421s	BTN_LEFT (272) pressed, seat count: 1
+  37: event13 - tap: touch -1 (), tap state TAP_STATE_1FGTAP_TAPPED → TAP_EVENT_TIMEOUT → TAP_STATE_IDLE
+ event13  POINTER_BUTTON               +21.479s	BTN_LEFT (272) released, seat count: 0
+  38: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+  40: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_HOLD_TIMEOUT → GESTURE_STATE_HOLD
+ event13  GESTURE_HOLD_BEGIN           +22.489s	1
+  47: event13 - tap: touch -1 (), tap state TAP_STATE_TOUCH → TAP_EVENT_TIMEOUT → TAP_STATE_HOLD
+  51: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_HOLD → TAP_EVENT_RELEASE → TAP_STATE_IDLE
+ event13  GESTURE_HOLD_END             +22.688s	1
+  52: event13 - pressure: begin touch 0
+  ... event13 - button state: touch 0 from BUTTON_STATE_NONE    event BUTTON_EVENT_IN_AREA     to BUTTON_STATE_AREA   
+  ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+  ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+  ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+  55: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_HOLD_TIMEOUT → GESTURE_STATE_HOLD
+ event13  GESTURE_HOLD_BEGIN           +23.876s	1
+  58: event13 - button state: touch 0 from BUTTON_STATE_AREA    event BUTTON_EVENT_UP          to BUTTON_STATE_NONE   
+  ... event13 - gesture: [1fg] event GESTURE_STATE_HOLD → GESTURE_EVENT_END → GESTURE_STATE_NONE
+  ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_TOUCH → TAP_EVENT_RELEASE → TAP_STATE_1FGTAP_TAPPED
+ event13  GESTURE_HOLD_END             +23.909s	1
+ event13  POINTER_BUTTON               +23.836s	BTN_LEFT (272) pressed, seat count: 1
+  59: event13 - tap: touch -1 (), tap state TAP_STATE_1FGTAP_TAPPED → TAP_EVENT_TIMEOUT → TAP_STATE_IDLE
+ event13  POINTER_BUTTON               +23.909s	BTN_LEFT (272) released, seat count: 0

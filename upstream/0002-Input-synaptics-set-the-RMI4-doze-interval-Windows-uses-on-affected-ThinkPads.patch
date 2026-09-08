@@ -1,0 +1,70 @@
+From: YOUR NAME <andrew@orospakr.ca>
+Subject: [PATCH] Input: synaptics - set the RMI4 doze interval Lenovo's driver uses on affected pads
+
+On a Synaptics TM3471 (LEN2073, ThinkPad T14 Gen 2a AMD) driven over
+RMI4/SMBus (InterTouch), the firmware's default doze settings lose most
+short touches and corrupt the first frame of a two-finger touch:
+
+  - 20 quick taps: 6 reach the kernel, each as a single ~15 ms frame;
+    quarter-second taps fare no better.  Host Notify count, F12 frame
+    count and evdev frame count agree, so the pad never reports them.
+  - two-finger scrolls: about 1 in 10 lands with the two objects'
+    positions swapped between the first and second frame, which
+    libinput reads as a 2.5x change in finger separation and turns into
+    a pinch.
+
+Users see unreliable tap-to-click and scrolls that become pinches (or
+right clicks).  The stock F01 doze registers on this pad are: interval 3,
+wakeup threshold 45, holdoff 0, i.e. the sensor dozes the moment a finger
+lifts.  Setting NoSleep fixes both symptoms but forbids doze entirely.
+
+Lenovo's Windows driver package (SynPD.inf, AdjustFWDozeInterval_AddReg)
+instead programs RMIDozeInterval = 6 for a list of twelve pad IDs,
+LEN2073 among them, and leaves doze enabled.  Doing the same here gives
+20 of 20 taps reported (60-190 ms, 4-10 frames each) and 0 pinches in
+145 scroll episodes, against 6 of 20 and 1 in 10 before, with the doze
+power saving intact.
+
+Add the Windows list and pass doze_interval = 6 through the RMI4
+platform data for those pads; rmi_f01 writes it at probe and re-applies
+it on every configuration pass.
+
+Signed-off-by: YOUR NAME <andrew@orospakr.ca>
+---
+--- a/drivers/input/mouse/synaptics.c
++++ b/drivers/input/mouse/synaptics.c
+@@ -204,6 +204,20 @@
+ 	"TOS0213", /* Dynabook Portege X30-D */
+ 	NULL
+ };
++
++/*
++ * Pads whose firmware, left at its default doze settings, misses short
++ * touches and mangles the first frame of a two-finger touch when driven
++ * over RMI4/SMBus.  Lenovo's Windows driver (SynPD.inf,
++ * AdjustFWDozeInterval) programs an F01 doze interval of 6 on exactly
++ * these models; do the same.
++ */
++static const char * const rmi_doze_interval_pnp_ids[] = {
++	"LEN040D", "LEN040E", "LEN040F", "LEN0410", "LEN0411",
++	"LEN0417", "LEN0418",
++	"LEN2064", "LEN2073", "LEN2149", "LEN2161", "LEN2162",
++	NULL
++};
+ #endif
+ 
+ static const char * const forcepad_pnp_ids[] = {
+@@ -1791,6 +1805,12 @@
+ 		!SYN_CAP_EXT_BUTTONS_STICK(info->ext_cap_10);
+ 	const struct rmi_device_platform_data pdata = {
+ 		.reset_delay_ms = 30,
++		.power_management = {
++			.doze_interval =
++				psmouse_matches_pnp_id(psmouse,
++						       rmi_doze_interval_pnp_ids) ?
++					6 : 0,
++		},
+ 		.sensor_pdata = {
+ 			.sensor_type = rmi_sensor_touchpad,
+ 			.axis_align.flip_y = true,
+-- 
