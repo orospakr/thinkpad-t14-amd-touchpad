@@ -1,0 +1,57 @@
+From: YOUR NAME <andrew@orospakr.ca>
+Subject: [PATCH] Input: synaptics-rmi4 - apply configuration after waking the sensor on SMBus resume
+
+rmi_smb_resume() re-applies the function configuration - rmi_reset() ->
+rmi_driver_reset_handler() -> rmi_driver_process_config_requests() -
+before rmi_driver_resume(), i.e. while the sensor is still in the sleep
+mode that rmi_f01_suspend() selected.  F01's config hook even rewrites
+ctrl0 with the sleep bits still set, and F12's control registers are
+written to a sleeping sensor.  Only afterwards does rmi_f01_resume()
+switch it back to normal mode, and nothing re-applies the configuration
+after that.  The i2c and spi transports do not have this problem: they
+do not need to reconfigure on resume, since no PS/2 reset happened.
+
+On a Synaptics TM3471 (LEN2073, ThinkPad T14 Gen 2a AMD, RMI4 over
+SMBus) this leaves the sensor half-configured after roughly every second
+system resume: it keeps reporting, but on a 12.5 ms (80 Hz) clock with
+about a quarter of the frames merged into 23-24 ms, instead of the flat
+15 ms (~67 Hz) it runs at after probe.  It feels like a slightly mushy
+pad; an evtest SYN_REPORT interval histogram shows it clearly.  The
+configuration registers read back identically in both states.
+
+Re-running the configuration pass on the awake sensor cures it every
+time - at any point from 1 s to 60 s after resume (0 of 29 cycles
+degraded), and from rmi_smb_resume() itself right after
+rmi_driver_resume() (0 of 8), against ~50% for the current order.
+
+Move the rmi_reset() call after rmi_driver_resume() so the configuration
+is written to a sensor that has been woken up.  The transport reset
+(rmi_smb_reset()) stays first; it has to precede any register access.
+
+Signed-off-by: YOUR NAME <andrew@orospakr.ca>
+---
+--- a/drivers/input/rmi4/rmi_smbus.c
++++ b/drivers/input/rmi4/rmi_smbus.c
+@@ -380,12 +380,19 @@
+ 
+ 	rmi_smb_reset(&rmi_smb->xport, 0);
+ 
+-	rmi_reset(rmi_dev);
+-
+ 	ret = rmi_driver_resume(rmi_smb->xport.rmi_dev, true);
+ 	if (ret)
+ 		dev_warn(dev, "Failed to resume device: %d\n", ret);
+ 
++	/*
++	 * The PS/2 side has reset the sensor, so its configuration has to
++	 * be applied again. Do that only now, after rmi_f01_resume() has
++	 * taken the sensor out of sleep mode: configuring it while it is
++	 * still asleep is not reliable, the sensor may come back reporting
++	 * on a slower clock until the configuration is written again.
++	 */
++	rmi_reset(rmi_dev);
++
+ 	return 0;
+ }
+ 
+-- 

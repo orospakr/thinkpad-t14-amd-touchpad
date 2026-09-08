@@ -1,0 +1,124 @@
+=== Sat Sep  5 10:32:47 PM EDT 2026 start probe10 N=8 START=1 (resume_reconfig_after=1, in-driver)
+OK rmi_smbus resume_reconfig_after=1 try=1
+=== Sat Sep  5 10:32:49 PM EDT 2026 cycle 1: suspending
+Sep 05 22:34:24 gondolin kernel: rmi4_smbus 11-002c: resume_reconfig_after: rmi_reset -> 0
+=== Sat Sep  5 10:34:27 PM EDT 2026 cycle 1: resumed; swipe the pad
+--- probe10-1
+syn_reports=1321
+13ms 2
+14ms 53
+15ms 1095
+16ms 166
+29ms 1
+30ms 4
+13 13 15 15 15 14 15 15 15 15 15 15 15 15 15 15 14 15 15 15 15 15 15 15 15 14 15 15 15 14 15 15 14 15 15 14 15 15 15 15 15 14 15 15 15 15 15 14 15 15 14 15 15 14 15 15 15 15 15 15 15 15 14 15 15 15 15 15 15 15 15 15 14 16 15 14 15 15 14 === cycle 1 clean after in-driver reconfig (0/1 degraded)
+OK rmi_smbus resume_reconfig_after=1 try=1
+=== Sat Sep  5 10:34:56 PM EDT 2026 cycle 2: suspending
+Sep 05 22:36:28 gondolin kernel: rmi4_smbus 11-002c: resume_reconfig_after: rmi_reset -> 0
+=== Sat Sep  5 10:36:32 PM EDT 2026 cycle 2: resumed; swipe the pad
+--- probe10-2
+syn_reports=1332
+13ms 1
+14ms 265
+15ms 1057
+16ms 4
+18ms 2
+30ms 1
+114ms 1
+198ms 1
+18 15 15 15 15 15 15 15 14 15 15 15 14 15 15 15 15 14 15 15 15 15 15 15 14 15 15 15 15 15 15 15 15 15 15 15 14 15 15 15 15 15 15 14 15 15 14 15 15 14 15 15 15 14 15 15 15 15 15 15 14 15 15 15 16 14 15 15 15 15 14 15 15 15 15 15 15 15 15 === cycle 2 clean after in-driver reconfig (0/2 degraded)
+OK rmi_smbus resume_reconfig_after=1 try=1
+=== Sat Sep  5 10:37:03 PM EDT 2026 cycle 3: suspending
+Sep 05 22:38:38 gondolin kernel: rmi4_smbus 11-002c: resume_reconfig_after: rmi_reset -> 0
+=== Sat Sep  5 10:38:42 PM EDT 2026 cycle 3: resumed; swipe the pad
+--- probe10-3
+syn_reports=1367
+13ms 1
+14ms 592
+15ms 763
+16ms 4
+18ms 1
+29ms 6
+18 15 15 15 14 15 15 15 15 14 15 14 14 14 15 15 15 15 14 15 15 14 15 15 14 15 14 15 14 15 15 14 14 15 15 14 14 15 15 15 14 14 15 14 15 15 15 14 14 14 14 15 14 15 15 15 14 14 15 15 14 15 14 14 15 14 15 15 14 15 15 15 14 14 15 14 14 15 14 === cycle 3 clean after in-driver reconfig (0/3 degraded)
+=== Sat Sep  5 10:39:23 PM EDT 2026 run interrupted by hand during cycle 3 capture wait (user request); 0/2 degraded
+=== Mon Sep  7 05:28:05 PM EDT 2026 natural resume (16:14, reconfig_after=Y, 126 suspends so far): swipe the pad
+--- probe10-natural-0907
+syn_reports=1349
+14ms 224
+15ms 1123
+16ms 2
+14 15 15 15 15 14 15 15 14 15 15 15 15 15 15 15 15 14 15 15 15 15 14 15 15 15 15 15 15 15 15 15 14 15 15 15 15 15 15 15 15 14 15 15 14 15 14 15 15 15 14 15 15 14 15 15 15 15 15 14 15 15 15 15 14 15 15 15 15 15 15 15 15 14 15 15 15 15 15 
+=== natural capture done; hands off, loop starts
+=== Mon Sep  7 05:28:44 PM EDT 2026 start probe10 N=6 START=3 (resume_reconfig_after=1, in-driver)
+OK rmi_smbus resume_reconfig_after=1 try=1
+=== Mon Sep  7 05:28:47 PM EDT 2026 cycle 3: suspending
+Sep 07 17:30:20 gondolin kernel: rmi4_smbus 11-002c: resume_reconfig_after: rmi_reset -> 0
+=== Mon Sep  7 05:30:24 PM EDT 2026 cycle 3: resumed; swipe the pad
+--- probe10-3
+syn_reports=1331
+13ms 3
+14ms 587
+15ms 737
+17ms 1
+29ms 1
+124ms 1
+522ms 1
+13 13 15 15 14 15 14 15 15 14 15 15 14 522 15 15 14 15 15 14 14 15 14 15 15 14 15 14 15 14 14 15 14 15 15 15 15 14 14 15 15 15 15 15 15 14 15 14 15 14 15 14 15 14 15 14 15 14 14 15 15 14 14 15 15 14 15 14 14 15 14 14 15 15 14 15 14 14 14 === cycle 3 clean after in-driver reconfig (0/3 degraded)
+OK rmi_smbus resume_reconfig_after=1 try=1
+=== Mon Sep  7 05:30:52 PM EDT 2026 cycle 4: suspending
+Sep 07 17:32:25 gondolin kernel: rmi4_smbus 11-002c: resume_reconfig_after: rmi_reset -> 0
+=== Mon Sep  7 05:32:29 PM EDT 2026 cycle 4: resumed; swipe the pad
+--- probe10-4
+syn_reports=1328
+14ms 18
+15ms 1203
+16ms 106
+19ms 1
+19 15 15 15 15 15 15 16 15 15 15 15 15 15 15 15 15 15 15 15 15 15 16 15 15 15 15 15 15 15 16 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 16 15 15 15 15 15 15 15 15 15 15 15 15 15 16 14 16 15 15 === cycle 4 clean after in-driver reconfig (0/4 degraded)
+OK rmi_smbus resume_reconfig_after=1 try=1
+=== Mon Sep  7 05:33:01 PM EDT 2026 cycle 5: suspending
+Sep 07 17:34:34 gondolin kernel: rmi4_smbus 11-002c: resume_reconfig_after: rmi_reset -> 0
+=== Mon Sep  7 05:34:38 PM EDT 2026 cycle 5: resumed; swipe the pad
+--- probe10-5
+syn_reports=1308
+12ms 1
+14ms 216
+15ms 1089
+29ms 1
+608ms 1
+15 12 14 14 608 15 15 14 15 15 14 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 14 15 15 15 15 15 14 15 15 14 15 15 15 15 15 14 15 15 15 15 15 14 15 15 15 15 15 14 15 15 15 15 15 14 15 15 14 15 15 14 15 15 15 15 15 14 15 15 15 === cycle 5 clean after in-driver reconfig (0/5 degraded)
+OK rmi_smbus resume_reconfig_after=1 try=1
+=== Mon Sep  7 05:35:06 PM EDT 2026 cycle 6: suspending
+Sep 07 17:36:41 gondolin kernel: rmi4_smbus 11-002c: resume_reconfig_after: rmi_reset -> 0
+=== Mon Sep  7 05:36:45 PM EDT 2026 cycle 6: resumed; swipe the pad
+--- probe10-6
+syn_reports=1352
+14ms 322
+15ms 1027
+16ms 1
+19ms 1
+30ms 1
+19 15 15 15 15 15 15 15 14 15 15 15 15 14 15 15 14 15 14 15 14 15 14 15 15 15 15 14 15 14 15 14 15 15 14 15 14 15 15 15 15 14 15 14 15 14 15 14 15 15 14 15 15 15 15 15 15 14 15 15 15 15 15 15 15 15 14 15 14 15 15 15 15 14 15 14 15 15 14 === cycle 6 clean after in-driver reconfig (0/6 degraded)
+OK rmi_smbus resume_reconfig_after=1 try=1
+=== Mon Sep  7 05:37:13 PM EDT 2026 cycle 7: suspending
+Sep 07 17:38:47 gondolin kernel: rmi4_smbus 11-002c: resume_reconfig_after: rmi_reset -> 0
+=== Mon Sep  7 05:38:51 PM EDT 2026 cycle 7: resumed; swipe the pad
+--- probe10-7
+syn_reports=1368
+14ms 583
+15ms 783
+17ms 1
+117ms 1
+17 14 15 15 14 15 14 15 14 15 14 15 15 15 14 14 15 14 14 14 15 14 15 15 14 15 14 15 14 14 15 15 15 15 15 14 15 15 15 14 15 14 15 14 15 14 14 14 14 15 14 15 15 15 15 15 14 15 14 14 15 15 15 15 15 14 14 15 14 15 15 14 15 15 15 14 15 15 15 === cycle 7 clean after in-driver reconfig (0/7 degraded)
+OK rmi_smbus resume_reconfig_after=1 try=1
+=== Mon Sep  7 05:39:26 PM EDT 2026 cycle 8: suspending
+Sep 07 17:40:59 gondolin kernel: rmi4_smbus 11-002c: resume_reconfig_after: rmi_reset -> 0
+=== Mon Sep  7 05:41:03 PM EDT 2026 cycle 8: resumed; swipe the pad
+--- probe10-8
+syn_reports=1364
+14ms 464
+15ms 897
+16ms 2
+18ms 1
+18 15 14 14 15 14 15 15 14 15 14 15 14 15 14 15 14 15 15 14 15 15 14 15 15 15 14 15 15 15 14 15 14 15 15 15 14 15 14 15 14 14 15 15 14 15 14 15 15 15 14 15 14 15 15 15 15 14 15 15 15 14 15 15 15 15 14 15 15 14 15 15 15 14 15 15 14 15 14 === cycle 8 clean after in-driver reconfig (0/8 degraded)
+=== Mon Sep  7 05:41:30 PM EDT 2026 done probe10: 0/6 degraded

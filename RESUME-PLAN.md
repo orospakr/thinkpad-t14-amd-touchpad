@@ -19,49 +19,78 @@ comes back clean after the next clean roll (confirmed after a 22 h sleep).
 Sleep length, wake method, lock screen, fingerprint reader, touching the pad
 at wake, `rtcwake` vs `systemctl suspend`: none correlate.
 
-## Mechanism as understood (2026-08-28)
+## Mechanism as understood (2026-09-05)
 
-`rmi_smb_resume()` runs the SMBus-mode activation twice before functions are
-resumed: `rmi_smb_reset()` directly, then again via `rmi_reset()` →
-`xport->ops->reset`. Activation = clear the host's mapping cache +
-`rmi_smb_enable_smbus_mode()` (msleep(reset_delay_ms=30), then the SMBus
-version read that "activates the touchpad").
+**Correction to the 2026-08-28 reading.** The cure trigger (`xport_reset` →
+`rmi_reset()`) does *not* touch the SMBus transport. `rmi_reset()` is
+`rmi_driver_reset_handler()` (rmi_driver.c:425): re-read the F01 IRQ mask,
+run every function's `reset` hook (none exist), then run every function's
+`config` hook — `rmi_driver_process_config_requests()`, i.e. the `reconfig`
+trigger plus an IRQ-mask read. The transport reset (`rmi_smb_reset()`:
+mapping-cache clear + `rmi_smb_enable_smbus_mode()`) is only reached from
+`rmi_smb_resume()` itself and from probe (rmi_driver.c:803). So the "SMBus
+activation half-sticks" story was wrong; what half-sticks is the **RMI
+function config pass**, and what cures is running it again.
 
-When issued inside the resume window that activation **half-sticks**: the pad
-answers on SMBus and reports touches, but scans on its 80 Hz PS/2-mode clock.
-The *identical* activation issued later sticks fully:
+What the config pass writes (v7.1.9): F01 `ctrl0` (device control) plus doze
+interval / wakeup threshold / doze holdoff if the pad advertises them; F12
+control registers via `rmi_f12_write_control_regs()` (and IRQ bits); F03 just
+re-enables its IRQ bit. F11/F1A/F21/F30/F3A/F54 are not present on this pad.
 
-| when the activation is issued | result |
+Stock `rmi_smb_resume()` order (rmi_smbus.c:379):
+
+1. `rmi_smb_reset()` — transport cache clear + version read
+2. `rmi_reset()` — **config pass, while the pad is still in the sensor-sleep
+   mode `rmi_f01_suspend()` put it in.** `f01->device_control.ctrl0` still
+   carries `RMI_SLEEP_MODE_SENSOR_SLEEP`, so F01 config re-writes *sleep*,
+   then F12's control registers are written to a sleeping pad.
+3. `rmi_driver_resume()` — enable IRQ, then `rmi_f01_resume()` writes
+   `ctrl0` = normal mode. Nothing re-applies F12 afterwards.
+
+`rmi_i2c_resume()` and `rmi_spi_resume()` call only `rmi_driver_resume()`; the
+extra `rmi_reset()` is SMBus-specific (the PS/2 side reset the pad, so the
+config must be re-applied) and it is ordered before the wake.
+
+Hypothesis: applying the F12 (and/or F01 doze) configuration while the sensor
+is asleep is applied inconsistently by the firmware — the pad wakes reporting,
+but on its 80 Hz PS/2-mode scan clock — and re-applying it on an awake pad
+fixes it. Consistent with `regdump` being byte-identical clean vs degraded
+(same values, different firmware-internal state) and with the 50% rate (a
+firmware race between the sleep→normal transition and the pending config).
+
+Timing is **not** a factor. The config pass re-run at any point after wake
+sticks:
+
+| when the config pass is re-run | result |
 |---|---|
-| during resume (stock, twice) | ~50% degraded |
-| 2.2 s after `suspend exit`, before first touch (T4, delayed work) | still degraded 1/3 |
-| 60 s after wake, untouched (T5) | 0/3 degraded — too few samples |
-| minutes later, by hand (`xport_reset` sysfs) | cured 5/5 |
+| stock: before `rmi_driver_resume()` (pad asleep) | ~50% degraded |
+| enable_smbus_mode only, after resume (T2) / at 2.2 s (T4) | 1/2, 1/3 — transport-only, no config pass: not a cure |
+| 60 s after wake, untouched (T5) | **0/8** |
+| 30 s (T6) | **0/6** (5 verified untouched) |
+| 10 s (T7) | **0/5** |
+| 3 s (T8) | **0/5** |
+| 1 s (T9) | **0/5** |
+| inside `rmi_smb_resume()`, right after `rmi_driver_resume()` (T10, `resume_reconfig_after=1`) | **0/8** (2026-09-05 ×2, 2026-09-07 ×6) + 1 clean natural resume |
 
-Ordering relative to the F01 ctrl0 write (T2) and to TrackPoint/F03 traffic
-(T3) does not matter. A longer pre-activation delay (T1, 30 → 250 ms) makes it
-worse if anything (7/8). No config register differs between states
-(`regdump`: F01 ctrl 0..15 + data0, F12 ctrl 0..63, F03 ctrl are
-byte-identical clean vs degraded vs cured). F03 traffic is negligible while
-degraded (3 vs 627 F12 IRQs). The ASF driver logs nothing during degraded
-windows.
-
-Open: the width of the window (somewhere between 3 s and 60 s), whether first
-touch matters (T5 says probably not), and what the pad exposes that says
-"activation stuck" so a fix can be self-detecting instead of a timer.
+Open: which write in the pass is the operative one (F01 ctrl0 re-write vs
+F01 doze regs vs F12 control regs) — narrows the upstream patch and its
+explanation, not the fix; and whether a pad-side readable says "config
+half-applied" (nothing in regdump does).
 
 ## What cures a degraded pad (verified by capture, no suspend in between)
 
-- **`rmi_reset()` alone** (= `rmi_smb_reset()`: mapping-cache clear +
-  `rmi_smb_enable_smbus_mode()`) — **5/5**, via the `xport_reset` sysfs
-  trigger in the experimental `rmi_core`. This is the minimal cure.
-- `rmi4_smbus` driver unbind + bind, no PS/2 traffic — 3/3
+- **`rmi_reset()`** = IRQ-mask re-read + function config pass, via the
+  `xport_reset` sysfs trigger in the experimental `rmi_core` — **5/5** on a
+  degraded pad, and 0/29 degraded when issued 1–60 s after every wake. This
+  is the minimal known cure. (`reconfig` = the config pass alone is the same
+  thing minus the IRQ-mask read; never run on a degraded pad yet.)
+- `rmi4_smbus` driver unbind + bind, no PS/2 traffic — 3/3 (does the config
+  pass during probe, on an awake pad)
 - full re-attach (`modprobe -r psmouse; rmmod rmi_smbus; modprobe rmi_smbus;
   modprobe psmouse synaptics_intertouch=1`) — yes (original finding)
 
-Does not cure: rebinding the TrackPoint driver on the F03 pass-through.
-`rmi_driver_process_config_requests()` was never reached as a cure (the
-activation always came first).
+Does not cure: rebinding the TrackPoint driver on the F03 pass-through;
+`rmi_smb_enable_smbus_mode()` on its own after resume (T2, T4).
 
 ## Refuted
 
@@ -72,6 +101,8 @@ activation always came first).
 - TrackPoint / F03 ordering — t3: reconnecting the TrackPoint through F03
   neither degrades a clean pad nor cures a degraded one.
 - ASF collisions — none logged during degraded captures.
+- A post-resume timing window — the config pass re-run sticks at 1 s, 3 s,
+  10 s, 30 s and 60 s alike (T5–T9, 29 cycles).
 
 ## Things that kill the pad outright (do not do these)
 
@@ -105,7 +136,12 @@ END{exit !(d>c)}`). Logs: `psmouse/ab/`, `rmi4/probe*.log`, `rmi4/t3.log`.
 | T1 | `reset_delay_ms` 30 → 250 | 7 / 8 |
 | T2 | `rmi_smb_enable_smbus_mode()` again after `rmi_driver_resume()` | 1 / 2 (stopped) |
 | T4 | same, from delayed work 3 s after resume (fired at 2.2 s, before first touch) | 1 / 3 (stopped) |
-| T5 | 60 s untouched after wake, then activation, then capture | 0 / 3 (2 verified untouched) — inconclusive |
+| T5 | 60 s untouched after wake, then activation, then capture | **0 / 8** (6 verified untouched; 2026-08-28 ×3, 2026-09-04 ×5) |
+| T6 | same, 30 s (`probe9.sh N START 30`, log `probe9-w30.log`) | **0 / 6** (5 verified untouched; cycle 3 brushed, 29 IRQs) |
+| T7 | same, 10 s (`probe9-w10.log`) | **0 / 5** (all verified untouched) |
+| T8 | same, 3 s (`probe9-w3.log`) | **0 / 5** (all verified untouched) |
+| T9 | same, 1 s (`probe9-w1.log`) | **0 / 5** (all verified untouched) |
+| T10 | in-driver: `rmi_reset()` again after `rmi_driver_resume()` (`probe10.sh`, `probe10.log`) | **0 / 8** (+ natural resume after 6 unmeasured cycles: clean) |
 
 Since 2026-08-28 the machine has gone through six unmeasured resumes on
 stock behaviour (experimental `rmi_core`/`rmi_smbus` still loaded, all knobs
@@ -118,31 +154,32 @@ Each cycle: script suspends with a 90 s RTC alarm, you wake by lid or
 keyboard (not by touching the pad), hands off for the wait, one swipe.
 About 2 min per cycle.
 
-1. **Finish T5** — 5 more untouched-60 s cycles (`rmi4/probe9.sh`). 8/8
-   clean puts the fluke chance under 0.5%; any degraded cycle answers the
-   question the other way and step 2 is moot.
-2. **Bisect the window** — 5 cycles at 30 s, 5 at 10 s, via
-   `resume_reactivate_delay_ms` on the experimental `rmi_smbus`
-   (`rmi4/probe8.sh`). Total for 1+2: 10–15 cycles, 20–30 min.
-3. **Find a pad-side signal.** ftrace `smbus` events around a late
-   `xport_reset` on a degraded pad vs the same on a clean pad: does the
-   version-read reply, a query register, or the first F12 packet differ?
-   Also compare the first few F12 interrupt intervals after resume — the
-   12.5 ms cadence itself may be the cheapest detector.
-4. **Upstream shape**, in order of preference:
-   1. self-detecting: re-run the activation when a post-resume check (from
-      step 3) says it did not stick;
-   2. re-run the activation on the first Host Notify after resume (the pad
-      is demonstrably awake by then; needs to be shown to be outside the
-      window);
-   3. timer in `rmi_smb_resume()` — last resort, only with the bisect data
-      to justify the number.
-   Submit as its own series to linux-input (Dmitry Torokhov, Benjamin
-   Tissoires) with the capture evidence; independent of the i2c-piix4 RFC.
-5. **Local stopgap** if the upstream path drags: a systemd `system-sleep`
-   post hook that writes `xport_reset` after a delay outside the window —
-   requires the experimental `rmi_core` (or the patch) installed via DKMS.
-   Not done; nothing is installed for this thread.
+1. ~~Finish T5~~ — done 2026-09-04, 8/8 clean (`rmi4/probe9.log`,
+   cycles 4–8). `rmi4/cue.sh LOG` plays a sound + notification at each
+   transition so the person at the console needs no stopwatch.
+2. ~~Bisect the window~~ — done 2026-09-05: 30 s 0/6, 10 s 0/5, 3 s 0/5,
+   1 s 0/5. No window.
+3. ~~T10 — in-driver reorder~~ — done 2026-09-07: **0/8** (`probe10.log`),
+   plus a clean capture after a natural resume with the knob on. Tested
+   form: `rmi_reset()` *both* before and after `rmi_driver_resume()`. The
+   cleaner upstream form (move it, one call) is untested — 8 cycles with
+   `resume_reconfig_after=2` (skip the before-call) if wanted.
+4. **Narrow the operative write** (optional, for the commit message): on a
+   degraded pad run F01 config only / F12 config only (needs two more sysfs
+   triggers in the experimental `rmi_core`); needs a stock-order loop that
+   stops on the first degraded cycle (~2 cycles expected).
+5. **Upstream patch** — drafted 2026-09-07:
+   `upstream/0001-Input-synaptics-rmi4-configure-after-wake-on-SMBus-resume.patch`
+   (move form: `rmi_reset()` after `rmi_driver_resume()`; applies to
+   mainline 7.2-rc and v7.1.9). Before sending: (a) measure the move form
+   itself — `rmi4/probe10.sh 8 1 2` (`resume_reconfig_after=2` skips the
+   before-call), 8 cycles; (b) fill in the real name in From/Signed-off-by;
+   (c) `checkpatch.pl`; (d) send to linux-input (Dmitry Torokhov, Benjamin
+   Tissoires), independent of the i2c-piix4 RFC, mention the i2c/spi
+   transports don't reconfigure on resume at all.
+6. **Local stopgap** if the upstream path drags: the same one-hunk change to
+   `rmi_smbus` via DKMS (replaces the in-tree module); no `rmi_core` change
+   needed. Not done; nothing is installed for this thread.
 
 ## Upstream context
 
@@ -165,7 +202,10 @@ The 2026-08-27 plan assumed the cause was `psmouse_cleanup()` sending F5/F6/F4
 to a device the SMBus stack owns, with the fix being to skip the reset for
 SMBus companions and, failing that, re-applying the Synaptics PS/2 mode before
 F5 (gated by PNP ID `LEN2073` or DMI). Step 1 was tested first and refuted;
-the rest of that plan is dropped. Original ruled-out list (ASF driver, sleep
+the rest of that plan is dropped. The 2026-08-28 reading ("the SMBus-mode
+activation half-sticks; the same activation issued late cures") mistook
+`rmi_reset()` for the transport reset; corrected 2026-09-05 after the bisect
+found no timing window. Original ruled-out list (ASF driver, sleep
 duration, wake method, lock screen, fingerprint reader, PS/2-vs-SMBus resume
 ordering, byte-identical SMBus resume traces clean vs degraded) still stands.
 
@@ -177,10 +217,16 @@ ordering, byte-identical SMBus resume traces clean vs degraded) still stands.
   `/sys/bus/i2c/devices/11-002c/rmi4-N/`: `regdump`, `xport_reset`,
   `reconfig`, `hwreset`
 - `rmi4/smbus/rmi_smbus.ko`: `resume_reactivate=` (bool),
-  `resume_reactivate_delay_ms=`
+  `resume_reactivate_delay_ms=` (both transport-only, superseded),
+  `resume_reconfig_after=` (1: `rmi_reset()` also after `rmi_driver_resume()`,
+  2: after only = the upstream patch)
 - loaders: `psmouse/load*.sh`, `rmi4/load-rmi.sh`, `rmi4/load-smbus.sh`;
   cycle drivers `rmi4/probe5.sh` (arm-by-arm), `probe6` (delay), `probe7`,
-  `probe8` (delayed reactivation), `probe9` (untouched-60 s)
+  `probe8` (delayed reactivation), `probe9` (`probe9.sh N [START] [WAIT_S]`:
+  untouched WAIT_S then `xport_reset`; logs `probe9.log` / `probe9-wN.log`),
+  `probe10` (`probe10.sh N [START] [MODE]`, in-driver `resume_reconfig_after=MODE`:
+  1 = before+after, 2 = after only; logs `probe10.log` / `probe10-m2.log`);
+  `cue.sh LOG` user-side sound/notify cues for a run
 
 ## Harness gotchas
 

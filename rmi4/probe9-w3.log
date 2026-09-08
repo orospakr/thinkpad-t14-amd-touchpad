@@ -1,0 +1,73 @@
+=== Sat Sep  5 10:07:16 PM EDT 2026 start probe9 N=5 START=1 WAIT=3 (late xport_reset)
+OK rmi_smbus  try=1
+=== Sat Sep  5 10:07:18 PM EDT 2026 cycle 1: suspending
+=== Sat Sep  5 10:08:51 PM EDT 2026 cycle 1: resumed; DO NOT TOUCH for 3 s
+=== f12 irqs during wait: 0
+=== Sat Sep  5 10:08:55 PM EDT 2026 cycle 1: armB done (untouched); swipe the pad
+--- probe9-w3-1
+syn_reports=1340
+14ms 221
+15ms 1113
+16ms 4
+18ms 1
+137ms 1
+18 15 15 15 15 14 15 15 15 15 15 15 15 15 15 15 15 14 15 15 14 15 15 14 15 15 15 15 15 15 14 15 15 14 15 14 15 15 15 14 15 15 14 15 15 15 15 15 14 15 15 15 15 15 14 15 14 15 15 15 14 15 15 15 15 15 14 15 15 15 15 16 14 15 15 14 15 15 15 === cycle 1 clean after untouched armB
+OK rmi_smbus  try=1
+=== Sat Sep  5 10:09:23 PM EDT 2026 cycle 2: suspending
+=== Sat Sep  5 10:10:58 PM EDT 2026 cycle 2: resumed; DO NOT TOUCH for 3 s
+=== f12 irqs during wait: 0
+=== Sat Sep  5 10:11:02 PM EDT 2026 cycle 2: armB done (untouched); swipe the pad
+--- probe9-w3-2
+syn_reports=1372
+14ms 586
+15ms 782
+16ms 1
+18ms 1
+29ms 2
+18 15 15 14 15 14 14 14 15 14 15 15 14 15 14 15 14 15 14 15 14 15 14 14 15 15 14 15 15 14 15 15 14 15 14 15 15 14 15 14 15 14 15 15 15 14 15 15 15 15 14 15 15 14 15 14 15 15 14 15 15 15 14 15 15 14 15 14 15 15 15 14 15 15 14 14 15 15 14 === cycle 2 clean after untouched armB
+OK rmi_smbus  try=1
+=== Sat Sep  5 10:11:32 PM EDT 2026 cycle 3: suspending
+=== Sat Sep  5 10:13:08 PM EDT 2026 cycle 3: resumed; DO NOT TOUCH for 3 s
+=== f12 irqs during wait: 0
+=== Sat Sep  5 10:13:12 PM EDT 2026 cycle 3: armB done (untouched); swipe the pad
+--- probe9-w3-3
+syn_reports=1336
+14ms 295
+15ms 1033
+16ms 4
+18ms 1
+19ms 1
+29ms 1
+235ms 1
+19 15 15 15 15 14 15 15 15 14 15 15 14 15 14 15 15 15 15 14 15 15 15 14 15 15 15 15 14 15 15 15 15 15 14 15 15 15 15 15 15 15 14 15 15 15 15 15 15 15 15 15 15 15 15 15 15 14 15 15 15 15 14 15 14 15 14 15 15 15 14 15 15 15 15 15 14 18 235 === cycle 3 clean after untouched armB
+OK rmi_smbus  try=1
+=== Sat Sep  5 10:13:42 PM EDT 2026 cycle 4: suspending
+=== Sat Sep  5 10:15:15 PM EDT 2026 cycle 4: resumed; DO NOT TOUCH for 3 s
+=== f12 irqs during wait: 0
+=== Sat Sep  5 10:15:19 PM EDT 2026 cycle 4: armB done (untouched); swipe the pad
+--- probe9-w3-4
+syn_reports=1352
+12ms 1
+13ms 1
+14ms 284
+15ms 1064
+16ms 1
+30ms 1
+12 13 15 15 15 15 15 14 15 15 15 15 14 15 15 15 15 14 15 14 15 15 15 15 15 15 14 15 15 15 15 15 15 14 15 14 15 15 14 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 14 15 15 14 15 15 15 15 15 15 15 15 15 15 15 14 15 15 15 15 15 14 15 15 15 === cycle 4 clean after untouched armB
+OK rmi_smbus  try=1
+=== Sat Sep  5 10:15:50 PM EDT 2026 cycle 5: suspending
+=== Sat Sep  5 10:17:24 PM EDT 2026 cycle 5: resumed; DO NOT TOUCH for 3 s
+=== f12 irqs during wait: 0
+=== Sat Sep  5 10:17:28 PM EDT 2026 cycle 5: armB done (untouched); swipe the pad
+--- probe9-w3-5
+syn_reports=1333
+14ms 245
+15ms 1069
+16ms 5
+19ms 1
+29ms 3
+30ms 8
+44ms 1
+45ms 1
+19 14 15 15 14 15 15 15 15 15 15 15 15 15 15 15 14 15 15 15 15 15 15 14 15 15 15 15 15 15 15 15 15 15 15 15 15 15 14 15 14 15 15 15 16 14 15 15 15 14 15 15 14 15 15 15 15 15 14 15 15 15 15 15 14 15 15 14 15 15 14 15 15 15 15 15 14 15 15 === cycle 5 clean after untouched armB
+=== Sat Sep  5 10:17:56 PM EDT 2026 done probe9 WAIT=3: 0/5 degraded

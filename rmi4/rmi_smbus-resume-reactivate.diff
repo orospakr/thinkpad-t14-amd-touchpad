@@ -1,5 +1,5 @@
 --- ../src/rmi_smbus.c	2026-08-28 22:05:11.051584881 -0400
-+++ rmi_smbus.c	2026-08-28 22:51:02.507044178 -0400
++++ rmi_smbus.c	2026-09-07 17:42:37.142171239 -0400
 @@ -37,6 +37,7 @@
  	u8 table_index;
  	struct mutex mappingtable_mutex;
@@ -51,7 +51,7 @@
  	ret = rmi_driver_suspend(rmi_smb->xport.rmi_dev, true);
  	if (ret)
  		dev_warn(dev, "Failed to suspend device: %d\n", ret);
-@@ -376,6 +392,10 @@
+@@ -376,6 +392,14 @@
  	return ret;
  }
  
@@ -59,13 +59,29 @@
 +module_param(resume_reactivate, bool, 0644);
 +MODULE_PARM_DESC(resume_reactivate, "Re-run SMBus mode activation after function resume (experiment)");
 +
++static unsigned int resume_reconfig_after;
++module_param(resume_reconfig_after, uint, 0644);
++MODULE_PARM_DESC(resume_reconfig_after, "1: run rmi_reset() again after rmi_driver_resume(); 2: run it only after (move, upstream form) (experiment)");
++
  static int rmi_smb_resume(struct device *dev)
  {
  	struct i2c_client *client = container_of(dev, struct i2c_client, dev);
-@@ -391,6 +411,14 @@
+@@ -385,12 +409,25 @@
+ 
+ 	rmi_smb_reset(&rmi_smb->xport, 0);
+ 
+-	rmi_reset(rmi_dev);
++	if (resume_reconfig_after != 2)
++		rmi_reset(rmi_dev);
+ 
+ 	ret = rmi_driver_resume(rmi_smb->xport.rmi_dev, true);
  	if (ret)
  		dev_warn(dev, "Failed to resume device: %d\n", ret);
  
++	if (resume_reconfig_after) {
++		ret = rmi_reset(rmi_dev);
++		dev_info(dev, "resume_reconfig_after=%u: rmi_reset -> %d\n", resume_reconfig_after, ret);
++	}
 +	if (resume_reactivate) {
 +		ret = rmi_smb_enable_smbus_mode(rmi_smb);
 +		dev_info(dev, "resume_reactivate: enable_smbus_mode -> %d\n", ret);
