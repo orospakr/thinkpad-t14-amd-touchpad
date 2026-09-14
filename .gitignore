@@ -1,26 +1,30 @@
-artifacts/
-/asf-host-notify.diff
+# kernel build products (anywhere)
 *.ko
 *.o
-*.mod*
+*.mod
+*.mod.c
 *.cmd
+.*.cmd
 modules.order
 Module.symvers
-.*.cmd
-pkg/pkg/
-pkg/src/
-pkg/*.pkg.tar.zst
-pkg/i2c-piix4.c
-pkg/i2c-piix4.h
-pkg/Makefile
-pkg/dkms.conf
-pkg/i2c-piix4-asf.conf
-dmesg.out
-# build trees regenerated from */src + the diffs (see psmouse/README.md, rmi4/README.md)
-psmouse/stock/
-psmouse/patched/
-psmouse/delay/
-rmi4/stock/
-rmi4/patched/
-rmi4/smbus/
-psmouse/nosleep/
+.modules.order.cmd
+.Module.symvers.cmd
+
+# research tree: build trees regenerated from */src + the diffs (see research/*/README.md),
+# extracted vendor drivers, makepkg output of the first (v1.0) package
+research/artifacts/
+research/psmouse/stock/
+research/psmouse/patched/
+research/psmouse/delay/
+research/psmouse/nosleep/
+research/rmi4/stock/
+research/rmi4/patched/
+research/rmi4/smbus/
+research/pkg/
+research/dmesg.out
+
+# local DKMS/makepkg scratch
+/build/
+/packaging/arch/pkg/
+/packaging/arch/src/
+/packaging/arch/*.pkg.tar.zst
