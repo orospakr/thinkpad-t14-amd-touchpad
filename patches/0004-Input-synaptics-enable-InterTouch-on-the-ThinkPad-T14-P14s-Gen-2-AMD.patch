@@ -1,0 +1,34 @@
+From c901ce8055e991affd59412a066f6425184bb63b Mon Sep 17 00:00:00 2001
+From: Andrew Clunis <andrew@orospakr.ca>
+Date: Mon, 14 Sep 2026 00:23:37 -0400
+Subject: [PATCH] Input: synaptics - enable InterTouch on the ThinkPad T14/P14s
+ Gen 2 AMD
+
+The Synaptics TM3471 in the ThinkPad T14 Gen 2a and P14s Gen 2 AMD
+(LEN2073) supports RMI4 over SMBus. Add it to smbus_pnp_ids so psmouse
+creates the SMBus companion without synaptics_intertouch=1.
+
+Adding the ID alone does nothing on these machines (reported on
+linux-input in March 2026): the AMD FCH SMBus controller has to
+advertise Host Notify first, which i2c-piix4 gains in a separate series.
+With that in place the pad attaches as rmi4_smbus and the TrackPoint
+stays on the F03 pass-through.
+---
+ drivers/input/mouse/synaptics.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/input/mouse/synaptics.c b/drivers/input/mouse/synaptics.c
+index c70502e..1ce29bb 100644
+--- a/drivers/input/mouse/synaptics.c
++++ b/drivers/input/mouse/synaptics.c
+@@ -192,6 +192,7 @@ static const char * const smbus_pnp_ids[] = {
+ 	"LEN2055", /* E580 */
+ 	"LEN2058", /* E490 */
+ 	"LEN2068", /* T14 Gen 1 */
++	"LEN2073", /* T14/P14s Gen 2 AMD */
+ 	"SYN1221", /* TUXEDO InfinityBook Pro 14 v5 */
+ 	"SYN3003", /* HP EliteBook 850 G1 */
+ 	"SYN3015", /* HP EliteBook 840 G2 */
+-- 
+2.55.0
+

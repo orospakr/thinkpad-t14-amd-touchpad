@@ -150,7 +150,7 @@ first CI run does the 7.2 refresh.
 
 ## Open decisions
 
-1. Name. The scope is "AMD FCH SMB0001 platforms with a Synaptics RMI4 pad",
+1. Name (provisionally `thinkpad-t14-amd-touchpad`; the tree, dkms.conf and PKGBUILD use it). The scope is "AMD FCH SMB0001 platforms with a Synaptics RMI4 pad",
    which today means this ThinkPad. Candidates: `thinkpad-t14-amd-touchpad`
    (matches Omarchy's machine-named packages) or `amd-asf-synaptics-touchpad`
    (matches the hardware scope). Package gets a `-dkms` suffix either way.

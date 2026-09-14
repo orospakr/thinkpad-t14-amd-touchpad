@@ -1,4 +1,4 @@
-From: YOUR NAME <andrew@orospakr.ca>
+From: Andrew Clunis <andrew@orospakr.ca>
 Subject: [PATCH] Input: synaptics - set the RMI4 doze interval Lenovo's driver uses on affected pads
 
 On a Synaptics TM3471 (LEN2073, ThinkPad T14 Gen 2a AMD) driven over
@@ -29,7 +29,7 @@ Add the Windows list and pass doze_interval = 6 through the RMI4
 platform data for those pads; rmi_f01 writes it at probe and re-applies
 it on every configuration pass.
 
-Signed-off-by: YOUR NAME <andrew@orospakr.ca>
+Signed-off-by: Andrew Clunis <andrew@orospakr.ca>
 ---
 --- a/drivers/input/mouse/synaptics.c
 +++ b/drivers/input/mouse/synaptics.c

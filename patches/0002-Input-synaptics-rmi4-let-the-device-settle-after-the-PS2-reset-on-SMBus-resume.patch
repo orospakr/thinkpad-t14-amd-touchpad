@@ -1,5 +1,5 @@
-From: YOUR NAME <andrew@orospakr.ca>
-Subject: [PATCH 1/2] Input: synaptics-rmi4 - let the device settle after the PS/2 reset on SMBus resume
+From: Andrew Clunis <andrew@orospakr.ca>
+Subject: [PATCH] Input: synaptics-rmi4 - let the device settle after the PS/2 reset on SMBus resume
 
 On resume, psmouse_smbus_reconnect() deactivates the PS/2 side of an
 SMBus-attached Synaptics touchpad before rmi_smb_resume() runs.  On
@@ -33,7 +33,7 @@ configuration pass a fixed time after the reset, in place and across
 
 Wait 300 ms before reconfiguring the device on resume.
 
-Signed-off-by: YOUR NAME <andrew@orospakr.ca>
+Signed-off-by: Andrew Clunis <andrew@orospakr.ca>
 ---
  drivers/input/rmi4/rmi_smbus.c | 14 ++++++++++++++++
  1 file changed, 14 insertions(+)

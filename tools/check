@@ -1,0 +1,51 @@
+#!/bin/bash
+# thinkpad-t14-amd-touchpad-check: report whether the carried modules are
+# built, installed under /updates, loaded, and whether the touchpad is running
+# over RMI4/SMBus. Exit 0 only when everything is as expected.
+name=thinkpad-t14-amd-touchpad
+kver=$(uname -r)
+ok=1
+say() { printf '%-8s %s\n' "$1" "$2"; }
+
+if dkms status -m "$name" -k "$kver" 2>/dev/null | grep -q ': installed'; then
+  say ok "dkms: $name installed for $kver"
+else
+  say FAIL "dkms: $name is not installed for $kver (dkms status -m $name)"; ok=0
+fi
+
+for m in i2c_piix4 rmi_smbus psmouse; do
+  f=$(modinfo -n "$m" 2>/dev/null)
+  case $f in
+    */updates/*) say ok "$m: $f" ;;
+    "")           say FAIL "$m: modinfo finds no module"; ok=0 ;;
+    *)            say FAIL "$m: stock module would load ($f)"; ok=0 ;;
+  esac
+  if [[ -d /sys/module/$m ]]; then
+    want=$(modinfo -F srcversion "$m" 2>/dev/null)
+    have=$(cat "/sys/module/$m/srcversion" 2>/dev/null)
+    if [[ -n $want && $want == "$have" ]]; then
+      say ok "$m: loaded copy matches installed file"
+    else
+      say FAIL "$m: loaded copy ($have) differs from installed file ($want); reboot or reload"; ok=0
+    fi
+  else
+    say FAIL "$m: not loaded"; ok=0
+  fi
+done
+
+if ls /sys/bus/i2c/devices/*-002c/driver 2>/dev/null | grep -q rmi4_smbus; then
+  say ok "touchpad: RMI4 SMBus client bound to rmi4_smbus"
+else
+  say FAIL "touchpad: no i2c client at 0x2c bound to rmi4_smbus"; ok=0
+fi
+if grep -q 'Phys=rmi4-' /proc/bus/input/devices; then
+  say ok "touchpad: input device is on the RMI4 transport"
+elif grep -q 'SynPS/2' /proc/bus/input/devices; then
+  say FAIL "touchpad: running on PS/2 fallback (SynPS/2)"; ok=0
+else
+  say FAIL "touchpad: no Synaptics input device found"; ok=0
+fi
+
+(( ok )) && exit 0
+echo "one or more checks failed" >&2
+exit 1

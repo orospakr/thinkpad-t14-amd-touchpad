@@ -1,23 +1,36 @@
 # Maintainer: Andrew Clunis <andrew@orospakr.ca>
-# Patched i2c-piix4 adding SMBus Host Notify via the AMD FCH ASF slave block
-# (ACPI SMB0001). Lets Synaptics touchpads on AMD ThinkPads run RMI4/InterTouch.
-pkgname=i2c-piix4-asf-dkms
-pkgver=1.0
+# Patched i2c-piix4 (ASF SMBus Host Notify on AMD FCH / ACPI SMB0001), rmi_smbus
+# and psmouse, built by DKMS from pristine kernel sources plus the patches in
+# patches/. Lets the Synaptics touchpad on the ThinkPad T14 / P14s Gen 2 AMD run
+# over RMI4/SMBus instead of the PS/2 fallback.
+_name=thinkpad-t14-amd-touchpad
+pkgname=$_name-dkms
+pkgver=0.1.0
 pkgrel=1
-pkgdesc="i2c-piix4 with ASF SMBus Host Notify support (DKMS)"
+pkgdesc="Synaptics RMI4/SMBus touchpad on ThinkPad T14/P14s Gen 2 AMD: patched i2c-piix4, rmi_smbus, psmouse (DKMS)"
 arch=('x86_64')
+url="https://github.com/orospakr/$_name"
 license=('GPL-2.0-only')
-depends=('dkms')
-_srcdir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")/../module"
-source=("i2c-piix4.c::file://${_srcdir}/i2c-piix4.c"
-        "i2c-piix4.h::file://${_srcdir}/i2c-piix4.h"
-        "Makefile::file://${_srcdir}/Makefile"
-        "dkms.conf::file://${_srcdir}/dkms.conf"
-        "i2c-piix4-asf.conf::file://${_srcdir}/i2c-piix4-asf.modprobe.conf")
-sha256sums=('SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP')
+depends=('dkms' 'linux-headers')
+conflicts=('i2c-piix4-asf-dkms')
+replaces=('i2c-piix4-asf-dkms')
+install=$pkgname.install
+# Until the first tagged release this builds from the checkout the PKGBUILD
+# lives in. At release, switch to:
+#   source=("$_name-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz")
+_srcdir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")/../.."
+source=("$_name.conf::file://${_srcdir}/packaging/arch/$_name.conf"
+        "$pkgname.install::file://${_srcdir}/packaging/arch/$pkgname.install")
+sha256sums=('SKIP' 'SKIP')
 
 package() {
-  local d="$pkgdir/usr/src/i2c-piix4-asf-$pkgver"
-  install -Dm644 i2c-piix4.c i2c-piix4.h Makefile dkms.conf -t "$d"
-  install -Dm644 i2c-piix4-asf.conf "$pkgdir/usr/lib/modprobe.d/i2c-piix4-asf.conf"
+  local d="$pkgdir/usr/src/$_name-$pkgver"
+  install -d "$d"
+  cp -r "$_srcdir/drivers" "$_srcdir/patches" "$_srcdir/tools" "$d/"
+  install -Dm644 "$_srcdir/dkms.conf" "$_srcdir/Makefile" "$_srcdir/KERNEL_SOURCE" -t "$d"
+  rm -f "$d/tools/check"
+  install -Dm755 "$_srcdir/tools/check" "$pkgdir/usr/bin/$_name-check"
+  install -Dm644 "$srcdir/$_name.conf" "$pkgdir/usr/lib/modprobe.d/$_name.conf"
+  install -Dm644 "$_srcdir/LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  install -Dm644 "$_srcdir/README.md" "$pkgdir/usr/share/doc/$pkgname/README.md"
 }

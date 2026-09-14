@@ -1,0 +1,35 @@
+# Pristine kernel files carried in this tree, one path per line.
+# tools/refresh-sources.sh <tag> fetches each from the stable tree at <tag>.
+drivers/i2c/busses/i2c-piix4.c
+drivers/i2c/busses/i2c-piix4.h
+drivers/input/rmi4/rmi_smbus.c
+drivers/input/rmi4/rmi_bus.h
+drivers/input/rmi4/rmi_driver.h
+drivers/input/mouse/psmouse-base.c
+drivers/input/mouse/psmouse.h
+drivers/input/mouse/psmouse-smbus.c
+drivers/input/mouse/synaptics.c
+drivers/input/mouse/synaptics.h
+drivers/input/mouse/focaltech.c
+drivers/input/mouse/focaltech.h
+drivers/input/mouse/alps.c
+drivers/input/mouse/alps.h
+drivers/input/mouse/byd.c
+drivers/input/mouse/byd.h
+drivers/input/mouse/elantech.c
+drivers/input/mouse/elantech.h
+drivers/input/mouse/elan_i2c.h
+drivers/input/mouse/logips2pp.c
+drivers/input/mouse/logips2pp.h
+drivers/input/mouse/lifebook.c
+drivers/input/mouse/lifebook.h
+drivers/input/mouse/sentelic.c
+drivers/input/mouse/sentelic.h
+drivers/input/mouse/trackpoint.c
+drivers/input/mouse/trackpoint.h
+drivers/input/mouse/touchkit_ps2.c
+drivers/input/mouse/touchkit_ps2.h
+drivers/input/mouse/cypress_ps2.c
+drivers/input/mouse/cypress_ps2.h
+drivers/input/mouse/vmmouse.c
+drivers/input/mouse/vmmouse.h
