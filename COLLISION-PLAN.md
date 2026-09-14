@@ -1,3 +1,6 @@
+> **Note 2026-09-13.** The doze-interval finding stands (upstream 0002). The "delayed start" symptom
+> investigated afterwards is a separate resume-timing fault, see `doze/WAKE-JUMP.md`.
+
 # Gesture reliability: dropped taps and phantom pinches — RESOLVED to F01 doze (2026-09-07)
 
 Status 2026-09-07. Opened 2026-09-04 as "ASF bus collisions tear multi-finger

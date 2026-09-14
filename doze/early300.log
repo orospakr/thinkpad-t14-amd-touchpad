@@ -1,0 +1,6 @@
+22:16:11 GETID, rmi_smb_reset, +300ms full pass: F01 00 c8 00 06 2d 00 0e 
+CAPTURE early300 try 1
+done diag doze/early300
+early300 try 1: 197 frames
+  RESULT:  7 drags; frame1 |delta| median 0 units (min 0 max 0); frame; interval histogram (ms: count): 12:2 13:2 14:87 15:98
+done early

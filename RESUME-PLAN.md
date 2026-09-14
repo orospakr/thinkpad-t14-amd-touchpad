@@ -1,3 +1,9 @@
+> **Superseded 2026-09-13.** The mechanism below (config pass before wake) was half right: the real
+> fault is a config pass issued too soon after the PS/2 reset that psmouse's deactivate gives the pad
+> at resume (≤100 ms → 80 Hz clock or stale landing frame; ≥300 ms → clean). Fix = 300 ms settle in
+> `rmi_smb_resume()`, upstream 0001 rewritten. The reorder form was retired: it cured the clock but
+> caused the wake jump. Full story in `doze/WAKE-JUMP.md`.
+
 # Post-suspend touchpad degradation — investigation and upstream plan
 
 Status 2026-09-04. Separate from the ASF Host Notify driver (done, installed

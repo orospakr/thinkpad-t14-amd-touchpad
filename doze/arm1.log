@@ -1,0 +1,10 @@
+CAPTURE arm1-base try 1
+arm1-base try 1: 561 frames
+17:52:36 loading psmouse with ps2cmd trigger
+OK psmouse/nosleep synaptics_rmi_nosleep=0 synaptics_rmi_doze_interval=6 try=1
+trigger present
+CAPTURE arm1-after try 1
+arm1-after try 1: 0 frames
+CAPTURE arm1-after try 2
+arm1-after try 2: 565 frames
+done arm

@@ -1,0 +1,30 @@
+21:50:08 resume_getid=Y; suspending 240s (DO NOT TOUCH the pad)
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc0 at Sun Sep 13 01:54:09 2026
+21:54:14 resumed: 
+CAPTURE short-on try 1
+done diag doze/short-on
+short-on try 1: 68 frames
+CAPTURE short-on try 2
+done diag doze/short-on
+short-on try 2: 0 frames
+CAPTURE short-on try 3
+done diag doze/short-on
+short-on try 3: 0 frames
+CAPTURE short-on try 4
+done diag doze/short-on
+short-on try 4: 0 frames
+CAPTURE short-on try 5
+done diag doze/short-on
+short-on try 5: 0 frames
+CAPTURE short-on try 6
+done diag doze/short-on
+short-on try 6: 0 frames
+CAPTURE short-on try 7
+done diag doze/short-on
+short-on try 7: 0 frames
+CAPTURE short-on try 8
+done diag doze/short-on
+short-on try 8: 0 frames
+GAVE UP short-on
+ABORT: no drags

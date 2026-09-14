@@ -1,0 +1,71 @@
+From: YOUR NAME <andrew@orospakr.ca>
+Subject: [PATCH 1/2] Input: synaptics-rmi4 - let the device settle after the PS/2 reset on SMBus resume
+
+On resume, psmouse_smbus_reconnect() deactivates the PS/2 side of an
+SMBus-attached Synaptics touchpad before rmi_smb_resume() runs.  On
+these devices that PS/2 command resets the touchpad: it comes back with
+its firmware defaults (interrupt mask cleared, doze interval back to the
+default), which is why rmi_smb_resume() has to run the configuration
+pass again.
+
+Running that pass within a few tens of milliseconds of the reset leaves
+the device misbehaving until the next reset, in one of two ways:
+
+ - the report clock drops from a flat 15 ms to 12.5 ms with merged
+   23-24 ms frames (roughly half of the resumes), or
+ - the first report of every touch is stale: the frame at touch-down
+   carries the landing position and the next frame, 15 ms later,
+   already carries wherever the finger has moved to, several
+   millimetres away, so the cursor sits still after touch-down and then
+   jumps.
+
+Measured on a ThinkPad T14 Gen 2a (LEN2073, TM3471-030), issuing the
+configuration pass a fixed time after the reset, in place and across
+4-minute S3 cycles:
+
+  delay before configuring    stale first frame (median)   drags from rest
+        0 ms                        91 units                    0/7
+       30 ms                        97 units                    0/6
+      100 ms                        91 units                    0/7
+      300 ms                         0                          7/7
+      300 ms, across S3              0, flat 15 ms clock        7/7
+     2000 ms                         0                          7/7
+
+Wait 300 ms before reconfiguring the device on resume.
+
+Signed-off-by: YOUR NAME <andrew@orospakr.ca>
+---
+ drivers/input/rmi4/rmi_smbus.c | 14 ++++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+diff --git a/drivers/input/rmi4/rmi_smbus.c b/drivers/input/rmi4/rmi_smbus.c
+--- a/drivers/input/rmi4/rmi_smbus.c
++++ b/drivers/input/rmi4/rmi_smbus.c
+@@ -19,6 +19,8 @@
+ 
+ #define SMB_PROTOCOL_VERSION_ADDRESS	0xfd
+ #define SMB_MAX_COUNT			32
++/* time the device needs after the PS/2 reset it gets on resume before it accepts configuration */
++#define RMI_SMB_RESUME_SETTLE_MS	300
+ #define RMI_SMB2_MAP_SIZE		8 /* 8 entry of 4 bytes each */
+ #define RMI_SMB2_MAP_FLAGS_WE		0x01
+ 
+@@ -380,6 +382,18 @@
+ 
+ 	rmi_smb_reset(&rmi_smb->xport, 0);
+ 
++	/*
++	 * The PS/2 side of the device has just been deactivated by
++	 * psmouse_smbus_reconnect(), and on Synaptics touchpads that resets
++	 * the device: it comes back with its firmware defaults and needs the
++	 * configuration below again. Configuring it too soon after that reset
++	 * leaves it misbehaving until the next reset - either an 80 Hz report
++	 * clock with merged frames, or a stale first frame on every touch (the
++	 * landing position, followed 15 ms later by wherever the finger has
++	 * moved to since). It needs a few hundred milliseconds.
++	 */
++	msleep(RMI_SMB_RESUME_SETTLE_MS);
++
+ 	rmi_reset(rmi_dev);
+ 
+ 	ret = rmi_driver_resume(rmi_smb->xport.rmi_dev, true);

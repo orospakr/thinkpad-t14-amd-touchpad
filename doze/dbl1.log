@@ -1,0 +1,16 @@
+21:51:24 full config pass (E1: on the reloaded pad): F01 00 c8 00 06 2d 00 0e 
+CAPTURE dbl1-E1 try 1
+dbl1-E1 try 1: 638 frames
+  E1:  6 drags; frame1 |delta| median 100 units (min 91 max 168); 
+21:52:02 cure: GETID + rmi_smb_reset + F12 irq bits -> F01 00 c8 00 03 2d 00 0e 
+21:52:03 full config pass (E2: first after cure): F01 00 c8 00 06 2d 00 0e 
+CAPTURE dbl1-E2 try 1
+dbl1-E2 try 1: 770 frames
+  E2:  7 drags; frame1 |delta| median 0 units (min 0 max 0); frame
+21:52:38 full config pass (E3: second after cure): F01 00 c8 00 06 2d 00 0e 
+CAPTURE dbl1-E3 try 1
+dbl1-E3 try 1: 749 frames
+  E3:  6 drags; frame1 |delta| median 78 units (min 64 max 119); f
+21:53:13 final reload
+OK load-all  try=1; rmi_core 489ADB3327FE35D3D8906D3 loaded=489ADB3327FE35D3D8906D3
+done double

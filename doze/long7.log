@@ -1,0 +1,10 @@
+CAPTURE long7-base try 1
+long7-base try 1: 1021 frames
+21:43:47 F01 hwreset
+  after clear_state: smbus DEAD, F01  00 00 00 00
+  SMBus still dead after hwreset+clear_state -> reload
+21:43:50 psmouse reload
+OK psmouse/nosleep synaptics_rmi_nosleep=0 synaptics_rmi_doze_interval=6 try=1
+CAPTURE long7-hwreset-reload try 1
+long7-hwreset-reload try 1: 967 frames
+done seq7

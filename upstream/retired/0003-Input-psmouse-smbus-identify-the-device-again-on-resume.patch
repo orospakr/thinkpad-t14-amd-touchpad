@@ -1,0 +1,63 @@
+From: YOUR NAME <andrew@orospakr.ca>
+Subject: [PATCH 3/3] Input: psmouse-smbus - identify the device again on resume
+
+Synaptics touchpads driven over SMBus (RMI4 InterTouch) that have spent
+a few hours in S3 come back in a state where the first report of every
+touch is stale: the frame at touch-down carries the landing position and
+the next frame, 15 ms later, already carries wherever the finger has
+moved to in the meantime, several millimetres away.  To the user the
+cursor sits still after touch-down and then jumps.  Nothing on the SMBus
+side clears it: rewriting the F01/F12 configuration, or unbinding and
+re-probing rmi_smbus altogether, leaves it in place.
+
+The device recovers as soon as it is talked to over PS/2 with anything
+other than the disable that psmouse_smbus_reconnect() already sends: a
+Get ID is enough.  That is also what happens on every attach, which is
+why reloading psmouse always cured it.
+
+Measured on a ThinkPad T14 Gen 2a (LEN2073, TM3471-030) with the first
+frame of single-finger drags after suspends of 2.3 to 22 hours:
+
+                                     first-frame jump   drags ramping
+                                     (median, units)    from rest
+  after resume                           54 .. 115           0/49
+  + F01/F12 config pass                       60             0/6
+  + rmi_smbus re-probe                        58             0/6
+  + PS/2 disable                             115             0/7
+  + PS/2 Get ID                                0             7/7
+  + PS/2 identify/capability queries           0             8/8
+
+Send a Get ID before deactivating the device in the reconnect path.
+Any PS/2 command invalidates the device's SMBus register mapping, but
+the SMBus client is registered after the PS/2 device and therefore
+resumes after it, and rmi_smb_resume() clears the mapping cache then,
+exactly as it already has to for the disable.
+
+Signed-off-by: YOUR NAME <andrew@orospakr.ca>
+---
+ drivers/input/mouse/psmouse-smbus.c | 13 +++++++++++++++
+ 1 file changed, 13 insertions(+)
+
+diff --git a/drivers/input/mouse/psmouse-smbus.c b/drivers/input/mouse/psmouse-smbus.c
+--- a/drivers/input/mouse/psmouse-smbus.c
++++ b/drivers/input/mouse/psmouse-smbus.c
+@@ -117,6 +117,19 @@
+ static int psmouse_smbus_reconnect(struct psmouse *psmouse)
+ {
+ 	struct psmouse_smbus_dev *smbdev = psmouse->private;
++	u8 param[2];
++
++	/*
++	 * Synaptics touchpads that spent a few hours in S3 come back in a
++	 * state where the first report of every touch is stale (the landing
++	 * position, then wherever the finger already is 15 ms later) until
++	 * the PS/2 side has been talked to. Deactivating alone does not do
++	 * it, a Get ID does. Like the deactivate, this invalidates the
++	 * device's SMBus register mapping; the SMBus client resumes after us
++	 * and rebuilds its mapping cache then.
++	 */
++	param[0] = 0xa5;
++	ps2_command(&psmouse->ps2dev, param, PSMOUSE_CMD_GETID);
+ 
+ 	if (smbdev->need_deactivate)
+ 		psmouse_deactivate(psmouse);

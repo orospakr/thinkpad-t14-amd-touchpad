@@ -1,6 +1,6 @@
 --- src/synaptics.c	2026-08-27 22:26:28.841850198 -0400
-+++ nosleep/synaptics.c	2026-09-07 22:08:57.075718929 -0400
-@@ -1781,6 +1781,18 @@
++++ nosleep/synaptics.c	2026-09-10 21:57:44.755988969 -0400
+@@ -1781,6 +1781,52 @@
  module_param_named(synaptics_intertouch, synaptics_intertouch, int, 0644);
  MODULE_PARM_DESC(synaptics_intertouch, "Use a secondary bus for the Synaptics device.");
  
@@ -16,10 +16,44 @@
 +module_param(synaptics_rmi_doze_holdoff, byte, 0644);
 +module_param(synaptics_rmi_doze_interval, byte, 0644);
 +
++/* experiment: send one PS/2 command to the SMBus-attached pad in place.
++ * echo N > /sys/module/psmouse/parameters/synaptics_rmi_ps2cmd
++ * 1 = F5 disable (what psmouse_smbus_reconnect sends on resume), 2 = E8 query sequence
++ * (synaptics_query_hardware), 3 = F6 set defaults, 4 = FF reset (BAT) then F5, 5 = F2 get id,
++ * 6 = synaptics_detect (E6/E8). Never F4.
++ */
++static struct psmouse *synaptics_exp_psmouse;
++static int synaptics_rmi_ps2cmd_set(const char *val, const struct kernel_param *kp)
++{
++	struct psmouse *psmouse = synaptics_exp_psmouse;
++	struct synaptics_device_info info;
++	unsigned int n;
++	int error;
++	u8 param[4];
++
++	if (kstrtouint(val, 0, &n))
++		return -EINVAL;
++	if (!psmouse)
++		return -ENODEV;
++	switch (n) {
++	case 1: error = psmouse_deactivate(psmouse); break;
++	case 2: error = synaptics_query_hardware(psmouse, &info); break;
++	case 3: error = ps2_command(&psmouse->ps2dev, NULL, PSMOUSE_CMD_RESET_DIS); break;
++	case 4: error = psmouse_reset(psmouse); if (!error) error = psmouse_deactivate(psmouse); break;
++	case 5: param[0] = 0xa5; error = ps2_command(&psmouse->ps2dev, param, PSMOUSE_CMD_GETID); break;
++	case 6: error = synaptics_detect(psmouse, false); break;
++	default: return -EINVAL;
++	}
++	psmouse_info(psmouse, "synaptics_rmi_ps2cmd %u -> %d\n", n, error);
++	return error;
++}
++static const struct kernel_param_ops synaptics_rmi_ps2cmd_ops = { .set = synaptics_rmi_ps2cmd_set };
++module_param_cb(synaptics_rmi_ps2cmd, &synaptics_rmi_ps2cmd_ops, NULL, 0200);
++
  static int synaptics_create_intertouch(struct psmouse *psmouse,
  				       struct synaptics_device_info *info,
  				       bool leave_breadcrumbs)
-@@ -1790,10 +1802,16 @@
+@@ -1790,10 +1836,16 @@
  		!SYN_CAP_EXT_BUTTONS_STICK(info->ext_cap_10);
  	const struct rmi_device_platform_data pdata = {
  		.reset_delay_ms = 30,
@@ -37,3 +71,11 @@
  			.topbuttonpad = topbuttonpad,
  		},
  		.gpio_data = {
+@@ -1807,6 +1859,7 @@
+ 		.flags = I2C_CLIENT_HOST_NOTIFY,
+ 	};
+ 
++	synaptics_exp_psmouse = psmouse;
+ 	return psmouse_smbus_init(psmouse, &intertouch_board,
+ 				  &pdata, sizeof(pdata), true,
+ 				  leave_breadcrumbs);

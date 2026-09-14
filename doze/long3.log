@@ -1,0 +1,13 @@
+CAPTURE long3-base try 1
+long3-base try 1: 701 frames
+21:53:48 xport_reset
+CAPTURE long3-xport try 1
+long3-xport try 1: 591 frames
+21:54:24 rmi_smbus rebind
+CAPTURE long3-smbrebind try 1
+long3-smbrebind try 1: 652 frames
+21:54:59 psmouse reload
+OK psmouse/nosleep synaptics_rmi_nosleep=0 synaptics_rmi_doze_interval=6 try=1
+CAPTURE long3-reload try 1
+long3-reload try 1: 547 frames
+done seq

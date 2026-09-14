@@ -1,0 +1,218 @@
+<title>The 300 Millisecond Touchpad</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F5F7F6; --panel:#FFFFFF; --ink:#1B2226; --ink-2:#4B5A60; --ink-3:#7A8A90;
+  --rule:#D6DDDC; --accent:#1E6E75; --accent-soft:#DCEDEE; --signal:#C9721A; --signal-soft:#F7E6D3;
+  --ok:#2E7D4F; --ok-soft:#DDEFE3; --bad:#B4432E; --bad-soft:#F6E0DB; --code-bg:#EEF2F1;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#131A1D; --panel:#1B2428; --ink:#E6ECEC; --ink-2:#AEBCC0; --ink-3:#7F8F94;
+    --rule:#2C383D; --accent:#5FB8BF; --accent-soft:#1D3538; --signal:#E39A4A; --signal-soft:#3A2A16;
+    --ok:#6CC38E; --ok-soft:#173224; --bad:#E07B66; --bad-soft:#3A1F1A; --code-bg:#0F1517;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#131A1D; --panel:#1B2428; --ink:#E6ECEC; --ink-2:#AEBCC0; --ink-3:#7F8F94;
+  --rule:#2C383D; --accent:#5FB8BF; --accent-soft:#1D3538; --signal:#E39A4A; --signal-soft:#3A2A16;
+  --ok:#6CC38E; --ok-soft:#173224; --bad:#E07B66; --bad-soft:#3A1F1A; --code-bg:#0F1517;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Source Serif 4",Georgia,"Times New Roman",serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:72ch;margin:0 auto;padding-block:3rem 5rem;padding-inline:1.25rem}
+h1,h2,h3{font-family:"IBM Plex Sans Condensed","Arial Narrow",Arial,sans-serif;line-height:1.1;text-wrap:balance;margin:0}
+h1{font-size:2.6rem;font-weight:700;letter-spacing:-.01em}
+h2{font-size:1.45rem;font-weight:600;margin-top:3rem;padding-top:1.25rem;border-top:2px solid var(--accent)}
+h3{font-size:1.1rem;font-weight:600;margin-top:1.75rem}
+p{margin:.9rem 0}
+a{color:var(--accent)}
+.eyebrow{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
+.lede{font-size:1.2rem;color:var(--ink-2);margin-top:1rem}
+.meta{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;margin-top:1.25rem;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.78rem;color:var(--ink-3)}
+.meta b{color:var(--ink-2);font-weight:500}
+code,pre{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+code{font-size:.86em;background:var(--code-bg);padding:.08em .35em;border-radius:3px}
+pre{background:var(--code-bg);padding:.9rem 1rem;border-radius:4px;overflow-x:auto;font-size:.82rem;line-height:1.5;margin:1rem 0}
+pre code{background:none;padding:0;font-size:inherit}
+ul,ol{padding-left:1.4rem}
+li{margin:.35rem 0}
+li::marker{color:var(--ink-3)}
+.tbl{overflow-x:auto;margin:1.1rem 0}
+table{border-collapse:collapse;width:100%;font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:.8rem;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-weight:500;color:var(--ink-3);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase}
+td.n{text-align:right}
+th.n{text-align:right}
+.pill{display:inline-block;padding:.05em .5em;border-radius:999px;font-size:.72rem;letter-spacing:.03em}
+.pill.ok{background:var(--ok-soft);color:var(--ok)}
+.pill.bad{background:var(--bad-soft);color:var(--bad)}
+.pill.warn{background:var(--signal-soft);color:var(--signal)}
+.callout{background:var(--panel);border-left:4px solid var(--accent);padding:.9rem 1.1rem;margin:1.4rem 0;border-radius:0 4px 4px 0}
+.callout.signal{border-left-color:var(--signal)}
+.callout p{margin:.4rem 0}
+.callout .k{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.callout.signal .k{color:var(--signal)}
+figure{margin:1.5rem 0;background:var(--panel);border:1px solid var(--rule);border-radius:4px;padding:1rem 1.1rem}
+figcaption{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.74rem;color:var(--ink-3);margin-top:.8rem;line-height:1.45}
+.strip{display:flex;flex-direction:column;gap:.9rem}
+.strip .row{display:grid;grid-template-columns:8.5rem 1fr;gap:.8rem;align-items:center}
+.strip .lab{font-family:"IBM Plex Sans Condensed",Arial,sans-serif;font-weight:600;font-size:.95rem}
+.strip .lab small{display:block;font-family:"IBM Plex Mono",monospace;font-weight:400;font-size:.68rem;color:var(--ink-3);letter-spacing:.04em}
+.track{position:relative;height:2.2rem;background:var(--code-bg);border-radius:3px;overflow:hidden}
+.track .f{position:absolute;top:.35rem;bottom:.35rem;width:.55rem;border-radius:2px;background:var(--accent)}
+.track .f.stale{background:var(--bad)}
+.track .t{position:absolute;bottom:.15rem;font-family:"IBM Plex Mono",monospace;font-size:.6rem;color:var(--ink-3);transform:translateX(-50%)}
+.track .finger{position:absolute;top:.25rem;height:.25rem;border-radius:2px;background:var(--ink-3);opacity:.45}
+.timeline{list-style:none;padding:0;margin:1rem 0}
+.timeline li{display:grid;grid-template-columns:6.5rem 1fr;gap:1rem;padding:.55rem 0;border-bottom:1px solid var(--rule);margin:0}
+.timeline .d{font-family:"IBM Plex Mono",monospace;font-size:.76rem;color:var(--ink-3);padding-top:.15rem}
+.timeline .d b{display:block;color:var(--ink-2);font-weight:500}
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:.9rem;margin:1.5rem 0}
+.card{background:var(--panel);border:1px solid var(--rule);border-radius:4px;padding:.9rem 1rem}
+.card .k{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.card .v{font-family:"IBM Plex Sans Condensed",Arial,sans-serif;font-weight:600;font-size:1.15rem;margin:.2rem 0 .35rem}
+.card p{margin:0;font-size:.92rem;color:var(--ink-2)}
+.small{font-size:.9rem;color:var(--ink-2)}
+@media (max-width:520px){ .strip .row{grid-template-columns:1fr} .timeline li{grid-template-columns:1fr;gap:.2rem} h1{font-size:2.1rem} }
+@media (prefers-reduced-motion: no-preference){ a{transition:color .15s} }
+</style>
+
+<div class="wrap">
+<div class="eyebrow">gondolin · ThinkPad T14 Gen 2a AMD · Synaptics TM3471 over RMI4/SMBus</div>
+<h1>The 300 Millisecond Touchpad</h1>
+<p class="lede">Ten days of measuring what a Synaptics touchpad does after the laptop wakes up. Three symptoms, two of which turned out to be one fault, one fix that was quietly causing the next problem, and two kernel patches at the end of it.</p>
+<div class="meta">
+  <span><b>kernel</b> 7.1.9-arch1</span>
+  <span><b>pad</b> LEN2073, TM3471-030, firmware 3942087</span>
+  <span><b>transport</b> i2c-piix4 ASF Host Notify (own patch, DKMS)</span>
+  <span><b>period</b> 2026-09-04 → 2026-09-13</span>
+</div>
+
+<div class="summary">
+  <div class="card"><div class="k">Symptom 1</div><div class="v">80 Hz clock after resume</div><p>Half of all resumes came back with 12.5 ms reports and merged 24 ms frames instead of a flat 15 ms.</p></div>
+  <div class="card"><div class="k">Symptom 2</div><div class="v">Dropped taps, phantom pinches</div><p>Quick taps vanished; two-finger scrolls occasionally became a zoom.</p></div>
+  <div class="card"><div class="k">Symptom 3</div><div class="v">Wake jump</div><p>After a sleep, the cursor sat still on touch-down and then leapt. Appeared on the 8th, once symptom 1 was "fixed".</p></div>
+</div>
+
+<div class="callout">
+  <p class="k">Where it landed</p>
+  <p><strong>Symptoms 1 and 3 are one fault.</strong> On resume, the PS/2 driver deactivates the pad, and on this pad that command is a firmware reset. The SMBus driver then reconfigures the pad within a few milliseconds, while it is still coming up. Configured that early, it misbehaves until its next reset, as one symptom or the other. A 300 ms wait before reconfiguring cures both.</p>
+  <p><strong>Symptom 2 is the firmware's power-saving doze.</strong> With the default doze interval the pad never reports most short touches and garbles the first frame of two-finger touches. Lenovo's Windows driver sets a longer interval for this pad and eleven others; the same value on Linux gives 20/20 taps and 0 pinches in 145 scrolls.</p>
+</div>
+
+<h2>1. Where this started</h2>
+<p>This machine's touchpad had been stuck in PS/2 fallback since the laptop was new, because AMD's SMBus controller does not advertise Host Notify and the RMI4 driver will not attach without it. An earlier write-up covers the fix: an out-of-tree <code>i2c-piix4</code> that drives the chipset's ASF block for Host Notify, the same single-driver shape Intel uses. With that installed the pad runs natively over SMBus at a clean 15 ms per report, and three residual problems came into focus.</p>
+<p>What follows is the order the facts were found in, because the order is the point. Each fix was measured, each one cleared its symptom, and two of them were wrong.</p>
+
+<h2>2. Measuring a touch-down</h2>
+<p>Every conclusion here rests on one number, so it is worth being precise about it. A capture is thirty seconds of raw <code>evtest</code> output while six slow single-finger drags are made, lifting fully between them. For each drag the analyser takes the distance the reported position moves between the first and second frame. On a healthy pad that is zero or near it: the finger has just landed and is barely moving. On a pad in the wake-jump state it is 60 to 140 units, 5 to 12 mm, in a single 15 ms frame, a speed no slow drag ever reaches.</p>
+
+<figure>
+  <div class="strip">
+    <div class="row">
+      <div class="lab">Healthy<small>frames after touch-down</small></div>
+      <div class="track">
+        <div class="finger" style="left:4%;width:40%"></div>
+        <div class="f" style="left:4%"></div><div class="f" style="left:6%"></div><div class="f" style="left:9%"></div><div class="f" style="left:14%"></div><div class="f" style="left:21%"></div><div class="f" style="left:30%"></div><div class="f" style="left:40%"></div>
+        <span class="t" style="left:4%">0</span><span class="t" style="left:6%">0</span><span class="t" style="left:9%">5</span><span class="t" style="left:14%">14</span><span class="t" style="left:21%">19</span><span class="t" style="left:30%">22</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="lab">Wake jump<small>same drag, same pad</small></div>
+      <div class="track">
+        <div class="finger" style="left:4%;width:70%"></div>
+        <div class="f stale" style="left:4%"></div><div class="f" style="left:44%"></div><div class="f" style="left:54%"></div><div class="f" style="left:64%"></div><div class="f" style="left:74%"></div>
+        <span class="t" style="left:4%">0</span><span class="t" style="left:44%">91</span><span class="t" style="left:54%">43</span><span class="t" style="left:64%">39</span><span class="t" style="left:74%">36</span>
+      </div>
+    </div>
+  </div>
+  <figcaption>Each bar is one 15 ms report; the number under it is the distance moved since the previous report, in pad units (12 per mm). In the wake-jump state the first report is the landing position, held stale while the finger moves, and the second is wherever the finger is now. To the user the cursor sticks, then jumps. The report clock itself stays a flat 15 ms throughout, which is why timing histograms never showed this.</figcaption>
+</figure>
+
+<p>Two things made the rig trustworthy. The interrupt counters along the pipeline, ASF hard interrupt, Host Notify into the RMI driver, F12 finger frames, and <code>evtest</code> reports, were snapshotted around every capture and always agreed, which ruled out host-side loss early. And a capture that needs hands is only accepted once it contains real drags; the script re-cues and retries, and a multi-step sequence aborts rather than advancing. That rule was added the hard way, after a night where a four-step bisect ran to completion on four empty captures.</p>
+
+<h2>3. Dropped taps and phantom pinches: doze</h2>
+<p>This was the clean thread. With the counters agreeing, the missing taps were missing at the source: the pad simply reported six of twenty quick taps, one frame each. Two-finger landings were reported with the objects in the wrong order, so libinput saw finger separation collapse from 165 to 78 units in one frame and called it a pinch, scale 2.45.</p>
+<p>The pad's F01 doze registers explained it. Doze is the firmware's low-power scan mode between touches: interval 3, wakeup threshold 45, holdoff 0 on this pad, so it drops into doze the instant a finger lifts and samples too slowly to catch a short touch. Lenovo's Windows driver for this family sets <code>RMIDozeInterval=6</code> for twelve pad IDs, LEN2073 among them, and does not disable doze. Measured with each configuration:</p>
+<div class="tbl"><table>
+<tr><th>doze configuration</th><th class="n">quick taps seen of 20</th><th class="n">pinches / scroll episodes</th></tr>
+<tr><td>firmware default (interval 3)</td><td class="n">6, one frame each</td><td class="n">1 / 10</td></tr>
+<tr><td>doze disabled (NoSleep)</td><td class="n">20</td><td class="n">0 / 232</td></tr>
+<tr><td>Windows value (interval 6), doze kept</td><td class="n">20, each 60–190 ms</td><td class="n">0 / 145</td></tr>
+</table></div>
+<p>The Windows value keeps the power saving and fixes both. It goes upstream as a small table in the PS/2 Synaptics driver, passing the interval through platform data for the same twelve IDs. Two red herrings on the way, both cheap to rule out and worth naming: libinput's thumb pressure threshold (fingertips here report 50 to 70, well under it) and ASF bus collisions between the pad and the TrackPoint pass-through (the counters matched).</p>
+
+<h2>4. The resume fault, and the fix that caused the next bug</h2>
+<h3>What the 80 Hz clock looked like from the driver</h3>
+<p>The SMBus transport's resume path does three things in order: reset its own register-mapping cache, run the RMI configuration pass, then wake the sensor. The configuration pass rewrites every function's control registers: the F01 device control byte, the three doze bytes, and the interrupt mask. Reading that order, the story wrote itself: configuring a sensor that is still asleep half-applies, wake it afterwards and you get the degraded clock. Moving the pass after the wake gave 0 degraded resumes in 8, where the stock order gave 8 in 8. A patch was drafted.</p>
+<p>It was tested with a knob that ran the pass <em>both</em> before and after the wake, because that was the smallest change. That knob stayed loaded. Two days later the cursor started sticking after every sleep.</p>
+
+<h3>Chasing the wake jump</h3>
+<p>The jump looked like a firmware sleep state. The register dump was byte-identical to a healthy pad; the report clock was perfect; and it seemed to need hours of suspend, since 90-second probe cycles had never shown it. Every one of those impressions was wrong, and the sequence of experiments that dismantled them is the useful part of this document.</p>
+<ol>
+  <li><strong>Nothing over SMBus touched it.</strong> The config pass alone, and a full unbind and re-probe of the SMBus driver, both left it in place. A reload of the PS/2 driver stack cleared it every time. So the cure was on the PS/2 side.</li>
+  <li><strong>Bisecting PS/2 commands</strong> with a trigger added to the experimental driver: the disable that stock resume sends did nothing; the identify-and-capability query sequence cured it; then a single Get ID cured it. The minimal cure was one PS/2 command.</li>
+  <li><strong>Get ID put into the resume path did not work.</strong> It ran, the log showed it, the pad still came back jumping. Minutes later, the same command in place cured it.</li>
+  <li><strong>Every PS/2 command is a firmware reset.</strong> This was the turn. After Get ID the pad's interrupt mask read 00 00 and its doze interval was back to 3. Get ID was not waking anything; it was wiping the host's configuration. The disable at resume does exactly the same, which the SMBus driver copes with only because it reconfigures afterwards, and because its resume happens to run after the PS/2 one.</li>
+  <li><strong>The "hours" threshold was false.</strong> A four-minute timed suspend produced the jump. Nobody had captured positions after a short cycle before; the earlier probes recorded timing only.</li>
+  <li><strong>Stock order, no jump.</strong> With the config pass back in its original place before the wake, a four-minute suspend gave drags from rest, and the 80 Hz clock. The after-wake fix was creating the jump.</li>
+  <li><strong>Per-register bisect, twice.</strong> Every write of the config pass, applied alone to a freshly reset pad, was clean. So was every write applied after the control byte. A second full pass after a first one jumped, and so did a pass whose only predecessor was the doze write. For an evening that looked like "writing the doze registers twice".</li>
+  <li><strong>The suspend log killed that theory.</strong> A build that skipped unchanged doze writes still jumped after a real resume, with the log proving the doze bytes had been written exactly once.</li>
+  <li><strong>What was left was time.</strong> Every clean in-place sequence had slept two seconds after the reset before writing anything. At resume, the pass followed the reset within milliseconds.</li>
+</ol>
+
+<div class="tbl"><table>
+<tr><th>wait between the pad's reset and the config pass</th><th class="n">first-frame jump, median</th><th class="n">drags from rest</th><th>clock</th></tr>
+<tr><td>0 ms</td><td class="n">91</td><td class="n">0 / 7</td><td>15 ms</td></tr>
+<tr><td>30 ms</td><td class="n">97</td><td class="n">0 / 6</td><td>15 ms</td></tr>
+<tr><td>100 ms</td><td class="n">91</td><td class="n">0 / 7</td><td>15 ms</td></tr>
+<tr><td>300 ms</td><td class="n">0</td><td class="n">7 / 7</td><td>15 ms</td></tr>
+<tr><td>2000 ms</td><td class="n">0</td><td class="n">7 / 7</td><td>15 ms</td></tr>
+<tr><td><strong>300 ms, across a real 4-minute suspend, stock order</strong></td><td class="n"><strong>0</strong></td><td class="n"><strong>7 / 7</strong></td><td><strong>flat 15 ms</strong></td></tr>
+<tr><td>0 ms across a real suspend, stock order (the original bug)</td><td class="n">0</td><td class="n">8 / 8</td><td><span class="pill bad">12.5 ms, merged frames</span></td></tr>
+</table></div>
+
+<div class="callout signal">
+  <p class="k">The fault, stated once</p>
+  <p>On resume the PS/2 driver's deactivate resets the pad. Configuring it within roughly 100 ms of that reset leaves it broken until the next reset, as either the 80 Hz clock or the stale landing frame. Waiting 300 ms first gives a pad that is right in both respects. The reorder fix worked on the clock only because its second pass came late enough; the Get ID fix worked in place only because the script slept first.</p>
+</div>
+
+<h2>5. What the pad taught us on the way</h2>
+<ul>
+  <li><strong>Any PS/2 command to the pad resets its RMI side</strong>: interrupt mask cleared, doze registers to defaults, and the SMBus register mapping invalidated. Reads fail with error -6 until the transport re-runs its reset, which clears the host's mapping cache <em>and</em> re-reads the SMBus version register; the cache clear alone is not enough.</li>
+  <li><strong>An RMI4 device reset over SMBus (F01 command) kills the transport outright</strong> under the current driver, which never re-initialises the mapping from its reset handler. Do not use it as a cure primitive.</li>
+  <li><strong>Unbinding and re-probing the SMBus driver leaves the TrackPoint dead.</strong> The F03 pass-through port registers, but its interrupt bit is never set again until a psmouse reload. Every re-probe that week did this; it was noticed on the fourth night.</li>
+  <li><strong>The register dump cannot see either resume fault.</strong> Before and after, the bytes are identical. Both states are firmware-internal and only visible in what the pad reports.</li>
+  <li><strong>libinput's jitter hysteresis was a red herring.</strong> Hyprland's log showed it enabled for the pad, but the dead-band is resolution/4, a quarter millimetre, and it had fired before the first bad suspend. Worth knowing: that state lives inside the compositor process and a separate <code>libinput debug-events</code> can never show it.</li>
+  <li><strong>The resume-order fixes were self-inflicting.</strong> Two symptoms with different fingerprints came from one timing fault, and each "fix" moved the timing enough to swap one for the other.</li>
+</ul>
+
+<h2>6. Harness notes</h2>
+<ul>
+  <li>Root work runs in a dedicated pane; everything else is unprivileged. Experimental modules are out-of-tree and vanish on reboot; the only installed piece is the ASF transport.</li>
+  <li>Captures that need hands are gated: a sound and a notification cue the drags, the capture repeats until it holds at least 100 frames, and a step sequence aborts on an empty one. Timed suspends use <code>rtcwake</code> so no stopwatch is involved.</li>
+  <li>A pad that is dead or jumping recovers with one command, the psmouse reload, which also restores the TrackPoint. It is the safe fallback at the end of every sequence.</li>
+  <li>A background wait in the harness that spans a suspend simply resumes with it, since monotonic time stops; the scripts do not need to know.</li>
+</ul>
+
+<h2>7. Timeline</h2>
+<ul class="timeline">
+  <li><div class="d"><b>Sep 4–5</b>T5, bisect</div><div>8/8 resumes degraded on stock order; manual config passes at 60/30/10/3/1 s after wake all clean, so no timing window on that side. Cause traced to the pass running before the sensor wake.</div></li>
+  <li><div class="d"><b>Sep 7</b>T10, doze</div><div>In-driver after-wake pass: 0/8 degraded. Same evening the doze thread resolves: 6/20 taps become 20/20 with NoSleep, and with the Windows interval. Patches 0001 (reorder) and 0002 (doze) drafted.</div></li>
+  <li><div class="d"><b>Sep 8</b>wake jump</div><div>After a 4.7 h suspend the cursor sticks on touch-down. First-frame metric built; libinput hysteresis ruled out; F01 device reset kills the transport; reload cures.</div></li>
+  <li><div class="d"><b>Sep 9–10</b>separation</div><div>Reload alone cures. Stepwise sequence shows nothing on the SMBus side helps; the PS/2 side does. A run lost to unanswered cues; captures made gated.</div></li>
+  <li><div class="d"><b>Sep 11–12</b>PS/2 bisect</div><div>Trigger param added. Disable: no. E8 queries: yes. Get ID: yes. Every command kills the SMBus mapping. Get ID put in the resume hook; fails at real resume. Four-minute suspends reproduce the jump with the hook off.</div></li>
+  <li><div class="d"><b>Sep 13</b>resolution</div><div>Stock order: no jump, bad clock. Get ID shown to be a reset. Two register bisects, the doze-twice theory, its refutation by the suspend log, then the delay series: 0/30/100 ms jump, 300 ms clean, and 300 ms across a real suspend gives a flat clock and drags from rest.</div></li>
+</ul>
+
+<h2>8. Patches and what is left</h2>
+<div class="tbl"><table>
+<tr><th>patch</th><th>change</th><th>status</th></tr>
+<tr><td>0001 Input: synaptics-rmi4</td><td>300 ms settle in <code>rmi_smb_resume()</code> before reconfiguring, with the measurement table in the message</td><td><span class="pill ok">measured across S3, checkpatch clean</span></td></tr>
+<tr><td>0002 Input: synaptics</td><td>Windows doze interval (6) via platform data for the twelve LEN pad IDs</td><td><span class="pill ok">measured, checkpatch clean</span></td></tr>
+<tr><td>retired: reorder the resume pass</td><td>cured the clock, caused the wake jump</td><td><span class="pill bad">withdrawn</span></td></tr>
+<tr><td>retired: Get ID on resume</td><td>a reset presented as a cure; worked only with a sleep it did not have</td><td><span class="pill bad">withdrawn</span></td></tr>
+</table></div>
+<p class="small">Still to do before sending: a few more natural resumes including an overnight one under the settle delay; narrowing the threshold between 100 and 300 ms if a reviewer asks; real names in the sign-offs. The upstream RFC for the ASF transport itself, which all of this depends on, is a separate piece of work. One unexplained observation remains and is moot for the fix: in place, a second config pass issued a second or more after a clean first one also produced the jump, as if a doze rewrite on an awake sensor is itself a small reset.</p>
+</div>

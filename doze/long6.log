@@ -1,0 +1,22 @@
+CAPTURE long6-base try 1
+long6-base try 1: 666 frames
+20:33:26 ps2cmd 5 (F2-GETID)
+  -> rc=0 synaptics_rmi_ps2cmd 5 -> 0
+20:33:28 xport_reset
+  smbus DEAD
+20:33:30 rmi_smbus rebind
+  pad present, smbus alive
+CAPTURE long6-getid-xport try 1
+long6-getid-xport try 1: 0 frames
+CAPTURE long6-getid-xport try 2
+long6-getid-xport try 2: 846 frames
+getid+xport CURED -> now F5
+20:34:40 ps2cmd 1 (F5)
+  -> rc=0 synaptics_rmi_ps2cmd 1 -> 0
+20:34:42 xport_reset
+  smbus DEAD
+20:34:44 rmi_smbus rebind
+  pad present, smbus alive
+CAPTURE long6-f5-after try 1
+long6-f5-after try 1: 674 frames
+done seq6

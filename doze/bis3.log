@@ -1,0 +1,31 @@
+  pass mask=4: F01 00 c8 00 03 2d 00 0e 
+22:00:00 cured (GETID + rmi_smb_reset + irq bits)
+  pass mask=1: F01 00 c8 00 03 2d 00 0e 
+  pass mask=4294967295: F01 00 c8 00 06 2d 00 0e 
+CAPTURE bis3-S0-ctrl0-then-full try 1
+bis3-S0-ctrl0-then-full try 1: 628 frames
+  RESULT S0-ctrl0-then-full:  5 drags; frame1 |delta| median 0 units (min 0 max 0); frame
+  pass mask=4: F01 00 c8 00 03 2d 00 0e 
+22:00:40 cured (GETID + rmi_smb_reset + irq bits)
+  pass mask=1: F01 00 c8 00 03 2d 00 0e 
+  pass mask=2: F01 00 c8 00 06 2d 00 0e 
+CAPTURE bis3-S1-ctrl0-then-doze try 1
+bis3-S1-ctrl0-then-doze try 1: 866 frames
+  RESULT S1-ctrl0-then-doze:  7 drags; frame1 |delta| median 0 units (min 0 max 0); frame
+  pass mask=4: F01 00 c8 00 03 2d 00 0e 
+22:01:20 cured (GETID + rmi_smb_reset + irq bits)
+  pass mask=1: F01 00 c8 00 03 2d 00 0e 
+  pass mask=8: F01 00 c8 00 03 2d 00 0e 
+CAPTURE bis3-S2-ctrl0-then-f12ctrl try 1
+bis3-S2-ctrl0-then-f12ctrl try 1: 739 frames
+  RESULT S2-ctrl0-then-f12ctrl:  6 drags; frame1 |delta| median 0 units (min 0 max 15); fram
+  pass mask=4: F01 00 c8 00 03 2d 00 0e 
+22:02:01 cured (GETID + rmi_smb_reset + irq bits)
+  pass mask=1: F01 00 c8 00 03 2d 00 0e 
+  pass mask=16: F01 00 c8 00 03 2d 00 0e 
+CAPTURE bis3-S3-ctrl0-then-others try 1
+bis3-S3-ctrl0-then-others try 1: 671 frames
+  RESULT S3-ctrl0-then-others:  6 drags; frame1 |delta| median 0 units (min 0 max 20); fram
+22:02:37 final reload
+OK load-all  try=1; rmi_core 489ADB3327FE35D3D8906D3 loaded=489ADB3327FE35D3D8906D3
+done bisect2

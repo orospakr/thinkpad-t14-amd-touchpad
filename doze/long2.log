@@ -1,0 +1,9 @@
+CAPTURE base
+21:27:22 xport_reset
+CAPTURE xport
+21:27:58 rmi_smbus rebind
+CAPTURE smbrebind
+21:28:33 psmouse reload
+OK psmouse/nosleep synaptics_rmi_nosleep=0 synaptics_rmi_doze_interval=6 try=1
+CAPTURE reload
+done seq

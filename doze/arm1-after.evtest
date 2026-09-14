@@ -1,0 +1,1671 @@
+    Event code 330 (BTN_TOUCH)
+    Event code 47 (ABS_MT_SLOT)
+    Event code 53 (ABS_MT_POSITION_X)
+    Event code 54 (ABS_MT_POSITION_Y)
+    Event code 57 (ABS_MT_TRACKING_ID)
+Event: time 1789163597.522687, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value 1
+Event: time 1789163597.522687, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 736
+Event: time 1789163597.522687, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 212
+Event: time 1789163597.522687, type 1 (EV_KEY), code 330 (BTN_TOUCH), value 1
+Event: time 1789163597.522687, -------------- SYN_REPORT ------------
+Event: time 1789163597.535552, -------------- SYN_REPORT ------------
+Event: time 1789163597.548086, -------------- SYN_REPORT ------------
+Event: time 1789163597.562514, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 213
+Event: time 1789163597.562514, -------------- SYN_REPORT ------------
+Event: time 1789163597.577018, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 745
+Event: time 1789163597.577018, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 219
+Event: time 1789163597.577018, -------------- SYN_REPORT ------------
+Event: time 1789163597.592045, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 759
+Event: time 1789163597.592045, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 236
+Event: time 1789163597.592045, -------------- SYN_REPORT ------------
+Event: time 1789163597.606669, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 772
+Event: time 1789163597.606669, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 255
+Event: time 1789163597.606669, -------------- SYN_REPORT ------------
+Event: time 1789163597.621662, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 785
+Event: time 1789163597.621662, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 280
+Event: time 1789163597.621662, -------------- SYN_REPORT ------------
+Event: time 1789163597.636468, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 791
+Event: time 1789163597.636468, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 307
+Event: time 1789163597.636468, -------------- SYN_REPORT ------------
+Event: time 1789163597.651179, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 795
+Event: time 1789163597.651179, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 339
+Event: time 1789163597.651179, -------------- SYN_REPORT ------------
+Event: time 1789163597.666012, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 796
+Event: time 1789163597.666012, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 366
+Event: time 1789163597.666012, -------------- SYN_REPORT ------------
+Event: time 1789163597.680658, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 795
+Event: time 1789163597.680658, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 388
+Event: time 1789163597.680658, -------------- SYN_REPORT ------------
+Event: time 1789163597.695659, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 792
+Event: time 1789163597.695659, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 410
+Event: time 1789163597.695659, -------------- SYN_REPORT ------------
+Event: time 1789163597.709955, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 785
+Event: time 1789163597.709955, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 427
+Event: time 1789163597.709955, -------------- SYN_REPORT ------------
+Event: time 1789163597.724995, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 767
+Event: time 1789163597.724995, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 445
+Event: time 1789163597.724995, -------------- SYN_REPORT ------------
+Event: time 1789163597.739521, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 746
+Event: time 1789163597.739521, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 465
+Event: time 1789163597.739521, -------------- SYN_REPORT ------------
+Event: time 1789163597.754665, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 719
+Event: time 1789163597.754665, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 480
+Event: time 1789163597.754665, -------------- SYN_REPORT ------------
+Event: time 1789163597.769524, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 690
+Event: time 1789163597.769524, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 490
+Event: time 1789163597.769524, -------------- SYN_REPORT ------------
+Event: time 1789163597.784198, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 660
+Event: time 1789163597.784198, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 495
+Event: time 1789163597.784198, -------------- SYN_REPORT ------------
+Event: time 1789163597.799060, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 625
+Event: time 1789163597.799060, -------------- SYN_REPORT ------------
+Event: time 1789163597.813682, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 592
+Event: time 1789163597.813682, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 488
+Event: time 1789163597.813682, -------------- SYN_REPORT ------------
+Event: time 1789163597.828497, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 558
+Event: time 1789163597.828497, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 473
+Event: time 1789163597.828497, -------------- SYN_REPORT ------------
+Event: time 1789163597.843018, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 525
+Event: time 1789163597.843018, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 458
+Event: time 1789163597.843018, -------------- SYN_REPORT ------------
+Event: time 1789163597.858026, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 497
+Event: time 1789163597.858026, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 439
+Event: time 1789163597.858026, -------------- SYN_REPORT ------------
+Event: time 1789163597.873243, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 471
+Event: time 1789163597.873243, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 414
+Event: time 1789163597.873243, -------------- SYN_REPORT ------------
+Event: time 1789163597.887665, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 449
+Event: time 1789163597.887665, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 388
+Event: time 1789163597.887665, -------------- SYN_REPORT ------------
+Event: time 1789163597.902670, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 434
+Event: time 1789163597.902670, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 360
+Event: time 1789163597.902670, -------------- SYN_REPORT ------------
+Event: time 1789163597.917050, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 426
+Event: time 1789163597.917050, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 338
+Event: time 1789163597.917050, -------------- SYN_REPORT ------------
+Event: time 1789163597.932224, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 423
+Event: time 1789163597.932224, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 317
+Event: time 1789163597.932224, -------------- SYN_REPORT ------------
+Event: time 1789163597.946553, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 424
+Event: time 1789163597.946553, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 303
+Event: time 1789163597.946553, -------------- SYN_REPORT ------------
+Event: time 1789163597.961552, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 433
+Event: time 1789163597.961552, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 290
+Event: time 1789163597.961552, -------------- SYN_REPORT ------------
+Event: time 1789163597.976677, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 456
+Event: time 1789163597.976677, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 276
+Event: time 1789163597.976677, -------------- SYN_REPORT ------------
+Event: time 1789163597.991180, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 489
+Event: time 1789163597.991180, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 259
+Event: time 1789163597.991180, -------------- SYN_REPORT ------------
+Event: time 1789163598.006225, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 527
+Event: time 1789163598.006225, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 244
+Event: time 1789163598.006225, -------------- SYN_REPORT ------------
+Event: time 1789163598.020660, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 570
+Event: time 1789163598.020660, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 233
+Event: time 1789163598.020660, -------------- SYN_REPORT ------------
+Event: time 1789163598.035680, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 616
+Event: time 1789163598.035680, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 225
+Event: time 1789163598.035680, -------------- SYN_REPORT ------------
+Event: time 1789163598.050190, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 664
+Event: time 1789163598.050190, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 221
+Event: time 1789163598.050190, -------------- SYN_REPORT ------------
+Event: time 1789163598.065182, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 712
+Event: time 1789163598.065182, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 220
+Event: time 1789163598.065182, -------------- SYN_REPORT ------------
+Event: time 1789163598.079664, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 757
+Event: time 1789163598.079664, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 223
+Event: time 1789163598.079664, -------------- SYN_REPORT ------------
+Event: time 1789163598.094656, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 801
+Event: time 1789163598.094656, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 233
+Event: time 1789163598.094656, -------------- SYN_REPORT ------------
+Event: time 1789163598.109664, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 839
+Event: time 1789163598.109664, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 249
+Event: time 1789163598.109664, -------------- SYN_REPORT ------------
+Event: time 1789163598.124221, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 872
+Event: time 1789163598.124221, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 266
+Event: time 1789163598.124221, -------------- SYN_REPORT ------------
+Event: time 1789163598.139216, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 897
+Event: time 1789163598.139216, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 289
+Event: time 1789163598.139216, -------------- SYN_REPORT ------------
+Event: time 1789163598.153690, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 920
+Event: time 1789163598.153690, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 312
+Event: time 1789163598.153690, -------------- SYN_REPORT ------------
+Event: time 1789163598.168187, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 936
+Event: time 1789163598.168187, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 337
+Event: time 1789163598.168187, -------------- SYN_REPORT ------------
+Event: time 1789163598.183169, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 944
+Event: time 1789163598.183169, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 361
+Event: time 1789163598.183169, -------------- SYN_REPORT ------------
+Event: time 1789163598.197967, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 947
+Event: time 1789163598.197967, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 379
+Event: time 1789163598.197967, -------------- SYN_REPORT ------------
+Event: time 1789163598.213005, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 946
+Event: time 1789163598.213005, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 390
+Event: time 1789163598.213005, -------------- SYN_REPORT ------------
+Event: time 1789163598.227663, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 943
+Event: time 1789163598.227663, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 397
+Event: time 1789163598.227663, -------------- SYN_REPORT ------------
+Event: time 1789163598.242655, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 932
+Event: time 1789163598.242655, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 409
+Event: time 1789163598.242655, -------------- SYN_REPORT ------------
+Event: time 1789163598.256998, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 904
+Event: time 1789163598.256998, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 431
+Event: time 1789163598.256998, -------------- SYN_REPORT ------------
+Event: time 1789163598.272205, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 871
+Event: time 1789163598.272205, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 457
+Event: time 1789163598.272205, -------------- SYN_REPORT ------------
+Event: time 1789163598.286654, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 831
+Event: time 1789163598.286654, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 483
+Event: time 1789163598.286654, -------------- SYN_REPORT ------------
+Event: time 1789163598.301681, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 788
+Event: time 1789163598.301681, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 512
+Event: time 1789163598.301681, -------------- SYN_REPORT ------------
+Event: time 1789163598.316690, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 746
+Event: time 1789163598.316690, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 534
+Event: time 1789163598.316690, -------------- SYN_REPORT ------------
+Event: time 1789163598.331040, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 707
+Event: time 1789163598.331040, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 547
+Event: time 1789163598.331040, -------------- SYN_REPORT ------------
+Event: time 1789163598.346208, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 668
+Event: time 1789163598.346208, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 553
+Event: time 1789163598.346208, -------------- SYN_REPORT ------------
+Event: time 1789163598.360557, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 630
+Event: time 1789163598.360557, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 554
+Event: time 1789163598.360557, -------------- SYN_REPORT ------------
+Event: time 1789163598.375663, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 596
+Event: time 1789163598.375663, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 545
+Event: time 1789163598.375663, -------------- SYN_REPORT ------------
+Event: time 1789163598.389963, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 561
+Event: time 1789163598.389963, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 528
+Event: time 1789163598.389963, -------------- SYN_REPORT ------------
+Event: time 1789163598.404964, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 532
+Event: time 1789163598.404964, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 508
+Event: time 1789163598.404964, -------------- SYN_REPORT ------------
+Event: time 1789163598.419661, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 506
+Event: time 1789163598.419661, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 479
+Event: time 1789163598.419661, -------------- SYN_REPORT ------------
+Event: time 1789163598.434661, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 486
+Event: time 1789163598.434661, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 450
+Event: time 1789163598.434661, -------------- SYN_REPORT ------------
+Event: time 1789163598.449673, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 472
+Event: time 1789163598.449673, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 418
+Event: time 1789163598.449673, -------------- SYN_REPORT ------------
+Event: time 1789163598.464172, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 461
+Event: time 1789163598.464172, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 387
+Event: time 1789163598.464172, -------------- SYN_REPORT ------------
+Event: time 1789163598.479155, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 456
+Event: time 1789163598.479155, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 359
+Event: time 1789163598.479155, -------------- SYN_REPORT ------------
+Event: time 1789163598.493543, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 458
+Event: time 1789163598.493543, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 335
+Event: time 1789163598.493543, -------------- SYN_REPORT ------------
+Event: time 1789163598.508672, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 467
+Event: time 1789163598.508672, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 309
+Event: time 1789163598.508672, -------------- SYN_REPORT ------------
+Event: time 1789163598.523676, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 487
+Event: time 1789163598.523676, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 284
+Event: time 1789163598.523676, -------------- SYN_REPORT ------------
+Event: time 1789163598.538191, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 515
+Event: time 1789163598.538191, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 256
+Event: time 1789163598.538191, -------------- SYN_REPORT ------------
+Event: time 1789163598.553181, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 550
+Event: time 1789163598.553181, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 233
+Event: time 1789163598.553181, -------------- SYN_REPORT ------------
+Event: time 1789163598.567654, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 592
+Event: time 1789163598.567654, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 210
+Event: time 1789163598.567654, -------------- SYN_REPORT ------------
+Event: time 1789163598.582567, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 639
+Event: time 1789163598.582567, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 188
+Event: time 1789163598.582567, -------------- SYN_REPORT ------------
+Event: time 1789163598.597178, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 685
+Event: time 1789163598.597178, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 175
+Event: time 1789163598.597178, -------------- SYN_REPORT ------------
+Event: time 1789163598.611987, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 731
+Event: time 1789163598.611987, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 168
+Event: time 1789163598.611987, -------------- SYN_REPORT ------------
+Event: time 1789163598.626677, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 775
+Event: time 1789163598.626677, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 166
+Event: time 1789163598.626677, -------------- SYN_REPORT ------------
+Event: time 1789163598.641593, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 815
+Event: time 1789163598.641593, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 174
+Event: time 1789163598.641593, -------------- SYN_REPORT ------------
+Event: time 1789163598.655978, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 853
+Event: time 1789163598.655978, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 191
+Event: time 1789163598.655978, -------------- SYN_REPORT ------------
+Event: time 1789163598.671160, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 884
+Event: time 1789163598.671160, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 209
+Event: time 1789163598.671160, -------------- SYN_REPORT ------------
+Event: time 1789163598.686229, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 916
+Event: time 1789163598.686229, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 238
+Event: time 1789163598.686229, -------------- SYN_REPORT ------------
+Event: time 1789163598.700558, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 940
+Event: time 1789163598.700558, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 266
+Event: time 1789163598.700558, -------------- SYN_REPORT ------------
+Event: time 1789163598.714998, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 959
+Event: time 1789163598.714998, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 300
+Event: time 1789163598.714998, -------------- SYN_REPORT ------------
+Event: time 1789163598.730025, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 972
+Event: time 1789163598.730025, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 334
+Event: time 1789163598.730025, -------------- SYN_REPORT ------------
+Event: time 1789163598.745214, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 978
+Event: time 1789163598.745214, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 361
+Event: time 1789163598.745214, -------------- SYN_REPORT ------------
+Event: time 1789163598.759584, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 977
+Event: time 1789163598.759584, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 379
+Event: time 1789163598.759584, -------------- SYN_REPORT ------------
+Event: time 1789163598.774456, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 972
+Event: time 1789163598.774456, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 390
+Event: time 1789163598.774456, -------------- SYN_REPORT ------------
+Event: time 1789163598.789675, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 958
+Event: time 1789163598.789675, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 406
+Event: time 1789163598.789675, -------------- SYN_REPORT ------------
+Event: time 1789163598.804002, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 932
+Event: time 1789163598.804002, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 425
+Event: time 1789163598.804002, -------------- SYN_REPORT ------------
+Event: time 1789163598.818708, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 898
+Event: time 1789163598.818708, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 438
+Event: time 1789163598.818708, -------------- SYN_REPORT ------------
+Event: time 1789163598.833677, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 860
+Event: time 1789163598.833677, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 449
+Event: time 1789163598.833677, -------------- SYN_REPORT ------------
+Event: time 1789163598.848685, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 817
+Event: time 1789163598.848685, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 459
+Event: time 1789163598.848685, -------------- SYN_REPORT ------------
+Event: time 1789163598.863553, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 771
+Event: time 1789163598.863553, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 467
+Event: time 1789163598.863553, -------------- SYN_REPORT ------------
+Event: time 1789163598.877968, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 726
+Event: time 1789163598.877968, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 469
+Event: time 1789163598.877968, -------------- SYN_REPORT ------------
+Event: time 1789163598.892526, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 683
+Event: time 1789163598.892526, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 462
+Event: time 1789163598.892526, -------------- SYN_REPORT ------------
+Event: time 1789163598.907656, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 651
+Event: time 1789163598.907656, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 453
+Event: time 1789163598.907656, -------------- SYN_REPORT ------------
+Event: time 1789163598.922504, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 625
+Event: time 1789163598.922504, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 437
+Event: time 1789163598.922504, -------------- SYN_REPORT ------------
+Event: time 1789163598.936988, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 608
+Event: time 1789163598.936988, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 420
+Event: time 1789163598.936988, -------------- SYN_REPORT ------------
+Event: time 1789163598.951666, -------------- SYN_REPORT ------------
+Event: time 1789163598.965652, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value -1
+Event: time 1789163598.965652, type 1 (EV_KEY), code 330 (BTN_TOUCH), value 0
+Event: time 1789163598.965652, -------------- SYN_REPORT ------------
+Event: time 1789163599.521018, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value 2
+Event: time 1789163599.521018, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 658
+Event: time 1789163599.521018, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 448
+Event: time 1789163599.521018, type 1 (EV_KEY), code 330 (BTN_TOUCH), value 1
+Event: time 1789163599.521018, -------------- SYN_REPORT ------------
+Event: time 1789163599.536059, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 653
+Event: time 1789163599.536059, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 447
+Event: time 1789163599.536059, -------------- SYN_REPORT ------------
+Event: time 1789163599.550677, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 628
+Event: time 1789163599.550677, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 445
+Event: time 1789163599.550677, -------------- SYN_REPORT ------------
+Event: time 1789163599.565681, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 607
+Event: time 1789163599.565681, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 441
+Event: time 1789163599.565681, -------------- SYN_REPORT ------------
+Event: time 1789163599.580051, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 580
+Event: time 1789163599.580051, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 435
+Event: time 1789163599.580051, -------------- SYN_REPORT ------------
+Event: time 1789163599.595170, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 555
+Event: time 1789163599.595170, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 421
+Event: time 1789163599.595170, -------------- SYN_REPORT ------------
+Event: time 1789163599.609631, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 533
+Event: time 1789163599.609631, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 405
+Event: time 1789163599.609631, -------------- SYN_REPORT ------------
+Event: time 1789163599.624685, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 511
+Event: time 1789163599.624685, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 385
+Event: time 1789163599.624685, -------------- SYN_REPORT ------------
+Event: time 1789163599.639018, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 494
+Event: time 1789163599.639018, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 360
+Event: time 1789163599.639018, -------------- SYN_REPORT ------------
+Event: time 1789163599.654180, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 483
+Event: time 1789163599.654180, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 334
+Event: time 1789163599.654180, -------------- SYN_REPORT ------------
+Event: time 1789163599.669011, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 478
+Event: time 1789163599.669011, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 308
+Event: time 1789163599.669011, -------------- SYN_REPORT ------------
+Event: time 1789163599.683462, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 477
+Event: time 1789163599.683462, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 290
+Event: time 1789163599.683462, -------------- SYN_REPORT ------------
+Event: time 1789163599.698657, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 481
+Event: time 1789163599.698657, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 275
+Event: time 1789163599.698657, -------------- SYN_REPORT ------------
+Event: time 1789163599.713201, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 495
+Event: time 1789163599.713201, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 258
+Event: time 1789163599.713201, -------------- SYN_REPORT ------------
+Event: time 1789163599.727996, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 513
+Event: time 1789163599.727996, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 243
+Event: time 1789163599.727996, -------------- SYN_REPORT ------------
+Event: time 1789163599.742541, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 542
+Event: time 1789163599.742541, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 230
+Event: time 1789163599.742541, -------------- SYN_REPORT ------------
+Event: time 1789163599.757541, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 572
+Event: time 1789163599.757541, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 223
+Event: time 1789163599.757541, -------------- SYN_REPORT ------------
+Event: time 1789163599.772691, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 606
+Event: time 1789163599.772691, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 220
+Event: time 1789163599.772691, -------------- SYN_REPORT ------------
+Event: time 1789163599.787167, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 643
+Event: time 1789163599.787167, -------------- SYN_REPORT ------------
+Event: time 1789163599.802179, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 678
+Event: time 1789163599.802179, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 224
+Event: time 1789163599.802179, -------------- SYN_REPORT ------------
+Event: time 1789163599.816672, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 712
+Event: time 1789163599.816672, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 235
+Event: time 1789163599.816672, -------------- SYN_REPORT ------------
+Event: time 1789163599.831696, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 746
+Event: time 1789163599.831696, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 252
+Event: time 1789163599.831696, -------------- SYN_REPORT ------------
+Event: time 1789163599.845972, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 773
+Event: time 1789163599.845972, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 269
+Event: time 1789163599.845972, -------------- SYN_REPORT ------------
+Event: time 1789163599.861021, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 798
+Event: time 1789163599.861021, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 293
+Event: time 1789163599.861021, -------------- SYN_REPORT ------------
+Event: time 1789163599.875559, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 821
+Event: time 1789163599.875559, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 320
+Event: time 1789163599.875559, -------------- SYN_REPORT ------------
+Event: time 1789163599.890663, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 836
+Event: time 1789163599.890663, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 353
+Event: time 1789163599.890663, -------------- SYN_REPORT ------------
+Event: time 1789163599.905674, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 844
+Event: time 1789163599.905674, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 388
+Event: time 1789163599.905674, -------------- SYN_REPORT ------------
+Event: time 1789163599.920038, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 847
+Event: time 1789163599.920038, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 418
+Event: time 1789163599.920038, -------------- SYN_REPORT ------------
+Event: time 1789163599.935026, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 846
+Event: time 1789163599.935026, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 444
+Event: time 1789163599.935026, -------------- SYN_REPORT ------------
+Event: time 1789163599.949675, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 840
+Event: time 1789163599.949675, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 471
+Event: time 1789163599.949675, -------------- SYN_REPORT ------------
+Event: time 1789163599.964692, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 826
+Event: time 1789163599.964692, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 491
+Event: time 1789163599.964692, -------------- SYN_REPORT ------------
+Event: time 1789163599.978969, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 807
+Event: time 1789163599.978969, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 516
+Event: time 1789163599.978969, -------------- SYN_REPORT ------------
+Event: time 1789163599.994063, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 780
+Event: time 1789163599.994063, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 537
+Event: time 1789163599.994063, -------------- SYN_REPORT ------------
+Event: time 1789163600.009049, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 753
+Event: time 1789163600.009049, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 551
+Event: time 1789163600.009049, -------------- SYN_REPORT ------------
+Event: time 1789163600.023681, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 719
+Event: time 1789163600.023681, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 559
+Event: time 1789163600.023681, -------------- SYN_REPORT ------------
+Event: time 1789163600.038203, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 681
+Event: time 1789163600.038203, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 561
+Event: time 1789163600.038203, -------------- SYN_REPORT ------------
+Event: time 1789163600.053192, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 643
+Event: time 1789163600.053192, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 558
+Event: time 1789163600.053192, -------------- SYN_REPORT ------------
+Event: time 1789163600.068179, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 606
+Event: time 1789163600.068179, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 547
+Event: time 1789163600.068179, -------------- SYN_REPORT ------------
+Event: time 1789163600.082670, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 568
+Event: time 1789163600.082670, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 528
+Event: time 1789163600.082670, -------------- SYN_REPORT ------------
+Event: time 1789163600.097481, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 535
+Event: time 1789163600.097481, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 504
+Event: time 1789163600.097481, -------------- SYN_REPORT ------------
+Event: time 1789163600.112181, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 506
+Event: time 1789163600.112181, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 472
+Event: time 1789163600.112181, -------------- SYN_REPORT ------------
+Event: time 1789163600.126988, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 485
+Event: time 1789163600.126988, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 434
+Event: time 1789163600.126988, -------------- SYN_REPORT ------------
+Event: time 1789163600.142191, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 473
+Event: time 1789163600.142191, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 398
+Event: time 1789163600.142191, -------------- SYN_REPORT ------------
+Event: time 1789163600.156524, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 467
+Event: time 1789163600.156524, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 366
+Event: time 1789163600.156524, -------------- SYN_REPORT ------------
+Event: time 1789163600.171674, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 343
+Event: time 1789163600.171674, -------------- SYN_REPORT ------------
+Event: time 1789163600.186167, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 472
+Event: time 1789163600.186167, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 317
+Event: time 1789163600.186167, -------------- SYN_REPORT ------------
+Event: time 1789163600.201185, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 490
+Event: time 1789163600.201185, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 293
+Event: time 1789163600.201185, -------------- SYN_REPORT ------------
+Event: time 1789163600.215965, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 517
+Event: time 1789163600.215965, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 268
+Event: time 1789163600.215965, -------------- SYN_REPORT ------------
+Event: time 1789163600.230670, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 550
+Event: time 1789163600.230670, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 246
+Event: time 1789163600.230670, -------------- SYN_REPORT ------------
+Event: time 1789163600.245644, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 591
+Event: time 1789163600.245644, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 230
+Event: time 1789163600.245644, -------------- SYN_REPORT ------------
+Event: time 1789163600.260048, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 634
+Event: time 1789163600.260048, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 221
+Event: time 1789163600.260048, -------------- SYN_REPORT ------------
+Event: time 1789163600.275204, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 680
+Event: time 1789163600.275204, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 218
+Event: time 1789163600.275204, -------------- SYN_REPORT ------------
+Event: time 1789163600.289548, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 726
+Event: time 1789163600.289548, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 219
+Event: time 1789163600.289548, -------------- SYN_REPORT ------------
+Event: time 1789163600.304662, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 768
+Event: time 1789163600.304662, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 226
+Event: time 1789163600.304662, -------------- SYN_REPORT ------------
+Event: time 1789163600.319040, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 809
+Event: time 1789163600.319040, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 244
+Event: time 1789163600.319040, -------------- SYN_REPORT ------------
+Event: time 1789163600.334019, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 841
+Event: time 1789163600.334019, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 262
+Event: time 1789163600.334019, -------------- SYN_REPORT ------------
+Event: time 1789163600.349185, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 869
+Event: time 1789163600.349185, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 286
+Event: time 1789163600.349185, -------------- SYN_REPORT ------------
+Event: time 1789163600.363651, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 888
+Event: time 1789163600.363651, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 312
+Event: time 1789163600.363651, -------------- SYN_REPORT ------------
+Event: time 1789163600.378655, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 900
+Event: time 1789163600.378655, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 344
+Event: time 1789163600.378655, -------------- SYN_REPORT ------------
+Event: time 1789163600.393175, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 903
+Event: time 1789163600.393175, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 373
+Event: time 1789163600.393175, -------------- SYN_REPORT ------------
+Event: time 1789163600.408160, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 902
+Event: time 1789163600.408160, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 406
+Event: time 1789163600.408160, -------------- SYN_REPORT ------------
+Event: time 1789163600.422662, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 894
+Event: time 1789163600.422662, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 435
+Event: time 1789163600.422662, -------------- SYN_REPORT ------------
+Event: time 1789163600.437668, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 876
+Event: time 1789163600.437668, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 467
+Event: time 1789163600.437668, -------------- SYN_REPORT ------------
+Event: time 1789163600.452178, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 856
+Event: time 1789163600.452178, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 493
+Event: time 1789163600.452178, -------------- SYN_REPORT ------------
+Event: time 1789163600.467023, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 826
+Event: time 1789163600.467023, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 522
+Event: time 1789163600.467023, -------------- SYN_REPORT ------------
+Event: time 1789163600.482200, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 792
+Event: time 1789163600.482200, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 543
+Event: time 1789163600.482200, -------------- SYN_REPORT ------------
+Event: time 1789163600.496525, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 759
+Event: time 1789163600.496525, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 559
+Event: time 1789163600.496525, -------------- SYN_REPORT ------------
+Event: time 1789163600.511676, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 719
+Event: time 1789163600.511676, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 569
+Event: time 1789163600.511676, -------------- SYN_REPORT ------------
+Event: time 1789163600.525989, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 679
+Event: time 1789163600.525989, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 574
+Event: time 1789163600.525989, -------------- SYN_REPORT ------------
+Event: time 1789163600.541067, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 638
+Event: time 1789163600.541067, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 570
+Event: time 1789163600.541067, -------------- SYN_REPORT ------------
+Event: time 1789163600.555676, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 600
+Event: time 1789163600.555676, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 562
+Event: time 1789163600.555676, -------------- SYN_REPORT ------------
+Event: time 1789163600.570678, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 564
+Event: time 1789163600.570678, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 543
+Event: time 1789163600.570678, -------------- SYN_REPORT ------------
+Event: time 1789163600.585659, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 535
+Event: time 1789163600.585659, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 519
+Event: time 1789163600.585659, -------------- SYN_REPORT ------------
+Event: time 1789163600.600225, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 508
+Event: time 1789163600.600225, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 488
+Event: time 1789163600.600225, -------------- SYN_REPORT ------------
+Event: time 1789163600.615186, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 490
+Event: time 1789163600.615186, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 456
+Event: time 1789163600.615186, -------------- SYN_REPORT ------------
+Event: time 1789163600.629573, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 481
+Event: time 1789163600.629573, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 422
+Event: time 1789163600.629573, -------------- SYN_REPORT ------------
+Event: time 1789163600.644661, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 477
+Event: time 1789163600.644661, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 396
+Event: time 1789163600.644661, -------------- SYN_REPORT ------------
+Event: time 1789163600.658991, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 478
+Event: time 1789163600.658991, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 382
+Event: time 1789163600.658991, -------------- SYN_REPORT ------------
+Event: time 1789163600.674170, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 490
+Event: time 1789163600.674170, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 369
+Event: time 1789163600.674170, -------------- SYN_REPORT ------------
+Event: time 1789163600.688538, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 515
+Event: time 1789163600.688538, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 353
+Event: time 1789163600.688538, -------------- SYN_REPORT ------------
+Event: time 1789163600.703656, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 549
+Event: time 1789163600.703656, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 345
+Event: time 1789163600.703656, -------------- SYN_REPORT ------------
+Event: time 1789163600.718497, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 589
+Event: time 1789163600.718497, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 341
+Event: time 1789163600.718497, -------------- SYN_REPORT ------------
+Event: time 1789163600.732160, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value -1
+Event: time 1789163600.732160, type 1 (EV_KEY), code 330 (BTN_TOUCH), value 0
+Event: time 1789163600.732160, -------------- SYN_REPORT ------------
+Event: time 1789163601.243023, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value 3
+Event: time 1789163601.243023, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 584
+Event: time 1789163601.243023, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 282
+Event: time 1789163601.243023, type 1 (EV_KEY), code 330 (BTN_TOUCH), value 1
+Event: time 1789163601.243023, -------------- SYN_REPORT ------------
+Event: time 1789163601.258029, -------------- SYN_REPORT ------------
+Event: time 1789163601.273090, -------------- SYN_REPORT ------------
+Event: time 1789163601.287573, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 601
+Event: time 1789163601.287573, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 295
+Event: time 1789163601.287573, -------------- SYN_REPORT ------------
+Event: time 1789163601.302224, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 616
+Event: time 1789163601.302224, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 310
+Event: time 1789163601.302224, -------------- SYN_REPORT ------------
+Event: time 1789163601.316918, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 630
+Event: time 1789163601.316918, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 326
+Event: time 1789163601.316918, -------------- SYN_REPORT ------------
+Event: time 1789163601.332040, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 641
+Event: time 1789163601.332040, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 351
+Event: time 1789163601.332040, -------------- SYN_REPORT ------------
+Event: time 1789163601.346606, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 649
+Event: time 1789163601.346606, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 373
+Event: time 1789163601.346606, -------------- SYN_REPORT ------------
+Event: time 1789163601.361600, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 403
+Event: time 1789163601.361600, -------------- SYN_REPORT ------------
+Event: time 1789163601.376016, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 646
+Event: time 1789163601.376016, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 429
+Event: time 1789163601.376016, -------------- SYN_REPORT ------------
+Event: time 1789163601.391023, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 638
+Event: time 1789163601.391023, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 455
+Event: time 1789163601.391023, -------------- SYN_REPORT ------------
+Event: time 1789163601.405542, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 627
+Event: time 1789163601.405542, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 477
+Event: time 1789163601.405542, -------------- SYN_REPORT ------------
+Event: time 1789163601.420688, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 608
+Event: time 1789163601.420688, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 494
+Event: time 1789163601.420688, -------------- SYN_REPORT ------------
+Event: time 1789163601.436212, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 587
+Event: time 1789163601.436212, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 507
+Event: time 1789163601.436212, -------------- SYN_REPORT ------------
+Event: time 1789163601.450181, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 559
+Event: time 1789163601.450181, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 519
+Event: time 1789163601.450181, -------------- SYN_REPORT ------------
+Event: time 1789163601.465156, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 527
+Event: time 1789163601.465156, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 529
+Event: time 1789163601.465156, -------------- SYN_REPORT ------------
+Event: time 1789163601.479659, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 497
+Event: time 1789163601.479659, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 532
+Event: time 1789163601.479659, -------------- SYN_REPORT ------------
+Event: time 1789163601.494667, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 463
+Event: time 1789163601.494667, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 525
+Event: time 1789163601.494667, -------------- SYN_REPORT ------------
+Event: time 1789163601.509656, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 435
+Event: time 1789163601.509656, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 514
+Event: time 1789163601.509656, -------------- SYN_REPORT ------------
+Event: time 1789163601.524045, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 404
+Event: time 1789163601.524045, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 495
+Event: time 1789163601.524045, -------------- SYN_REPORT ------------
+Event: time 1789163601.538992, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 382
+Event: time 1789163601.538992, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 468
+Event: time 1789163601.538992, -------------- SYN_REPORT ------------
+Event: time 1789163601.553679, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 363
+Event: time 1789163601.553679, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 431
+Event: time 1789163601.553679, -------------- SYN_REPORT ------------
+Event: time 1789163601.568535, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 349
+Event: time 1789163601.568535, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 390
+Event: time 1789163601.568535, -------------- SYN_REPORT ------------
+Event: time 1789163601.583060, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 342
+Event: time 1789163601.583060, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 354
+Event: time 1789163601.583060, -------------- SYN_REPORT ------------
+Event: time 1789163601.597973, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 341
+Event: time 1789163601.597973, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 316
+Event: time 1789163601.597973, -------------- SYN_REPORT ------------
+Event: time 1789163601.612554, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 344
+Event: time 1789163601.612554, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 292
+Event: time 1789163601.612554, -------------- SYN_REPORT ------------
+Event: time 1789163601.627675, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 354
+Event: time 1789163601.627675, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 271
+Event: time 1789163601.627675, -------------- SYN_REPORT ------------
+Event: time 1789163601.642673, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 371
+Event: time 1789163601.642673, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 250
+Event: time 1789163601.642673, -------------- SYN_REPORT ------------
+Event: time 1789163601.657162, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 399
+Event: time 1789163601.657162, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 232
+Event: time 1789163601.657162, -------------- SYN_REPORT ------------
+Event: time 1789163601.672156, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 437
+Event: time 1789163601.672156, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 221
+Event: time 1789163601.672156, -------------- SYN_REPORT ------------
+Event: time 1789163601.686660, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 481
+Event: time 1789163601.686660, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 215
+Event: time 1789163601.686660, -------------- SYN_REPORT ------------
+Event: time 1789163601.701654, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 530
+Event: time 1789163601.701654, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 214
+Event: time 1789163601.701654, -------------- SYN_REPORT ------------
+Event: time 1789163601.715983, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 582
+Event: time 1789163601.715983, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 218
+Event: time 1789163601.715983, -------------- SYN_REPORT ------------
+Event: time 1789163601.730928, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 634
+Event: time 1789163601.730928, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 229
+Event: time 1789163601.730928, -------------- SYN_REPORT ------------
+Event: time 1789163601.745557, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 684
+Event: time 1789163601.745557, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 250
+Event: time 1789163601.745557, -------------- SYN_REPORT ------------
+Event: time 1789163601.760477, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 727
+Event: time 1789163601.760477, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 275
+Event: time 1789163601.760477, -------------- SYN_REPORT ------------
+Event: time 1789163601.775473, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 764
+Event: time 1789163601.775473, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 305
+Event: time 1789163601.775473, -------------- SYN_REPORT ------------
+Event: time 1789163601.790183, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 793
+Event: time 1789163601.790183, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 341
+Event: time 1789163601.790183, -------------- SYN_REPORT ------------
+Event: time 1789163601.805011, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 817
+Event: time 1789163601.805011, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 374
+Event: time 1789163601.805011, -------------- SYN_REPORT ------------
+Event: time 1789163601.819529, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 832
+Event: time 1789163601.819529, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 409
+Event: time 1789163601.819529, -------------- SYN_REPORT ------------
+Event: time 1789163601.834663, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 838
+Event: time 1789163601.834663, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 436
+Event: time 1789163601.834663, -------------- SYN_REPORT ------------
+Event: time 1789163601.849459, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 835
+Event: time 1789163601.849459, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 464
+Event: time 1789163601.849459, -------------- SYN_REPORT ------------
+Event: time 1789163601.864170, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 821
+Event: time 1789163601.864170, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 485
+Event: time 1789163601.864170, -------------- SYN_REPORT ------------
+Event: time 1789163601.879021, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 796
+Event: time 1789163601.879021, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 506
+Event: time 1789163601.879021, -------------- SYN_REPORT ------------
+Event: time 1789163601.893540, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 763
+Event: time 1789163601.893540, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 527
+Event: time 1789163601.893540, -------------- SYN_REPORT ------------
+Event: time 1789163601.908686, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 721
+Event: time 1789163601.908686, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 541
+Event: time 1789163601.908686, -------------- SYN_REPORT ------------
+Event: time 1789163601.923002, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 675
+Event: time 1789163601.923002, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 548
+Event: time 1789163601.923002, -------------- SYN_REPORT ------------
+Event: time 1789163601.938008, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 626
+Event: time 1789163601.938008, -------------- SYN_REPORT ------------
+Event: time 1789163601.953192, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 576
+Event: time 1789163601.953192, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 538
+Event: time 1789163601.953192, -------------- SYN_REPORT ------------
+Event: time 1789163601.967489, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 530
+Event: time 1789163601.967489, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 520
+Event: time 1789163601.967489, -------------- SYN_REPORT ------------
+Event: time 1789163601.982670, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 491
+Event: time 1789163601.982670, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 495
+Event: time 1789163601.982670, -------------- SYN_REPORT ------------
+Event: time 1789163601.997192, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 456
+Event: time 1789163601.997192, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 468
+Event: time 1789163601.997192, -------------- SYN_REPORT ------------
+Event: time 1789163602.011986, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 431
+Event: time 1789163602.011986, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 434
+Event: time 1789163602.011986, -------------- SYN_REPORT ------------
+Event: time 1789163602.026524, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 412
+Event: time 1789163602.026524, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 403
+Event: time 1789163602.026524, -------------- SYN_REPORT ------------
+Event: time 1789163602.041514, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 400
+Event: time 1789163602.041514, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 369
+Event: time 1789163602.041514, -------------- SYN_REPORT ------------
+Event: time 1789163602.056190, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 395
+Event: time 1789163602.056190, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 347
+Event: time 1789163602.056190, -------------- SYN_REPORT ------------
+Event: time 1789163602.071065, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 396
+Event: time 1789163602.071065, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 334
+Event: time 1789163602.071065, -------------- SYN_REPORT ------------
+Event: time 1789163602.086178, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 406
+Event: time 1789163602.086178, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 318
+Event: time 1789163602.086178, -------------- SYN_REPORT ------------
+Event: time 1789163602.100663, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 433
+Event: time 1789163602.100663, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 295
+Event: time 1789163602.100663, -------------- SYN_REPORT ------------
+Event: time 1789163602.115192, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 469
+Event: time 1789163602.115192, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 278
+Event: time 1789163602.115192, -------------- SYN_REPORT ------------
+Event: time 1789163602.130043, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 510
+Event: time 1789163602.130043, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 257
+Event: time 1789163602.130043, -------------- SYN_REPORT ------------
+Event: time 1789163602.145072, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 554
+Event: time 1789163602.145072, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 242
+Event: time 1789163602.145072, -------------- SYN_REPORT ------------
+Event: time 1789163602.159539, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 601
+Event: time 1789163602.159539, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 231
+Event: time 1789163602.159539, -------------- SYN_REPORT ------------
+Event: time 1789163602.174661, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 647
+Event: time 1789163602.174661, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 227
+Event: time 1789163602.174661, -------------- SYN_REPORT ------------
+Event: time 1789163602.189023, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 689
+Event: time 1789163602.189023, -------------- SYN_REPORT ------------
+Event: time 1789163602.204177, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 724
+Event: time 1789163602.204177, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 235
+Event: time 1789163602.204177, -------------- SYN_REPORT ------------
+Event: time 1789163602.218968, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 757
+Event: time 1789163602.218968, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 249
+Event: time 1789163602.218968, -------------- SYN_REPORT ------------
+Event: time 1789163602.233662, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 780
+Event: time 1789163602.233662, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 265
+Event: time 1789163602.233662, -------------- SYN_REPORT ------------
+Event: time 1789163602.248516, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 801
+Event: time 1789163602.248516, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 289
+Event: time 1789163602.248516, -------------- SYN_REPORT ------------
+Event: time 1789163602.263202, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 816
+Event: time 1789163602.263202, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 311
+Event: time 1789163602.263202, -------------- SYN_REPORT ------------
+Event: time 1789163602.278027, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 828
+Event: time 1789163602.278027, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 332
+Event: time 1789163602.278027, -------------- SYN_REPORT ------------
+Event: time 1789163602.292697, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 834
+Event: time 1789163602.292697, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 355
+Event: time 1789163602.292697, -------------- SYN_REPORT ------------
+Event: time 1789163602.307594, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 836
+Event: time 1789163602.307594, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 369
+Event: time 1789163602.307594, -------------- SYN_REPORT ------------
+Event: time 1789163602.321975, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 377
+Event: time 1789163602.321975, -------------- SYN_REPORT ------------
+Event: time 1789163602.337008, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 380
+Event: time 1789163602.337008, -------------- SYN_REPORT ------------
+Event: time 1789163602.352000, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 835
+Event: time 1789163602.352000, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 382
+Event: time 1789163602.352000, -------------- SYN_REPORT ------------
+Event: time 1789163602.366676, -------------- SYN_REPORT ------------
+Event: time 1789163602.381071, -------------- SYN_REPORT ------------
+Event: time 1789163602.395048, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value -1
+Event: time 1789163602.395048, type 1 (EV_KEY), code 330 (BTN_TOUCH), value 0
+Event: time 1789163602.395048, -------------- SYN_REPORT ------------
+Event: time 1789163602.899071, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value 4
+Event: time 1789163602.899071, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 664
+Event: time 1789163602.899071, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 397
+Event: time 1789163602.899071, type 1 (EV_KEY), code 330 (BTN_TOUCH), value 1
+Event: time 1789163602.899071, -------------- SYN_REPORT ------------
+Event: time 1789163602.913526, -------------- SYN_REPORT ------------
+Event: time 1789163602.928643, -------------- SYN_REPORT ------------
+Event: time 1789163602.943577, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 398
+Event: time 1789163602.943577, -------------- SYN_REPORT ------------
+Event: time 1789163602.958039, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 667
+Event: time 1789163602.958039, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 412
+Event: time 1789163602.958039, -------------- SYN_REPORT ------------
+Event: time 1789163602.972614, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 663
+Event: time 1789163602.972614, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 425
+Event: time 1789163602.972614, -------------- SYN_REPORT ------------
+Event: time 1789163602.987694, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 653
+Event: time 1789163602.987694, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 442
+Event: time 1789163602.987694, -------------- SYN_REPORT ------------
+Event: time 1789163603.002057, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 641
+Event: time 1789163603.002057, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 465
+Event: time 1789163603.002057, -------------- SYN_REPORT ------------
+Event: time 1789163603.016994, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 623
+Event: time 1789163603.016994, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 484
+Event: time 1789163603.016994, -------------- SYN_REPORT ------------
+Event: time 1789163603.032051, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 601
+Event: time 1789163603.032051, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 501
+Event: time 1789163603.032051, -------------- SYN_REPORT ------------
+Event: time 1789163603.046659, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 572
+Event: time 1789163603.046659, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 520
+Event: time 1789163603.046659, -------------- SYN_REPORT ------------
+Event: time 1789163603.061694, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 546
+Event: time 1789163603.061694, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 531
+Event: time 1789163603.061694, -------------- SYN_REPORT ------------
+Event: time 1789163603.076206, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 514
+Event: time 1789163603.076206, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 533
+Event: time 1789163603.076206, -------------- SYN_REPORT ------------
+Event: time 1789163603.091028, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 488
+Event: time 1789163603.091028, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 524
+Event: time 1789163603.091028, -------------- SYN_REPORT ------------
+Event: time 1789163603.106015, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 458
+Event: time 1789163603.106015, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 511
+Event: time 1789163603.106015, -------------- SYN_REPORT ------------
+Event: time 1789163603.120669, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 434
+Event: time 1789163603.120669, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 488
+Event: time 1789163603.120669, -------------- SYN_REPORT ------------
+Event: time 1789163603.135658, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 408
+Event: time 1789163603.135658, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 460
+Event: time 1789163603.135658, -------------- SYN_REPORT ------------
+Event: time 1789163603.150183, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 388
+Event: time 1789163603.150183, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 424
+Event: time 1789163603.150183, -------------- SYN_REPORT ------------
+Event: time 1789163603.165002, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 375
+Event: time 1789163603.165002, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 390
+Event: time 1789163603.165002, -------------- SYN_REPORT ------------
+Event: time 1789163603.179454, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 368
+Event: time 1789163603.179454, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 360
+Event: time 1789163603.179454, -------------- SYN_REPORT ------------
+Event: time 1789163603.194555, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 366
+Event: time 1789163603.194555, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 338
+Event: time 1789163603.194555, -------------- SYN_REPORT ------------
+Event: time 1789163603.209020, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 367
+Event: time 1789163603.209020, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 319
+Event: time 1789163603.209020, -------------- SYN_REPORT ------------
+Event: time 1789163603.224037, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 376
+Event: time 1789163603.224037, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 300
+Event: time 1789163603.224037, -------------- SYN_REPORT ------------
+Event: time 1789163603.238558, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 394
+Event: time 1789163603.238558, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 285
+Event: time 1789163603.238558, -------------- SYN_REPORT ------------
+Event: time 1789163603.253659, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 420
+Event: time 1789163603.253659, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 274
+Event: time 1789163603.253659, -------------- SYN_REPORT ------------
+Event: time 1789163603.268478, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 451
+Event: time 1789163603.268478, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 268
+Event: time 1789163603.268478, -------------- SYN_REPORT ------------
+Event: time 1789163603.283189, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 488
+Event: time 1789163603.283189, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 265
+Event: time 1789163603.283189, -------------- SYN_REPORT ------------
+Event: time 1789163603.298186, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 527
+Event: time 1789163603.298186, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 266
+Event: time 1789163603.298186, -------------- SYN_REPORT ------------
+Event: time 1789163603.312495, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 566
+Event: time 1789163603.312495, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 270
+Event: time 1789163603.312495, -------------- SYN_REPORT ------------
+Event: time 1789163603.327669, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 605
+Event: time 1789163603.327669, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 278
+Event: time 1789163603.327669, -------------- SYN_REPORT ------------
+Event: time 1789163603.342667, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 644
+Event: time 1789163603.342667, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 295
+Event: time 1789163603.342667, -------------- SYN_REPORT ------------
+Event: time 1789163603.357031, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 677
+Event: time 1789163603.357031, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 315
+Event: time 1789163603.357031, -------------- SYN_REPORT ------------
+Event: time 1789163603.372062, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 708
+Event: time 1789163603.372062, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 341
+Event: time 1789163603.372062, -------------- SYN_REPORT ------------
+Event: time 1789163603.386557, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 731
+Event: time 1789163603.386557, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 370
+Event: time 1789163603.386557, -------------- SYN_REPORT ------------
+Event: time 1789163603.401541, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 749
+Event: time 1789163603.401541, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 405
+Event: time 1789163603.401541, -------------- SYN_REPORT ------------
+Event: time 1789163603.416014, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 757
+Event: time 1789163603.416014, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 437
+Event: time 1789163603.416014, -------------- SYN_REPORT ------------
+Event: time 1789163603.431018, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 756
+Event: time 1789163603.431018, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 471
+Event: time 1789163603.431018, -------------- SYN_REPORT ------------
+Event: time 1789163603.445673, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 748
+Event: time 1789163603.445673, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 506
+Event: time 1789163603.445673, -------------- SYN_REPORT ------------
+Event: time 1789163603.460492, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 730
+Event: time 1789163603.460492, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 536
+Event: time 1789163603.460492, -------------- SYN_REPORT ------------
+Event: time 1789163603.475598, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 704
+Event: time 1789163603.475598, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 567
+Event: time 1789163603.475598, -------------- SYN_REPORT ------------
+Event: time 1789163603.490084, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 670
+Event: time 1789163603.490084, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 592
+Event: time 1789163603.490084, -------------- SYN_REPORT ------------
+Event: time 1789163603.505038, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 629
+Event: time 1789163603.505038, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 608
+Event: time 1789163603.505038, -------------- SYN_REPORT ------------
+Event: time 1789163603.519564, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 583
+Event: time 1789163603.519564, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 615
+Event: time 1789163603.519564, -------------- SYN_REPORT ------------
+Event: time 1789163603.534663, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 535
+Event: time 1789163603.534663, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 614
+Event: time 1789163603.534663, -------------- SYN_REPORT ------------
+Event: time 1789163603.548971, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 486
+Event: time 1789163603.548971, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 605
+Event: time 1789163603.548971, -------------- SYN_REPORT ------------
+Event: time 1789163603.563991, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 441
+Event: time 1789163603.563991, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 585
+Event: time 1789163603.563991, -------------- SYN_REPORT ------------
+Event: time 1789163603.578979, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 401
+Event: time 1789163603.578979, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 564
+Event: time 1789163603.578979, -------------- SYN_REPORT ------------
+Event: time 1789163603.593676, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 368
+Event: time 1789163603.593676, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 532
+Event: time 1789163603.593676, -------------- SYN_REPORT ------------
+Event: time 1789163603.608693, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 341
+Event: time 1789163603.608693, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 496
+Event: time 1789163603.608693, -------------- SYN_REPORT ------------
+Event: time 1789163603.622998, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 326
+Event: time 1789163603.622998, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 462
+Event: time 1789163603.622998, -------------- SYN_REPORT ------------
+Event: time 1789163603.637960, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 319
+Event: time 1789163603.637960, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 424
+Event: time 1789163603.637960, -------------- SYN_REPORT ------------
+Event: time 1789163603.652562, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 321
+Event: time 1789163603.652562, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 390
+Event: time 1789163603.652562, -------------- SYN_REPORT ------------
+Event: time 1789163603.667717, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 335
+Event: time 1789163603.667717, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 359
+Event: time 1789163603.667717, -------------- SYN_REPORT ------------
+Event: time 1789163603.682666, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 357
+Event: time 1789163603.682666, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 328
+Event: time 1789163603.682666, -------------- SYN_REPORT ------------
+Event: time 1789163603.697024, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 390
+Event: time 1789163603.697024, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 299
+Event: time 1789163603.697024, -------------- SYN_REPORT ------------
+Event: time 1789163603.711970, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 431
+Event: time 1789163603.711970, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 277
+Event: time 1789163603.711970, -------------- SYN_REPORT ------------
+Event: time 1789163603.726625, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 475
+Event: time 1789163603.726625, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 259
+Event: time 1789163603.726625, -------------- SYN_REPORT ------------
+Event: time 1789163603.741557, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 521
+Event: time 1789163603.741557, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 250
+Event: time 1789163603.741557, -------------- SYN_REPORT ------------
+Event: time 1789163603.755974, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 567
+Event: time 1789163603.755974, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 251
+Event: time 1789163603.755974, -------------- SYN_REPORT ------------
+Event: time 1789163603.771057, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 610
+Event: time 1789163603.771057, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 259
+Event: time 1789163603.771057, -------------- SYN_REPORT ------------
+Event: time 1789163603.785722, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 651
+Event: time 1789163603.785722, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 271
+Event: time 1789163603.785722, -------------- SYN_REPORT ------------
+Event: time 1789163603.800663, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 681
+Event: time 1789163603.800663, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 293
+Event: time 1789163603.800663, -------------- SYN_REPORT ------------
+Event: time 1789163603.815496, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 710
+Event: time 1789163603.815496, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 319
+Event: time 1789163603.815496, -------------- SYN_REPORT ------------
+Event: time 1789163603.830166, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 730
+Event: time 1789163603.830166, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 354
+Event: time 1789163603.830166, -------------- SYN_REPORT ------------
+Event: time 1789163603.845191, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 741
+Event: time 1789163603.845191, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 392
+Event: time 1789163603.845191, -------------- SYN_REPORT ------------
+Event: time 1789163603.859591, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 745
+Event: time 1789163603.859591, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 424
+Event: time 1789163603.859591, -------------- SYN_REPORT ------------
+Event: time 1789163603.874679, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 744
+Event: time 1789163603.874679, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 452
+Event: time 1789163603.874679, -------------- SYN_REPORT ------------
+Event: time 1789163603.889202, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 741
+Event: time 1789163603.889202, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 469
+Event: time 1789163603.889202, -------------- SYN_REPORT ------------
+Event: time 1789163603.904187, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 737
+Event: time 1789163603.904187, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 479
+Event: time 1789163603.904187, -------------- SYN_REPORT ------------
+Event: time 1789163603.919009, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 720
+Event: time 1789163603.919009, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 490
+Event: time 1789163603.919009, -------------- SYN_REPORT ------------
+Event: time 1789163603.933683, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 704
+Event: time 1789163603.933683, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 494
+Event: time 1789163603.933683, -------------- SYN_REPORT ------------
+Event: time 1789163603.947669, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value -1
+Event: time 1789163603.947669, type 1 (EV_KEY), code 330 (BTN_TOUCH), value 0
+Event: time 1789163603.947669, -------------- SYN_REPORT ------------
+Event: time 1789163604.658562, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value 5
+Event: time 1789163604.658562, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 695
+Event: time 1789163604.658562, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 499
+Event: time 1789163604.658562, type 1 (EV_KEY), code 330 (BTN_TOUCH), value 1
+Event: time 1789163604.658562, -------------- SYN_REPORT ------------
+Event: time 1789163604.673021, -------------- SYN_REPORT ------------
+Event: time 1789163604.687556, -------------- SYN_REPORT ------------
+Event: time 1789163604.702557, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 684
+Event: time 1789163604.702557, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 505
+Event: time 1789163604.702557, -------------- SYN_REPORT ------------
+Event: time 1789163604.717084, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 665
+Event: time 1789163604.717084, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 514
+Event: time 1789163604.717084, -------------- SYN_REPORT ------------
+Event: time 1789163604.732188, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 645
+Event: time 1789163604.732188, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 527
+Event: time 1789163604.732188, -------------- SYN_REPORT ------------
+Event: time 1789163604.746667, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 616
+Event: time 1789163604.746667, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 540
+Event: time 1789163604.746667, -------------- SYN_REPORT ------------
+Event: time 1789163604.761482, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 587
+Event: time 1789163604.761482, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 549
+Event: time 1789163604.761482, -------------- SYN_REPORT ------------
+Event: time 1789163604.776034, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 554
+Event: time 1789163604.776034, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 556
+Event: time 1789163604.776034, -------------- SYN_REPORT ------------
+Event: time 1789163604.791199, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 517
+Event: time 1789163604.791199, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 559
+Event: time 1789163604.791199, -------------- SYN_REPORT ------------
+Event: time 1789163604.806066, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 478
+Event: time 1789163604.806066, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 558
+Event: time 1789163604.806066, -------------- SYN_REPORT ------------
+Event: time 1789163604.820655, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 442
+Event: time 1789163604.820655, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 554
+Event: time 1789163604.820655, -------------- SYN_REPORT ------------
+Event: time 1789163604.835649, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 403
+Event: time 1789163604.835649, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 543
+Event: time 1789163604.835649, -------------- SYN_REPORT ------------
+Event: time 1789163604.850164, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 368
+Event: time 1789163604.850164, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 524
+Event: time 1789163604.850164, -------------- SYN_REPORT ------------
+Event: time 1789163604.865023, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 339
+Event: time 1789163604.865023, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 503
+Event: time 1789163604.865023, -------------- SYN_REPORT ------------
+Event: time 1789163604.879656, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 315
+Event: time 1789163604.879656, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 475
+Event: time 1789163604.879656, -------------- SYN_REPORT ------------
+Event: time 1789163604.894536, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 295
+Event: time 1789163604.894536, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 445
+Event: time 1789163604.894536, -------------- SYN_REPORT ------------
+Event: time 1789163604.909604, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 285
+Event: time 1789163604.909604, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 415
+Event: time 1789163604.909604, -------------- SYN_REPORT ------------
+Event: time 1789163604.924067, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 282
+Event: time 1789163604.924067, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 387
+Event: time 1789163604.924067, -------------- SYN_REPORT ------------
+Event: time 1789163604.939164, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 288
+Event: time 1789163604.939164, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 361
+Event: time 1789163604.939164, -------------- SYN_REPORT ------------
+Event: time 1789163604.953679, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 302
+Event: time 1789163604.953679, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 341
+Event: time 1789163604.953679, -------------- SYN_REPORT ------------
+Event: time 1789163604.968542, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 327
+Event: time 1789163604.968542, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 318
+Event: time 1789163604.968542, -------------- SYN_REPORT ------------
+Event: time 1789163604.983688, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 359
+Event: time 1789163604.983688, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 298
+Event: time 1789163604.983688, -------------- SYN_REPORT ------------
+Event: time 1789163604.998161, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 396
+Event: time 1789163604.998161, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 286
+Event: time 1789163604.998161, -------------- SYN_REPORT ------------
+Event: time 1789163605.013198, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 437
+Event: time 1789163605.013198, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 279
+Event: time 1789163605.013198, -------------- SYN_REPORT ------------
+Event: time 1789163605.027604, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 482
+Event: time 1789163605.027604, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 277
+Event: time 1789163605.027604, -------------- SYN_REPORT ------------
+Event: time 1789163605.042604, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 525
+Event: time 1789163605.042604, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 279
+Event: time 1789163605.042604, -------------- SYN_REPORT ------------
+Event: time 1789163605.057059, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 568
+Event: time 1789163605.057059, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 285
+Event: time 1789163605.057059, -------------- SYN_REPORT ------------
+Event: time 1789163605.072208, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 608
+Event: time 1789163605.072208, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 299
+Event: time 1789163605.072208, -------------- SYN_REPORT ------------
+Event: time 1789163605.086646, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 647
+Event: time 1789163605.086646, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 315
+Event: time 1789163605.086646, -------------- SYN_REPORT ------------
+Event: time 1789163605.101662, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 674
+Event: time 1789163605.101662, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 335
+Event: time 1789163605.101662, -------------- SYN_REPORT ------------
+Event: time 1789163605.116468, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 700
+Event: time 1789163605.116468, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 361
+Event: time 1789163605.116468, -------------- SYN_REPORT ------------
+Event: time 1789163605.131009, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 722
+Event: time 1789163605.131009, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 394
+Event: time 1789163605.131009, -------------- SYN_REPORT ------------
+Event: time 1789163605.145552, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 732
+Event: time 1789163605.145552, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 427
+Event: time 1789163605.145552, -------------- SYN_REPORT ------------
+Event: time 1789163605.160527, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 733
+Event: time 1789163605.160527, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 465
+Event: time 1789163605.160527, -------------- SYN_REPORT ------------
+Event: time 1789163605.175503, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 720
+Event: time 1789163605.175503, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 506
+Event: time 1789163605.175503, -------------- SYN_REPORT ------------
+Event: time 1789163605.190183, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 703
+Event: time 1789163605.190183, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 544
+Event: time 1789163605.190183, -------------- SYN_REPORT ------------
+Event: time 1789163605.205168, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 677
+Event: time 1789163605.205168, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 581
+Event: time 1789163605.205168, -------------- SYN_REPORT ------------
+Event: time 1789163605.219672, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 645
+Event: time 1789163605.219672, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 616
+Event: time 1789163605.219672, -------------- SYN_REPORT ------------
+Event: time 1789163605.234665, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 608
+Event: time 1789163605.234665, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 645
+Event: time 1789163605.234665, -------------- SYN_REPORT ------------
+Event: time 1789163605.249678, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 567
+Event: time 1789163605.249678, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 668
+Event: time 1789163605.249678, -------------- SYN_REPORT ------------
+Event: time 1789163605.264046, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 523
+Event: time 1789163605.264046, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 690
+Event: time 1789163605.264046, -------------- SYN_REPORT ------------
+Event: time 1789163605.279193, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 476
+Event: time 1789163605.279193, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 704
+Event: time 1789163605.279193, -------------- SYN_REPORT ------------
+Event: time 1789163605.293609, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 429
+Event: time 1789163605.293609, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 710
+Event: time 1789163605.293609, -------------- SYN_REPORT ------------
+Event: time 1789163605.308674, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 383
+Event: time 1789163605.308674, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 707
+Event: time 1789163605.308674, -------------- SYN_REPORT ------------
+Event: time 1789163605.323008, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 340
+Event: time 1789163605.323008, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 692
+Event: time 1789163605.323008, -------------- SYN_REPORT ------------
+Event: time 1789163605.338030, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 300
+Event: time 1789163605.338030, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 671
+Event: time 1789163605.338030, -------------- SYN_REPORT ------------
+Event: time 1789163605.352945, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 269
+Event: time 1789163605.352945, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 641
+Event: time 1789163605.352945, -------------- SYN_REPORT ------------
+Event: time 1789163605.367688, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 241
+Event: time 1789163605.367688, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 601
+Event: time 1789163605.367688, -------------- SYN_REPORT ------------
+Event: time 1789163605.382609, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 223
+Event: time 1789163605.382609, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 558
+Event: time 1789163605.382609, -------------- SYN_REPORT ------------
+Event: time 1789163605.397021, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 215
+Event: time 1789163605.397021, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 523
+Event: time 1789163605.397021, -------------- SYN_REPORT ------------
+Event: time 1789163605.412009, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 213
+Event: time 1789163605.412009, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 494
+Event: time 1789163605.412009, -------------- SYN_REPORT ------------
+Event: time 1789163605.426537, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 220
+Event: time 1789163605.426537, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 468
+Event: time 1789163605.426537, -------------- SYN_REPORT ------------
+Event: time 1789163605.441588, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 239
+Event: time 1789163605.441588, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 446
+Event: time 1789163605.441588, -------------- SYN_REPORT ------------
+Event: time 1789163605.456674, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 271
+Event: time 1789163605.456674, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 421
+Event: time 1789163605.456674, -------------- SYN_REPORT ------------
+Event: time 1789163605.471187, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 309
+Event: time 1789163605.471187, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 402
+Event: time 1789163605.471187, -------------- SYN_REPORT ------------
+Event: time 1789163605.486194, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 353
+Event: time 1789163605.486194, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 389
+Event: time 1789163605.486194, -------------- SYN_REPORT ------------
+Event: time 1789163605.500692, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 402
+Event: time 1789163605.500692, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 379
+Event: time 1789163605.500692, -------------- SYN_REPORT ------------
+Event: time 1789163605.515200, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 451
+Event: time 1789163605.515200, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 370
+Event: time 1789163605.515200, -------------- SYN_REPORT ------------
+Event: time 1789163605.530659, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 498
+Event: time 1789163605.530659, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 366
+Event: time 1789163605.530659, -------------- SYN_REPORT ------------
+Event: time 1789163605.544915, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 543
+Event: time 1789163605.544915, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 367
+Event: time 1789163605.544915, -------------- SYN_REPORT ------------
+Event: time 1789163605.560016, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 579
+Event: time 1789163605.560016, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 373
+Event: time 1789163605.560016, -------------- SYN_REPORT ------------
+Event: time 1789163605.574722, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 610
+Event: time 1789163605.574722, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 382
+Event: time 1789163605.574722, -------------- SYN_REPORT ------------
+Event: time 1789163605.589665, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 635
+Event: time 1789163605.589665, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 396
+Event: time 1789163605.589665, -------------- SYN_REPORT ------------
+Event: time 1789163605.604022, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 657
+Event: time 1789163605.604022, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 415
+Event: time 1789163605.604022, -------------- SYN_REPORT ------------
+Event: time 1789163605.619164, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 672
+Event: time 1789163605.619164, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 436
+Event: time 1789163605.619164, -------------- SYN_REPORT ------------
+Event: time 1789163605.633552, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 680
+Event: time 1789163605.633552, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 462
+Event: time 1789163605.633552, -------------- SYN_REPORT ------------
+Event: time 1789163605.648492, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 683
+Event: time 1789163605.648492, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 486
+Event: time 1789163605.648492, -------------- SYN_REPORT ------------
+Event: time 1789163605.663651, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 676
+Event: time 1789163605.663651, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 517
+Event: time 1789163605.663651, -------------- SYN_REPORT ------------
+Event: time 1789163605.678092, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 662
+Event: time 1789163605.678092, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 543
+Event: time 1789163605.678092, -------------- SYN_REPORT ------------
+Event: time 1789163605.693089, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 645
+Event: time 1789163605.693089, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 571
+Event: time 1789163605.693089, -------------- SYN_REPORT ------------
+Event: time 1789163605.707576, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 621
+Event: time 1789163605.707576, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 594
+Event: time 1789163605.707576, -------------- SYN_REPORT ------------
+Event: time 1789163605.722656, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 595
+Event: time 1789163605.722656, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 610
+Event: time 1789163605.722656, -------------- SYN_REPORT ------------
+Event: time 1789163605.737049, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 561
+Event: time 1789163605.737049, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 623
+Event: time 1789163605.737049, -------------- SYN_REPORT ------------
+Event: time 1789163605.752083, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 524
+Event: time 1789163605.752083, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 630
+Event: time 1789163605.752083, -------------- SYN_REPORT ------------
+Event: time 1789163605.766592, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 488
+Event: time 1789163605.766592, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 629
+Event: time 1789163605.766592, -------------- SYN_REPORT ------------
+Event: time 1789163605.781520, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 453
+Event: time 1789163605.781520, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 623
+Event: time 1789163605.781520, -------------- SYN_REPORT ------------
+Event: time 1789163605.796665, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 418
+Event: time 1789163605.796665, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 610
+Event: time 1789163605.796665, -------------- SYN_REPORT ------------
+Event: time 1789163605.811203, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 392
+Event: time 1789163605.811203, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 587
+Event: time 1789163605.811203, -------------- SYN_REPORT ------------
+Event: time 1789163605.826020, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 372
+Event: time 1789163605.826020, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 551
+Event: time 1789163605.826020, -------------- SYN_REPORT ------------
+Event: time 1789163605.840457, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 360
+Event: time 1789163605.840457, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 515
+Event: time 1789163605.840457, -------------- SYN_REPORT ------------
+Event: time 1789163605.855654, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 354
+Event: time 1789163605.855654, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 481
+Event: time 1789163605.855654, -------------- SYN_REPORT ------------
+Event: time 1789163605.870669, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 353
+Event: time 1789163605.870669, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 461
+Event: time 1789163605.870669, -------------- SYN_REPORT ------------
+Event: time 1789163605.885186, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 355
+Event: time 1789163605.885186, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 450
+Event: time 1789163605.885186, -------------- SYN_REPORT ------------
+Event: time 1789163605.899976, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 364
+Event: time 1789163605.899976, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 439
+Event: time 1789163605.899976, -------------- SYN_REPORT ------------
+Event: time 1789163605.914667, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 390
+Event: time 1789163605.914667, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 423
+Event: time 1789163605.914667, -------------- SYN_REPORT ------------
+Event: time 1789163605.929437, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 422
+Event: time 1789163605.929437, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 410
+Event: time 1789163605.929437, -------------- SYN_REPORT ------------
+Event: time 1789163605.943987, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 460
+Event: time 1789163605.943987, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 401
+Event: time 1789163605.943987, -------------- SYN_REPORT ------------
+Event: time 1789163605.959173, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 501
+Event: time 1789163605.959173, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 396
+Event: time 1789163605.959173, -------------- SYN_REPORT ------------
+Event: time 1789163605.973555, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 544
+Event: time 1789163605.973555, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 395
+Event: time 1789163605.973555, -------------- SYN_REPORT ------------
+Event: time 1789163605.988685, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 583
+Event: time 1789163605.988685, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 396
+Event: time 1789163605.988685, -------------- SYN_REPORT ------------
+Event: time 1789163606.003674, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 614
+Event: time 1789163606.003674, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 398
+Event: time 1789163606.003674, -------------- SYN_REPORT ------------
+Event: time 1789163606.017678, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 639
+Event: time 1789163606.017678, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 400
+Event: time 1789163606.017678, -------------- SYN_REPORT ------------
+Event: time 1789163606.033167, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 658
+Event: time 1789163606.033167, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 402
+Event: time 1789163606.033167, -------------- SYN_REPORT ------------
+Event: time 1789163606.047688, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 670
+Event: time 1789163606.047688, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 405
+Event: time 1789163606.047688, -------------- SYN_REPORT ------------
+Event: time 1789163606.062659, -------------- SYN_REPORT ------------
+Event: time 1789163606.076053, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value -1
+Event: time 1789163606.076053, type 1 (EV_KEY), code 330 (BTN_TOUCH), value 0
+Event: time 1789163606.076053, -------------- SYN_REPORT ------------
+Event: time 1789163606.513649, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value 6
+Event: time 1789163606.513649, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 587
+Event: time 1789163606.513649, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 334
+Event: time 1789163606.513649, type 1 (EV_KEY), code 330 (BTN_TOUCH), value 1
+Event: time 1789163606.513649, -------------- SYN_REPORT ------------
+Event: time 1789163606.528013, -------------- SYN_REPORT ------------
+Event: time 1789163606.543084, -------------- SYN_REPORT ------------
+Event: time 1789163606.558206, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 589
+Event: time 1789163606.558206, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 338
+Event: time 1789163606.558206, -------------- SYN_REPORT ------------
+Event: time 1789163606.572714, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 597
+Event: time 1789163606.572714, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 356
+Event: time 1789163606.572714, -------------- SYN_REPORT ------------
+Event: time 1789163606.587535, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 601
+Event: time 1789163606.587535, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 373
+Event: time 1789163606.587535, -------------- SYN_REPORT ------------
+Event: time 1789163606.601984, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 599
+Event: time 1789163606.601984, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 401
+Event: time 1789163606.601984, -------------- SYN_REPORT ------------
+Event: time 1789163606.617177, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 592
+Event: time 1789163606.617177, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 430
+Event: time 1789163606.617177, -------------- SYN_REPORT ------------
+Event: time 1789163606.631686, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 578
+Event: time 1789163606.631686, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 466
+Event: time 1789163606.631686, -------------- SYN_REPORT ------------
+Event: time 1789163606.646656, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 555
+Event: time 1789163606.646656, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 503
+Event: time 1789163606.646656, -------------- SYN_REPORT ------------
+Event: time 1789163606.660947, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 534
+Event: time 1789163606.660947, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 532
+Event: time 1789163606.660947, -------------- SYN_REPORT ------------
+Event: time 1789163606.676171, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 506
+Event: time 1789163606.676171, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 556
+Event: time 1789163606.676171, -------------- SYN_REPORT ------------
+Event: time 1789163606.691193, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 477
+Event: time 1789163606.691193, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 570
+Event: time 1789163606.691193, -------------- SYN_REPORT ------------
+Event: time 1789163606.705660, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 446
+Event: time 1789163606.705660, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 574
+Event: time 1789163606.705660, -------------- SYN_REPORT ------------
+Event: time 1789163606.720683, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 409
+Event: time 1789163606.720683, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 571
+Event: time 1789163606.720683, -------------- SYN_REPORT ------------
+Event: time 1789163606.735079, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 372
+Event: time 1789163606.735079, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 562
+Event: time 1789163606.735079, -------------- SYN_REPORT ------------
+Event: time 1789163606.749973, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 338
+Event: time 1789163606.749973, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 541
+Event: time 1789163606.749973, -------------- SYN_REPORT ------------
+Event: time 1789163606.764559, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 302
+Event: time 1789163606.764559, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 516
+Event: time 1789163606.764559, -------------- SYN_REPORT ------------
+Event: time 1789163606.779666, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 272
+Event: time 1789163606.779666, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 480
+Event: time 1789163606.779666, -------------- SYN_REPORT ------------
+Event: time 1789163606.794595, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 245
+Event: time 1789163606.794595, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 439
+Event: time 1789163606.794595, -------------- SYN_REPORT ------------
+Event: time 1789163606.809049, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 227
+Event: time 1789163606.809049, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 401
+Event: time 1789163606.809049, -------------- SYN_REPORT ------------
+Event: time 1789163606.823992, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 216
+Event: time 1789163606.823992, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 369
+Event: time 1789163606.823992, -------------- SYN_REPORT ------------
+Event: time 1789163606.839096, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 212
+Event: time 1789163606.839096, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 350
+Event: time 1789163606.839096, -------------- SYN_REPORT ------------
+Event: time 1789163606.853537, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 211
+Event: time 1789163606.853537, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 339
+Event: time 1789163606.853537, -------------- SYN_REPORT ------------
+Event: time 1789163606.868526, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 214
+Event: time 1789163606.868526, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 333
+Event: time 1789163606.868526, -------------- SYN_REPORT ------------
+Event: time 1789163606.883060, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 236
+Event: time 1789163606.883060, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 323
+Event: time 1789163606.883060, -------------- SYN_REPORT ------------
+Event: time 1789163606.898067, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 270
+Event: time 1789163606.898067, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 315
+Event: time 1789163606.898067, -------------- SYN_REPORT ------------
+Event: time 1789163606.912620, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 312
+Event: time 1789163606.912620, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 307
+Event: time 1789163606.912620, -------------- SYN_REPORT ------------
+Event: time 1789163606.927682, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 361
+Event: time 1789163606.927682, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 302
+Event: time 1789163606.927682, -------------- SYN_REPORT ------------
+Event: time 1789163606.942034, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 417
+Event: time 1789163606.942034, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 298
+Event: time 1789163606.942034, -------------- SYN_REPORT ------------
+Event: time 1789163606.957111, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 474
+Event: time 1789163606.957111, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 299
+Event: time 1789163606.957111, -------------- SYN_REPORT ------------
+Event: time 1789163606.971604, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 527
+Event: time 1789163606.971604, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 307
+Event: time 1789163606.971604, -------------- SYN_REPORT ------------
+Event: time 1789163606.986598, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 572
+Event: time 1789163606.986598, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 317
+Event: time 1789163606.986598, -------------- SYN_REPORT ------------
+Event: time 1789163607.001616, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 608
+Event: time 1789163607.001616, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 329
+Event: time 1789163607.001616, -------------- SYN_REPORT ------------
+Event: time 1789163607.016064, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 634
+Event: time 1789163607.016064, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 346
+Event: time 1789163607.016064, -------------- SYN_REPORT ------------
+Event: time 1789163607.031082, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 656
+Event: time 1789163607.031082, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 366
+Event: time 1789163607.031082, -------------- SYN_REPORT ------------
+Event: time 1789163607.045668, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 672
+Event: time 1789163607.045668, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 384
+Event: time 1789163607.045668, -------------- SYN_REPORT ------------
+Event: time 1789163607.060673, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 680
+Event: time 1789163607.060673, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 402
+Event: time 1789163607.060673, -------------- SYN_REPORT ------------
+Event: time 1789163607.075058, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 684
+Event: time 1789163607.075058, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 416
+Event: time 1789163607.075058, -------------- SYN_REPORT ------------
+Event: time 1789163607.090006, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 683
+Event: time 1789163607.090006, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 427
+Event: time 1789163607.090006, -------------- SYN_REPORT ------------
+Event: time 1789163607.105200, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 671
+Event: time 1789163607.105200, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 440
+Event: time 1789163607.105200, -------------- SYN_REPORT ------------
+Event: time 1789163607.119545, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 643
+Event: time 1789163607.119545, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 467
+Event: time 1789163607.119545, -------------- SYN_REPORT ------------
+Event: time 1789163607.134595, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 609
+Event: time 1789163607.134595, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 494
+Event: time 1789163607.134595, -------------- SYN_REPORT ------------
+Event: time 1789163607.149084, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 566
+Event: time 1789163607.149084, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 529
+Event: time 1789163607.149084, -------------- SYN_REPORT ------------
+Event: time 1789163607.164039, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 517
+Event: time 1789163607.164039, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 568
+Event: time 1789163607.164039, -------------- SYN_REPORT ------------
+Event: time 1789163607.179054, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 468
+Event: time 1789163607.179054, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 599
+Event: time 1789163607.179054, -------------- SYN_REPORT ------------
+Event: time 1789163607.193602, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 420
+Event: time 1789163607.193602, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 625
+Event: time 1789163607.193602, -------------- SYN_REPORT ------------
+Event: time 1789163607.208560, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 373
+Event: time 1789163607.208560, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 642
+Event: time 1789163607.208560, -------------- SYN_REPORT ------------
+Event: time 1789163607.223087, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 329
+Event: time 1789163607.223087, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 646
+Event: time 1789163607.223087, -------------- SYN_REPORT ------------
+Event: time 1789163607.238200, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 289
+Event: time 1789163607.238200, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 637
+Event: time 1789163607.238200, -------------- SYN_REPORT ------------
+Event: time 1789163607.252708, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 250
+Event: time 1789163607.252708, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 622
+Event: time 1789163607.252708, -------------- SYN_REPORT ------------
+Event: time 1789163607.267682, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 221
+Event: time 1789163607.267682, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 594
+Event: time 1789163607.267682, -------------- SYN_REPORT ------------
+Event: time 1789163607.282528, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 194
+Event: time 1789163607.282528, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 557
+Event: time 1789163607.282528, -------------- SYN_REPORT ------------
+Event: time 1789163607.297043, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 176
+Event: time 1789163607.297043, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 520
+Event: time 1789163607.297043, -------------- SYN_REPORT ------------
+Event: time 1789163607.312025, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 165
+Event: time 1789163607.312025, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 483
+Event: time 1789163607.312025, -------------- SYN_REPORT ------------
+Event: time 1789163607.326560, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 161
+Event: time 1789163607.326560, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 459
+Event: time 1789163607.326560, -------------- SYN_REPORT ------------
+Event: time 1789163607.341665, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 160
+Event: time 1789163607.341665, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 444
+Event: time 1789163607.341665, -------------- SYN_REPORT ------------
+Event: time 1789163607.356020, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 174
+Event: time 1789163607.356020, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 420
+Event: time 1789163607.356020, -------------- SYN_REPORT ------------
+Event: time 1789163607.371036, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 197
+Event: time 1789163607.371036, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 399
+Event: time 1789163607.371036, -------------- SYN_REPORT ------------
+Event: time 1789163607.386075, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 231
+Event: time 1789163607.386075, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 374
+Event: time 1789163607.386075, -------------- SYN_REPORT ------------
+Event: time 1789163607.400693, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 275
+Event: time 1789163607.400693, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 351
+Event: time 1789163607.400693, -------------- SYN_REPORT ------------
+Event: time 1789163607.415691, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 323
+Event: time 1789163607.415691, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 334
+Event: time 1789163607.415691, -------------- SYN_REPORT ------------
+Event: time 1789163607.430057, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 374
+Event: time 1789163607.430057, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 317
+Event: time 1789163607.430057, -------------- SYN_REPORT ------------
+Event: time 1789163607.445060, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 424
+Event: time 1789163607.445060, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 302
+Event: time 1789163607.445060, -------------- SYN_REPORT ------------
+Event: time 1789163607.459589, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 471
+Event: time 1789163607.459589, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 292
+Event: time 1789163607.459589, -------------- SYN_REPORT ------------
+Event: time 1789163607.474594, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 515
+Event: time 1789163607.474594, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 287
+Event: time 1789163607.474594, -------------- SYN_REPORT ------------
+Event: time 1789163607.489651, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 554
+Event: time 1789163607.489651, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 290
+Event: time 1789163607.489651, -------------- SYN_REPORT ------------
+Event: time 1789163607.504028, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 592
+Event: time 1789163607.504028, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 299
+Event: time 1789163607.504028, -------------- SYN_REPORT ------------
+Event: time 1789163607.519044, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 622
+Event: time 1789163607.519044, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 312
+Event: time 1789163607.519044, -------------- SYN_REPORT ------------
+Event: time 1789163607.533640, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 651
+Event: time 1789163607.533640, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 328
+Event: time 1789163607.533640, -------------- SYN_REPORT ------------
+Event: time 1789163607.548624, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 672
+Event: time 1789163607.548624, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 350
+Event: time 1789163607.548624, -------------- SYN_REPORT ------------
+Event: time 1789163607.563214, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 686
+Event: time 1789163607.563214, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 373
+Event: time 1789163607.563214, -------------- SYN_REPORT ------------
+Event: time 1789163607.578099, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 693
+Event: time 1789163607.578099, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 403
+Event: time 1789163607.578099, -------------- SYN_REPORT ------------
+Event: time 1789163607.593090, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 694
+Event: time 1789163607.593090, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 429
+Event: time 1789163607.593090, -------------- SYN_REPORT ------------
+Event: time 1789163607.607548, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 691
+Event: time 1789163607.607548, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 460
+Event: time 1789163607.607548, -------------- SYN_REPORT ------------
+Event: time 1789163607.622550, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 682
+Event: time 1789163607.622550, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 487
+Event: time 1789163607.622550, -------------- SYN_REPORT ------------
+Event: time 1789163607.637092, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 665
+Event: time 1789163607.637092, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 517
+Event: time 1789163607.637092, -------------- SYN_REPORT ------------
+Event: time 1789163607.652071, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 647
+Event: time 1789163607.652071, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 541
+Event: time 1789163607.652071, -------------- SYN_REPORT ------------
+Event: time 1789163607.666607, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 620
+Event: time 1789163607.666607, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 567
+Event: time 1789163607.666607, -------------- SYN_REPORT ------------
+Event: time 1789163607.681640, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 592
+Event: time 1789163607.681640, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 588
+Event: time 1789163607.681640, -------------- SYN_REPORT ------------
+Event: time 1789163607.696070, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 559
+Event: time 1789163607.696070, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 603
+Event: time 1789163607.696070, -------------- SYN_REPORT ------------
+Event: time 1789163607.711024, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 524
+Event: time 1789163607.711024, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 612
+Event: time 1789163607.711024, -------------- SYN_REPORT ------------
+Event: time 1789163607.726095, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 493
+Event: time 1789163607.726095, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 615
+Event: time 1789163607.726095, -------------- SYN_REPORT ------------
+Event: time 1789163607.740497, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 457
+Event: time 1789163607.740497, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 613
+Event: time 1789163607.740497, -------------- SYN_REPORT ------------
+Event: time 1789163607.755642, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 421
+Event: time 1789163607.755642, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 605
+Event: time 1789163607.755642, -------------- SYN_REPORT ------------
+Event: time 1789163607.770041, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 390
+Event: time 1789163607.770041, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 587
+Event: time 1789163607.770041, -------------- SYN_REPORT ------------
+Event: time 1789163607.784955, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 358
+Event: time 1789163607.784955, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 568
+Event: time 1789163607.784955, -------------- SYN_REPORT ------------
+Event: time 1789163607.799709, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 333
+Event: time 1789163607.799709, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 540
+Event: time 1789163607.799709, -------------- SYN_REPORT ------------
+Event: time 1789163607.814672, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 315
+Event: time 1789163607.814672, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 508
+Event: time 1789163607.814672, -------------- SYN_REPORT ------------
+Event: time 1789163607.829551, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 301
+Event: time 1789163607.829551, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 475
+Event: time 1789163607.829551, -------------- SYN_REPORT ------------
+Event: time 1789163607.844208, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 293
+Event: time 1789163607.844208, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 439
+Event: time 1789163607.844208, -------------- SYN_REPORT ------------
+Event: time 1789163607.859224, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 292
+Event: time 1789163607.859224, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 410
+Event: time 1789163607.859224, -------------- SYN_REPORT ------------
+Event: time 1789163607.874224, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 298
+Event: time 1789163607.874224, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 380
+Event: time 1789163607.874224, -------------- SYN_REPORT ------------
+Event: time 1789163607.888684, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 308
+Event: time 1789163607.888684, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 356
+Event: time 1789163607.888684, -------------- SYN_REPORT ------------
+Event: time 1789163607.903591, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 324
+Event: time 1789163607.903591, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 336
+Event: time 1789163607.903591, -------------- SYN_REPORT ------------
+Event: time 1789163607.918207, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 347
+Event: time 1789163607.918207, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 315
+Event: time 1789163607.918207, -------------- SYN_REPORT ------------
+Event: time 1789163607.932820, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 378
+Event: time 1789163607.932820, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 296
+Event: time 1789163607.932820, -------------- SYN_REPORT ------------
+Event: time 1789163607.947679, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 410
+Event: time 1789163607.947679, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 286
+Event: time 1789163607.947679, -------------- SYN_REPORT ------------
+Event: time 1789163607.962604, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 445
+Event: time 1789163607.962604, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 281
+Event: time 1789163607.962604, -------------- SYN_REPORT ------------
+Event: time 1789163607.977203, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 483
+Event: time 1789163607.977203, -------------- SYN_REPORT ------------
+Event: time 1789163607.992209, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 519
+Event: time 1789163607.992209, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 287
+Event: time 1789163607.992209, -------------- SYN_REPORT ------------
+Event: time 1789163608.006630, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 555
+Event: time 1789163608.006630, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 299
+Event: time 1789163608.006630, -------------- SYN_REPORT ------------
+Event: time 1789163608.021600, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 589
+Event: time 1789163608.021600, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 315
+Event: time 1789163608.021600, -------------- SYN_REPORT ------------
+Event: time 1789163608.036583, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 616
+Event: time 1789163608.036583, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 331
+Event: time 1789163608.036583, -------------- SYN_REPORT ------------
+Event: time 1789163608.051051, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 640
+Event: time 1789163608.051051, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 355
+Event: time 1789163608.051051, -------------- SYN_REPORT ------------
+Event: time 1789163608.066225, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 660
+Event: time 1789163608.066225, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 380
+Event: time 1789163608.066225, -------------- SYN_REPORT ------------
+Event: time 1789163608.080619, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 673
+Event: time 1789163608.080619, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 410
+Event: time 1789163608.080619, -------------- SYN_REPORT ------------
+Event: time 1789163608.095526, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 679
+Event: time 1789163608.095526, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 437
+Event: time 1789163608.095526, -------------- SYN_REPORT ------------
+Event: time 1789163608.110201, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 678
+Event: time 1789163608.110201, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 468
+Event: time 1789163608.110201, -------------- SYN_REPORT ------------
+Event: time 1789163608.125179, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 670
+Event: time 1789163608.125179, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 490
+Event: time 1789163608.125179, -------------- SYN_REPORT ------------
+Event: time 1789163608.140060, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 656
+Event: time 1789163608.140060, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 512
+Event: time 1789163608.140060, -------------- SYN_REPORT ------------
+Event: time 1789163608.154616, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 642
+Event: time 1789163608.154616, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 531
+Event: time 1789163608.154616, -------------- SYN_REPORT ------------
+Event: time 1789163608.169597, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 618
+Event: time 1789163608.169597, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 547
+Event: time 1789163608.169597, -------------- SYN_REPORT ------------
+Event: time 1789163608.184571, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 595
+Event: time 1789163608.184571, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 556
+Event: time 1789163608.184571, -------------- SYN_REPORT ------------
+Event: time 1789163608.199069, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 565
+Event: time 1789163608.199069, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 562
+Event: time 1789163608.199069, -------------- SYN_REPORT ------------
+Event: time 1789163608.213626, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 538
+Event: time 1789163608.213626, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 564
+Event: time 1789163608.213626, -------------- SYN_REPORT ------------
+Event: time 1789163608.228597, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 507
+Event: time 1789163608.228597, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 562
+Event: time 1789163608.228597, -------------- SYN_REPORT ------------
+Event: time 1789163608.243521, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 476
+Event: time 1789163608.243521, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 556
+Event: time 1789163608.243521, -------------- SYN_REPORT ------------
+Event: time 1789163608.258203, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 448
+Event: time 1789163608.258203, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 541
+Event: time 1789163608.258203, -------------- SYN_REPORT ------------
+Event: time 1789163608.273201, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 424
+Event: time 1789163608.273201, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 520
+Event: time 1789163608.273201, -------------- SYN_REPORT ------------
+Event: time 1789163608.287550, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 401
+Event: time 1789163608.287550, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 494
+Event: time 1789163608.287550, -------------- SYN_REPORT ------------
+Event: time 1789163608.302559, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 386
+Event: time 1789163608.302559, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 469
+Event: time 1789163608.302559, -------------- SYN_REPORT ------------
+Event: time 1789163608.317607, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 377
+Event: time 1789163608.317607, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 450
+Event: time 1789163608.317607, -------------- SYN_REPORT ------------
+Event: time 1789163608.332066, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 374
+Event: time 1789163608.332066, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 439
+Event: time 1789163608.332066, -------------- SYN_REPORT ------------
+Event: time 1789163608.347047, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 433
+Event: time 1789163608.347047, -------------- SYN_REPORT ------------
+Event: time 1789163608.361585, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 389
+Event: time 1789163608.361585, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 420
+Event: time 1789163608.361585, -------------- SYN_REPORT ------------
+Event: time 1789163608.376588, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 409
+Event: time 1789163608.376588, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 411
+Event: time 1789163608.376588, -------------- SYN_REPORT ------------
+Event: time 1789163608.391071, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 438
+Event: time 1789163608.391071, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 405
+Event: time 1789163608.391071, -------------- SYN_REPORT ------------
+Event: time 1789163608.406120, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 467
+Event: time 1789163608.406120, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 402
+Event: time 1789163608.406120, -------------- SYN_REPORT ------------
+Event: time 1789163608.420617, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 498
+Event: time 1789163608.420617, -------------- SYN_REPORT ------------
+Event: time 1789163608.435653, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 526
+Event: time 1789163608.435653, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 403
+Event: time 1789163608.435653, -------------- SYN_REPORT ------------
+Event: time 1789163608.450651, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 553
+Event: time 1789163608.450651, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 404
+Event: time 1789163608.450651, -------------- SYN_REPORT ------------
+Event: time 1789163608.465051, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 574
+Event: time 1789163608.465051, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 405
+Event: time 1789163608.465051, -------------- SYN_REPORT ------------
+Event: time 1789163608.479586, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 596
+Event: time 1789163608.479586, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 407
+Event: time 1789163608.479586, -------------- SYN_REPORT ------------
+Event: time 1789163608.493668, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value -1
+Event: time 1789163608.493668, type 1 (EV_KEY), code 330 (BTN_TOUCH), value 0
+Event: time 1789163608.493668, -------------- SYN_REPORT ------------

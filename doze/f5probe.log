@@ -1,0 +1,5 @@
+before F5: F01 00 c8 00 06 2d 00 0e 
+after F5, before reset: regdump F01 ctrl@0014 (-6): 00 00 00 00 00 00 00
+after F5 + rmi_smb_reset: F01 00 00 00 03 2d 00 0e 
+after one config pass: F01 00 c8 00 06 2d 00 0e 
+done f5probe

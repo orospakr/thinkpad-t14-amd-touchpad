@@ -1,0 +1,10 @@
+OK psmouse/nosleep synaptics_rmi_nosleep=0 synaptics_rmi_doze_interval=6 try=1
+21:34:48 resume_reconfig_after=0 resume_getid=N doze_interval=6; suspending 240s (DO NOT TOUCH the pad)
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc0 at Mon Sep 14 01:38:49 2026
+21:38:57 resumed: 
+CAPTURE ctrlA try 1
+done diag doze/ctrlA
+ctrlA try 1: 977 frames
+interval histogram (ms: count): 12:422 13:475 14:12 23:39 24:12 25:4 26:2
+done ctrl

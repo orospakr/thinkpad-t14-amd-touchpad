@@ -1,5 +1,5 @@
---- ../src/rmi_smbus.c	2026-08-28 22:05:11.051584881 -0400
-+++ rmi_smbus.c	2026-09-07 17:42:37.142171239 -0400
+--- /home/andrew/Developer/others/linux/drivers/input/rmi4/rmi_smbus.c	2026-08-20 22:06:48.607750989 -0400
++++ rmi4/smbus/rmi_smbus.c	2026-09-13 22:17:31.620484447 -0400
 @@ -37,6 +37,7 @@
  	u8 table_index;
  	struct mutex mappingtable_mutex;
@@ -8,7 +8,22 @@
  };
  
  static int rmi_smb_get_version(struct rmi_smb_xport *rmi_smb)
-@@ -262,6 +263,18 @@
+@@ -177,8 +178,13 @@
+ 	struct rmi_smb_xport *rmi_smb =
+ 		container_of(xport, struct rmi_smb_xport, xport);
+ 	struct i2c_client *client = rmi_smb->client;
++	int retval;
++
++	retval = i2c_smbus_read_block_data(client, commandcode, buf);
++	if (retval < 0)
++		return retval;
+ 
+-	return i2c_smbus_read_block_data(client, commandcode, buf);
++	return retval;
+ }
+ 
+ static int rmi_smb_read_block(struct rmi_transport_dev *xport, u16 rmiaddr,
+@@ -257,6 +263,18 @@
  	return 0;
  }
  
@@ -27,7 +42,16 @@
  static int rmi_smb_reset(struct rmi_transport_dev *xport, u16 reset_addr)
  {
  	struct rmi_smb_xport *rmi_smb =
-@@ -319,6 +332,7 @@
+@@ -279,6 +297,8 @@
+ 	.reset		= rmi_smb_reset,
+ };
+ 
++static struct rmi_smb_xport *rmi_smb_exp_xport; /* experiment: last-probed transport */
++
+ static int rmi_smb_probe(struct i2c_client *client)
+ {
+ 	struct rmi_device_platform_data *pdata = dev_get_platdata(&client->dev);
+@@ -314,6 +334,7 @@
  	rmi_smb->client = client;
  	mutex_init(&rmi_smb->page_mutex);
  	mutex_init(&rmi_smb->mappingtable_mutex);
@@ -35,7 +59,15 @@
  
  	rmi_smb->xport.dev = &client->dev;
  	rmi_smb->xport.pdata = *pdata;
-@@ -347,6 +361,7 @@
+@@ -326,6 +347,7 @@
+ 		return error;
+ 
+ 	i2c_set_clientdata(client, rmi_smb);
++	rmi_smb_exp_xport = rmi_smb;
+ 
+ 	dev_info(&client->dev, "registering SMbus-connected sensor\n");
+ 
+@@ -342,6 +364,7 @@
  {
  	struct rmi_smb_xport *rmi_smb = i2c_get_clientdata(client);
  
@@ -43,7 +75,7 @@
  	rmi_unregister_transport_device(&rmi_smb->xport);
  }
  
-@@ -356,6 +371,7 @@
+@@ -351,6 +374,7 @@
  	struct rmi_smb_xport *rmi_smb = i2c_get_clientdata(client);
  	int ret;
  
@@ -51,7 +83,7 @@
  	ret = rmi_driver_suspend(rmi_smb->xport.rmi_dev, true);
  	if (ret)
  		dev_warn(dev, "Failed to suspend device: %d\n", ret);
-@@ -376,6 +392,14 @@
+@@ -371,6 +395,36 @@
  	return ret;
  }
  
@@ -61,24 +93,53 @@
 +
 +static unsigned int resume_reconfig_after;
 +module_param(resume_reconfig_after, uint, 0644);
-+MODULE_PARM_DESC(resume_reconfig_after, "1: run rmi_reset() again after rmi_driver_resume(); 2: run it only after (move, upstream form) (experiment)");
++MODULE_PARM_DESC(resume_reconfig_after, "1: run rmi_reset() again after rmi_driver_resume(); 2: run it only after (move form); 3: no config pass at resume at all (i2c/spi shape) (experiment)");
++
++/* experiment: echo 1 > /sys/module/rmi_smbus/parameters/clear_state -> rmi_smb_clear_state() on the
++ * last-probed transport, i.e. exactly what rmi_smb_resume() does to the mapping cache, without re-probing. */
++static int rmi_smb_clear_state_set(const char *val, const struct kernel_param *kp)
++{
++	if (!rmi_smb_exp_xport)
++		return -ENODEV;
++	{
++		int error = rmi_smb_reset(&rmi_smb_exp_xport->xport, 0);
++		dev_info(&rmi_smb_exp_xport->client->dev, "clear_state: rmi_smb_reset (clear cache + re-enable SMBus mode) -> %d\n", error);
++		return error;
++	}
++}
++static const struct kernel_param_ops rmi_smb_clear_state_ops = { .set = rmi_smb_clear_state_set };
++module_param_cb(clear_state, &rmi_smb_clear_state_ops, NULL, 0200);
++
++/* experiment: the PS/2 side (psmouse_smbus_reconnect) deactivates the device on resume before we run, and
++ * on Synaptics pads that command resets the device; configuring it too soon afterwards leaves it
++ * misbehaving (stale landing frame / 80 Hz report clock). Wait this long before the config pass. */
++static unsigned int resume_reset_delay_ms;
++module_param(resume_reset_delay_ms, uint, 0644);
++MODULE_PARM_DESC(resume_reset_delay_ms, "ms to wait on resume before reconfiguring the device (experiment)");
 +
  static int rmi_smb_resume(struct device *dev)
  {
  	struct i2c_client *client = container_of(dev, struct i2c_client, dev);
-@@ -385,12 +409,25 @@
+@@ -380,12 +434,32 @@
  
  	rmi_smb_reset(&rmi_smb->xport, 0);
  
 -	rmi_reset(rmi_dev);
-+	if (resume_reconfig_after != 2)
++	if (resume_reset_delay_ms) {
++		dev_info(dev, "resume: waiting %u ms before reconfiguring\n", resume_reset_delay_ms);
++		msleep(resume_reset_delay_ms);
++	}
++
++	if (resume_reconfig_after != 2 && resume_reconfig_after != 3)
 +		rmi_reset(rmi_dev);
  
  	ret = rmi_driver_resume(rmi_smb->xport.rmi_dev, true);
  	if (ret)
  		dev_warn(dev, "Failed to resume device: %d\n", ret);
  
-+	if (resume_reconfig_after) {
++	if (resume_reconfig_after == 3)
++		dev_info(dev, "resume_reconfig_after=3: no config pass at resume\n");
++	else if (resume_reconfig_after) {
 +		ret = rmi_reset(rmi_dev);
 +		dev_info(dev, "resume_reconfig_after=%u: rmi_reset -> %d\n", resume_reconfig_after, ret);
 +	}
@@ -93,3 +154,12 @@
  	return 0;
  }
  
+@@ -408,7 +482,7 @@
+ };
+ 
+ static const struct i2c_device_id rmi_id[] = {
+-	{ .name = "rmi4_smbus" },
++	{ "rmi4_smbus" },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(i2c, rmi_id);

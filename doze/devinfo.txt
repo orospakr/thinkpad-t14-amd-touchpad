@@ -1,0 +1,84 @@
+Input driver version is 1.0.1
+Input device ID: bus 0x1d vendor 0x6cb product 0x0 version 0x0
+Input device name: "Synaptics TM3471-030"
+Supported events:
+  Event type 0 (EV_SYN)
+  Event type 1 (EV_KEY)
+    Event code 272 (BTN_LEFT)
+    Event code 325 (BTN_TOOL_FINGER)
+    Event code 330 (BTN_TOUCH)
+    Event code 333 (BTN_TOOL_DOUBLETAP)
+    Event code 334 (BTN_TOOL_TRIPLETAP)
+    Event code 335 (BTN_TOOL_QUADTAP)
+  Event type 3 (EV_ABS)
+    Event code 0 (ABS_X)
+      Value    905
+      Min        0
+      Max     1162
+      Resolution      12
+    Event code 1 (ABS_Y)
+      Value    229
+      Min        0
+      Max      778
+      Resolution      12
+    Event code 24 (ABS_PRESSURE)
+      Value      0
+      Min        0
+      Max      255
+    Event code 47 (ABS_MT_SLOT)
+      Value      0
+      Min        0
+      Max        3
+    Event code 48 (ABS_MT_TOUCH_MAJOR)
+      Value      0
+      Min        0
+      Max       15
+    Event code 49 (ABS_MT_TOUCH_MINOR)
+      Value      0
+      Min        0
+      Max       15
+    Event code 52 (ABS_MT_ORIENTATION)
+      Value      0
+      Min        0
+      Max        1
+    Event code 53 (ABS_MT_POSITION_X)
+      Value      0
+      Min        0
+      Max     1162
+      Resolution      12
+    Event code 54 (ABS_MT_POSITION_Y)
+      Value      0
+      Min        0
+      Max      778
+      Resolution      12
+    Event code 55 (ABS_MT_TOOL_TYPE)
+      Value      0
+      Min        0
+      Max       15
+    Event code 57 (ABS_MT_TRACKING_ID)
+      Value      0
+      Min        0
+AttrThumbPressureThreshold=100
+Device:                  Synaptics TM3471-030
+Kernel:                  /dev/input/event13
+Id:                      <unknown>:06cb:0000
+Group:                   2
+Seat:                    seat0, default
+Size:                    97x65mm
+Capabilities:            pointer gesture
+Tap-to-click:            disabled
+Tap-and-drag:            enabled
+Tap button map:          left/right/middle
+Tap drag lock:           disabled
+Left-handed:             disabled
+Nat.scrolling:           disabled
+Middle emulation:        disabled
+Calibration:             n/a
+Scroll methods:          *two-finger edge 
+Scroll button:           n/a
+Scroll button lock:      n/a
+Click methods:           *button-areas clickfinger 
+Clickfinger button map:  left/right/middle
+Disable-w-typing:        enabled
+Disable-w-trackpointing: enabled
+Accel profiles:          flat *adaptive custom

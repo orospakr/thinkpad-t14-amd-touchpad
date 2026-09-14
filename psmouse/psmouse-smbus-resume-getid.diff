@@ -1,0 +1,35 @@
+--- psmouse/src/psmouse-smbus.c	2026-08-27 22:26:20.572545480 -0400
++++ psmouse/nosleep/psmouse-smbus.c	2026-09-12 14:42:19.953611913 -0400
+@@ -114,9 +114,32 @@
+ 	return PSMOUSE_FULL_PACKET;
+ }
+ 
++/* experiment: send a PS/2 Get ID to the device on reconnect/resume before deactivating it */
++static bool psmouse_smbus_resume_getid = true;
++module_param(psmouse_smbus_resume_getid, bool, 0644);
++MODULE_PARM_DESC(psmouse_smbus_resume_getid, "Send Get ID over PS/2 on resume before deactivating the SMBus companion (experiment)");
++
+ static int psmouse_smbus_reconnect(struct psmouse *psmouse)
+ {
+ 	struct psmouse_smbus_dev *smbdev = psmouse->private;
++	u8 param[2];
++	int error;
++
++	if (psmouse_smbus_resume_getid) {
++		/*
++		 * Synaptics touchpads that spent a few hours in S3 come back
++		 * in a state where the first report of every touch is stale
++		 * (the landing position, then wherever the finger already is
++		 * 15 ms later) until the PS/2 side has been talked to.
++		 * Deactivating alone does not do it; a Get ID does. The SMBus
++		 * client resumes after us and rmi_smb_resume() clears the
++		 * register mapping cache, exactly as it already must for the
++		 * deactivate below.
++		 */
++		param[0] = 0xa5;
++		error = ps2_command(&psmouse->ps2dev, param, PSMOUSE_CMD_GETID);
++		psmouse_info(psmouse, "smbus reconnect: GETID -> %d (id %02x)\n", error, param[0]);
++	}
+ 
+ 	if (smbdev->need_deactivate)
+ 		psmouse_deactivate(psmouse);

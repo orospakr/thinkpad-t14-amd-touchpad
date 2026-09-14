@@ -1,0 +1,39 @@
+interrupt deltas (7=ASF hard irq, 95=host notify->rmi, 99=fn12 frames, 102=fn03):
+  irq 7: +54704
+  irq 95: +486
+  irq 99: +486
+  irq 100: +0
+  irq 102: +0
+evtest frames (SYN_REPORT): 479; touches: 6
+pressure histogram (all MT_PRESSURE samples):
+  0-  9     1
+samples 358
+ 20- 29     1
+ 30- 39     3
+ 40- 49    11
+ 50- 59    68
+ 60- 69   272
+ 70- 79     2
+tool types:
+      1 (ABS_MT_TOOL_TYPE)
+libinput thumb/tap/gesture lines:
+      6   ... event13 - tap: touch 0 (TOUCH_END), tap state TAP_STATE_DEAD → TAP_EVENT_RELEASE → TAP_STATE_IDLE
+      6   ... event13 - tap: touch 0 (TOUCH_BEGIN), tap state TAP_STATE_IDLE → TAP_EVENT_TOUCH → TAP_STATE_TOUCH
+      6   ... event13 - gesture: [1fg] state GESTURE_STATE_UNKNOWN → GESTURE_STATE_POINTER_MOTION
+      6   ... event13 - gesture: [1fg] state GESTURE_STATE_NONE → GESTURE_STATE_UNKNOWN
+      6   ... event13 - gesture: [1fg] event GESTURE_STATE_POINTER_MOTION → GESTURE_EVENT_END → GESTURE_STATE_NONE
+      6   ... event13 - gesture: [1fg] event GESTURE_STATE_NONE → GESTURE_EVENT_FINGER_DETECTED → GESTURE_STATE_UNKNOWN
+      1   ... event13 - thumb: enabled thumb detection (area, pressure)
+      1   ... event13 - palm: pressure threshold is 130
+      1   ... event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_POINTER_MOTION_START → GESTURE_STATE_POINTER_
+      1   50: event13 - tap: touch 0 (TOUCH_UPDATE), tap state TAP_STATE_TOUCH → TAP_EVENT_MOTION → TAP_STATE_DEAD
+      1  375: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_POINTER_MOTION_START → GESTURE_STATE_POINTER_
+      1  374: event13 - tap: touch 0 (TOUCH_UPDATE), tap state TAP_STATE_TOUCH → TAP_EVENT_MOTION → TAP_STATE_DEAD
+      1  299: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_POINTER_MOTION_START → GESTURE_STATE_POINTER_
+      1  298: event13 - tap: touch 0 (TOUCH_UPDATE), tap state TAP_STATE_TOUCH → TAP_EVENT_MOTION → TAP_STATE_DEAD
+      1  219: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_POINTER_MOTION_START → GESTURE_STATE_POINTER_
+      1  218: event13 - tap: touch 0 (TOUCH_UPDATE), tap state TAP_STATE_TOUCH → TAP_EVENT_MOTION → TAP_STATE_DEAD
+      1  159: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_POINTER_MOTION_START → GESTURE_STATE_POINTER_
+      1  158: event13 - tap: touch 0 (TOUCH_UPDATE), tap state TAP_STATE_TOUCH → TAP_EVENT_MOTION → TAP_STATE_DEAD
+      1  105: event13 - gesture: [1fg] event GESTURE_STATE_UNKNOWN → GESTURE_EVENT_POINTER_MOTION_START → GESTURE_STATE_POINTER_
+      1  104: event13 - tap: touch 0 (TOUCH_UPDATE), tap state TAP_STATE_TOUCH → TAP_EVENT_MOTION → TAP_STATE_DEAD

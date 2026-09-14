@@ -1,0 +1,9 @@
+22:08:43 resume_reconfig_after=1 resume_getid=N doze_interval=6; suspending 240s (DO NOT TOUCH the pad)
+rtcwake: assuming RTC uses UTC ...
+rtcwake: wakeup from "mem" using /dev/rtc0 at Mon Sep 14 02:12:44 2026
+22:12:49 resumed: 
+CAPTURE fixA try 1
+done diag doze/fixA
+fixA try 1: 836 frames
+interval histogram (ms: count): 13:3 14:149 15:662 16:4 18:2 19:2 458:2
+done ctrl

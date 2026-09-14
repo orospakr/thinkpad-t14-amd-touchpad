@@ -1,0 +1,27 @@
+CAPTURE long5-base try 1
+long5-base try 1: 827 frames
+14:36:47 ps2cmd 5 (F2-GETID)
+  -> rc=0 synaptics_rmi_ps2cmd 5 -> 0
+  SMBUS DEAD -> rmi_smbus rebind
+  after rebind: pad present, smbus alive
+CAPTURE long5-getid try 1
+long5-getid try 1: 0 frames
+CAPTURE long5-getid try 2
+long5-getid try 2: 801 frames
+14:37:59 ps2cmd 2 (E8)
+  -> rc=0 synaptics_rmi_ps2cmd 2 -> 0
+  SMBUS DEAD -> rmi_smbus rebind
+  after rebind: pad present, smbus alive
+CAPTURE long5-e8 try 1
+long5-e8 try 1: 0 frames
+CAPTURE long5-e8 try 2
+long5-e8 try 2: 446 frames
+14:39:11 psmouse reload
+OK psmouse/nosleep synaptics_rmi_nosleep=0 synaptics_rmi_doze_interval=6 try=1
+CAPTURE long5-reload try 1
+long5-reload try 1: 0 frames
+CAPTURE long5-reload try 2
+long5-reload try 2: 0 frames
+CAPTURE long5-reload try 3
+long5-reload try 3: 761 frames
+done ps2seq
