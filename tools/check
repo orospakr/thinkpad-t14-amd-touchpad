@@ -33,7 +33,7 @@ for m in i2c_piix4 rmi_smbus psmouse; do
   fi
 done
 
-if ls /sys/bus/i2c/devices/*-002c/driver 2>/dev/null | grep -q rmi4_smbus; then
+if readlink /sys/bus/i2c/devices/*-002c/driver 2>/dev/null | grep -q rmi4_smbus; then
   say ok "touchpad: RMI4 SMBus client bound to rmi4_smbus"
 else
   say FAIL "touchpad: no i2c client at 0x2c bound to rmi4_smbus"; ok=0
