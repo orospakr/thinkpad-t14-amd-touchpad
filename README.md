@@ -30,7 +30,8 @@ over SMBus. Reports from other machines are welcome.
 
 ## Install
 
-Arch Linux (and Omarchy):
+Arch Linux (and Omarchy), with the headers for your kernel installed
+(`linux-headers`, `linux-omarchy-headers`, ...):
 
 ```sh
 git clone https://github.com/orospakr/thinkpad-t14-amd-touchpad
