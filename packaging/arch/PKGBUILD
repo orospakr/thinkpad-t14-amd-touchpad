@@ -15,22 +15,22 @@ depends=('dkms' 'linux-headers')
 conflicts=('i2c-piix4-asf-dkms')
 replaces=('i2c-piix4-asf-dkms')
 install=$pkgname.install
-# Until the first tagged release this builds from the checkout the PKGBUILD
-# lives in. At release, switch to:
-#   source=("$_name-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz")
-_srcdir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")/../.."
-source=("$_name.conf::file://${_srcdir}/packaging/arch/$_name.conf"
-        "$pkgname.install::file://${_srcdir}/packaging/arch/$pkgname.install")
-sha256sums=('SKIP' 'SKIP')
+source=("$_name-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz"
+        "$_name.conf"
+        "$pkgname.install")
+sha256sums=('625558befb6e61d2ae0e04448d8a0daf6bf66bbb3ccea0576cf3cb92a6cbc44f'
+            '6830eebbc8f0b7758a8da744a7b36fdc56270734e287ccdb642506c13c36f5a7'
+            'e848ed6b1cd83ac1e62918001f4e6c31c95b8d43a6bf238445f07567b6879ba5')
 
 package() {
+  local s="$srcdir/$_name-$pkgver"
   local d="$pkgdir/usr/src/$_name-$pkgver"
   install -d "$d"
-  cp -r "$_srcdir/drivers" "$_srcdir/patches" "$_srcdir/tools" "$d/"
-  install -Dm644 "$_srcdir/dkms.conf" "$_srcdir/Makefile" "$_srcdir/KERNEL_SOURCE" -t "$d"
-  rm -f "$d/tools/check"
-  install -Dm755 "$_srcdir/tools/check" "$pkgdir/usr/bin/$_name-check"
+  cp -r "$s/drivers" "$s/patches" "$s/tools" "$d/"
+  install -Dm644 "$s/dkms.conf" "$s/Makefile" "$s/KERNEL_SOURCE" -t "$d"
+  rm -rf "$d/tools/check" "$d/tools/ci"
+  install -Dm755 "$s/tools/check" "$pkgdir/usr/bin/$_name-check"
   install -Dm644 "$srcdir/$_name.conf" "$pkgdir/usr/lib/modprobe.d/$_name.conf"
-  install -Dm644 "$_srcdir/LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
-  install -Dm644 "$_srcdir/README.md" "$pkgdir/usr/share/doc/$pkgname/README.md"
+  install -Dm644 "$s/LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  install -Dm644 "$s/README.md" "$pkgdir/usr/share/doc/$pkgname/README.md"
 }
