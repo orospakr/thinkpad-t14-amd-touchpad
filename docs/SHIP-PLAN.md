@@ -182,7 +182,10 @@ job lists such patches as a warning.
 4. CI and the 7.2 refresh.
 5. README (which machines, install, check, remove, upstream status table,
    sunset conditions), LICENSE, first tag.
-6. omarchy-pkgs issue then PR; omarchy issue then PR (detector + script).
+6. omarchy-pkgs and omarchy PRs, opened as drafts 2026-09-16:
+   omacom/omarchy-pkgs#472 (package) and omacom/omarchy#12055 (detector,
+   hardware leaf, migration, test; base branch is `quattro`). Undraft after
+   the suspend soak on the packaged build.
 7. Mailing-list track in parallel: linux-i2c for 0001, linux-input for
    0002 to 0004. Update prefixes and `upstream.ref` as each is posted.
    Details, maintainers, precedents and per-patch checklists are in
