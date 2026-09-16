@@ -1,0 +1,56 @@
+# Do the carried patches still apply and build? Checked against the kernels
+# users actually run (Arch, Omarchy) and the tree they are meant for
+# (mainline). See README "Kernel policy".
+name: build
+on:
+  push:
+    branches: [master]
+  pull_request:
+  schedule:
+    - cron: '17 6 * * 1'   # Mondays, 06:17 UTC
+  workflow_dispatch:
+
+jobs:
+  arch:
+    name: Arch linux-headers
+    runs-on: ubuntu-latest
+    container: archlinux:base-devel
+    steps:
+      - name: Install headers
+        run: |
+          pacman -Syu --noconfirm --needed git curl zstd linux-headers
+          git config --global --add safe.directory '*'
+      - uses: actions/checkout@v4
+      - name: Apply and build
+        run: tools/ci/check-kernel.sh arch
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
+  omarchy:
+    name: Omarchy linux-omarchy-headers
+    runs-on: ubuntu-latest
+    container: archlinux:base-devel
+    steps:
+      - name: Install headers from the Omarchy repo
+        run: |
+          printf '\n[omarchy]\nSigLevel = Optional TrustAll\nServer = https://pkgs.omarchy.org/stable/$arch\n' >> /etc/pacman.conf
+          pacman -Syu --noconfirm --needed git curl zstd linux-omarchy-headers
+          git config --global --add safe.directory '*'
+      - uses: actions/checkout@v4
+      - name: Apply and build
+        run: tools/ci/check-kernel.sh omarchy
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
+  mainline:
+    name: Mainline master
+    runs-on: ubuntu-latest
+    container: archlinux:base-devel
+    steps:
+      - name: Install kernel build dependencies
+        run: |
+          pacman -Syu --noconfirm --needed git bc bison flex cpio kmod libelf openssl perl python
+          git config --global --add safe.directory '*'
+      - uses: actions/checkout@v4
+      - name: git am, build in-tree, checkpatch
+        run: tools/ci/check-mainline.sh "$RUNNER_TEMP/linux"

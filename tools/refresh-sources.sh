@@ -15,7 +15,7 @@ while read -r path; do
   [[ -z $path || $path == \#* ]] && continue
   mkdir -p "$top/$(dirname "$path")"
   tmp=$(mktemp)
-  if ! curl -fsSL -o "$tmp" "$base/$path?h=$tag"; then
+  if ! curl -fsSL --retry 5 --retry-delay 3 --retry-all-errors -o "$tmp" "$base/$path?h=$tag"; then
     echo "fetch failed: $path at $tag" >&2; rm -f "$tmp"; exit 1
   fi
   if [[ -f $top/$path ]] && cmp -s "$tmp" "$top/$path"; then

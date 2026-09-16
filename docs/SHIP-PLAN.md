@@ -150,13 +150,23 @@ first CI run does the 7.2 refresh.
 
 ## Open decisions
 
-1. Name (provisionally `thinkpad-t14-amd-touchpad`; the tree, dkms.conf and PKGBUILD use it). The scope is "AMD FCH SMB0001 platforms with a Synaptics RMI4 pad",
-   which today means this ThinkPad. Candidates: `thinkpad-t14-amd-touchpad`
-   (matches Omarchy's machine-named packages) or `amd-asf-synaptics-touchpad`
-   (matches the hardware scope). Package gets a `-dkms` suffix either way.
-2. Whether to keep the `softdep` line or rely on the alias autoload.
-3. Kernel guard strictness: fail loudly on a different series (recommended) or
-   allow any kernel where the patches apply and the build succeeds.
+All three settled 2026-09-15:
+
+1. Name: `thinkpad-t14-amd-touchpad` (package `thinkpad-t14-amd-touchpad-dkms`),
+   locked in with the first tag.
+2. `softdep i2c_piix4 post: rmi_smbus` stays; harmless and it documents the
+   dependency.
+3. Kernel guard: the policy is "patches apply and the build succeeds".
+   `tools/pre-build.sh` only warns on a series mismatch. The loud signal for a
+   series bump is CI (`.github/workflows/build.yml`: Arch headers, Omarchy
+   headers, mainline master; the packaged-kernel jobs also refresh the sources
+   to the kernel's own tag and rebuild).
+
+Found while adding CI: Omarchy's `linux-omarchy` carries its own hunks in
+`psmouse-base.c` and `focaltech.c` (`0560-input.patch`, both already in
+mainline). Rebuilding psmouse from pristine sources drops them on that kernel
+until the 7.3 refresh. Documented in the README as a known gap; the Omarchy CI
+job lists such patches as a warning.
 
 ## Sequence
 
