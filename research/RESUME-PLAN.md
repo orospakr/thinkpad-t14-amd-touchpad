@@ -246,9 +246,19 @@ ordering, byte-identical SMBus resume traces clean vs degraded) still stands.
 
 ## Also pending (ASF driver, separate)
 
-~100 hard IRQ-7 entries per Host Notify (level line held between hard-handler
-ack and thread drain): mask `ASF_SLV_INTR` in the hard handler (thread already
-re-enables it). One line; needs rebuild + DKMS reinstall.
+~100 hard IRQ-7 entries per Host Notify. RESOLVED 2026-09-18, and the
+diagnosis above was wrong: ftrace showed 98% of the entries returning
+IRQ_NONE *inside master transactions* (between `smbus_read` and its reply),
+with `SMBHSTSTS=0x82`. In ASF master mode the FCH raises the SMB0001 line on
+host transaction completion regardless of the host interrupt enable, and
+holds it until `piix4_transaction()` clears the status after its 250 us
+polling sleep. Fix: the hard handler acks `SMBHSTSTS` bit 1 (done) when the
+target bit is clear, as `i2c-amd-asf-plat.c` does (error bits left for
+`piix4_transaction()`); IRQ also requested `IRQF_ONESHOT`. 48 144 -> 2 552
+interrupts per 10 s of motion (one notify + one per block read), 0 idle;
+737 handled / 4 unhandled in a 6 s trace. Instrumentation gotcha: never
+`inb(SMBHSTCNT)` from the handler, it resets the SMBBLKDAT pointer and the
+pad attaches with a garbage product id.
 
 ## Artifacts
 

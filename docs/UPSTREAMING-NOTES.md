@@ -1370,17 +1370,20 @@ Provencher, and the L14 Gen 1 reporter) so they can supply `Tested-by:`.
    `drivers/acpi/resource.c` instead, where Hans de Goede has already pointed.
 5. It is tested on exactly one machine, by one person, with no public vendor
    document cited for the register block.
-6. `RESUME-PLAN.md` still lists an unfixed defect in this code (the ~100
-   spurious hard IRQs per Host Notify). Fix it first — given Miroslav's
-   "10 000 interrupts/s" history on this hardware, shipping it unfixed would
-   confirm the reviewers' fears.
+6. ~~`RESUME-PLAN.md` still lists an unfixed defect in this code (the ~100
+   spurious hard IRQs per Host Notify).~~ Fixed 2026-09-18: they were host
+   transaction-completion interrupts in master mode, acked in the hard
+   handler as `i2c-amd-asf-plat.c` does (see RESUME-PLAN "Also pending").
+   Given Miroslav's "10 000 interrupts/s" history on this hardware, the
+   cover letter should quote the measured rate: about five interrupts per
+   frame, none idle.
 
 Do **not** send the input patches as RFC — Dmitry applies ordinary patches and
 RFC just delays him. Patch 2 and 3 are normal `[PATCH]`s.
 
 ### Ordering
 
-1. Fix the known ASF IRQ storm; rename `slave` → `target` throughout; re-run the
+1. ~~Fix the known ASF IRQ storm~~ (done 2026-09-18); rename `slave` → `target` throughout; re-run the
    `reset_delay_ms` 250 vs 300 ms experiment (§4.2) so patch 2's story is
    airtight.
 2. **Reply to the two open threads first** (William Luther Zambo's 2026-09-01

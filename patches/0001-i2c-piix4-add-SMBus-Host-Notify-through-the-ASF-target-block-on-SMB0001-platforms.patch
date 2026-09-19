@@ -1,4 +1,4 @@
-From af76fe1b65e0b84050d72faad629b8578f8d52b2 Mon Sep 17 00:00:00 2001
+From 6c2e4b28bd356042387072976e4c045e2e1c73f9 Mon Sep 17 00:00:00 2001
 From: Andrew Clunis <andrew@orospakr.ca>
 Date: Mon, 14 Sep 2026 00:23:37 -0400
 Subject: [PATCH] i2c: piix4: add SMBus Host Notify through the ASF target
@@ -26,7 +26,7 @@ i2c_handle_smbus_host_notify(). Master transfers on that adapter are
 wrapped in the target-offline / target-rearm sequence the block requires,
 with the register recipe taken from i2c-amd-asf-plat.c.
 
-Three things the hardware needed beyond that recipe:
+Four things the hardware needed beyond that recipe:
 
  - ASFINDEX shares port base+0x07 with SMBBLKDAT. ASFDATABNKSEL.DATA_EN
    must be set while mastering so block reads see the host FIFO rather
@@ -44,6 +44,13 @@ Three things the hardware needed beyond that recipe:
    land in a bank; this took RMI4 report failures from about five per
    three minutes to none.
 
+ - In master mode the block raises the SMB0001 interrupt on every host
+   transaction completion, host interrupt enable or not, and holds the
+   line until SMBHSTSTS is cleared, which piix4_transaction() only does
+   after its polling sleep. The hard handler acks the done bit, as
+   i2c-amd-asf-plat.c does; left alone it cost some seventy interrupts
+   per Host Notify.
+
 Why here and not in i2c-amd-asf-plat: the ACPI core will not create a
 platform device for SMB0001 when it carries _CRS resources (see the
 ACPI_ALLOW_WO_RESOURCES entry in acpi_platform.c), and piix4 already owns
@@ -57,11 +64,11 @@ Tested on a ThinkPad T14 Gen 2a AMD (20XL, Synaptics TM3471 / LEN2073):
 the pad binds as rmi4_smbus, reports at 15 ms intervals, the TrackPoint
 stays on the F03 pass-through, and the feature survives S3.
 ---
- drivers/i2c/busses/i2c-piix4.c | 1016 +++++++++++++++++++++++++++++++-
- 1 file changed, 1012 insertions(+), 4 deletions(-)
+ drivers/i2c/busses/i2c-piix4.c | 1041 +++++++++++++++++++++++++++++++-
+ 1 file changed, 1037 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/i2c/busses/i2c-piix4.c b/drivers/i2c/busses/i2c-piix4.c
-index 7b6a4e2..09b37d9 100644
+index 7b6a4e201..84bcea58c 100644
 --- a/drivers/i2c/busses/i2c-piix4.c
 +++ b/drivers/i2c/busses/i2c-piix4.c
 @@ -21,8 +21,11 @@
@@ -76,7 +83,7 @@ index 7b6a4e2..09b37d9 100644
  #include <linux/pci.h>
  #include <linux/kernel.h>
  #include <linux/delay.h>
-@@ -105,6 +108,107 @@ MODULE_PARM_DESC(force_addr,
+@@ -105,6 +108,109 @@ MODULE_PARM_DESC(force_addr,
  		 "Forcibly enable the PIIX4 at the given address. "
  		 "EXTREMELY DANGEROUS!");
  
@@ -108,6 +115,8 @@ index 7b6a4e2..09b37d9 100644
 +#define ASF_SLV_RST	4	/* ASFSLVEN: slave reset */
 +#define ASF_HST_PEC_SP	5	/* SMBHSTCNT: PEC append */
 +#define ASF_HST_DATA_EN	7	/* SMBHSTCNT: PEC/data enable */
++/* SMBHSTSTS bits */
++#define ASF_HST_INTR	1	/* host transaction done, write 1 to ack */
 +/* FCH PM DecodeEn bits */
 +#define ASF_MSTR_EN	16
 +#define ASF_CLK_EN	17
@@ -184,7 +193,7 @@ index 7b6a4e2..09b37d9 100644
  static int srvrworks_csb5_delay;
  static struct pci_driver piix4_driver;
  
-@@ -567,13 +671,14 @@ int piix4_transaction(struct i2c_adapter *piix4_adapter, unsigned short piix4_sm
+@@ -567,13 +673,14 @@ int piix4_transaction(struct i2c_adapter *piix4_adapter, unsigned short piix4_sm
  	}
  
  	if (temp & 0x08) {
@@ -201,7 +210,7 @@ index 7b6a4e2..09b37d9 100644
  		result = -ENXIO;
  		dev_dbg(&piix4_adapter->dev, "Error: no response!\n");
  	}
-@@ -910,6 +1015,876 @@ static struct i2c_adapter *piix4_main_adapters[PIIX4_MAX_ADAPTERS];
+@@ -910,6 +1017,899 @@ static struct i2c_adapter *piix4_main_adapters[PIIX4_MAX_ADAPTERS];
  static struct i2c_adapter *piix4_aux_adapter;
  static int piix4_adapter_count;
  
@@ -709,13 +718,29 @@ index 7b6a4e2..09b37d9 100644
 +	/*
 +	 * The IRQ is only requested while the IO region is ours, so the
 +	 * ports are always safe to touch here.  The line is shared: only
-+	 * claim our own status bit.
++	 * claim our own status bits.
 +	 */
 +	sta = inb_p(ASFSTA);
-+	if (!(sta & BIT(ASF_STA_SLV_INT)))
-+		return IRQ_NONE;
++	if (!(sta & BIT(ASF_STA_SLV_INT))) {
++		/*
++		 * With the block in master mode the completion of a host
++		 * transaction raises this line as well, host interrupt enable
++		 * or not, and holds it until the status is cleared -- which
++		 * piix4_transaction() only does after its polling sleep.  Ack
++		 * the done bit here, as i2c-amd-asf-plat.c does; the error
++		 * bits stay for piix4_transaction() to read.
++		 */
++		if (!(inb_p(SMBHSTSTS) & BIT(ASF_HST_INTR)))
++			return IRQ_NONE;
++		outb_p(BIT(ASF_HST_INTR), SMBHSTSTS);
++		return IRQ_HANDLED;
++	}
 +
-+	/* Ack so the level-triggered line deasserts */
++	/*
++	 * Ack the status bit.  That alone does not deassert the level line
++	 * while a bank is full; the IRQ is requested IRQF_ONESHOT so it
++	 * stays masked until the thread has drained the banks.
++	 */
 +	outb_p(sta | BIT(ASF_STA_SLV_INT), ASFSTA);
 +
 +	/*
@@ -747,14 +772,12 @@ index 7b6a4e2..09b37d9 100644
 +	}
 +
 +	/*
-+	 * Mask the slave interrupt while draining so the hard handler
-+	 * cannot race the bank reads; keep listening throughout, so no
-+	 * message is NAKed (a NAKed Host Notify makes the device retry
-+	 * into the reads the client issues in response) and nothing that
-+	 * was ACKed is discarded.
++	 * The line is masked (IRQF_ONESHOT) until we return, so the hard
++	 * handler cannot race the bank reads.  Keep listening throughout,
++	 * so no message is NAKed (a NAKed Host Notify makes the device
++	 * retry into the reads the client issues in response) and nothing
++	 * that was ACKed is discarded.
 +	 */
-+	piix4_asf_update_ioport(ASF_SLV_INTR, ASFSLVEN, false);
-+	synchronize_hardirq(irq);
 +	wedged = piix4_asf_drain(piix4_smba, &notifies);
 +
 +	/*
@@ -764,26 +787,28 @@ index 7b6a4e2..09b37d9 100644
 +	 * after one more drain with listening off so nothing ACKed
 +	 * meanwhile is discarded.
 +	 */
-+	if (!wedged) {
-+		piix4_asf_update_ioport(ASF_SLV_INTR, ASFSLVEN, true);
-+	} else if (!piix4_sb800_region_request(piix4_asf.dev,
-+					       &piix4_asf.mmio_cfg)) {
-+		dev_dbg(piix4_asf.dev, "ASF: receive bank stuck full, resetting slave\n");
-+		piix4_asf_update_ioport(ASF_SLV_LISTN, ASFLISADDR, false);
-+		piix4_asf_drain(piix4_smba, &notifies);
-+		piix4_asf_update_ioport(ASF_SLV_RST, ASFSLVEN, true);
-+		outb_p(0, ASFSLVSTA);
-+		piix4_asf_slave_arm(piix4_smba);
-+		piix4_sb800_region_release(piix4_asf.dev, &piix4_asf.mmio_cfg);
-+	} else {
-+		/*
-+		 * Cannot reset or re-arm: stop ACKing messages nobody will
-+		 * read.  The next master transfer re-arms (want_listen).
-+		 */
-+		piix4_asf_update_ioport(ASF_SLV_LISTN, ASFLISADDR, false);
-+		WRITE_ONCE(piix4_asf.listening, false);
-+		dev_warn_ratelimited(piix4_asf.dev,
-+				     "ASF: FCH PM region busy, slave not re-armed until the next transfer\n");
++	if (wedged) {
++		if (!piix4_sb800_region_request(piix4_asf.dev,
++						&piix4_asf.mmio_cfg)) {
++			dev_dbg(piix4_asf.dev, "ASF: receive bank stuck full, resetting slave\n");
++			piix4_asf_update_ioport(ASF_SLV_LISTN, ASFLISADDR, false);
++			piix4_asf_drain(piix4_smba, &notifies);
++			piix4_asf_update_ioport(ASF_SLV_RST, ASFSLVEN, true);
++			outb_p(0, ASFSLVSTA);
++			piix4_asf_slave_arm(piix4_smba);
++			piix4_sb800_region_release(piix4_asf.dev,
++						   &piix4_asf.mmio_cfg);
++		} else {
++			/*
++			 * Cannot reset or re-arm: stop ACKing messages nobody
++			 * will read.  The next master transfer re-arms
++			 * (want_listen).
++			 */
++			piix4_asf_update_ioport(ASF_SLV_LISTN, ASFLISADDR, false);
++			WRITE_ONCE(piix4_asf.listening, false);
++			dev_warn_ratelimited(piix4_asf.dev,
++					     "ASF: FCH PM region busy, slave not re-armed until the next transfer\n");
++		}
 +	}
 +
 +	mutex_unlock(&piix4_asf_mutex);
@@ -800,7 +825,7 @@ index 7b6a4e2..09b37d9 100644
 + */
 +static void piix4_asf_enable(struct pci_dev *dev, unsigned short piix4_smba)
 +{
-+	unsigned long irqflags = 0;
++	unsigned long irqflags = IRQF_ONESHOT;
 +	int retval;
 +
 +	if (!piix4_asf.smba || piix4_asf.smba != piix4_smba)
@@ -863,7 +888,7 @@ index 7b6a4e2..09b37d9 100644
 +	piix4_asf.irq = retval;
 +	piix4_asf.gsi_registered = true;
 +	if (piix4_asf.shareable)
-+		irqflags = IRQF_SHARED;
++		irqflags |= IRQF_SHARED;
 +
 +	retval = piix4_sb800_region_request(&dev->dev, &piix4_asf.mmio_cfg);
 +	if (retval)
@@ -886,7 +911,14 @@ index 7b6a4e2..09b37d9 100644
 +
 +	piix4_sb800_region_release(&dev->dev, &piix4_asf.mmio_cfg);
 +
-+	/* The handler returns IRQ_NONE until piix4_asf_start() arms the slave */
++	/*
++	 * IRQF_ONESHOT: acking the status bit does not deassert the level
++	 * line while a bank is full, so keep it masked until the thread
++	 * has drained the banks.  Without it every Host Notify costs some
++	 * seventy hard interrupts between the ack and the thread's mask.
++	 * The handler returns IRQ_NONE until piix4_asf_start() arms the
++	 * slave.
++	 */
 +	retval = request_threaded_irq(piix4_asf.irq, piix4_asf_irq_handler,
 +				      piix4_asf_irq_thread, irqflags,
 +				      "piix4-asf", &piix4_asf.irq_cookie);
@@ -1078,7 +1110,7 @@ index 7b6a4e2..09b37d9 100644
  static int piix4_add_adapter(struct pci_dev *dev, unsigned short smba,
  			     bool sb800_main, u8 port, bool notify_imc,
  			     u8 hw_port_nr, const char *name,
-@@ -927,8 +1902,15 @@ static int piix4_add_adapter(struct pci_dev *dev, unsigned short smba,
+@@ -927,8 +1927,15 @@ static int piix4_add_adapter(struct pci_dev *dev, unsigned short smba,
  
  	adap->owner = THIS_MODULE;
  	adap->class = I2C_CLASS_HWMON;
@@ -1096,7 +1128,7 @@ index 7b6a4e2..09b37d9 100644
  
  	adapdata = kzalloc_obj(*adapdata);
  	if (adapdata == NULL) {
-@@ -1103,11 +2085,23 @@ static int piix4_probe(struct pci_dev *dev, const struct pci_device_id *id)
+@@ -1103,11 +2110,23 @@ static int piix4_probe(struct pci_dev *dev, const struct pci_device_id *id)
  	}
  
  	if (retval > 0) {
@@ -1120,7 +1152,7 @@ index 7b6a4e2..09b37d9 100644
  	}
  
  	return 0;
-@@ -1138,16 +2132,30 @@ static void piix4_remove(struct pci_dev *dev)
+@@ -1138,16 +2157,30 @@ static void piix4_remove(struct pci_dev *dev)
  	}
  
  	if (piix4_aux_adapter) {

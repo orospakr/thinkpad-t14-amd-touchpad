@@ -5,7 +5,7 @@
 # over RMI4/SMBus instead of the PS/2 fallback.
 _name=thinkpad-t14-amd-touchpad
 pkgname=$_name-dkms
-pkgver=0.2.0
+pkgver=0.2.1
 pkgrel=1
 pkgdesc="Synaptics RMI4/SMBus touchpad on ThinkPad T14/P14s Gen 2 AMD: patched i2c-piix4, rmi_smbus, psmouse (DKMS)"
 arch=('x86_64')
