@@ -68,7 +68,7 @@ case $label in
 esac
 if [[ -n ${hits:-} ]]; then
   echo "$hits"
-  echo "::warning title=distribution patches in rebuilt files::$label kernel carries changes in files this package replaces (see README, Known gap): $(echo "$hits" | grep . | paste -sd';')"
+  echo "::warning title=distribution patches in rebuilt files::$label kernel carries changes in files this package replaces; each must be in patches/backports/ or it is dropped (see README, Known gap): $(echo "$hits" | grep . | paste -sd';')"
 else
   echo "none"
 fi

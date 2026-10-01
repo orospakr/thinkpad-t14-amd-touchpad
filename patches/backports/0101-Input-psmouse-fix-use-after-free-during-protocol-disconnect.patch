@@ -1,0 +1,64 @@
+From 761c2040a7d4466c11fb59f3cab94d4078e6da29 Mon Sep 17 00:00:00 2001
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Date: Sun, 26 Jul 2026 22:07:58 -0700
+Subject: Input: psmouse - fix use-after-free during protocol disconnect
+
+When a PS/2 mouse is disconnected or unbound, psmouse_disconnect() calls
+the protocol disconnect handler (psmouse->disconnect()). During this time,
+stray bytes arriving from the physical controller can still be passed to
+psmouse_handle_byte(), which will invoke psmouse->protocol_handler().
+
+This creates an asynchronous race condition with vendor disconnect handlers
+(such as synaptics_disconnect()), which free vendor-specific private
+structures (psmouse->private). If a byte arrives while the structures
+are being freed, it leads to a use-after-free or NULL pointer
+dereference in the protocol handler.
+
+Fix this by explicitly setting psmouse->protocol_handler to NULL
+safely wrapped in scoped_guard(serio_pause_rx, serio) immediately before
+calling the vendor disconnect handler. We also add an unlikely check
+in psmouse_handle_byte() to safely drop incoming bytes if the protocol
+handler is NULL.
+
+Assisted-by: Antigravity:gemini-3.5-flash
+Link: https://patch.msgid.link/20260727050803.1269941-1-dmitry.torokhov@gmail.com
+Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+(cherry picked from commit 761c2040a7d4466c11fb59f3cab94d4078e6da29)
+---
+ drivers/input/mouse/psmouse-base.c | 13 ++++++++++++-
+ 1 file changed, 12 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/input/mouse/psmouse-base.c b/drivers/input/mouse/psmouse-base.c
+index 6ab5f1d96eaea..108591b7ebf32 100644
+--- a/drivers/input/mouse/psmouse-base.c
++++ b/drivers/input/mouse/psmouse-base.c
+@@ -267,7 +267,15 @@ void psmouse_set_state(struct psmouse *psmouse, enum psmouse_state new_state)
+  */
+ static int psmouse_handle_byte(struct psmouse *psmouse)
+ {
+-	psmouse_ret_t rc = psmouse->protocol_handler(psmouse);
++	psmouse_ret_t rc;
++
++	/* protocol_handler is NULL when device is being disconnected */
++	if (unlikely(!psmouse->protocol_handler)) {
++		psmouse->pktcnt = 0;
++		return 0;
++	}
++
++	rc = psmouse->protocol_handler(psmouse);
+ 
+ 	switch (rc) {
+ 	case PSMOUSE_BAD_DATA:
+@@ -1466,6 +1474,9 @@ static void psmouse_disconnect(struct serio *serio)
+ 		psmouse_deactivate(parent);
+ 	}
+ 
++	scoped_guard(serio_pause_rx, serio)
++		psmouse->protocol_handler = NULL;
++
+ 	if (psmouse->disconnect)
+ 		psmouse->disconnect(psmouse);
+ 
+-- 
+cgit 1.3.1-korg
+

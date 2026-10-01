@@ -52,5 +52,8 @@ jobs:
           pacman -Syu --noconfirm --needed git bc bison flex cpio kmod libelf openssl perl python
           git config --global --add safe.directory '*'
       - uses: actions/checkout@v4
-      - name: git am, build in-tree, checkpatch
+      # Only the project's own patches (patches/*.patch) go to mainline.
+      # patches/backports/ holds mainline commits carried for distribution
+      # kernels; mainline already has them, so check-mainline.sh skips them.
+      - name: git am own patches, build in-tree, checkpatch
         run: tools/ci/check-mainline.sh "$RUNNER_TEMP/linux"

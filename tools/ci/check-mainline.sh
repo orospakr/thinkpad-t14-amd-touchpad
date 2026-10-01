@@ -1,8 +1,11 @@
 #!/bin/bash
 # tools/ci/check-mainline.sh [linux-tree]
 #
-# Apply patches/ to a mainline tree with git am (the upstream shape of the
-# carry), build the three modules in-tree, and run checkpatch. A shallow
+# Apply this project's own patches (patches/*.patch) to a mainline tree with
+# git am (the upstream shape of the carry), build the three modules in-tree,
+# and run checkpatch. patches/backports/ is deliberately NOT applied here:
+# those are mainline commits carried for distribution kernels, mainline
+# already contains them, and git am would fail on them. A shallow
 # clone of torvalds/linux is made in $1 (default: ./linux) when absent.
 set -euo pipefail
 top=$(cd "$(dirname "$0")/../.." && pwd)
@@ -16,6 +19,7 @@ git am --abort 2>/dev/null || true
 git checkout -q -B carry origin/HEAD          # start from the upstream tip every run
 git clean -qfd
 echo "== mainline $(git log -1 --format='%h %s')"
+# Own patches only; the glob does not descend into patches/backports/.
 git am "$top"/patches/*.patch
 git log --oneline -4
 

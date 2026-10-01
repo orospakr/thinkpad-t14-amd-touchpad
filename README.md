@@ -11,14 +11,16 @@ kernel sources plus the patches in `patches/`, and installed under
 | `i2c-piix4` | 0001 | The AMD FCH SMBus controller gains SMBus Host Notify through its ASF target block (ACPI `SMB0001`). Without it psmouse cannot use the SMBus path at all. |
 | `rmi_smbus` | 0002 | After suspend the pad was reconfigured too soon after the PS/2 reset psmouse sends at resume, leaving it at 80 Hz or with a jump on the first touch. A 300 ms settle fixes both. |
 | `psmouse` | 0003, 0004 | Sets the F01 doze interval Lenovo's Windows driver uses (short taps and two-finger touches were missed at the default), and adds `LEN2073` to the SMBus allowlist. |
+| `psmouse` | backports 0101, 0102 | Two mainline fixes that Omarchy's `linux-omarchy` already ships, carried so that installing this package does not drop them: a use-after-free when a byte arrives during protocol disconnect, and signed coordinates in `focaltech.c`. See [Known gap](#known-gap-patches-the-distribution-kernel-carries-in-these-files). |
 
 On PS/2 the pad reports at 80 Hz single-finger and about 40 Hz with two
 fingers; over SMBus it reports every 15 ms with two-finger gestures intact
 and the TrackPoint still on its PS/2 pass-through.
 
-The patches are written for upstream and carried here until they land;
-see [Carried patches](#carried-patches) for where each one stands and when
-it goes away. The maintainer research is in `docs/`.
+Patches 0001 to 0004 are written for upstream and carried here until they
+land; see [Carried patches](#carried-patches) for where each one stands and
+when it goes away. The backports in `patches/backports/` are mainline
+commits, not ours. The maintainer research is in `docs/`.
 
 ## Hardware
 
@@ -65,7 +67,10 @@ DKMS restores the stock modules it replaced.
 
 This is a carry, not a fork: every patch is aimed at a specific upstream
 tree, and the package exists only until the kernels Omarchy and Arch ship
-contain the same fixes. This table is the contract.
+contain the same fixes. This table is the contract. It covers this
+project's own patches; the mainline backports in `patches/backports/` are
+not posted anywhere and are covered under
+[Known gap](#known-gap-patches-the-distribution-kernel-carries-in-these-files).
 
 | Patch | Upstream tree | Status | Goes away when |
 |---|---|---|---|
@@ -109,20 +114,35 @@ reaches a machine.
 
 The three modules are rebuilt from pristine kernel.org sources, so any
 change the distribution kernel carries in the same files is dropped on that
-kernel until this package refreshes to a series that contains it. CI lists
-those patches. Known today: Omarchy's `linux-omarchy` carries two
-psmouse hunks in `0560-input.patch` (a `protocol_handler` NULL check in
-`psmouse_disconnect`, and a signed-coordinate clamp in `focaltech.c`); both
-are already in mainline and arrive here with the 7.3 refresh.
+kernel unless this package carries it too. CI lists those patches.
+
+Omarchy's `linux-omarchy` carries two psmouse hunks in `0560-input.patch`,
+both mainline commits. They are carried here as backports, applied after
+0001 to 0004, so installing the package drops neither:
+
+| Backport | Mainline commit | What it fixes |
+|---|---|---|
+| 0101 | 761c2040a7d4 `Input: psmouse - fix use-after-free during protocol disconnect` | A byte arriving while `psmouse_disconnect()` runs a protocol's disconnect handler (`synaptics_disconnect()` among them) could reach the protocol handler after its private data was freed. |
+| 0102 | 7f9c8c6716a9 `Input: focaltech - use signed coordinates to prevent underflow` | Relative motion past the left or bottom edge wrapped the unsigned coordinates and sent the cursor to the opposite edge. |
+
+They are the upstream patches unchanged, apart from a `cherry picked from`
+line, and are not sent anywhere. Both are dropped at the 7.3 source refresh,
+when the pristine files already contain them (CI's mainline job leaves them
+out for the same reason). Any other distribution patch that appears in these
+files is still a gap until it is carried the same way: the Omarchy and Arch
+CI jobs list every distribution patch that touches a rebuilt file, carried
+or not, so each new entry there needs checking against `patches/backports/`.
 
 ## How the tree is built
 
 `drivers/` holds unmodified files from the kernel tag named in
 `KERNEL_SOURCE`, fetched one file at a time by `tools/refresh-sources.sh`
-from the stable tree on git.kernel.org. `patches/` holds the four patches in
-upstream format; DKMS applies them with `patch -p1` at build time, so a
-patch either applies or fails loudly, and the same files are what goes to
-the mailing lists.
+from the stable tree on git.kernel.org. `patches/` holds this project's
+four patches in upstream format, and `patches/backports/` the two mainline
+commits carried for `linux-omarchy`; DKMS applies all six with `patch -p1`
+at build time, in the order of `PATCH[]` in `dkms.conf`, so a patch either
+applies or fails loudly. The four in `patches/` are the same files that go
+to the mailing lists.
 
 The kernel-series policy and the refresh procedure are under
 [Kernel policy](#kernel-policy) above.
