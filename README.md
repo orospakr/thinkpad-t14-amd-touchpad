@@ -31,11 +31,12 @@ Tested on three ThinkPad T14 Gen 2a AMD units (Synaptics TM3471-030, PnP
 |---|---|---|---|---|---|---|
 | 20XLS08R00 | Ryzen 7 PRO 5850U | R1MET61W (1.31) | id 3942087 | 7.2.3-arch1, 7.2.5-omarchy | S3 | this repo |
 | 20XLS08R00 | Ryzen 7 PRO 5850U | R1MET65W (1.35) | id 3418235 | 7.2.5-omarchy | s2idle | this repo |
-| 20XLS0A300 | not reported | R1MET64W (1.34) | PS/2 string 10.32 | 7.2.5-omarchy | S3 | [@echennells](https://github.com/omacom/omarchy/pull/12055#issuecomment-5988598947) |
+| 20XLS0A300 | not reported | R1MET64W (1.34) | id 3942087 | 7.2.5-omarchy | S3 | [@echennells](https://github.com/omacom/omarchy/pull/12055#issuecomment-5988598947) |
 
-The firmware id is `rmi4-00/firmware_id` in sysfs once the pad is on RMI4;
-the PS/2 string is what psmouse logs before the switch. Our two pads report
-bootloader V8.5, package id 2559.0001. On the second unit the same package
+The firmware id is `rmi4-00/firmware_id` in sysfs once the pad is on RMI4
+(all three log the same PS/2 string, 10.32, before the switch, so it does
+not distinguish pads). The third unit carries the same pad firmware as the
+first. Our two pads report bootloader V8.5, package id 2559.0001. On the second unit the same package
 (0.2.2) attached over RMI4 at first boot and survived s2idle suspend/resume
 with no change to the configuration. The third row is an independent report
 against 0.2.2 built from omacom/omarchy-pkgs#472: RMI4 attach, TrackPoint on
