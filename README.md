@@ -24,11 +24,22 @@ commits, not ours. The maintainer research is in `docs/`.
 
 ## Hardware
 
-Tested on a ThinkPad T14 Gen 2a AMD (20XL, Ryzen 5 PRO 5650U, Synaptics
-TM3471, PnP `LEN2073`). Anything with the same shape should work: an AMD FCH
-SMBus controller (`1022:790b`) whose ACPI `SMB0001` device describes the
-second port with an IO base and IRQ, and a Synaptics pad that supports RMI4
-over SMBus. Reports from other machines are welcome.
+Developed and tested on two ThinkPad T14 Gen 2a AMD units (20XLS08R00,
+Synaptics TM3471-030, PnP `LEN2073`), with different pad firmware:
+
+| CPU | BIOS | Pad firmware id (`rmi4-00/firmware_id`) | Kernels |
+|---|---|---|---|
+| Ryzen 7 PRO 5850U | R1MET61W (1.31) | 3942087 | 7.2.3-arch1, 7.2.5-omarchy |
+| Ryzen 7 PRO 5850U | R1MET65W (1.35) | 3418235 | 7.2.5-omarchy |
+
+Both pads report bootloader V8.5, package id 2559.0001. On the second unit
+the same package (0.2.2) attached over RMI4 at first boot and survived
+s2idle suspend/resume with no change to the configuration.
+
+Anything with the same shape should work: an AMD FCH SMBus controller
+(`1022:790b`) whose ACPI `SMB0001` device describes the second port with an
+IO base and IRQ, and a Synaptics pad that supports RMI4 over SMBus. Reports
+from other machines are welcome.
 
 ## Install
 
