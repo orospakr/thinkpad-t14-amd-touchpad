@@ -37,7 +37,7 @@ if diff -rq "$top/drivers" "$scratch/refreshed/drivers" >/dev/null; then
   echo "sources at $tag are identical to the repo's $(cat "$top/KERNEL_SOURCE"); build below is the same as step 1"
 else
   echo "sources at $tag differ from the repo's $(cat "$top/KERNEL_SOURCE") in:"
-  diff -rq "$top/drivers" "$scratch/refreshed/drivers" | sed 's/^/  /'
+  diff -rq "$top/drivers" "$scratch/refreshed/drivers" | sed 's/^/  /' || true   # diff exits 1 here; pipefail must not
   echo "::warning title=refresh due::$label kernel $kver differs from KERNEL_SOURCE $(cat "$top/KERNEL_SOURCE"); a refreshed release is due"
 fi
 KDIR=$KDIR TRY_DIR=$scratch/refreshed-build "$scratch/refreshed/tools/try-patches.sh" build
