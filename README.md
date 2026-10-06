@@ -24,17 +24,23 @@ commits, not ours. The maintainer research is in `docs/`.
 
 ## Hardware
 
-Developed and tested on two ThinkPad T14 Gen 2a AMD units (20XLS08R00,
-Synaptics TM3471-030, PnP `LEN2073`), with different pad firmware:
+Tested on three ThinkPad T14 Gen 2a AMD units (Synaptics TM3471-030, PnP
+`LEN2073`), with different pad firmware and BIOS:
 
-| CPU | BIOS | Pad firmware id (`rmi4-00/firmware_id`) | Kernels |
-|---|---|---|---|
-| Ryzen 7 PRO 5850U | R1MET61W (1.31) | 3942087 | 7.2.3-arch1, 7.2.5-omarchy |
-| Ryzen 7 PRO 5850U | R1MET65W (1.35) | 3418235 | 7.2.5-omarchy |
+| Machine | CPU | BIOS | Pad firmware | Kernels | Suspend | Reported by |
+|---|---|---|---|---|---|---|
+| 20XLS08R00 | Ryzen 7 PRO 5850U | R1MET61W (1.31) | id 3942087 | 7.2.3-arch1, 7.2.5-omarchy | S3 | this repo |
+| 20XLS08R00 | Ryzen 7 PRO 5850U | R1MET65W (1.35) | id 3418235 | 7.2.5-omarchy | s2idle | this repo |
+| 20XLS0A300 | not reported | R1MET64W (1.34) | PS/2 string 10.32 | 7.2.5-omarchy | S3 | [@echennells](https://github.com/omacom/omarchy/pull/12055#issuecomment-5988598947) |
 
-Both pads report bootloader V8.5, package id 2559.0001. On the second unit
-the same package (0.2.2) attached over RMI4 at first boot and survived
-s2idle suspend/resume with no change to the configuration.
+The firmware id is `rmi4-00/firmware_id` in sysfs once the pad is on RMI4;
+the PS/2 string is what psmouse logs before the switch. Our two pads report
+bootloader V8.5, package id 2559.0001. On the second unit the same package
+(0.2.2) attached over RMI4 at first boot and survived s2idle suspend/resume
+with no change to the configuration. The third row is an independent report
+against 0.2.2 built from omacom/omarchy-pkgs#472: RMI4 attach, TrackPoint on
+the pass-through, clean S3 resume, and 15.0 ms one- and two-finger report
+intervals against 13.0 and 25.0 ms on PS/2.
 
 Anything with the same shape should work: an AMD FCH SMBus controller
 (`1022:790b`) whose ACPI `SMB0001` device describes the second port with an
@@ -64,6 +70,19 @@ installed, loaded from `/updates`, and whether the touchpad is on the RMI4
 transport. Run it after every kernel update. If DKMS fails to build, the
 stock modules load and the pad silently returns to PS/2; the check makes
 that visible.
+
+Two side effects of the DKMS route, both expected. Installing or updating
+the package rebuilds the initramfs, because mkinitcpio's install hook
+triggers on `usr/src/*/dkms.conf` (on a UKI setup that is a new image). And
+the three modules are unsigned, so the kernel sets the `O` and `E` taint
+flags; a kernel that enforces module signatures will not load them.
+
+The pad's input device is renamed from `SynPS/2 Synaptics TouchPad` to
+`Synaptics TM3471-030` (`synaptics-tm3471-030` in Hyprland), and anything
+keyed on the old name has to follow it. Omarchy's `omarchy-hw-touchpad`
+matches on the name, so the touchpad toggle, its menu entry and the
+`XF86TouchpadOn`/`Off` binds find no device until omacom/omarchy#8281
+(detection by udev `ID_INPUT_TOUCHPAD`) lands.
 
 ## Remove
 
