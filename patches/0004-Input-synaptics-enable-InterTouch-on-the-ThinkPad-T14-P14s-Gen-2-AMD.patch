@@ -21,14 +21,10 @@ diff --git a/drivers/input/mouse/synaptics.c b/drivers/input/mouse/synaptics.c
 index c70502e..1ce29bb 100644
 --- a/drivers/input/mouse/synaptics.c
 +++ b/drivers/input/mouse/synaptics.c
-@@ -192,6 +192,7 @@ static const char * const smbus_pnp_ids[] = {
- 	"LEN2055", /* E580 */
- 	"LEN2058", /* E490 */
+@@ -194,2 +194,3 @@ static const char * const smbus_pnp_ids[] = {
  	"LEN2068", /* T14 Gen 1 */
 +	"LEN2073", /* T14/P14s Gen 2 AMD */
  	"SYN1221", /* TUXEDO InfinityBook Pro 14 v5 */
- 	"SYN3003", /* HP EliteBook 850 G1 */
- 	"SYN3015", /* HP EliteBook 840 G2 */
 -- 
 2.55.0
 
