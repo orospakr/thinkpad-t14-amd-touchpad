@@ -1,7 +1,9 @@
 #!/bin/bash
 # thinkpad-t14-amd-touchpad-check: report whether the carried modules are
-# built, installed under /updates, loaded, and whether the touchpad is running
-# over RMI4/SMBus. Exit 0 only when everything is as expected.
+# built, installed where DKMS puts them (/updates, or /extra on distributions
+# whose DKMS ignores DEST_MODULE_LOCATION, such as Fedora), loaded, and
+# whether the touchpad is running over RMI4/SMBus. Exit 0 only when
+# everything is as expected; "warn" lines do not fail the check.
 name=thinkpad-t14-amd-touchpad
 kver=$(uname -r)
 ok=1
@@ -14,9 +16,24 @@ else
 fi
 
 for m in i2c_piix4 rmi_smbus psmouse; do
+  # A module built into the kernel cannot be replaced by DKMS, even though
+  # modinfo -n still names the DKMS file.
+  if grep -q "/${m//_/[_-]}\.ko" "/lib/modules/$kver/modules.builtin" 2>/dev/null; then
+    if [[ $m == psmouse ]]; then
+      it=$(cat /sys/module/psmouse/parameters/synaptics_intertouch 2>/dev/null)
+      if [[ $it == 1 ]]; then
+        say warn "psmouse: built into this kernel, so the DKMS copy is unused (no doze interval, LEN2073 allowlist or backports); psmouse.synaptics_intertouch=1 is set"
+      else
+        say FAIL "psmouse: built into this kernel, so the DKMS copy is unused; add psmouse.synaptics_intertouch=1 to the kernel command line"; ok=0
+      fi
+    else
+      say FAIL "$m: built into this kernel, so the DKMS copy cannot replace it"; ok=0
+    fi
+    continue
+  fi
   f=$(modinfo -n "$m" 2>/dev/null)
   case $f in
-    */updates/*) say ok "$m: $f" ;;
+    */updates/*|*/extra/*) say ok "$m: $f" ;;
     "")           say FAIL "$m: modinfo finds no module"; ok=0 ;;
     *)            say FAIL "$m: stock module would load ($f)"; ok=0 ;;
   esac
@@ -25,6 +42,9 @@ for m in i2c_piix4 rmi_smbus psmouse; do
     have=$(cat "/sys/module/$m/srcversion" 2>/dev/null)
     if [[ -n $want && $want == "$have" ]]; then
       say ok "$m: loaded copy matches installed file"
+    elif [[ -z $want && -z $have ]] && grep -q O "/sys/module/$m/taint" 2>/dev/null; then
+      # Kernels without CONFIG_MODULE_SRCVERSION_ALL record no srcversion.
+      say ok "$m: loaded copy is out-of-tree (this kernel records no srcversion to compare)"
     else
       say FAIL "$m: loaded copy ($have) differs from installed file ($want); reboot or reload"; ok=0
     fi

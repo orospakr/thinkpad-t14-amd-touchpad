@@ -48,6 +48,24 @@ Anything with the same shape should work: an AMD FCH SMBus controller
 IO base and IRQ, and a Synaptics pad that supports RMI4 over SMBus. Reports
 from other machines are welcome.
 
+Other machines reported working:
+
+| Machine | CPU | BIOS | Touchpad | Distribution, kernel | Reported by |
+|---|---|---|---|---|---|
+| T14 Gen 1 AMD (20UD001AMH) | Ryzen 7 PRO 4750U | R1BET87W (1.56) | Synaptics TM3471-020, `LEN2064`, firmware id 3972349 | Fedora 44, 7.2.9-201.fc44 | [#1](https://github.com/orospakr/thinkpad-t14-amd-touchpad/issues/1) |
+
+`LEN2064` is not on the SMBus allowlist, and Fedora builds psmouse into the
+kernel, so that run used only 0001 and 0002 with
+`psmouse.synaptics_intertouch=1` on the kernel command line. RMI4 attached
+once the patched `i2c-piix4` loaded, with 15 ms one- and two-finger
+reports, working taps, three suspend cycles, and the TrackPoint on the
+pass-through reporting every 7 to 8 ms instead of 23 to 40 ms.
+
+On a kernel with psmouse built in (Fedora), the DKMS copy of psmouse is
+unused: 0003, 0004 and the backports do not take effect, and the pad needs
+`psmouse.synaptics_intertouch=1` on the kernel command line. Fedora's DKMS
+also installs into `/extra` rather than `/updates`; both work.
+
 ## Install
 
 Arch Linux (and Omarchy), with the headers for your kernel installed
@@ -67,7 +85,7 @@ Any distribution with DKMS: copy the tree to
 `PACKAGE_VERSION` in `dkms.conf`.
 
 `thinkpad-t14-amd-touchpad-check` reports whether the three modules are
-installed, loaded from `/updates`, and whether the touchpad is on the RMI4
+installed, loaded from the DKMS copies, and whether the touchpad is on the RMI4
 transport. Run it after every kernel update. If DKMS fails to build, the
 stock modules load and the pad silently returns to PS/2; the check makes
 that visible.
