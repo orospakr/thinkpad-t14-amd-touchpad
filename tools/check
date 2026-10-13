@@ -22,7 +22,7 @@ for m in i2c_piix4 rmi_smbus psmouse; do
     if [[ $m == psmouse ]]; then
       it=$(cat /sys/module/psmouse/parameters/synaptics_intertouch 2>/dev/null)
       if [[ $it == 1 ]]; then
-        say warn "psmouse: built into this kernel, so the DKMS copy is unused (no doze interval, LEN2073 allowlist or backports); psmouse.synaptics_intertouch=1 is set"
+        say warn "psmouse: built into this kernel, so the DKMS copy is unused (no doze interval, allowlist entries or backports); psmouse.synaptics_intertouch=1 is set"
       else
         say FAIL "psmouse: built into this kernel, so the DKMS copy is unused; add psmouse.synaptics_intertouch=1 to the kernel command line"; ok=0
       fi

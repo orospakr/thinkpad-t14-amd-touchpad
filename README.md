@@ -1,7 +1,7 @@
 # thinkpad-t14-amd-touchpad
 
-Runs the Synaptics touchpad in the ThinkPad T14 Gen 2a and P14s Gen 2 AMD
-over RMI4/SMBus (InterTouch) instead of the PS/2 fallback the stock kernel
+Runs the Synaptics touchpad in the ThinkPad T14 Gen 2a and P14s Gen 2 AMD,
+and the T14 and P14s Gen 1 AMD, over RMI4/SMBus (InterTouch) instead of the PS/2 fallback the stock kernel
 leaves it on. Three in-tree kernel modules are rebuilt by DKMS from pristine
 kernel sources plus the patches in `patches/`, and installed under
 `/updates` so they shadow the stock ones:
@@ -10,14 +10,14 @@ kernel sources plus the patches in `patches/`, and installed under
 |---|---|---|
 | `i2c-piix4` | 0001 | The AMD FCH SMBus controller gains SMBus Host Notify through its ASF target block (ACPI `SMB0001`). Without it psmouse cannot use the SMBus path at all. |
 | `rmi_smbus` | 0002 | After suspend the pad was reconfigured too soon after the PS/2 reset psmouse sends at resume, leaving it at 80 Hz or with a jump on the first touch. A 300 ms settle fixes both. |
-| `psmouse` | 0003, 0004 | Sets the F01 doze interval Lenovo's Windows driver uses (short taps and two-finger touches were missed at the default), and adds `LEN2073` to the SMBus allowlist. |
+| `psmouse` | 0003 to 0005 | Sets the F01 doze interval Lenovo's Windows driver uses (short taps and two-finger touches were missed at the default), and adds `LEN2073` (Gen 2 AMD) and `LEN2064` (Gen 1 AMD) to the SMBus allowlist. |
 | `psmouse` | backports 0101, 0102 | Two mainline fixes that Omarchy's `linux-omarchy` already ships, carried so that installing this package does not drop them: a use-after-free when a byte arrives during protocol disconnect, and signed coordinates in `focaltech.c`. See [Known gap](#known-gap-patches-the-distribution-kernel-carries-in-these-files). |
 
 On PS/2 the pad reports at 80 Hz single-finger and about 40 Hz with two
 fingers; over SMBus it reports every 15 ms with two-finger gestures intact
 and the TrackPoint still on its PS/2 pass-through.
 
-Patches 0001 to 0004 are written for upstream and carried here until they
+Patches 0001 to 0005 are written for upstream and carried here until they
 land; see [Carried patches](#carried-patches) for where each one stands and
 when it goes away. The backports in `patches/backports/` are mainline
 commits, not ours. The maintainer research is in `docs/`.
@@ -54,15 +54,15 @@ Other machines reported working:
 |---|---|---|---|---|---|
 | T14 Gen 1 AMD (20UD001AMH) | Ryzen 7 PRO 4750U | R1BET87W (1.56) | Synaptics TM3471-020, `LEN2064`, firmware id 3972349 | Fedora 44, 7.2.9-201.fc44 | [#1](https://github.com/orospakr/thinkpad-t14-amd-touchpad/issues/1) |
 
-`LEN2064` is not on the SMBus allowlist, and Fedora builds psmouse into the
-kernel, so that run used only 0001 and 0002 with
-`psmouse.synaptics_intertouch=1` on the kernel command line. RMI4 attached
+That run was on 0.2.2, before `LEN2064` was on the allowlist (0005, from
+0.2.3), and Fedora builds psmouse into the kernel, so it used only 0001 and
+0002 with `psmouse.synaptics_intertouch=1` on the kernel command line. RMI4 attached
 once the patched `i2c-piix4` loaded, with 15 ms one- and two-finger
 reports, working taps, three suspend cycles, and the TrackPoint on the
 pass-through reporting every 7 to 8 ms instead of 23 to 40 ms.
 
 On a kernel with psmouse built in (Fedora), the DKMS copy of psmouse is
-unused: 0003, 0004 and the backports do not take effect, and the pad needs
+unused: 0003 to 0005 and the backports do not take effect, and the pad needs
 `psmouse.synaptics_intertouch=1` on the kernel command line. Fedora's DKMS
 also installs into `/extra` rather than `/updates`; both work.
 
@@ -127,6 +127,7 @@ not posted anywhere and are covered under
 | 0002 `Input: synaptics-rmi4:` let the device settle after the PS/2 reset on SMBus resume | linux-input (Dmitry Torokhov) | Not yet posted. One open measurement first: whether 250 ms at the same position also works, and whether 300 ms through the existing `reset_delay_ms` does not (see `docs/SHIP-PLAN.md`). | Merged and present in the running kernel's `rmi_smbus`. |
 | 0003 `Input: synaptics:` set the RMI4 doze interval Lenovo's driver uses on affected pads | linux-input | Not yet posted. | Merged and present in the running kernel's `psmouse`. |
 | 0004 `Input: synaptics:` enable InterTouch on the ThinkPad T14/P14s Gen 2 AMD (`LEN2073`) | linux-input | Not yet posted; goes last, after 0001 is in, because `LEN2073` alone was tried in March 2026 and did nothing. | Merged, together with a kernel that satisfies 0001. |
+| 0005 `Input: synaptics:` re-enable InterTouch on the ThinkPad T14/P14s Gen 1 AMD (`LEN2064`) | linux-input | Not yet posted; goes with 0004. Mainline added `LEN2064` in 2022 (e4ce4d3a939d) and removed it (2fd003ee8ade) because Host Notify was unavailable, which 0001 supplies. | Merged, together with a kernel that satisfies 0001. |
 
 The whole package is retired once a stock Omarchy or Arch kernel drives the
 pad over SMBus on its own: with the package removed,
@@ -167,7 +168,7 @@ kernel unless this package carries it too. CI lists those patches.
 
 Omarchy's `linux-omarchy` carries two psmouse hunks in `0560-input.patch`,
 both mainline commits. They are carried here as backports, applied after
-0001 to 0004, so installing the package drops neither:
+0001 to 0005, so installing the package drops neither:
 
 | Backport | Mainline commit | What it fixes |
 |---|---|---|
@@ -182,15 +183,28 @@ files is still a gap until it is carried the same way: the Omarchy and Arch
 CI jobs list every distribution patch that touches a rebuilt file, carried
 or not, so each new entry there needs checking against `patches/backports/`.
 
+From 7.2.8, `linux-omarchy` is a meta package for `linux-omarchy-bore`
+(kernel release `-omarchy-bore`), not yet in the stable repository as of
+0.2.3. Its `0560-input-updates.patch` and `0563-input-fixes-2.patch` carry
+more in these files than the two backports. Checked against the T14 Gen 1
+and Gen 2 AMD, none of the rest changes behaviour there, so 0.2.3 does not
+carry them: `guard()` conversions and a rewritten PnP ID matcher in
+`psmouse-base.c` (the use-after-free fix is the part 0101 carries), a
+cleanup of `smb_block_read()` in `rmi_smbus.c`, `DLL0597` (Dell Inspiron
+3521) and `LEN205b` (T490) on the SMBus allowlist, the board id 2722
+InterTouch disable narrowed to the T440p (`LEN0036`; our pads are board
+3471), and a callback prototype in `elan_i2c.h` that psmouse does not
+use.
+
 ## How the tree is built
 
 `drivers/` holds unmodified files from the kernel tag named in
 `KERNEL_SOURCE`, fetched one file at a time by `tools/refresh-sources.sh`
 from the stable tree on git.kernel.org. `patches/` holds this project's
-four patches in upstream format, and `patches/backports/` the two mainline
-commits carried for `linux-omarchy`; DKMS applies all six with `patch -p1`
+five patches in upstream format, and `patches/backports/` the two mainline
+commits carried for `linux-omarchy`; DKMS applies all seven with `patch -p1`
 at build time, in the order of `PATCH[]` in `dkms.conf`, so a patch either
-applies or fails loudly. The four in `patches/` are the same files that go
+applies or fails loudly. The five in `patches/` are the same files that go
 to the mailing lists.
 
 The kernel-series policy and the refresh procedure are under

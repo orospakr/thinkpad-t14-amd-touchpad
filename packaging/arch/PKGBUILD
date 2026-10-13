@@ -1,13 +1,13 @@
 # Maintainer: Andrew Clunis <andrew@orospakr.ca>
 # Patched i2c-piix4 (ASF SMBus Host Notify on AMD FCH / ACPI SMB0001), rmi_smbus
 # and psmouse, built by DKMS from pristine kernel sources plus the patches in
-# patches/. Lets the Synaptics touchpad on the ThinkPad T14 / P14s Gen 2 AMD run
-# over RMI4/SMBus instead of the PS/2 fallback.
+# patches/. Lets the Synaptics touchpad on the ThinkPad T14 / P14s Gen 1 and
+# Gen 2 AMD run over RMI4/SMBus instead of the PS/2 fallback.
 _name=thinkpad-t14-amd-touchpad
 pkgname=$_name-dkms
-pkgver=0.2.2
+pkgver=0.2.3
 pkgrel=1
-pkgdesc="Synaptics RMI4/SMBus touchpad on ThinkPad T14/P14s Gen 2 AMD: patched i2c-piix4, rmi_smbus, psmouse (DKMS)"
+pkgdesc="Synaptics RMI4/SMBus touchpad on ThinkPad T14/P14s Gen 1 and Gen 2 AMD: patched i2c-piix4, rmi_smbus, psmouse (DKMS)"
 arch=('x86_64')
 url="https://github.com/orospakr/$_name"
 license=('GPL-2.0-only')

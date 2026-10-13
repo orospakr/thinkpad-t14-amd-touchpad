@@ -1,0 +1,36 @@
+From d4992738cb12aa91bdf20da6527b6cdc0f99455b Mon Sep 17 00:00:00 2001
+From: Andrew Clunis <andrew@orospakr.ca>
+Date: Mon, 12 Oct 2026 23:37:10 -0400
+Subject: [PATCH] Input: synaptics - re-enable InterTouch on the ThinkPad
+ T14/P14s Gen 1 AMD
+
+Commit e4ce4d3a939d ("Input: synaptics - enable InterTouch on ThinkPad
+T14/P14s Gen 1 AMD") added LEN2064 to smbus_pnp_ids, and commit
+2fd003ee8ade ("Input: synaptics - disable Intertouch for Lenovo T14 and
+P14s AMD G1") removed it again because SMBus Host Notify was not
+available on these laptops.
+
+The AMD FCH SMBus controller can provide Host Notify through its ASF
+target block, which i2c-piix4 gains in a separate series. With that in
+place, the Synaptics TM3471 in a T14 Gen 1 AMD (20UD, Ryzen 7 PRO 4750U,
+BIOS 1.56) attaches as rmi4_smbus with 15 ms reports, keeps the
+TrackPoint on the F03 pass-through, and survives suspend/resume.
+
+Restore the entry. Where the adapter does not offer Host Notify,
+psmouse_smbus_init() still refuses the SMBus companion and the pad stays
+on PS/2, so the entry is inert there.
+---
+ drivers/input/mouse/synaptics.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/input/mouse/synaptics.c b/drivers/input/mouse/synaptics.c
+index d920aee..fe16ff9 100644
+--- a/drivers/input/mouse/synaptics.c
++++ b/drivers/input/mouse/synaptics.c
+@@ -194,2 +194,3 @@ static const char * const smbus_pnp_ids[] = {
+ 	"LEN2068", /* T14 Gen 1 */
++	"LEN2064", /* T14 Gen 1 AMD / P14s Gen 1 AMD */
+ 	"LEN2073", /* T14/P14s Gen 2 AMD */
+-- 
+2.55.0
+
