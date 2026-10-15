@@ -99,9 +99,10 @@ flags; a kernel that enforces module signatures will not load them.
 The pad's input device is renamed from `SynPS/2 Synaptics TouchPad` to
 `Synaptics TM3471-030` (`synaptics-tm3471-030` in Hyprland), and anything
 keyed on the old name has to follow it. Omarchy's `omarchy-hw-touchpad`
-matches on the name, so the touchpad toggle, its menu entry and the
-`XF86TouchpadOn`/`Off` binds find no device until omacom/omarchy#8281
-(detection by udev `ID_INPUT_TOUCHPAD`) lands.
+used to match on the name alone, so the touchpad toggle, its menu entry
+and the `XF86TouchpadOn`/`Off` binds found no device; omacom/omarchy#14431
+added a fallback to udev's `ID_INPUT_TOUCHPAD`, which finds the renamed
+pad, so they work again on Omarchy releases that include it.
 
 ## Remove
 
