@@ -17,11 +17,11 @@ scratch=${SCRATCH:-$(mktemp -d)}
 if [[ -z ${KDIR:-} ]]; then
   case $label in
     arch)    KDIR=$(ls -d /usr/lib/modules/*-arch*/build | head -1) ;;
-    omarchy) KDIR=$(ls -d /usr/lib/modules/*-omarchy*/build | head -1) ;;   # -omarchy, or -omarchy-bore from 7.2.8
+    omarchy) KDIR=$(ls -d /usr/lib/modules/*-omarchy*/build | head -1) ;;   # -omarchy (-omarchy-bore for 7.2.8-5 to -8)
     *)       KDIR=$(ls -d /usr/lib/modules/*/build | head -1) ;;
   esac
 fi
-kver=$(basename "$(dirname "$KDIR")")            # 7.2.3-arch1-3 / 7.2.5-3-omarchy / 7.2.8-5-omarchy-bore
+kver=$(basename "$(dirname "$KDIR")")            # 7.2.3-arch1-3 / 7.2.5-3-omarchy / 7.2.8-9-omarchy
 base=${kver%%-*}                                  # 7.2.3
 tag=v$base
 echo "== $label: kernel $kver (headers $KDIR), stable tag $tag, sources $(cat "$top/KERNEL_SOURCE")"
@@ -55,12 +55,13 @@ case $label in
     hits=$(grep -E "^diff --git a/($pat) " "$scratch/distro/arch.patch" || true)
     ;;
   omarchy)
-    # From 7.2.8, linux-omarchy is a meta package and the kernel and its
-    # patches are in linux-omarchy-bore. Patches come from omarchy-pkgs
-    # master, which can be ahead of the headers in the stable repository.
+    # linux-omarchy carries the patches again from 7.2.8-9; for 7.2.8-5 to
+    # -8 it was a meta package and they were in linux-omarchy-bore. Patches
+    # come from omarchy-pkgs master, which can be ahead of the headers in the
+    # stable repository.
     auth=(); [[ -n ${GITHUB_TOKEN:-} ]] && auth=(-H "Authorization: Bearer $GITHUB_TOKEN")
     names=""
-    for pkg in linux-omarchy-bore linux-omarchy; do
+    for pkg in linux-omarchy linux-omarchy-bore; do
       api=https://api.github.com/repos/omacom/omarchy-pkgs/contents/pkgbuilds/$pkg
       names=$(curl -fsSL --retry 3 "${auth[@]}" "$api" | grep -o '"name": *"[^"]*\.patch"' | sed 's/.*: *"//; s/"$//' || true)
       [[ -n $names ]] && break

@@ -30,7 +30,7 @@ Tested on three ThinkPad T14 Gen 2a AMD units (Synaptics TM3471-030, PnP
 | Machine | CPU | BIOS | Pad firmware | Kernels | Suspend | Reported by |
 |---|---|---|---|---|---|---|
 | 20XLS08R00 | Ryzen 7 PRO 5850U | R1MET61W (1.31) | id 3942087 | 7.2.3-arch1, 7.2.5-omarchy | S3 | this repo |
-| 20XLS08R00 | Ryzen 7 PRO 5850U | R1MET65W (1.35) | id 3418235 | 7.2.5-omarchy | s2idle | this repo |
+| 20XLS08R00 | Ryzen 7 PRO 5850U | R1MET65W (1.35) | id 3418235 | 7.2.5-omarchy, 7.2.8-9-omarchy | s2idle | this repo |
 | 20XLS0A300 | not reported | R1MET64W (1.34) | id 3942087 | 7.2.5-omarchy | S3 | [@echennells](https://github.com/omacom/omarchy/pull/12055#issuecomment-5988598947) |
 
 The firmware id is `rmi4-00/firmware_id` in sysfs once the pad is on RMI4
@@ -184,18 +184,18 @@ files is still a gap until it is carried the same way: the Omarchy and Arch
 CI jobs list every distribution patch that touches a rebuilt file, carried
 or not, so each new entry there needs checking against `patches/backports/`.
 
-From 7.2.8, `linux-omarchy` is a meta package for `linux-omarchy-bore`
-(kernel release `-omarchy-bore`), not yet in the stable repository as of
-0.2.3. Its `0560-input-updates.patch` and `0563-input-fixes-2.patch` carry
-more in these files than the two backports. Checked against the T14 Gen 1
-and Gen 2 AMD, none of the rest changes behaviour there, so 0.2.3 does not
-carry them: `guard()` conversions and a rewritten PnP ID matcher in
-`psmouse-base.c` (the use-after-free fix is the part 0101 carries), a
-cleanup of `smb_block_read()` in `rmi_smbus.c`, `DLL0597` (Dell Inspiron
-3521) and `LEN205b` (T490) on the SMBus allowlist, the board id 2722
-InterTouch disable narrowed to the T440p (`LEN0036`; our pads are board
-3471), and a callback prototype in `elan_i2c.h` that psmouse does not
-use.
+From 7.2.8-9, `linux-omarchy` is the BORE kernel itself (kernel release
+`-omarchy`; it was briefly a meta package for `linux-omarchy-bore`, now a
+transitional package). 0.2.3 builds and runs on it under Omarchy 4.0.5. Its
+`0560-input-updates.patch` and `0563-input-fixes-2.patch` carry more in
+these files than the two backports. Checked against the T14 Gen 1 and Gen 2
+AMD, none of the rest changes behaviour there, so 0.2.3 does not carry them:
+`guard()` conversions and a rewritten PnP ID matcher in `psmouse-base.c`
+(the use-after-free fix is the part 0101 carries), a cleanup of
+`smb_block_read()` in `rmi_smbus.c`, `DLL0597` (Dell Inspiron 3521) and
+`LEN205b` (T490) on the SMBus allowlist, the board id 2722 InterTouch
+disable narrowed to the T440p (`LEN0036`; our pads are board 3471), and a
+callback prototype in `elan_i2c.h` that psmouse does not use.
 
 ## How the tree is built
 
