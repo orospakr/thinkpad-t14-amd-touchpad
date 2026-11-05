@@ -1,0 +1,43 @@
+From e886ce6356e6349b26b8fb17be2340e77ce3b4a6 Mon Sep 17 00:00:00 2001
+From: Andrew Clunis <andrew@orospakr.ca>
+Date: Wed, 4 Nov 2026 22:23:51 -0500
+Subject: [PATCH] Input: synaptics - enable InterTouch on the ThinkPad E495
+
+The Synaptics TM3471 in the ThinkPad E495 (LEN205d) supports RMI4 over
+SMBus. Booted with psmouse.synaptics_intertouch=1, as the driver's hint
+suggests, it stops at "SMbus companion is not ready yet" and stays on
+PS/2 (reported on linux-input in August 2026): the AMD FCH SMBus
+controller does not advertise Host Notify, so psmouse-smbus has no
+adapter to create the companion on.
+
+i2c-piix4 gains Host Notify through the ASF target block in a separate
+series. With that in place, the TM3471-020 (board id 3471, firmware id
+3972349) in an E495 with a Ryzen 5 3500U attaches as rmi4_smbus without
+the module parameter, reports two-finger scrolls every 15 ms instead of
+about every 25 ms, keeps the TrackPoint on the F03 pass-through, and
+survives S3 suspend/resume. Unlike the T14 Gen 2 AMD's pad it needs no
+doze interval change: at the firmware defaults all 20 of 20 quick taps
+are reported and 446 two-finger scroll events produce no pinch. The
+tested pad is a replacement part; its PnP, board and firmware ids match
+those in the earlier report.
+
+Add the ID. Where the adapter does not offer Host Notify,
+psmouse_smbus_init() still refuses the companion and the pad stays on
+PS/2, so the entry is inert there.
+
+Link: https://lore.kernel.org/linux-input/be58d0e5-feb0-46e1-b43e-e873de461802@carsten-raddatz.de/
+---
+ drivers/input/mouse/synaptics.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/input/mouse/synaptics.c b/drivers/input/mouse/synaptics.c
+index fe16ff9..d4edb03 100644
+--- a/drivers/input/mouse/synaptics.c
++++ b/drivers/input/mouse/synaptics.c
+@@ -194,2 +194,3 @@ static const char * const smbus_pnp_ids[] = {
+ 	"LEN2068", /* T14 Gen 1 */
++	"LEN205d", /* E495 */
+ 	"LEN2064", /* T14 Gen 1 AMD / P14s Gen 1 AMD */
+-- 
+2.56.0
+
