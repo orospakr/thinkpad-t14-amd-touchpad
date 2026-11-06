@@ -33,7 +33,7 @@ Tested on four ThinkPad T14 Gen 2a AMD units (Synaptics TM3471-030, PnP
 | 20XLS08R00 | Ryzen 7 PRO 5850U | R1MET61W (1.31) | id 3942087 | 7.2.3-arch1, 7.2.5-omarchy | S3 | this repo |
 | 20XLS08R00 | Ryzen 7 PRO 5850U | R1MET65W (1.35) | id 3418235 | 7.2.5-omarchy, 7.2.8-9-omarchy | s2idle | this repo |
 | 20XLS0A300 | not reported | R1MET64W (1.34) | id 3942087 | 7.2.5-omarchy | S3 | [@echennells](https://github.com/omacom/omarchy/pull/12055#issuecomment-5988598947) |
-| not reported | not reported | not reported | id 3942087 | linux-cachyos-lts 6.18.55, linux-cachyos 7.3.1 | not reported | [#3](https://github.com/orospakr/thinkpad-t14-amd-touchpad/issues/3) |
+| not reported | not reported | not reported | id 3942087 (X1 Carbon glass pad, FRU 01LX660) | linux-cachyos-lts 6.18.55, linux-cachyos 7.3.1 | not reported | [#3](https://github.com/orospakr/thinkpad-t14-amd-touchpad/issues/3) |
 
 The firmware id is `rmi4-00/firmware_id` in sysfs once the pad is on RMI4
 (the first three log the same PS/2 string, 10.32, before the switch, so it
@@ -44,15 +44,19 @@ with no change to the configuration. The third row is an independent report
 against 0.2.2 built from omacom/omarchy-pkgs#472: RMI4 attach, TrackPoint on
 the pass-through, clean S3 resume, and 15.0 ms one- and two-finger report
 intervals against 13.0 and 25.0 ms on PS/2. The fourth row is CachyOS on
-0.2.3, the first run on a 6.18 or a 7.3 kernel: RMI4 attached on both. One
-boot right after installing showed lagging touches and scrolls read as
-pinches, with nothing in the kernel log to explain it, and has not recurred
+0.2.3, the first run on a 6.18 or a 7.3 kernel: RMI4 attached on both. Its
+pad is a glass replacement from an X1 Carbon, which reports the same part
+and firmware as the stock pads. One boot right after installing showed
+lagging touches and scrolls read as pinches, with nothing in the kernel log
+to explain it, and has not recurred
 ([#3](https://github.com/orospakr/thinkpad-t14-amd-touchpad/issues/3)).
 
 Anything with the same shape should work: an AMD FCH SMBus controller
 (`1022:790b`) whose ACPI `SMB0001` device describes the second port with an
-IO base and IRQ, and a Synaptics pad that supports RMI4 over SMBus. Reports
-from other machines are welcome.
+IO base and IRQ, and a Synaptics pad that supports RMI4 over SMBus. The
+allowlist matches the PnP ID in the laptop's ACPI tables, not anything the
+pad reports, so a replacement pad is matched by the machine it sits in.
+Reports from other machines are welcome.
 
 Other machines reported working:
 
@@ -76,7 +80,7 @@ reported every 15 ms against about 25 ms on PS/2, the TrackPoint stayed on
 the pass-through, and S3 suspend/resume worked. `LEN205d` is not on 0003's
 doze list and does not need to be: at the firmware's default doze settings
 20 of 20 quick taps registered and 446 scroll events produced no pinch. The
-pad is a replacement part; its PnP, board and firmware ids match an
+pad is a replacement part; its board and firmware ids match an
 [earlier E495 report](https://lore.kernel.org/linux-input/be58d0e5-feb0-46e1-b43e-e873de461802@carsten-raddatz.de/) on linux-input, which stopped at `SMbus
 companion is not ready yet` for want of Host Notify.
 

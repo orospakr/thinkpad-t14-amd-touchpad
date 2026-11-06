@@ -18,7 +18,7 @@ about every 25 ms, keeps the TrackPoint on the F03 pass-through, and
 survives S3 suspend/resume. Unlike the T14 Gen 2 AMD's pad it needs no
 doze interval change: at the firmware defaults all 20 of 20 quick taps
 are reported and 446 two-finger scroll events produce no pinch. The
-tested pad is a replacement part; its PnP, board and firmware ids match
+tested pad is a replacement part; its board and firmware ids match
 those in the earlier report.
 
 Add the ID. Where the adapter does not offer Host Notify,
