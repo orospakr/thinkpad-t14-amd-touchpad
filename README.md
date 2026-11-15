@@ -33,7 +33,7 @@ Tested on four ThinkPad T14 Gen 2a AMD units (Synaptics TM3471-030, PnP
 | 20XLS08R00 | Ryzen 7 PRO 5850U | R1MET61W (1.31) | id 3942087 | 7.2.3-arch1, 7.2.5-omarchy | S3 | this repo |
 | 20XLS08R00 | Ryzen 7 PRO 5850U | R1MET65W (1.35) | id 3418235 | 7.2.5-omarchy, 7.2.8-9-omarchy | s2idle | this repo |
 | 20XLS0A300 | not reported | R1MET64W (1.34) | id 3942087 | 7.2.5-omarchy | S3 | [@echennells](https://github.com/omacom/omarchy/pull/12055#issuecomment-5988598947) |
-| not reported | not reported | not reported | id 3942087 (X1 Carbon glass pad, FRU 01LX660) | linux-cachyos-lts 6.18.55, linux-cachyos 7.3.1 | not reported | [#3](https://github.com/orospakr/thinkpad-t14-amd-touchpad/issues/3) |
+| 20XLS0910Q | Ryzen 5 5650U | R1MET65W (1.35) | id 3942087 (X1 Carbon glass pad, FRU 01LX660) | linux-cachyos-lts 6.18.55, linux-cachyos 7.3.1 | S3 | [#3](https://github.com/orospakr/thinkpad-t14-amd-touchpad/issues/3) |
 
 The firmware id is `rmi4-00/firmware_id` in sysfs once the pad is on RMI4
 (the first three log the same PS/2 string, 10.32, before the switch, so it
@@ -46,10 +46,11 @@ the pass-through, clean S3 resume, and 15.0 ms one- and two-finger report
 intervals against 13.0 and 25.0 ms on PS/2. The fourth row is CachyOS on
 0.2.3, the first run on a 6.18 or a 7.3 kernel: RMI4 attached on both. Its
 pad is a glass replacement from an X1 Carbon, which reports the same part
-and firmware as the stock pads. One boot right after installing showed
-lagging touches and scrolls read as pinches, with nothing in the kernel log
-to explain it, and has not recurred
-([#3](https://github.com/orospakr/thinkpad-t14-amd-touchpad/issues/3)).
+and firmware as the stock pads. Some of its boots (after installing, after
+a BIOS settings change, after kernel updates) come up with a lag at the
+start of every touch and scrolls read as pinches, with this package's
+modules loaded and nothing in the kernel log to tell them from a good
+boot. That is open in [#3](https://github.com/orospakr/thinkpad-t14-amd-touchpad/issues/3).
 
 Anything with the same shape should work: an AMD FCH SMBus controller
 (`1022:790b`) whose ACPI `SMB0001` device describes the second port with an
